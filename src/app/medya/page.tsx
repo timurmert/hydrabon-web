@@ -18,7 +18,7 @@ import {
   Twitter
 } from 'lucide-react';
 import Link from 'next/link';
-import { mediaContent, featuredContent, mediaTeam, mediaStats, contentCategories, socialMediaPlatforms } from '@/data/media';
+import { featuredContent, mediaTeam, mediaStats, contentCategories, socialMediaPlatforms } from '@/data/media';
 
 const typeIcons = {
   'video': Video,
@@ -339,11 +339,11 @@ export default function MediaPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="https://youtube.com/@hydrabon" target="_blank" rel="noopener noreferrer"
                  className="bg-white text-purple-600 font-semibold py-4 px-8 rounded-lg hover:bg-purple-50 transition-colors duration-300">
-                YouTube'da Abone Ol
+                YouTube&apos;da Abone Ol
               </a>
               <a href="https://instagram.com/hydrabon_esports" target="_blank" rel="noopener noreferrer"
                  className="bg-purple-700 text-white font-semibold py-4 px-8 rounded-lg hover:bg-purple-800 transition-colors duration-300">
-                Instagram'da Takip Et
+                Instagram&apos;da Takip Et
               </a>
             </div>
           </div>

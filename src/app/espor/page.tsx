@@ -1,10 +1,8 @@
 import { 
   Trophy, 
   Target, 
-  TrendingUp, 
   Calendar, 
   Clock,
-  MapPin,
   Users,
   Zap,
   Medal,
@@ -13,7 +11,7 @@ import {
   Play
 } from 'lucide-react';
 import Link from 'next/link';
-import { players, staff, upcomingMatches, recentMatches, tournaments, teamStats } from '@/data/esports';
+import { players, staff, upcomingMatches, recentMatches, teamStats } from '@/data/esports';
 
 const roleColors = {
   'Duelist': 'from-red-500 to-red-600',

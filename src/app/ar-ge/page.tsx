@@ -5,7 +5,6 @@ import {
   Zap,
   Github,
   ExternalLink,
-  Calendar,
   Users,
   CheckCircle,
   Clock,
@@ -303,7 +302,7 @@ export default function RndPage() {
               </Link>
               <a href="https://github.com/hydrabon" target="_blank" rel="noopener noreferrer"
                  className="btn-secondary text-lg px-8 py-4">
-                GitHub'da Takip Et
+                GitHub&apos;da Takip Et
               </a>
             </div>
           </div>

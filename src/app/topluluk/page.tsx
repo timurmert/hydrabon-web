@@ -1,16 +1,11 @@
 import {
   Users,
-  Crown,
-  Shield,
   Calendar,
-  MessageSquare,
   Mic,
-  Settings,
   Trophy,
   Star,
   Clock,
   MapPin,
-  UserPlus,
   HelpCircle,
   ExternalLink,
   Zap,
@@ -20,11 +15,9 @@ import Link from 'next/link';
 import { 
   communityStats, 
   upcomingEvents, 
-  completedEvents, 
   discordRules, 
   faqItems, 
-  applicationTypes,
-  serverStats 
+  applicationTypes
 } from '@/data/community';
 
 export default function CommunityPage() {
@@ -80,7 +73,7 @@ export default function CommunityPage() {
               className="inline-flex items-center bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-lg transition-colors duration-300 text-lg"
             >
               <Users className="w-6 h-6 mr-3" />
-              Discord'a Katıl
+              Discord&apos;a Katıl
               <ExternalLink className="w-5 h-5 ml-3" />
             </a>
           </div>
@@ -341,7 +334,7 @@ export default function CommunityPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="https://discord.gg/hydrabon" target="_blank" rel="noopener noreferrer"
                  className="bg-white text-indigo-600 font-semibold py-4 px-8 rounded-lg hover:bg-indigo-50 transition-colors duration-300">
-                Discord'a Katıl
+                Discord&apos;a Katıl
               </a>
               <Link href="/topluluk/basvur" className="bg-indigo-700 text-white font-semibold py-4 px-8 rounded-lg hover:bg-indigo-800 transition-colors duration-300">
                 Ekibe Başvur

@@ -343,7 +343,7 @@ export default function Header() {
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <MessageSquare className="w-5 h-5 mr-2" />
-                  Discord'a Katıl
+                  Discord&apos;a Katıl
                 </a>
               </div>
             </div>
