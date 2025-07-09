@@ -8,7 +8,6 @@ import {
   Send,
   MessageSquare,
   ExternalLink,
-  Globe,
   Instagram,
   Twitter,
   Youtube,
@@ -126,7 +125,7 @@ export default function ContactPage() {
       await new Promise(resolve => setTimeout(resolve, 2000));
       setSubmitStatus('success');
       setFormData({ name: '', email: '', department: '', subject: '', message: '' });
-    } catch (error) {
+    } catch {
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -382,7 +381,7 @@ export default function ContactPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="https://discord.gg/hydrabon" target="_blank" rel="noopener noreferrer"
                  className="bg-white text-indigo-600 font-semibold py-4 px-8 rounded-lg hover:bg-indigo-50 transition-colors duration-300">
-                Discord'a Katıl
+                Discord&apos;a Katıl
               </a>
               <a href="mailto:info@hydrabon.com"
                  className="bg-indigo-700 text-white font-semibold py-4 px-8 rounded-lg hover:bg-indigo-800 transition-colors duration-300">

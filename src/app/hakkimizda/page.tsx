@@ -143,13 +143,13 @@ export default function AboutPage() {
               </div>
               <h2 className="text-3xl font-display font-bold text-white mb-6">Vizyonumuz</h2>
               <p className="text-dark-200 text-lg leading-relaxed mb-6">
-                Türkiye\'nin en saygın esports organizasyonlarından biri olarak, 
+                Türkiye&apos;nin en saygın esports organizasyonlarından biri olarak, 
                 uluslararası arenada ülkemizi başarıyla temsil etmek.
               </p>
               <p className="text-dark-300 leading-relaxed">
                 Oyuncu gelişiminden teknoloji inovasyonuna, topluluk yönetiminden 
                 medya prodüksiyonuna kadar her alanda mükemmelliği hedefleyerek, 
-                esports\'ın geleceğini şekillendiren öncü organizasyon olmak.
+                esports&apos;ın geleceğini şekillendiren öncü organizasyon olmak.
               </p>
             </div>
           </div>
@@ -162,7 +162,7 @@ export default function AboutPage() {
           <div className="text-center mb-16">
             <h2 className="section-title">Yolculuğumuz</h2>
             <p className="section-subtitle">
-              HydRaboN\'un kuruluşundan bugüne kadar geçirdiği önemli aşamalar.
+              HydRaboN&apos;un kuruluşundan bugüne kadar geçirdiği önemli aşamalar.
             </p>
           </div>
 
@@ -256,9 +256,9 @@ export default function AboutPage() {
             <h2 className="section-title mb-8">Takım Felsefemiz</h2>
             <div className="space-y-8">
               <p className="text-xl md:text-2xl text-dark-200 leading-relaxed">
-                "Kaplan gibi güçlü, disiplinli ve kararlı bir organizasyon olarak, 
+                &ldquo;Kaplan gibi güçlü, disiplinli ve kararlı bir organizasyon olarak, 
                 <span className="text-gradient font-semibold"> her başarının ardında takım ruhu </span>
-                olduğuna inanıyoruz."
+                olduğuna inanıyoruz.&rdquo;
               </p>
               <p className="text-lg text-dark-300 leading-relaxed">
                 Bireysel yetenekleri takım başarısına dönüştürürken, sürekli öğrenme ve 

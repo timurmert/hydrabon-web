@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
@@ -35,9 +36,11 @@ export default function Card({
       transition={{ duration: 0.2 }}
     >
       {image && (
-        <img
+        <Image
           src={image}
           alt={title || ''}
+          width={400}
+          height={192}
           className="w-full h-48 object-cover rounded-lg mb-4"
         />
       )}

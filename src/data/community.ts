@@ -1,4 +1,4 @@
-import { CommunityStats, DiscordRole, DiscordChannel, Event, Application } from '@/types';
+import { CommunityStats, Event } from '@/types';
 
 export const communityStats: CommunityStats = {
   totalMembers: 2547,

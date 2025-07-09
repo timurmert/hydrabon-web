@@ -100,7 +100,7 @@ export default function HomePage() {
           <div className="text-center mb-16">
             <h2 className="section-title">Birimlerimiz</h2>
             <p className="section-subtitle">
-              HydRaboN'un dört ana yapı taşını keşfedin. Her birim, kendi alanında profesyonellik 
+              HydRaboN&apos;un dört ana yapı taşını keşfedin. Her birim, kendi alanında profesyonellik 
               ve mükemmellik standartlarını koruyarak organizasyonumuzun gücüne katkıda bulunur.
             </p>
           </div>
@@ -191,7 +191,7 @@ export default function HomePage() {
                 Başvuru Yap
               </Link>
               <Link href="/topluluk/discord" className="bg-primary-700 text-white font-semibold py-4 px-8 rounded-lg hover:bg-primary-800 transition-colors duration-300">
-                Discord'a Katıl
+                Discord&apos;a Katıl
               </Link>
             </div>
           </div>
