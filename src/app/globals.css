@@ -1,0 +1,312 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: #0a0a0a;
+  color: #fafafa;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #18181b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #f97316;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ea580c;
+}
+
+/* Custom Components */
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:shadow-tiger hover:scale-105 active:scale-95;
+  }
+  
+  .btn-secondary {
+    @apply bg-dark-800 border-2 border-primary-500 text-primary-500 font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:bg-primary-500 hover:text-white hover:shadow-tiger;
+  }
+  
+  .card {
+    @apply bg-dark-900 border border-dark-700 rounded-xl p-6 transition-all duration-300 hover:border-primary-500 hover:shadow-dark-lg;
+  }
+  
+  .section-title {
+    @apply text-4xl md:text-5xl font-display font-bold bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent mb-6;
+  }
+  
+  .section-subtitle {
+    @apply text-lg md:text-xl text-dark-300 mb-12 max-w-3xl mx-auto text-center;
+  }
+  
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .grid-auto-fit {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6;
+  }
+  
+  /* Navigation Styles */
+  .nav-link {
+    @apply text-dark-300 hover:text-primary-500 transition-colors duration-300 font-medium relative;
+  }
+  
+  .nav-link:hover::after {
+    @apply absolute bottom-0 left-0 w-full h-0.5 bg-primary-500 content-[''] transform scale-x-100 transition-transform duration-300;
+  }
+  
+  .nav-link::after {
+    @apply absolute bottom-0 left-0 w-full h-0.5 bg-primary-500 content-[''] transform scale-x-0 transition-transform duration-300;
+  }
+  
+  /* Tiger Pattern Background */
+  .tiger-pattern {
+    background-image: 
+      radial-gradient(circle at 25% 25%, rgba(249, 115, 22, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(249, 115, 22, 0.1) 0%, transparent 50%);
+  }
+  
+  /* Glowing Effect */
+  .glow-effect {
+    @apply relative overflow-hidden;
+  }
+  
+  .glow-effect::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-orange-500 to-orange-600 opacity-0 transition-opacity duration-300;
+    filter: blur(10px);
+    z-index: -1;
+  }
+  
+  .glow-effect:hover::before {
+    @apply opacity-30;
+  }
+  
+  /* Professional Card Styles */
+  .professional-card {
+    @apply bg-gradient-to-br from-dark-900 to-dark-800 border border-dark-700 rounded-xl p-8 transition-all duration-500 hover:border-primary-500 hover:shadow-tiger group;
+    backdrop-filter: blur(10px);
+  }
+  
+  .professional-card:hover {
+    transform: translateY(-4px);
+  }
+}
+
+/* Custom Utilities */
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent;
+  }
+  
+  .border-gradient {
+    border-image: linear-gradient(135deg, #f97316, #ea580c, #c2410c) 1;
+  }
+  
+  .shadow-inner-glow {
+    box-shadow: inset 0 0 20px rgba(249, 115, 22, 0.1);
+  }
+  
+  .backdrop-blur-custom {
+    backdrop-filter: blur(8px) saturate(150%);
+  }
+}
+
+/* Gradient Classes */
+.bg-gradient-tiger {
+  background: linear-gradient(135deg, #FF6B35 0%, #F7931E 25%, #FFD23F 50%, #FF6B35 75%, #F7931E 100%);
+}
+
+/* Loading Animation */
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #27272a;
+  border-top: 4px solid #f97316;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Selection Styles */
+::selection {
+  background-color: rgba(249, 115, 22, 0.3);
+  color: #fafafa;
+}
+
+::-moz-selection {
+  background-color: rgba(249, 115, 22, 0.3);
+  color: #fafafa;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .container-custom {
+    @apply px-4;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl;
+  }
+
+  .section-subtitle {
+    @apply text-base md:text-lg;
+  }
+
+  .professional-card {
+    @apply p-4 md:p-6;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    @apply text-sm md:text-base py-3 px-6 md:py-4 md:px-8;
+  }
+
+  /* Better touch targets for mobile */
+  button, 
+  a[role="button"],
+  [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Improved typography for mobile */
+  h1 {
+    @apply text-2xl md:text-4xl lg:text-5xl;
+  }
+
+  h2 {
+    @apply text-xl md:text-2xl lg:text-3xl;
+  }
+
+  h3 {
+    @apply text-lg md:text-xl lg:text-2xl;
+  }
+
+  /* Better spacing for mobile */
+  .space-y-6 > * + * {
+    @apply mt-4 md:mt-6;
+  }
+
+  .space-y-8 > * + * {
+    @apply mt-6 md:mt-8;
+  }
+
+  /* Grid improvements for mobile */
+  .grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  /* Navigation improvements */
+  .mobile-menu {
+    @apply max-h-screen overflow-y-auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-title {
+    @apply text-3xl leading-tight;
+  }
+
+  .hero-subtitle {
+    @apply text-lg leading-relaxed;
+  }
+
+  /* Card spacing for small screens */
+  .professional-card {
+    @apply p-4 mx-2;
+  }
+
+  /* Reduce section padding on small screens */
+  .py-20 {
+    @apply py-12 md:py-20;
+  }
+
+  .py-16 {
+    @apply py-10 md:py-16;
+  }
+}
+
+/* Smooth scrolling and performance */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Focus improvements for accessibility */
+*:focus {
+  @apply outline-none ring-2 ring-primary-500 ring-offset-2 ring-offset-dark-950;
+}
+
+/* Loading states */
+.loading-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Scroll optimizations */
+.scroll-container {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #FF6B35 #1a1a1a;
+}
+
+.scroll-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  background: #FF6B35;
+  border-radius: 4px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb:hover {
+  background: #e55a2d;
+}
