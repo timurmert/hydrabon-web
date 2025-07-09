@@ -107,7 +107,7 @@ body {
   
   /* Professional Card Styles */
   .professional-card {
-    @apply bg-gradient-to-br from-dark-900 to-dark-800 border border-dark-700 rounded-xl p-8 transition-all duration-500 hover:border-primary-500 hover:shadow-tiger group;
+    @apply bg-gradient-to-br from-dark-900 to-dark-800 border border-dark-700 rounded-xl p-8 transition-all duration-500 hover:border-primary-500 hover:shadow-tiger;
     backdrop-filter: blur(10px);
   }
   
@@ -173,20 +173,24 @@ body {
   }
 
   .section-title {
-    @apply text-3xl md:text-4xl;
+    font-size: 1.875rem;
+    line-height: 2.25rem;
   }
 
   .section-subtitle {
-    @apply text-base md:text-lg;
+    font-size: 1rem;
+    line-height: 1.5rem;
   }
 
   .professional-card {
-    @apply p-4 md:p-6;
+    padding: 1rem;
   }
 
   .btn-primary,
   .btn-secondary {
-    @apply text-sm md:text-base py-3 px-6 md:py-4 md:px-8;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    padding: 0.75rem 1.5rem;
   }
 
   /* Better touch targets for mobile */
@@ -246,11 +250,13 @@ body {
 
   /* Reduce section padding on small screens */
   .py-20 {
-    @apply py-12 md:py-20;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
   }
 
   .py-16 {
-    @apply py-10 md:py-16;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
   }
 }
 
