@@ -116,14 +116,14 @@ export default function Footer() {
                     HydRaboN
                   </h3>
                   <p className="text-dark-400 font-medium">
-                    Professional Esports Organization
+                    Çok Yönlü Dijital Topluluk
                   </p>
                 </div>
               </div>
               
               <p className="text-dark-300 text-lg mb-8 leading-relaxed">
-                Güçlü bir simgeye ve organizasyonel yapıya sahip, profesyonellikten 
-                taviz vermeyen, genç ve disiplinli bir topluluk yapılanması.
+                Espor, teknoloji, medya ve topluluk yönetiminde yenilikçi çözümler üreten, 
+                güçlü bir simgeye ve organizasyonel yapıya sahip, genç ve disiplinli bir topluluk yapılanması.
               </p>
 
               {/* Contact Info */}

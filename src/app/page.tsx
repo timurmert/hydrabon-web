@@ -4,7 +4,7 @@ import Link from 'next/link';
 const divisions = [
   {
     title: 'Espor',
-    description: 'Özellikle Valorant odaklı profesyonel takım yapılanması. Premier League dahil olmak üzere birçok resmi turnuva ve ligde mücadele eden güçlü kadromuz.',
+    description: 'Valorant odaklı profesyonel takım yapılanması ve espor organizasyonu. Premier League dahil olmak üzere birçok resmi turnuva ve ligde mücadele eden rekabetçi yapımız.',
     icon: Gamepad2,
     href: '/espor',
     features: ['Profesyonel Takım', 'Turnuva Başarıları', 'Analiz Sistemi', 'Koçluk Desteği'],
@@ -20,7 +20,7 @@ const divisions = [
   },
   {
     title: 'Medya',
-    description: 'Teaser videolar, takım tanıtımları, taraftar içerikleri ve sosyal medya kampanyaları hazırlayan aktif medya departmanımız.',
+    description: 'Teaser videolar, takım tanıtımları, topluluk içerikleri ve sosyal medya kampanyaları hazırlayan kreatif medya departmanımız.',
     icon: Video,
     href: '/medya',
     features: ['Video Prodüksiyon', 'Grafik Tasarım', 'Sosyal Medya', 'İçerik Stratejisi'],
@@ -28,7 +28,7 @@ const divisions = [
   },
   {
     title: 'Discord Topluluğu',
-    description: 'Kalabalık ve organize Discord sunucumuz. Etkinlik takibi, yetkili yönetimi, başvuru sistemleri ve kullanıcı etkileşimi.',
+    description: 'Kalabalık ve organize Discord sunucumuz. Etkinlik takibi, yetkili yönetimi, başvuru sistemleri ve aktif topluluk etkileşimi.',
     icon: Users,
     href: '/topluluk',
     features: ['Aktif Topluluk', 'Etkinlikler', 'Rütbe Sistemi', '7/24 Destek'],
@@ -59,16 +59,16 @@ export default function HomePage() {
               <span className="text-gradient">HydRaboN</span>
             </h1>
             <p className="text-2xl md:text-3xl text-dark-200 mb-6 font-medium">
-              Professional Esports Organization
+              Çok Yönlü Dijital Topluluk
             </p>
             <p className="text-xl md:text-2xl text-dark-300 mb-12 leading-relaxed max-w-3xl mx-auto">
-              Güçlü bir simgeye ve organizasyonel yapıya sahip, profesyonellikten taviz vermeyen, 
-              genç ve disiplinli bir topluluk yapılanması.
+              Espor, teknoloji, medya ve topluluk yönetiminde yenilikçi çözümler üreten, 
+              güçlü bir simgeye ve organizasyonel yapıya sahip, genç ve disiplinli bir topluluk yapılanması.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
               <Link href="/topluluk/basvur" className="btn-primary text-lg px-8 py-4">
-                Ekibe Katıl
+                Topluluğa Katıl
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
               <Link href="/hakkimizda" className="btn-secondary text-lg px-8 py-4">
@@ -100,8 +100,9 @@ export default function HomePage() {
           <div className="text-center mb-16">
             <h2 className="section-title">Birimlerimiz</h2>
             <p className="section-subtitle">
-              HydRaboN&apos;un dört ana yapı taşını keşfedin. Her birim, kendi alanında profesyonellik 
-              ve mükemmellik standartlarını koruyarak organizasyonumuzun gücüne katkıda bulunur.
+              HydRaboN'un dört ana yapı taşını keşfedin. Her birim, kendi alanında mükemmellik 
+              standartlarını koruyarak topluluğumuzun gücüne katkıda bulunur ve farklı ilgi alanlarına 
+              hitap eden kapsamlı bir ekosistem oluşturur.
             </p>
           </div>
 
@@ -154,13 +155,15 @@ export default function HomePage() {
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="section-title">Misyonumuz</h2>
             <p className="text-xl md:text-2xl text-dark-200 leading-relaxed mb-8">
-              HydRaboN olarak, esports sahnesinde sadece bir takım değil, 
-              <span className="text-gradient font-semibold"> tam bir ekosistem </span>
+              HydRaboN olarak, dijital dünyada sadece bir topluluk değil, 
+              <span className="text-gradient font-semibold"> çok boyutlu bir ekosistem </span>
               oluşturmayı hedefliyoruz.
             </p>
             <p className="text-lg text-dark-300 leading-relaxed mb-12">
-              Teknoloji, medya, rekabet ve topluluk yönetimi alanlarında sürekli gelişen, 
-              yenilikçi çözümler üreten ve sektörde iz bırakan bir organizasyon olmak için çalışıyoruz.
+              Espor, teknoloji geliştirme, medya prodüksiyonu ve topluluk yönetimi alanlarında 
+              sürekli gelişen, yenilikçi çözümler üreten ve her alanda iz bırakan bir organizasyon 
+              olmak için çalışıyoruz. Farklı yeteneklere sahip bireyleri bir araya getirerek 
+              güçlü bir topluluk oluşturuyoruz.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
@@ -183,8 +186,8 @@ export default function HomePage() {
               Aramıza Katılmaya Hazır mısın?
             </h2>
             <p className="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
-              HydRaboN ailesinin bir parçası ol. Esports, teknoloji ve medya alanlarında 
-              yeteneklerini geliştir ve profesyonel kariyerine yön ver.
+              HydRaboN ailesinin bir parçası ol. Espor, teknoloji, medya ve topluluk yönetimi 
+              alanlarında yeteneklerini geliştir ve profesyonel kariyerine yön ver.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/topluluk/basvur" className="bg-white text-primary-600 font-semibold py-4 px-8 rounded-lg hover:bg-primary-50 transition-colors duration-300">

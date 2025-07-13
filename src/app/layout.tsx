@@ -15,9 +15,9 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "HydRaboN - Professional Esports Organization",
-  description: "Güçlü bir simgeye ve organizasyonel yapıya sahip, profesyonellikten taviz vermeyen, genç ve disiplinli bir topluluk yapılanması.",
-  keywords: ["esports", "valorant", "gaming", "professional", "türkiye", "hydrabon"],
+  title: "HydRaboN - Çok Yönlü Dijital Topluluk",
+  description: "Espor, teknoloji, medya ve topluluk yönetiminde yenilikçi çözümler üreten, güçlü bir simgeye ve organizasyonel yapıya sahip, genç ve disiplinli bir topluluk yapılanması.",
+  keywords: ["topluluk", "esports", "valorant", "yazılım", "teknoloji", "medya", "discord", "türkiye", "hydrabon"],
   authors: [{ name: "HydRaboN Team" }],
   creator: "HydRaboN",
   publisher: "HydRaboN",
@@ -29,14 +29,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "tr_TR",
     url: "https://hydrabon.com",
-    title: "HydRaboN - Professional Esports Organization",
-    description: "Güçlü bir simgeye ve organizasyonel yapıya sahip, profesyonellikten taviz vermeyen, genç ve disiplinli bir topluluk yapılanması.",
+    title: "HydRaboN - Çok Yönlü Dijital Topluluk",
+    description: "Espor, teknoloji, medya ve topluluk yönetiminde yenilikçi çözümler üreten, güçlü bir simgeye ve organizasyonel yapıya sahip, genç ve disiplinli bir topluluk yapılanması.",
     siteName: "HydRaboN",
   },
   twitter: {
     card: "summary_large_image",
-    title: "HydRaboN - Professional Esports Organization",
-    description: "Güçlü bir simgeye ve organizasyonel yapıya sahip, profesyonellikten taviz vermeyen, genç ve disiplinli bir topluluk yapılanması.",
+    title: "HydRaboN - Çok Yönlü Dijital Topluluk",
+    description: "Espor, teknoloji, medya ve topluluk yönetiminde yenilikçi çözümler üreten, güçlü bir simgeye ve organizasyonel yapıya sahip, genç ve disiplinli bir topluluk yapılanması.",
   },
 
 };

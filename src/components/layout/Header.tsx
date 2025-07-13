@@ -117,7 +117,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3 group">
-                                  <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+            <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
               <span className="text-white font-bold text-xl">H</span>
             </div>
             <div className="hidden sm:block">
@@ -125,7 +125,7 @@ export default function Header() {
                 HydRaboN
               </h1>
               <p className="text-xs text-dark-400 font-medium">
-                Professional Esports Organization
+                Çok Yönlü Dijital Topluluk
               </p>
             </div>
           </Link>
