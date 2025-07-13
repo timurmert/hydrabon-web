@@ -314,5 +314,65 @@ body {
 }
 
 .scroll-container::-webkit-scrollbar-thumb:hover {
-  background: #e55a2d;
+  background: #ea580c;
+}
+
+/* Mobile Hover Performance Optimizations */
+@media (hover: none) and (pointer: coarse) {
+  /* Disable hover effects on touch devices */
+  .group:hover *,
+  *:hover {
+    transform: none !important;
+    scale: none !important;
+    box-shadow: none !important;
+    filter: none !important;
+    color: inherit !important;
+    background: inherit !important;
+  }
+  
+  /* Keep only essential touch interactions */
+  .btn-primary:active {
+    @apply scale-95;
+  }
+  
+  .btn-secondary:active {
+    @apply scale-95;
+  }
+}
+
+/* Performance optimizations for smooth animations */
+@media (prefers-reduced-motion: no-preference) {
+  .will-change-transform {
+    will-change: transform;
+  }
+  
+  .transform-gpu {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+  
+  /* Optimize logo hover animations */
+  .group:hover .will-change-transform {
+    will-change: transform, opacity, filter;
+  }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .transform-gpu {
+    transform: none !important;
+  }
+  
+  .will-change-transform {
+    will-change: auto !important;
+  }
 }
