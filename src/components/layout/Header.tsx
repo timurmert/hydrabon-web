@@ -123,10 +123,10 @@ export default function Header() {
               />
             </div>
             <div className="hidden sm:block">
-              <h1 className="text-2xl font-display font-bold text-gradient">
+              <h1 className="text-2xl font-display font-bold text-gradient group-hover:drop-shadow-lg transition-all duration-300 group-hover:scale-[1.02] group-hover:translate-x-1">
                 HydRaboN
               </h1>
-              <p className="text-xs text-dark-400 font-medium">
+              <p className="text-xs text-dark-400 font-medium transition-all duration-300 group-hover:text-primary-400 group-hover:translate-x-1">
                 Çok Yönlü Dijital Topluluk
               </p>
             </div>
