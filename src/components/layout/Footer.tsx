@@ -109,12 +109,12 @@ export default function Footer() {
             {/* Brand Section */}
             <div className="lg:col-span-2">
               <div className="flex items-center space-x-3 mb-6">
-                <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl flex items-center justify-center p-3">
+                <div className="w-20 h-20 flex items-center justify-center p-3">
                   <Image
                     src="/logo-transparent.png"
                     alt="HydRaboN Logo"
-                    width={40}
-                    height={40}
+                    width={56}
+                    height={56}
                     className="w-full h-full object-contain"
                   />
                 </div>

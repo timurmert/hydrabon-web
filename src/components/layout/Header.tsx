@@ -113,12 +113,12 @@ export default function Header() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3 group">
-            <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg flex items-center justify-center transition-transform duration-300 group-hover:scale-105 p-2">
+            <div className="w-16 h-16 flex items-center justify-center transition-transform duration-300 group-hover:scale-105 p-2">
               <Image
                 src="/logo-transparent.png"
                 alt="HydRaboN Logo"
-                width={32}
-                height={32}
+                width={48}
+                height={48}
                 className="w-full h-full object-contain"
               />
             </div>
