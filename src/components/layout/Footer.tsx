@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { 
   Mail, 
   MapPin, 
@@ -97,6 +97,49 @@ const contactInfo = {
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   const [isLogoHovered, setIsLogoHovered] = useState(false);
+  const [titleWidths, setTitleWidths] = useState<Record<string, number>>({});
+  const [hoveredTitle, setHoveredTitle] = useState<string | null>(null);
+  const titleRefs = useRef<Record<string, HTMLSpanElement | null>>({});
+
+  // Measure title widths on mount and when content changes
+  useEffect(() => {
+    const measureTitleWidths = () => {
+      const widths: Record<string, number> = {};
+      Object.entries(footerLinks).forEach(([key]) => {
+        if (titleRefs.current[key]) {
+          const element = titleRefs.current[key];
+          if (element) {
+            // Use getBoundingClientRect for more precise measurement
+            const rect = element.getBoundingClientRect();
+            widths[key] = Math.ceil(rect.width); // Round up to ensure full coverage
+          }
+        }
+      });
+      setTitleWidths(widths);
+    };
+
+    // Measure after fonts are loaded
+    const initMeasurement = async () => {
+      // Wait for fonts to load
+      await document.fonts.ready;
+      // Small delay to ensure layout is complete
+      setTimeout(measureTitleWidths, 50);
+    };
+
+    initMeasurement();
+    
+    // Also measure on window resize
+    const handleResize = () => {
+      measureTitleWidths();
+    };
+    
+    window.addEventListener('resize', handleResize);
+    
+    // Cleanup
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []); // Empty dependency array to run only once
 
   // Optimized hover handlers
   const handleLogoMouseEnter = () => {
@@ -208,11 +251,32 @@ export default function Footer() {
             {/* Links Sections */}
             {Object.entries(footerLinks).map(([key, section]) => (
               <div key={key}>
-                <h4 className="text-white font-display font-semibold text-lg mb-6 relative group">
-                  <span className="transition-all duration-300 group-hover:text-primary-400 group-hover:tracking-wide group-hover:drop-shadow-[0_0_8px_rgba(255,107,53,0.3)] will-change-transform">
+                <h4 
+                  className="text-white font-display font-semibold text-lg mb-6 relative group"
+                  onMouseEnter={() => {
+                    if (window.matchMedia('(hover: hover)').matches) {
+                      setHoveredTitle(key);
+                    }
+                  }}
+                  onMouseLeave={() => {
+                    if (window.matchMedia('(hover: hover)').matches) {
+                      setHoveredTitle(null);
+                    }
+                  }}
+                >
+                  <span 
+                    ref={(el) => { titleRefs.current[key] = el; }}
+                    className="transition-all duration-300 group-hover:text-primary-400 group-hover:tracking-wide group-hover:drop-shadow-[0_0_8px_rgba(255,107,53,0.3)] will-change-transform"
+                  >
                     {section.title}
                   </span>
-                  <div className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-orange-500 via-primary-500 to-orange-600 transition-all duration-500 w-12 group-hover:w-3/4 group-hover:shadow-[0_0_12px_rgba(255,107,53,0.6)] group-hover:from-primary-400 group-hover:via-orange-400 group-hover:to-orange-500 will-change-transform transform-gpu rounded-full"></div>
+                  <div 
+                    className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-orange-500 via-primary-500 to-orange-600 transition-all duration-500 group-hover:shadow-[0_0_12px_rgba(255,107,53,0.6)] group-hover:from-primary-400 group-hover:via-orange-400 group-hover:to-orange-500 will-change-transform transform-gpu rounded-full"
+                    style={{
+                      width: hoveredTitle === key && titleWidths[key] ? `${titleWidths[key]}px` : '0px',
+                      transition: 'all 0.5s ease-out'
+                    }}
+                  ></div>
                 </h4>
                 <ul className="space-y-3">
                   {section.links.map((link) => (
