@@ -144,6 +144,7 @@ export default function Header() {
                       : ''
                   }`}
                   onMouseEnter={() => item.submenu && setActiveSubmenu(item.name)}
+                  onMouseLeave={() => item.submenu && setActiveSubmenu(null)}
                 >
                   {item.icon && <item.icon className="w-4 h-4" />}
                   <span>{item.name}</span>
@@ -162,6 +163,7 @@ export default function Header() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
                         transition={{ duration: 0.2 }}
+                        onMouseEnter={() => setActiveSubmenu(item.name)}
                         onMouseLeave={() => setActiveSubmenu(null)}
                       >
                         <div className="p-2">
