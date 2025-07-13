@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 import { 
   Menu, 
   X, 
@@ -20,11 +21,6 @@ import {
 
 const navigation = [
   {
-    name: 'Ana Sayfa',
-    href: '/',
-    icon: null,
-  },
-  {
     name: 'Espor',
     href: '/espor',
     icon: Gamepad2,
@@ -36,7 +32,7 @@ const navigation = [
     ],
   },
   {
-    name: 'Ar-Ge & Yazılım',
+    name: 'Ar-Ge',
     href: '/ar-ge',
     icon: Code,
     submenu: [
@@ -117,8 +113,14 @@ export default function Header() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3 group">
-            <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
-              <span className="text-white font-bold text-xl">H</span>
+            <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg flex items-center justify-center transition-transform duration-300 group-hover:scale-105 p-2">
+              <Image
+                src="/logo-transparent.png"
+                alt="HydRaboN Logo"
+                width={32}
+                height={32}
+                className="w-full h-full object-contain"
+              />
             </div>
             <div className="hidden sm:block">
               <h1 className="text-2xl font-display font-bold text-gradient">
@@ -185,7 +187,7 @@ export default function Header() {
           <div className="flex items-center space-x-4">
             {/* Discord Button */}
             <a
-              href="#"
+              href="https://discord.gg/hydrabon"
               target="_blank"
               rel="noopener noreferrer"
               className="hidden md:flex items-center space-x-2 btn-primary"
@@ -273,7 +275,7 @@ export default function Header() {
               {/* Mobile Discord Button */}
               <div className="mt-6 px-4">
                 <a
-                  href="#"
+                  href="https://discord.gg/hydrabon"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center space-x-2 btn-primary w-full"
