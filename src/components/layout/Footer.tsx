@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { useState } from 'react';
 import { 
   Mail, 
   MapPin, 
@@ -30,7 +31,7 @@ const footerLinks = {
     title: 'Birimlerimiz',
     links: [
       { name: 'Espor Takımı', href: '/espor' },
-      { name: 'Ar-Ge & Yazılım', href: '/ar-ge' },
+      { name: 'Ar-Ge', href: '/ar-ge' },
       { name: 'Medya Ekibi', href: '/medya' },
       { name: 'Discord Topluluğu', href: '/topluluk' },
     ],
@@ -59,27 +60,31 @@ const footerLinks = {
 const socialMedia = [
   {
     name: 'Twitter',
-    href: '#',
+    href: 'https://twitter.com/hydrabon',
     icon: Twitter,
-    color: 'hover:text-blue-400',
+    color: 'hover:text-blue-400 hover:shadow-blue-400/25',
+    bgColor: 'hover:bg-blue-400/10',
   },
   {
     name: 'Instagram',
-    href: '#',
+    href: 'https://instagram.com/hydrabon',
     icon: Instagram,
-    color: 'hover:text-pink-400',
+    color: 'hover:text-pink-400 hover:shadow-pink-400/25',
+    bgColor: 'hover:bg-pink-400/10',
   },
   {
     name: 'YouTube',
-    href: '#',
+    href: 'https://youtube.com/@hydrabon',
     icon: Youtube,
-    color: 'hover:text-red-500',
+    color: 'hover:text-red-500 hover:shadow-red-500/25',
+    bgColor: 'hover:bg-red-500/10',
   },
   {
     name: 'GitHub',
-    href: '#',
+    href: 'https://github.com/hydrabon',
     icon: Github,
-    color: 'hover:text-white',
+    color: 'hover:text-white hover:shadow-white/25',
+    bgColor: 'hover:bg-white/10',
   },
 ];
 
@@ -91,6 +96,24 @@ const contactInfo = {
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const [isLogoHovered, setIsLogoHovered] = useState(false);
+
+  // Optimized hover handlers
+  const handleLogoMouseEnter = () => {
+    if (window.matchMedia('(hover: hover)').matches) {
+      requestAnimationFrame(() => {
+        setIsLogoHovered(true);
+      });
+    }
+  };
+
+  const handleLogoMouseLeave = () => {
+    if (window.matchMedia('(hover: hover)').matches) {
+      requestAnimationFrame(() => {
+        setIsLogoHovered(false);
+      });
+    }
+  };
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -105,11 +128,18 @@ export default function Footer() {
       <div className="relative">
         {/* Top Section */}
         <div className="container-custom py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6">
             {/* Brand Section */}
             <div className="lg:col-span-2">
-              <div className="flex items-center space-x-3 mb-6">
-                <div className="w-20 h-20 flex items-center justify-center p-3">
+              <Link 
+                href="/"
+                className="flex items-center space-x-3 mb-6 group w-fit"
+                onMouseEnter={handleLogoMouseEnter}
+                onMouseLeave={handleLogoMouseLeave}
+                style={{outline: 'none'}}
+                onFocus={(e) => e.target.blur()}
+              >
+                <div className="w-20 h-20 flex items-center justify-center p-3 transition-transform duration-200 ease-out group-hover:scale-105 will-change-transform transform-gpu">
                   <Image
                     src="/logo-transparent.png"
                     alt="HydRaboN Logo"
@@ -119,35 +149,40 @@ export default function Footer() {
                   />
                 </div>
                 <div>
-                  <h3 className="text-3xl font-display font-bold text-gradient">
+                  <h3 className="text-3xl font-display font-bold bg-gradient-to-r from-orange-400 via-primary-500 to-orange-600 bg-clip-text text-transparent group-hover:from-primary-500 group-hover:via-orange-500 group-hover:to-orange-700 transition-all duration-300 ease-out group-hover:scale-[1.02] group-hover:tracking-wide group-hover:drop-shadow-[0_0_15px_rgba(255,107,53,0.4)] will-change-transform transform-gpu">
                     HydRaboN
                   </h3>
-                  <p className="text-dark-400 font-medium">
+                  <p className="text-orange-400 font-medium transition-all duration-300 ease-out group-hover:text-orange-300 group-hover:font-semibold group-hover:tracking-wide group-hover:drop-shadow-[0_0_8px_rgba(255,107,53,0.3)] will-change-transform transform-gpu">
                     Çok Yönlü Dijital Topluluk
                   </p>
                 </div>
-              </div>
+              </Link>
               
-              <p className="text-dark-300 text-lg mb-8 leading-relaxed">
+              <p className="text-dark-300 text-lg mb-8 leading-relaxed transition-colors duration-300 hover:text-dark-200">
                 Espor, teknoloji, medya ve topluluk yönetiminde yenilikçi çözümler üreten, 
                 güçlü bir simgeye ve organizasyonel yapıya sahip, genç ve disiplinli bir topluluk yapılanması.
               </p>
 
               {/* Contact Info */}
               <div className="space-y-4">
-                <div className="flex items-center space-x-3 text-dark-300">
-                  <Mail className="w-5 h-5 text-primary-500" />
-                  <a href={`mailto:${contactInfo.email}`} className="hover:text-primary-500 transition-colors duration-300">
+                <div className="flex items-center space-x-3 text-dark-300 group">
+                  <Mail className="w-5 h-5 text-primary-500 transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_rgba(255,107,53,0.5)] will-change-transform transform-gpu" />
+                  <a 
+                    href={`mailto:${contactInfo.email}`} 
+                    className="hover:text-primary-400 transition-all duration-300 hover:tracking-wide hover:drop-shadow-[0_0_6px_rgba(255,107,53,0.3)] will-change-transform"
+                    style={{outline: 'none'}}
+                    onFocus={(e) => e.target.blur()}
+                  >
                     {contactInfo.email}
                   </a>
                 </div>
-                <div className="flex items-center space-x-3 text-dark-300">
-                  <MapPin className="w-5 h-5 text-primary-500" />
-                  <span>{contactInfo.address}</span>
+                <div className="flex items-center space-x-3 text-dark-300 group">
+                  <MapPin className="w-5 h-5 text-primary-500 transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_rgba(255,107,53,0.5)] will-change-transform transform-gpu" />
+                  <span className="transition-colors duration-300 group-hover:text-dark-200">{contactInfo.address}</span>
                 </div>
-                <div className="flex items-center space-x-3 text-dark-300">
-                  <Clock className="w-5 h-5 text-primary-500" />
-                  <span>{contactInfo.hours}</span>
+                <div className="flex items-center space-x-3 text-dark-300 group">
+                  <Clock className="w-5 h-5 text-primary-500 transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_rgba(255,107,53,0.5)] will-change-transform transform-gpu" />
+                  <span className="transition-colors duration-300 group-hover:text-dark-200">{contactInfo.hours}</span>
                 </div>
               </div>
 
@@ -159,10 +194,12 @@ export default function Footer() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`p-3 bg-dark-800 rounded-lg text-dark-400 ${social.color} transition-all duration-300 hover:scale-110 hover:bg-dark-700`}
+                    className={`p-3 bg-dark-800 rounded-lg text-dark-400 ${social.color} ${social.bgColor} transition-all duration-300 hover:scale-110 hover:shadow-lg hover:-rotate-3 will-change-transform transform-gpu`}
                     aria-label={social.name}
+                    style={{outline: 'none'}}
+                    onFocus={(e) => e.target.blur()}
                   >
-                    <social.icon className="w-5 h-5" />
+                    <social.icon className="w-5 h-5 transition-transform duration-300 hover:scale-110 will-change-transform transform-gpu" />
                   </a>
                 ))}
               </div>
@@ -171,20 +208,25 @@ export default function Footer() {
             {/* Links Sections */}
             {Object.entries(footerLinks).map(([key, section]) => (
               <div key={key}>
-                <h4 className="text-white font-display font-semibold text-lg mb-6 relative">
-                  {section.title}
-                  <div className="absolute bottom-0 left-0 w-8 h-0.5 bg-gradient-to-r from-orange-500 to-orange-600"></div>
+                <h4 className="text-white font-display font-semibold text-lg mb-6 relative group">
+                  <span className="transition-all duration-300 group-hover:text-primary-400 group-hover:tracking-wide group-hover:drop-shadow-[0_0_8px_rgba(255,107,53,0.3)] will-change-transform">
+                    {section.title}
+                  </span>
+                  <div className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-orange-500 via-primary-500 to-orange-600 transition-all duration-500 w-12 group-hover:w-3/4 group-hover:shadow-[0_0_12px_rgba(255,107,53,0.6)] group-hover:from-primary-400 group-hover:via-orange-400 group-hover:to-orange-500 will-change-transform transform-gpu rounded-full"></div>
                 </h4>
                 <ul className="space-y-3">
                   {section.links.map((link) => (
                     <li key={link.name}>
                       <Link
                         href={link.href}
-                        className="text-dark-300 hover:text-primary-500 transition-colors duration-300 flex items-center group"
+                        className="text-dark-300 hover:text-primary-400 transition-all duration-300 flex items-center group relative hover:translate-x-1 hover:tracking-wide hover:drop-shadow-[0_0_6px_rgba(255,107,53,0.3)] will-change-transform"
+                        style={{outline: 'none'}}
+                        onFocus={(e) => e.target.blur()}
                       >
-                        {link.name}
+                        <span className="relative z-10">{link.name}</span>
+                        <div className="absolute inset-0 bg-gradient-to-r from-primary-500/0 to-primary-500/10 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
                         {link.href.startsWith('http') && (
-                          <ExternalLink className="w-3 h-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                          <ExternalLink className="w-3 h-3 ml-1 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110 will-change-transform transform-gpu" />
                         )}
                       </Link>
                     </li>
@@ -195,54 +237,32 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Newsletter Section */}
-        <div className="border-t border-dark-800">
-          <div className="container-custom py-12">
-            <div className="bg-gradient-to-r from-dark-900 to-dark-800 rounded-2xl p-8 border border-dark-700">
-              <div className="flex flex-col md:flex-row items-center justify-between">
-                <div className="mb-6 md:mb-0">
-                  <h4 className="text-2xl font-display font-bold text-white mb-2">
-                    Güncellemelerden Haberdar Ol
-                  </h4>
-                  <p className="text-dark-300">
-                    Turnuva sonuçları, yeni projeler ve topluluk etkinlikleri hakkında bilgi al.
-                  </p>
-                </div>
-                <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
-                  <input
-                    type="email"
-                    placeholder="E-posta adresiniz"
-                    className="px-4 py-3 bg-dark-800 border border-dark-600 rounded-lg text-white placeholder-dark-400 focus:outline-none focus:border-primary-500 transition-colors duration-300 w-full sm:w-80"
-                  />
-                  <button className="btn-primary whitespace-nowrap">
-                    Abone Ol
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
         {/* Bottom Section */}
         <div className="border-t border-dark-800">
-          <div className="container-custom py-8">
-            <div className="flex flex-col md:flex-row items-center justify-between">
-              <div className="flex items-center space-x-2 text-dark-400 mb-4 md:mb-0">
-                <span>© {currentYear} HydRaboN. Tüm hakları saklıdır.</span>
-                <span className="hidden sm:inline">•</span>
-                <span className="hidden sm:inline flex items-center">
-                  Made with <Heart className="w-4 h-4 text-red-500 mx-1" /> for the community
-                </span>
-              </div>
-              
+          <div className="container-custom py-12">
+            <div className="flex flex-col items-center justify-center space-y-6">
               {/* Back to Top Button */}
               <button
                 onClick={scrollToTop}
-                className="flex items-center space-x-2 text-dark-400 hover:text-primary-500 transition-colors duration-300 group"
+                className="flex items-center space-x-2 text-dark-400 hover:text-primary-400 transition-all duration-300 group hover:scale-105 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(255,107,53,0.3)] will-change-transform transform-gpu bg-dark-800 hover:bg-dark-700 px-6 py-3 rounded-xl border border-dark-600 hover:border-primary-500/50"
+                style={{outline: 'none'}}
+                onFocus={(e) => e.target.blur()}
               >
-                <span>Başa Dön</span>
-                <ArrowUp className="w-4 h-4 transform group-hover:-translate-y-1 transition-transform duration-300" />
+                <span className="transition-all duration-300 group-hover:tracking-wide font-medium">Başa Dön</span>
+                <ArrowUp className="w-4 h-4 transform group-hover:-translate-y-1 group-hover:scale-110 transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(255,107,53,0.5)] will-change-transform" />
               </button>
+              
+              {/* Copyright and Made with Love */}
+              <div className="text-center space-y-2">
+                <div className="text-dark-400 transition-all duration-300 hover:text-primary-400 hover:tracking-wide hover:drop-shadow-[0_0_8px_rgba(255,107,53,0.3)] will-change-transform cursor-default">
+                  © {currentYear} HydRaboN. Tüm hakları saklıdır.
+                </div>
+                <div className="flex items-center justify-center space-x-1 text-dark-400 text-sm transition-all duration-300 hover:text-dark-300 cursor-default">
+                  <span>Made with</span>
+                  <Heart className="w-4 h-4 text-red-500 transition-all duration-300 hover:scale-110 hover:drop-shadow-[0_0_8px_rgba(239,68,68,0.5)] will-change-transform transform-gpu" />
+                  <span>for the community</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
