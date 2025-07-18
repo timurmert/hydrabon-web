@@ -7,10 +7,10 @@ import {
   Mail, 
   MapPin, 
   Clock,
-  Twitter,
   Instagram,
   Youtube,
-  Github,
+  Gamepad2,
+  MessageCircle,
   ExternalLink,
   ArrowUp,
   Heart
@@ -59,32 +59,32 @@ const footerLinks = {
 
 const socialMedia = [
   {
-    name: 'Twitter',
-    href: 'https://twitter.com/hydrabon',
-    icon: Twitter,
-    color: 'hover:text-blue-400 hover:shadow-blue-400/25',
-    bgColor: 'hover:bg-blue-400/10',
-  },
-  {
     name: 'Instagram',
-    href: 'https://instagram.com/hydrabon',
+    href: 'https://www.instagram.com/hydrabon.official/',
     icon: Instagram,
     color: 'hover:text-pink-400 hover:shadow-pink-400/25',
     bgColor: 'hover:bg-pink-400/10',
   },
   {
     name: 'YouTube',
-    href: 'https://youtube.com/@hydrabon',
+    href: 'https://www.youtube.com/@hydrabon',
     icon: Youtube,
     color: 'hover:text-red-500 hover:shadow-red-500/25',
     bgColor: 'hover:bg-red-500/10',
   },
   {
-    name: 'GitHub',
-    href: 'https://github.com/hydrabon',
-    icon: Github,
-    color: 'hover:text-white hover:shadow-white/25',
-    bgColor: 'hover:bg-white/10',
+    name: 'Steam',
+    href: 'https://steamcommunity.com/groups/HydRaboN',
+    icon: Gamepad2,
+    color: 'hover:text-blue-300 hover:shadow-blue-300/25',
+    bgColor: 'hover:bg-blue-300/10',
+  },
+  {
+    name: 'Discord',
+    href: 'https://discord.gg/hydrabon',
+    icon: MessageCircle,
+    color: 'hover:text-indigo-400 hover:shadow-indigo-400/25',
+    bgColor: 'hover:bg-indigo-400/10',
   },
 ];
 
