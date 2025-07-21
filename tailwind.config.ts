@@ -58,6 +58,8 @@ const config: Config = {
         'slide-in-right': 'slideInRight 0.6s ease-out',
         'bounce-slow': 'bounce 2s infinite',
         'pulse-slow': 'pulse 3s infinite',
+        'float': 'float 6s ease-in-out infinite',
+        'glow-pulse': 'glowPulse 2s ease-in-out infinite alternate',
       },
       keyframes: {
         fadeIn: {
@@ -75,6 +77,14 @@ const config: Config = {
         slideInRight: {
           '0%': { opacity: '0', transform: 'translateX(20px)' },
           '100%': { opacity: '1', transform: 'translateX(0)' },
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-20px)' },
+        },
+        glowPulse: {
+          '0%': { boxShadow: '0 0 20px rgba(249, 115, 22, 0.3)' },
+          '100%': { boxShadow: '0 0 40px rgba(249, 115, 22, 0.6)' },
         },
       },
       backgroundImage: {

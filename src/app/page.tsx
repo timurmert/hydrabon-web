@@ -1,4 +1,4 @@
-import { Gamepad2, Code, Video, Users, ArrowRight, Trophy, Target, Zap } from 'lucide-react';
+import { Gamepad2, Code, Video, Users, ArrowRight, Trophy, Target, Zap, Info, Mail } from 'lucide-react';
 import Link from 'next/link';
 
 const divisions = [
@@ -48,32 +48,43 @@ export default function HomePage() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background */}
+        {/* Enhanced Background */}
         <div className="absolute inset-0 bg-gradient-hero"></div>
-        <div className="absolute inset-0 tiger-pattern opacity-10"></div>
+        <div className="absolute inset-0 tiger-pattern opacity-15 animate-pulse-slow"></div>
+        
+
+        
+        {/* Animated Grid Lines */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{
+            backgroundImage: 'linear-gradient(rgba(249, 115, 22, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(249, 115, 22, 0.1) 1px, transparent 1px)',
+            backgroundSize: '50px 50px'
+          }}></div>
+        </div>
         
         {/* Content */}
         <div className="relative z-10 container-custom text-center">
-          <div className="max-w-4xl mx-auto">
-            <h1 className="text-6xl md:text-8xl font-display font-bold mb-8">
+          <div className="max-w-4xl mx-auto bg-dark-950/20 backdrop-blur-sm rounded-3xl p-8 border border-primary-500/20 shadow-2xl animate-glow-pulse">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 tracking-tight">
               <span className="text-gradient">HydRaboN</span>
             </h1>
-            <p className="text-2xl md:text-3xl text-dark-200 mb-6 font-medium">
+            <p className="text-xl md:text-2xl text-dark-200 mb-6 font-semibold tracking-wide">
               Çok Yönlü Dijital Topluluk
             </p>
-            <p className="text-xl md:text-2xl text-dark-300 mb-12 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-dark-300 mb-12 leading-relaxed max-w-4xl mx-auto font-medium">
               Espor, teknoloji, medya ve topluluk yönetiminde yenilikçi çözümler üreten, 
               güçlü bir simgeye ve organizasyonel yapıya sahip, genç ve disiplinli bir topluluk yapılanması.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-              <Link href="/topluluk/basvur" className="btn-primary text-lg px-8 py-4">
+              <Link href="/topluluk/basvur" className="btn-primary text-lg px-8 py-4 w-full sm:w-auto min-w-[200px] flex items-center justify-center">
                 Topluluğa Katıl
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
-              <Link href="/hakkimizda" className="btn-secondary text-lg px-8 py-4">
-                Hakkımızda
-              </Link>
+                              <Link href="/hakkimizda" className="btn-secondary text-lg px-8 py-4 w-full sm:w-auto min-w-[200px] flex items-center justify-center">
+                  Hakkımızda
+                  <Info className="w-5 h-5 ml-2" />
+                </Link>
             </div>
 
             {/* Stats */}
@@ -85,8 +96,8 @@ export default function HomePage() {
                       <stat.icon className="w-8 h-8 text-primary-500" />
                     </div>
                   </div>
-                  <div className="text-3xl font-bold text-white mb-2">{stat.value}</div>
-                  <div className="text-dark-300">{stat.label}</div>
+                  <div className="text-2xl md:text-3xl font-bold text-white mb-2 tracking-tight">{stat.value}</div>
+                  <div className="text-sm md:text-base text-dark-300 font-medium">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -114,10 +125,10 @@ export default function HomePage() {
                     <division.icon className="w-8 h-8 text-white" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-2xl font-display font-bold text-white mb-2">
+                    <h3 className="text-xl md:text-2xl font-display font-bold text-white mb-3 tracking-tight">
                       {division.title}
                     </h3>
-                    <p className="text-dark-300 leading-relaxed">
+                    <p className="text-dark-300 leading-relaxed text-sm md:text-base font-medium">
                       {division.description}
                     </p>
                   </div>
@@ -154,12 +165,12 @@ export default function HomePage() {
         <div className="container-custom relative">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="section-title">Misyonumuz</h2>
-            <p className="text-xl md:text-2xl text-dark-200 leading-relaxed mb-8">
+            <p className="text-lg md:text-xl text-dark-200 leading-relaxed mb-8 font-medium">
               HydRaboN olarak, dijital dünyada sadece bir topluluk değil, 
               <span className="text-gradient font-semibold"> çok boyutlu bir ekosistem </span>
               oluşturmayı hedefliyoruz.
             </p>
-            <p className="text-lg text-dark-300 leading-relaxed mb-12">
+            <p className="text-base md:text-lg text-dark-300 leading-relaxed mb-12 font-medium">
               Espor, teknoloji geliştirme, medya prodüksiyonu ve topluluk yönetimi alanlarında 
               sürekli gelişen, yenilikçi çözümler üreten ve her alanda iz bırakan bir organizasyon 
               olmak için çalışıyoruz. Farklı yeteneklere sahip bireyleri bir araya getirerek 
@@ -167,11 +178,13 @@ export default function HomePage() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Link href="/hakkimizda" className="btn-primary text-lg px-8 py-4">
+              <Link href="/hakkimizda" className="btn-primary text-lg px-8 py-4 flex items-center justify-center">
                 Vizyonumuzu Keşfet
+                <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
-              <Link href="/iletisim" className="btn-secondary text-lg px-8 py-4">
+              <Link href="/iletisim" className="btn-secondary text-lg px-8 py-4 flex items-center justify-center">
                 İletişime Geç
+                <Mail className="w-5 h-5 ml-2" />
               </Link>
             </div>
           </div>
@@ -181,21 +194,27 @@ export default function HomePage() {
       {/* CTA Section */}
       <section className="py-20 bg-dark-950">
         <div className="container-custom">
-          <div className="bg-gradient-to-r from-primary-600 to-primary-500 rounded-3xl p-12 text-center">
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">
+          <div className="bg-gradient-to-r from-dark-800 to-dark-700 border border-primary-500/30 rounded-3xl p-12 text-center relative overflow-hidden">
+            {/* Subtle orange glow */}
+            <div className="absolute inset-0 bg-gradient-to-r from-primary-900/20 to-primary-800/20 rounded-3xl"></div>
+            <div className="relative z-10">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-6 tracking-tight">
               Aramıza Katılmaya Hazır mısın?
             </h2>
-            <p className="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-dark-200 mb-8 max-w-3xl mx-auto font-medium leading-relaxed">
               HydRaboN ailesinin bir parçası ol. Espor, teknoloji, medya ve topluluk yönetimi 
               alanlarında yeteneklerini geliştir ve profesyonel kariyerine yön ver.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/topluluk/basvur" className="bg-white text-primary-600 font-semibold py-4 px-8 rounded-lg hover:bg-primary-50 transition-colors duration-300">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <Link href="/topluluk/basvur" className="btn-primary text-lg px-8 py-4 flex items-center justify-center min-w-[200px]">
                 Başvuru Yap
+                <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
-              <Link href="/topluluk/discord" className="bg-primary-700 text-white font-semibold py-4 px-8 rounded-lg hover:bg-primary-800 transition-colors duration-300">
+              <Link href="/topluluk/discord" className="btn-secondary text-lg px-8 py-4 flex items-center justify-center min-w-[200px]">
                 Discord&apos;a Katıl
+                <Users className="w-5 h-5 ml-2" />
               </Link>
+            </div>
             </div>
           </div>
         </div>
