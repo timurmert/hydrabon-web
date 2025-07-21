@@ -64,7 +64,7 @@ export default function HomePage() {
         
         {/* Content */}
         <div className="relative z-10 container-custom text-center">
-          <div className="max-w-4xl mx-auto bg-dark-950/20 backdrop-blur-sm rounded-3xl p-8 border border-primary-500/20 shadow-2xl animate-glow-pulse">
+          <div className="max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 tracking-tight">
               <span className="text-gradient">HydRaboN</span>
             </h1>
