@@ -47,20 +47,60 @@ export default function MediaPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-hero overflow-hidden">
-        <div className="absolute inset-0 tiger-pattern opacity-10"></div>
-        <div className="container-custom relative">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Multi-layered Dynamic Background */}
+        <div className="absolute inset-0 bg-gradient-hero" style={{ zIndex: 0 }}></div>
+        <div className="absolute inset-0 geometric-pattern" style={{ zIndex: 1 }}></div>
+        <div className="absolute inset-0 tiger-pattern opacity-15 animate-pulse-slow" style={{ zIndex: 2 }}></div>
+        <div className="absolute inset-0 animated-grid opacity-20" style={{ zIndex: 3 }}></div>
+        
+        {/* Floating Particles */}
+        <div className="absolute inset-0" style={{ zIndex: 4 }}>
+          <div className="particle"></div>
+          <div className="particle"></div>
+          <div className="particle"></div>
+          <div className="particle"></div>
+          <div className="particle"></div>
+          <div className="particle"></div>
+        </div>
+        
+        {/* Glowing Orbs */}
+        <div className="absolute inset-0" style={{ zIndex: 5 }}>
+          <div className="glow-orb glow-orb-1"></div>
+          <div className="glow-orb glow-orb-2"></div>
+          <div className="glow-orb glow-orb-3"></div>
+        </div>
+
+        <div className="container-custom relative z-20">
           <div className="text-center mb-16">
-            <div className="flex justify-center mb-6">
-              <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center">
-                <Video className="w-10 h-10 text-white" />
+            {/* Brand Badge */}
+            <div className="flex justify-center mb-8">
+              <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary-900/30 to-primary-800/30 border border-primary-500/40 rounded-full backdrop-blur-md">
+                <div className="w-2 h-2 bg-primary-400 rounded-full mr-3 animate-pulse"></div>
+                <span className="text-primary-200 text-sm font-semibold tracking-wider uppercase">Medya Departmanı</span>
+                <div className="w-2 h-2 bg-primary-400 rounded-full ml-3 animate-pulse"></div>
               </div>
             </div>
-            <h1 className="section-title">HydRaboN Medya</h1>
-            <p className="section-subtitle">
-              Teaser videolar, takım tanıtımları, taraftar içerikleri ve sosyal medya kampanyaları 
-              hazırlayan aktif medya departmanımız.
-            </p>
+
+            {/* Enhanced Title */}
+            <div className="relative mb-8">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight">
+                <span className="bg-gradient-to-r from-primary-300 via-white to-primary-300 bg-clip-text text-transparent">
+                  HydRaboN Medya
+                </span>
+              </h1>
+              <div className="w-32 h-1 bg-gradient-to-r from-transparent via-primary-500 to-transparent mx-auto mt-6 rounded-full"></div>
+            </div>
+
+            {/* Enhanced Description */}
+            <div className="max-w-4xl mx-auto mb-12">
+              <p className="text-base md:text-lg text-dark-100 leading-relaxed font-medium">
+                Teaser videolar, takım tanıtımları, taraftar içerikleri ve 
+                <span className="text-primary-300 font-semibold"> sosyal medya kampanyaları </span>
+                hazırlayan 
+                <span className="text-white font-semibold"> aktif medya departmanımız</span>.
+              </p>
+            </div>
           </div>
 
           {/* Media Stats */}
@@ -88,6 +128,11 @@ export default function MediaPage() {
           </div>
         </div>
       </section>
+
+      {/* Section Separator */}
+      <div className="container-custom">
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
+      </div>
 
       {/* Featured Content */}
       <section className="py-20 bg-dark-950">
@@ -174,12 +219,21 @@ export default function MediaPage() {
           </div>
 
           <div className="text-center">
-            <Link href="/medya/videolar" className="btn-primary">
-              Tüm İçerikleri Görüntüle
+            <Link href="/medya/videolar" className="btn-primary text-base px-8 py-4 flex items-center justify-center min-w-[200px] group relative overflow-hidden">
+              <span className="relative z-10 flex items-center">
+                Tüm İçerikleri Görüntüle
+                <Video className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
+              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-primary-400 to-primary-600 opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-xl"></div>
             </Link>
           </div>
         </div>
       </section>
+
+      {/* Section Separator */}
+      <div className="container-custom">
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
+      </div>
 
       {/* Content Categories */}
       <section className="py-20 bg-gradient-to-br from-dark-900 to-dark-800">
@@ -206,6 +260,11 @@ export default function MediaPage() {
           </div>
         </div>
       </section>
+
+      {/* Section Separator */}
+      <div className="container-custom">
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
+      </div>
 
       {/* Media Team */}
       <section className="py-20 bg-dark-950">
@@ -282,12 +341,20 @@ export default function MediaPage() {
           </div>
 
           <div className="text-center">
-            <Link href="/medya/ekip" className="btn-secondary">
-              Ekibin Tamamını Gör
+            <Link href="/medya/ekip" className="btn-secondary text-base px-8 py-4 flex items-center justify-center min-w-[200px] group relative">
+              <span className="relative z-10 flex items-center">
+                Ekibin Tamamını Gör
+                <Users className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
+              </span>
             </Link>
           </div>
         </div>
       </section>
+
+      {/* Section Separator */}
+      <div className="container-custom">
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
+      </div>
 
       {/* Social Media Platforms */}
       <section className="py-20 bg-gradient-to-br from-dark-900 to-dark-800">
@@ -325,6 +392,11 @@ export default function MediaPage() {
         </div>
       </section>
 
+      {/* Section Separator */}
+      <div className="container-custom">
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
+      </div>
+
       {/* CTA Section */}
       <section className="py-20 bg-dark-950">
         <div className="container-custom">
@@ -338,12 +410,18 @@ export default function MediaPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="https://youtube.com/@hydrabon" target="_blank" rel="noopener noreferrer"
-                 className="bg-white text-purple-600 font-semibold py-4 px-8 rounded-lg hover:bg-purple-50 transition-colors duration-300">
-                YouTube&apos;da Abone Ol
+                 className="bg-white text-purple-600 font-semibold py-4 px-8 rounded-lg hover:bg-purple-50 transition-all duration-300 flex items-center justify-center min-w-[180px] group">
+                <span className="flex items-center">
+                  YouTube&apos;da Abone Ol
+                  <Youtube className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
+                </span>
               </a>
               <a href="https://instagram.com/hydrabon_esports" target="_blank" rel="noopener noreferrer"
-                 className="bg-purple-700 text-white font-semibold py-4 px-8 rounded-lg hover:bg-purple-800 transition-colors duration-300">
-                Instagram&apos;da Takip Et
+                 className="bg-purple-700 text-white font-semibold py-4 px-8 rounded-lg hover:bg-purple-800 transition-all duration-300 flex items-center justify-center min-w-[180px] group">
+                <span className="flex items-center">
+                  Instagram&apos;da Takip Et
+                  <Instagram className="w-5 h-5 ml-2 group-hover:rotate-12 transition-transform duration-300" />
+                </span>
               </a>
             </div>
           </div>
@@ -351,4 +429,4 @@ export default function MediaPage() {
       </section>
     </div>
   );
-} 
+}

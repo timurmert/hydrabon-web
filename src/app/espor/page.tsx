@@ -6,7 +6,6 @@ import {
   Users,
   Zap,
   Medal,
-  Gamepad2,
   ExternalLink,
   Play
 } from 'lucide-react';
@@ -25,20 +24,60 @@ export default function EsportsPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-hero overflow-hidden">
-        <div className="absolute inset-0 tiger-pattern opacity-10"></div>
-        <div className="container-custom relative">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Multi-layered Dynamic Background */}
+        <div className="absolute inset-0 bg-gradient-hero" style={{ zIndex: 0 }}></div>
+        <div className="absolute inset-0 geometric-pattern" style={{ zIndex: 1 }}></div>
+        <div className="absolute inset-0 tiger-pattern opacity-15 animate-pulse-slow" style={{ zIndex: 2 }}></div>
+        <div className="absolute inset-0 animated-grid opacity-20" style={{ zIndex: 3 }}></div>
+        
+        {/* Floating Particles */}
+        <div className="absolute inset-0" style={{ zIndex: 4 }}>
+          <div className="particle"></div>
+          <div className="particle"></div>
+          <div className="particle"></div>
+          <div className="particle"></div>
+          <div className="particle"></div>
+          <div className="particle"></div>
+        </div>
+        
+        {/* Glowing Orbs */}
+        <div className="absolute inset-0" style={{ zIndex: 5 }}>
+          <div className="glow-orb glow-orb-1"></div>
+          <div className="glow-orb glow-orb-2"></div>
+          <div className="glow-orb glow-orb-3"></div>
+        </div>
+
+        <div className="container-custom relative z-20">
           <div className="text-center mb-16">
-            <div className="flex justify-center mb-6">
-              <div className="w-20 h-20 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full flex items-center justify-center">
-                <Gamepad2 className="w-10 h-10 text-white" />
+            {/* Brand Badge */}
+            <div className="flex justify-center mb-8">
+              <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary-900/30 to-primary-800/30 border border-primary-500/40 rounded-full backdrop-blur-md">
+                <div className="w-2 h-2 bg-primary-400 rounded-full mr-3 animate-pulse"></div>
+                <span className="text-primary-200 text-sm font-semibold tracking-wider uppercase">Espor Takımı</span>
+                <div className="w-2 h-2 bg-primary-400 rounded-full ml-3 animate-pulse"></div>
               </div>
             </div>
-            <h1 className="section-title">HydRaboN Espor</h1>
-            <p className="section-subtitle">
-              Özellikle Valorant odaklı profesyonel takım yapılanması. Premier League dahil 
-              olmak üzere birçok resmi turnuva ve ligde mücadele eden güçlü kadromuz.
-            </p>
+
+            {/* Enhanced Title */}
+            <div className="relative mb-8">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight">
+                <span className="bg-gradient-to-r from-primary-300 via-white to-primary-300 bg-clip-text text-transparent">
+                  HydRaboN Espor
+                </span>
+              </h1>
+              <div className="w-32 h-1 bg-gradient-to-r from-transparent via-primary-500 to-transparent mx-auto mt-6 rounded-full"></div>
+            </div>
+
+            {/* Enhanced Description */}
+            <div className="max-w-4xl mx-auto mb-12">
+              <p className="text-base md:text-lg text-dark-100 leading-relaxed font-medium">
+                Özellikle Valorant odaklı 
+                <span className="text-primary-300 font-semibold"> profesyonel takım yapılanması</span>. 
+                Premier League dahil olmak üzere birçok resmi turnuva ve ligde mücadele eden 
+                <span className="text-white font-semibold"> güçlü kadromuz</span>.
+              </p>
+            </div>
           </div>
 
           {/* Team Stats */}
@@ -66,6 +105,11 @@ export default function EsportsPage() {
           </div>
         </div>
       </section>
+
+      {/* Section Separator */}
+      <div className="container-custom">
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
+      </div>
 
       {/* Players Section */}
       <section className="py-20 bg-dark-950">
@@ -133,12 +177,21 @@ export default function EsportsPage() {
           </div>
 
           <div className="text-center">
-            <Link href="/espor/takim" className="btn-primary">
-              Takım Detayları
+            <Link href="/espor/takim" className="btn-primary text-base px-8 py-4 flex items-center justify-center min-w-[200px] group relative overflow-hidden">
+              <span className="relative z-10 flex items-center">
+                Takım Detayları
+                <Target className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
+              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-primary-400 to-primary-600 opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-xl"></div>
             </Link>
           </div>
         </div>
       </section>
+
+      {/* Section Separator */}
+      <div className="container-custom">
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
+      </div>
 
       {/* Staff Section */}
       <section className="py-20 bg-gradient-to-br from-dark-900 to-dark-800">
@@ -167,6 +220,11 @@ export default function EsportsPage() {
           </div>
         </div>
       </section>
+
+      {/* Section Separator */}
+      <div className="container-custom">
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
+      </div>
 
       {/* Upcoming Matches */}
       <section className="py-20 bg-dark-950">
@@ -209,7 +267,8 @@ export default function EsportsPage() {
                     </div>
                     {match.stream && (
                       <a href={match.stream} target="_blank" rel="noopener noreferrer" 
-                         className="btn-primary btn-sm">
+                         className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-primary-500 to-primary-600 border border-primary-500/40 rounded-lg text-white font-semibold transition-all duration-300 hover:scale-105 hover:border-primary-400 group/link">
+                        <Play className="w-4 h-4 mr-2 group-hover/link:scale-110 transition-transform duration-300" />
                         Canlı İzle
                       </a>
                     )}
@@ -220,12 +279,20 @@ export default function EsportsPage() {
           </div>
 
           <div className="text-center">
-            <Link href="/espor/maclar" className="btn-secondary">
-              Tüm Maçları Görüntüle
+            <Link href="/espor/maclar" className="btn-secondary text-base px-8 py-4 flex items-center justify-center min-w-[200px] group relative">
+              <span className="relative z-10 flex items-center">
+                Tüm Maçları Görüntüle
+                <Calendar className="w-5 h-5 ml-2 group-hover:rotate-12 transition-transform duration-300" />
+              </span>
             </Link>
           </div>
         </div>
       </section>
+
+      {/* Section Separator */}
+      <div className="container-custom">
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
+      </div>
 
       {/* Recent Results */}
       <section className="py-20 bg-gradient-to-br from-dark-900 to-dark-800">
@@ -279,6 +346,11 @@ export default function EsportsPage() {
         </div>
       </section>
 
+      {/* Section Separator */}
+      <div className="container-custom">
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
+      </div>
+
       {/* CTA Section */}
       <section className="py-20 bg-dark-950">
         <div className="container-custom">
@@ -290,12 +362,18 @@ export default function EsportsPage() {
               Maçlarımızı takip et, canlı yayınlarımızı izle ve HydRaboN ailesinin bir parçası ol.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/espor/maclar" className="bg-white text-primary-600 font-semibold py-4 px-8 rounded-lg hover:bg-primary-50 transition-colors duration-300">
-                Maç Takvimi
+              <Link href="/espor/maclar" className="bg-white text-primary-600 font-semibold py-4 px-8 rounded-lg hover:bg-primary-50 transition-all duration-300 flex items-center justify-center min-w-[160px] group">
+                <span className="flex items-center">
+                  Maç Takvimi
+                  <Calendar className="w-5 h-5 ml-2 group-hover:rotate-12 transition-transform duration-300" />
+                </span>
               </Link>
               <a href="https://twitch.tv/hydrabon_official" target="_blank" rel="noopener noreferrer"
-                 className="bg-primary-700 text-white font-semibold py-4 px-8 rounded-lg hover:bg-primary-800 transition-colors duration-300">
-                Canlı Yayın
+                 className="bg-primary-700 text-white font-semibold py-4 px-8 rounded-lg hover:bg-primary-800 transition-all duration-300 flex items-center justify-center min-w-[160px] group">
+                <span className="flex items-center">
+                  Canlı Yayın
+                  <Play className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
+                </span>
               </a>
             </div>
           </div>
@@ -303,4 +381,4 @@ export default function EsportsPage() {
       </section>
     </div>
   );
-} 
+}

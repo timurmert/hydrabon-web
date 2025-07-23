@@ -6,7 +6,6 @@ import {
   MapPin,
   Clock,
   Send,
-  MessageSquare,
   ExternalLink,
   Instagram,
   Twitter,
@@ -135,23 +134,68 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-hero overflow-hidden">
-        <div className="absolute inset-0 tiger-pattern opacity-10"></div>
-        <div className="container-custom relative">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Multi-layered Dynamic Background */}
+        <div className="absolute inset-0 bg-gradient-hero" style={{ zIndex: 0 }}></div>
+        <div className="absolute inset-0 geometric-pattern" style={{ zIndex: 1 }}></div>
+        <div className="absolute inset-0 tiger-pattern opacity-15 animate-pulse-slow" style={{ zIndex: 2 }}></div>
+        <div className="absolute inset-0 animated-grid opacity-20" style={{ zIndex: 3 }}></div>
+        
+        {/* Floating Particles */}
+        <div className="absolute inset-0" style={{ zIndex: 4 }}>
+          <div className="particle"></div>
+          <div className="particle"></div>
+          <div className="particle"></div>
+          <div className="particle"></div>
+          <div className="particle"></div>
+          <div className="particle"></div>
+        </div>
+        
+        {/* Glowing Orbs */}
+        <div className="absolute inset-0" style={{ zIndex: 5 }}>
+          <div className="glow-orb glow-orb-1"></div>
+          <div className="glow-orb glow-orb-2"></div>
+          <div className="glow-orb glow-orb-3"></div>
+        </div>
+
+        <div className="container-custom relative z-20">
           <div className="text-center mb-16">
-            <div className="flex justify-center mb-6">
-              <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center">
-                <MessageSquare className="w-10 h-10 text-white" />
+            {/* Brand Badge */}
+            <div className="flex justify-center mb-8">
+              <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary-900/30 to-primary-800/30 border border-primary-500/40 rounded-full backdrop-blur-md">
+                <div className="w-2 h-2 bg-primary-400 rounded-full mr-3 animate-pulse"></div>
+                <span className="text-primary-200 text-sm font-semibold tracking-wider uppercase">İletişim</span>
+                <div className="w-2 h-2 bg-primary-400 rounded-full ml-3 animate-pulse"></div>
               </div>
             </div>
-            <h1 className="section-title">İletişim</h1>
-            <p className="section-subtitle">
-              Bizimle iletişime geçin. Sorularınız, önerileriniz ve iş birliği 
-              teklifleriniz için her zaman buradayız.
-            </p>
+
+            {/* Enhanced Title */}
+            <div className="relative mb-8">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight">
+                <span className="bg-gradient-to-r from-primary-300 via-white to-primary-300 bg-clip-text text-transparent">
+                  İletişim
+                </span>
+              </h1>
+              <div className="w-32 h-1 bg-gradient-to-r from-transparent via-primary-500 to-transparent mx-auto mt-6 rounded-full"></div>
+            </div>
+
+            {/* Enhanced Description */}
+            <div className="max-w-4xl mx-auto mb-12">
+              <p className="text-base md:text-lg text-dark-100 leading-relaxed font-medium">
+                Bizimle iletişime geçin. Sorularınız, önerileriniz ve 
+                <span className="text-primary-300 font-semibold"> iş birliği teklifleriniz </span>
+                için 
+                <span className="text-white font-semibold"> her zaman buradayız</span>.
+              </p>
+            </div>
           </div>
         </div>
       </section>
+
+      {/* Section Separator */}
+      <div className="container-custom">
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
+      </div>
 
       {/* Contact Form & Info */}
       <section className="py-20 bg-dark-950">
@@ -328,6 +372,11 @@ export default function ContactPage() {
         </div>
       </section>
 
+      {/* Section Separator */}
+      <div className="container-custom">
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
+      </div>
+
       {/* Social Media */}
       <section className="py-20 bg-gradient-to-br from-dark-900 to-dark-800">
         <div className="container-custom">
@@ -367,6 +416,11 @@ export default function ContactPage() {
         </div>
       </section>
 
+      {/* Section Separator */}
+      <div className="container-custom">
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
+      </div>
+
       {/* Discord CTA */}
       <section className="py-20 bg-dark-950">
         <div className="container-custom">
@@ -380,12 +434,18 @@ export default function ContactPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="https://discord.gg/hydrabon" target="_blank" rel="noopener noreferrer"
-                 className="bg-white text-indigo-600 font-semibold py-4 px-8 rounded-lg hover:bg-indigo-50 transition-colors duration-300">
-                Discord&apos;a Katıl
+                 className="bg-white text-indigo-600 font-semibold py-4 px-8 rounded-lg hover:bg-indigo-50 transition-all duration-300 flex items-center justify-center min-w-[160px] group">
+                <span className="flex items-center">
+                  Discord&apos;a Katıl
+                  <ExternalLink className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                </span>
               </a>
               <a href="mailto:info@hydrabon.com"
-                 className="bg-indigo-700 text-white font-semibold py-4 px-8 rounded-lg hover:bg-indigo-800 transition-colors duration-300">
-                E-posta Gönder
+                 className="bg-indigo-700 text-white font-semibold py-4 px-8 rounded-lg hover:bg-indigo-800 transition-all duration-300 flex items-center justify-center min-w-[160px] group">
+                <span className="flex items-center">
+                  E-posta Gönder
+                  <Mail className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
+                </span>
               </a>
             </div>
           </div>
@@ -393,4 +453,4 @@ export default function ContactPage() {
       </section>
     </div>
   );
-} 
+}

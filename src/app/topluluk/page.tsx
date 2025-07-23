@@ -9,7 +9,8 @@ import {
   HelpCircle,
   ExternalLink,
   Zap,
-  Gift
+  Gift,
+  Target
 } from 'lucide-react';
 import Link from 'next/link';
 import { 
@@ -24,20 +25,60 @@ export default function CommunityPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-hero overflow-hidden">
-        <div className="absolute inset-0 tiger-pattern opacity-10"></div>
-        <div className="container-custom relative">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Multi-layered Dynamic Background */}
+        <div className="absolute inset-0 bg-gradient-hero" style={{ zIndex: 0 }}></div>
+        <div className="absolute inset-0 geometric-pattern" style={{ zIndex: 1 }}></div>
+        <div className="absolute inset-0 tiger-pattern opacity-15 animate-pulse-slow" style={{ zIndex: 2 }}></div>
+        <div className="absolute inset-0 animated-grid opacity-20" style={{ zIndex: 3 }}></div>
+        
+        {/* Floating Particles */}
+        <div className="absolute inset-0" style={{ zIndex: 4 }}>
+          <div className="particle"></div>
+          <div className="particle"></div>
+          <div className="particle"></div>
+          <div className="particle"></div>
+          <div className="particle"></div>
+          <div className="particle"></div>
+        </div>
+        
+        {/* Glowing Orbs */}
+        <div className="absolute inset-0" style={{ zIndex: 5 }}>
+          <div className="glow-orb glow-orb-1"></div>
+          <div className="glow-orb glow-orb-2"></div>
+          <div className="glow-orb glow-orb-3"></div>
+        </div>
+
+        <div className="container-custom relative z-20">
           <div className="text-center mb-16">
-            <div className="flex justify-center mb-6">
-              <div className="w-20 h-20 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-full flex items-center justify-center">
-                <Users className="w-10 h-10 text-white" />
+            {/* Brand Badge */}
+            <div className="flex justify-center mb-8">
+              <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary-900/30 to-primary-800/30 border border-primary-500/40 rounded-full backdrop-blur-md">
+                <div className="w-2 h-2 bg-primary-400 rounded-full mr-3 animate-pulse"></div>
+                <span className="text-primary-200 text-sm font-semibold tracking-wider uppercase">Discord Topluluğu</span>
+                <div className="w-2 h-2 bg-primary-400 rounded-full ml-3 animate-pulse"></div>
               </div>
             </div>
-            <h1 className="section-title">Discord Topluluğu</h1>
-            <p className="section-subtitle">
-              Kalabalık ve organize Discord sunucumuz. Etkinlik takibi, yetkili yönetimi, 
-              başvuru sistemleri ve kullanıcı etkileşimi ile aktif bir topluluk.
-            </p>
+
+            {/* Enhanced Title */}
+            <div className="relative mb-8">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight">
+                <span className="bg-gradient-to-r from-primary-300 via-white to-primary-300 bg-clip-text text-transparent">
+                  Discord Topluluğu
+                </span>
+              </h1>
+              <div className="w-32 h-1 bg-gradient-to-r from-transparent via-primary-500 to-transparent mx-auto mt-6 rounded-full"></div>
+            </div>
+
+            {/* Enhanced Description */}
+            <div className="max-w-4xl mx-auto mb-12">
+              <p className="text-base md:text-lg text-dark-100 leading-relaxed font-medium">
+                Kalabalık ve organize Discord sunucumuz. Etkinlik takibi, yetkili yönetimi, 
+                <span className="text-primary-300 font-semibold"> başvuru sistemleri </span>
+                ve kullanıcı etkileşimi ile 
+                <span className="text-white font-semibold"> aktif bir topluluk</span>.
+              </p>
+            </div>
           </div>
 
           {/* Community Stats */}
@@ -80,6 +121,11 @@ export default function CommunityPage() {
         </div>
       </section>
 
+      {/* Section Separator */}
+      <div className="container-custom">
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
+      </div>
+
       {/* Server Roles */}
       <section className="py-20 bg-dark-950">
         <div className="container-custom">
@@ -115,12 +161,20 @@ export default function CommunityPage() {
 
           <div className="text-center">
             <p className="text-dark-300 mb-4">Toplam {communityStats.roles.length} farklı rol bulunmaktadır.</p>
-            <Link href="/topluluk/roller" className="btn-secondary">
-              Tüm Rolleri Görüntüle
+            <Link href="/topluluk/roller" className="btn-secondary text-base px-8 py-4 flex items-center justify-center min-w-[200px] group relative">
+              <span className="relative z-10 flex items-center">
+                Tüm Rolleri Görüntüle
+                <Star className="w-5 h-5 ml-2 group-hover:rotate-12 transition-transform duration-300" />
+              </span>
             </Link>
           </div>
         </div>
       </section>
+
+      {/* Section Separator */}
+      <div className="container-custom">
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
+      </div>
 
       {/* Upcoming Events */}
       <section className="py-20 bg-gradient-to-br from-dark-900 to-dark-800">
@@ -201,12 +255,21 @@ export default function CommunityPage() {
           </div>
 
           <div className="text-center">
-            <Link href="/topluluk/etkinlikler" className="btn-primary">
-              Tüm Etkinlikleri Görüntüle
+            <Link href="/topluluk/etkinlikler" className="btn-primary text-base px-8 py-4 flex items-center justify-center min-w-[200px] group relative overflow-hidden">
+              <span className="relative z-10 flex items-center">
+                Tüm Etkinlikleri Görüntüle
+                <Calendar className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-primary-400 to-primary-600 opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-xl"></div>
             </Link>
           </div>
         </div>
       </section>
+
+      {/* Section Separator */}
+      <div className="container-custom">
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
+      </div>
 
       {/* Application Types */}
       <section className="py-20 bg-dark-950">
@@ -241,14 +304,23 @@ export default function CommunityPage() {
                   <p className="text-dark-300 text-sm">{app.process}</p>
                 </div>
 
-                <Link href="/topluluk/basvur" className="btn-primary w-full">
-                  Başvuru Yap
+                <Link href="/topluluk/basvur" className="btn-primary text-base px-6 py-4 w-full flex items-center justify-center group relative overflow-hidden">
+                  <span className="relative z-10 flex items-center">
+                    Başvuru Yap
+                    <Target className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
+                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary-400 to-primary-600 opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-xl"></div>
                 </Link>
               </div>
             ))}
           </div>
         </div>
       </section>
+
+      {/* Section Separator */}
+      <div className="container-custom">
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
+      </div>
 
       {/* Rules Section */}
       <section className="py-20 bg-gradient-to-br from-dark-900 to-dark-800">
@@ -277,12 +349,20 @@ export default function CommunityPage() {
           </div>
 
           <div className="text-center mt-12">
-            <Link href="/topluluk/kurallar" className="btn-secondary">
-              Detaylı Kuralları Oku
+            <Link href="/topluluk/kurallar" className="btn-secondary text-base px-8 py-4 flex items-center justify-center min-w-[200px] group relative">
+              <span className="relative z-10 flex items-center">
+                Detaylı Kuralları Oku
+                <HelpCircle className="w-5 h-5 ml-2 group-hover:rotate-12 transition-transform duration-300" />
+              </span>
             </Link>
           </div>
         </div>
       </section>
+
+      {/* Section Separator */}
+      <div className="container-custom">
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
+      </div>
 
       {/* FAQ Section */}
       <section className="py-20 bg-dark-950">
@@ -312,13 +392,21 @@ export default function CommunityPage() {
             </div>
 
             <div className="text-center mt-12">
-              <Link href="/topluluk/sss" className="btn-secondary">
-                Tüm Soruları Görüntüle
+              <Link href="/topluluk/sss" className="btn-secondary text-base px-8 py-4 flex items-center justify-center min-w-[200px] group relative">
+                <span className="relative z-10 flex items-center">
+                  Tüm Soruları Görüntüle
+                  <HelpCircle className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
+                </span>
               </Link>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Section Separator */}
+      <div className="container-custom">
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
+      </div>
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-br from-dark-900 to-dark-800">
@@ -333,11 +421,17 @@ export default function CommunityPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="https://discord.gg/hydrabon" target="_blank" rel="noopener noreferrer"
-                 className="bg-white text-indigo-600 font-semibold py-4 px-8 rounded-lg hover:bg-indigo-50 transition-colors duration-300">
-                Discord&apos;a Katıl
+                 className="bg-white text-indigo-600 font-semibold py-4 px-8 rounded-lg hover:bg-indigo-50 transition-all duration-300 flex items-center justify-center min-w-[160px] group">
+                <span className="flex items-center">
+                  Discord&apos;a Katıl
+                  <Users className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
+                </span>
               </a>
-              <Link href="/topluluk/basvur" className="bg-indigo-700 text-white font-semibold py-4 px-8 rounded-lg hover:bg-indigo-800 transition-colors duration-300">
-                Ekibe Başvur
+              <Link href="/topluluk/basvur" className="bg-indigo-700 text-white font-semibold py-4 px-8 rounded-lg hover:bg-indigo-800 transition-all duration-300 flex items-center justify-center min-w-[160px] group">
+                <span className="flex items-center">
+                  Ekibe Başvur
+                  <Target className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                </span>
               </Link>
             </div>
           </div>
@@ -345,4 +439,4 @@ export default function CommunityPage() {
       </section>
     </div>
   );
-} 
+}
