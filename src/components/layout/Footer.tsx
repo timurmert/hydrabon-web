@@ -96,7 +96,7 @@ const contactInfo = {
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  const [isLogoHovered, setIsLogoHovered] = useState(false);
+
   const [titleWidths, setTitleWidths] = useState<Record<string, number>>({});
   const [hoveredTitle, setHoveredTitle] = useState<string | null>(null);
   const titleRefs = useRef<Record<string, HTMLSpanElement | null>>({});
@@ -143,19 +143,11 @@ export default function Footer() {
 
   // Optimized hover handlers
   const handleLogoMouseEnter = () => {
-    if (window.matchMedia('(hover: hover)').matches) {
-      requestAnimationFrame(() => {
-        setIsLogoHovered(true);
-      });
-    }
+    // Logo hover animations are handled via CSS
   };
 
   const handleLogoMouseLeave = () => {
-    if (window.matchMedia('(hover: hover)').matches) {
-      requestAnimationFrame(() => {
-        setIsLogoHovered(false);
-      });
-    }
+    // Logo hover animations are handled via CSS
   };
 
   const scrollToTop = () => {
