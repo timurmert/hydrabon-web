@@ -1,3 +1,5 @@
+'use client';
+
 import { 
   Video,
   Image as ImageIcon,
@@ -18,6 +20,7 @@ import {
   Twitter
 } from 'lucide-react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import { featuredContent, mediaTeam, mediaStats, contentCategories, socialMediaPlatforms } from '@/data/media';
 
 const typeIcons = {
@@ -45,9 +48,9 @@ const roleIcons = {
 
 export default function MediaPage() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen snap-y snap-mandatory overflow-y-scroll scroll-smooth">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden snap-start snap-always">
         {/* Multi-layered Dynamic Background */}
         <div className="absolute inset-0 bg-gradient-hero" style={{ zIndex: 0 }}></div>
         <div className="absolute inset-0 geometric-pattern" style={{ zIndex: 1 }}></div>
@@ -72,60 +75,88 @@ export default function MediaPage() {
         </div>
 
         <div className="container-custom relative z-20">
-          <div className="text-center mb-16">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
             {/* Brand Badge */}
-            <div className="flex justify-center mb-8">
+            <motion.div 
+              className="flex justify-center mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
               <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary-900/30 to-primary-800/30 border border-primary-500/40 rounded-full backdrop-blur-md">
                 <div className="w-2 h-2 bg-primary-400 rounded-full mr-3 animate-pulse"></div>
                 <span className="text-primary-200 text-sm font-semibold tracking-wider uppercase">Medya Departmanı</span>
                 <div className="w-2 h-2 bg-primary-400 rounded-full ml-3 animate-pulse"></div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Enhanced Title */}
-            <div className="relative mb-8">
+            <motion.div 
+              className="relative mb-8"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight">
                 <span className="bg-gradient-to-r from-primary-300 via-white to-primary-300 bg-clip-text text-transparent">
                   HydRaboN Medya
                 </span>
               </h1>
-              <div className="w-32 h-1 bg-gradient-to-r from-transparent via-primary-500 to-transparent mx-auto mt-6 rounded-full"></div>
-            </div>
+              <motion.div 
+                className="w-32 h-1 bg-gradient-to-r from-transparent via-primary-500 to-transparent mx-auto mt-6 rounded-full"
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+              ></motion.div>
+            </motion.div>
 
             {/* Enhanced Description */}
-            <div className="max-w-4xl mx-auto mb-12">
+            <motion.div 
+              className="max-w-4xl mx-auto mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
               <p className="text-base md:text-lg text-dark-100 leading-relaxed font-medium">
                 Teaser videolar, takım tanıtımları, taraftar içerikleri ve 
                 <span className="text-primary-300 font-semibold"> sosyal medya kampanyaları </span>
                 hazırlayan 
                 <span className="text-white font-semibold"> aktif medya departmanımız</span>.
               </p>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Media Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-            <div className="professional-card text-center">
-              <Video className="w-8 h-8 text-primary-500 mx-auto mb-3" />
-              <div className="text-3xl font-bold text-white mb-1">{mediaStats.totalVideos}</div>
-              <div className="text-dark-300">Video İçerik</div>
-            </div>
-            <div className="professional-card text-center">
-              <Eye className="w-8 h-8 text-green-500 mx-auto mb-3" />
-              <div className="text-3xl font-bold text-white mb-1">{(mediaStats.totalViews / 1000).toFixed(0)}K</div>
-              <div className="text-dark-300">Toplam İzlenme</div>
-            </div>
-            <div className="professional-card text-center">
-              <Users className="w-8 h-8 text-blue-500 mx-auto mb-3" />
-              <div className="text-3xl font-bold text-white mb-1">{(mediaStats.subscribers / 1000).toFixed(1)}K</div>
-              <div className="text-dark-300">Abone</div>
-            </div>
-            <div className="professional-card text-center">
-              <TrendingUp className="w-8 h-8 text-purple-500 mx-auto mb-3" />
-              <div className="text-3xl font-bold text-white mb-1">{mediaStats.monthlyGrowth}%</div>
-              <div className="text-dark-300">Aylık Büyüme</div>
-            </div>
-          </div>
+          <motion.div 
+            className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
+            {[
+              { icon: Video, value: mediaStats.totalVideos, label: 'Video İçerik', color: 'text-primary-500' },
+              { icon: Eye, value: `${(mediaStats.totalViews / 1000).toFixed(0)}K`, label: 'Toplam İzlenme', color: 'text-green-500' },
+              { icon: Users, value: `${(mediaStats.subscribers / 1000).toFixed(1)}K`, label: 'Abone', color: 'text-blue-500' },
+              { icon: TrendingUp, value: `${mediaStats.monthlyGrowth}%`, label: 'Aylık Büyüme', color: 'text-purple-500' }
+            ].map((stat, index) => (
+              <motion.div 
+                key={index}
+                className="professional-card text-center"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
+              >
+                <stat.icon className={`w-8 h-8 ${stat.color} mx-auto mb-3`} />
+                <div className="text-3xl font-bold text-white mb-1">{stat.value}</div>
+                <div className="text-dark-300">{stat.label}</div>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
@@ -135,20 +166,39 @@ export default function MediaPage() {
       </div>
 
       {/* Featured Content */}
-      <section className="py-20 bg-dark-950">
+      <section className="py-20 bg-dark-950 snap-start snap-always min-h-screen flex items-center">
         <div className="container-custom">
-          <div className="text-center mb-16">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+          >
             <h2 className="section-title">Öne Çıkan İçerikler</h2>
             <p className="section-subtitle">
               En çok izlenen ve beğenilen içeriklerimizi keşfedin.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-            {featuredContent.map((content) => {
+          <motion.div 
+            className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8 }}
+          >
+            {featuredContent.map((content, index) => {
               const IconComponent = typeIcons[content.type];
               return (
-                <div key={content.id} className="professional-card group">
+                <motion.div 
+                  key={content.id} 
+                  className="professional-card group"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                >
                   <div className="relative mb-6 overflow-hidden rounded-lg">
                     <div className="aspect-video bg-dark-700 flex items-center justify-center">
                       <div className="text-center">
@@ -213,12 +263,18 @@ export default function MediaPage() {
                     İçeriği Görüntüle
                     <ExternalLink className="w-4 h-4 ml-2" />
                   </a>
-                </div>
+                </motion.div>
               );
             })}
-          </div>
+          </motion.div>
 
-          <div className="text-center">
+          <motion.div 
+            className="text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
             <Link href="/medya/videolar" className="btn-primary text-base px-8 py-4 flex items-center justify-center min-w-[200px] group relative overflow-hidden">
               <span className="relative z-10 flex items-center">
                 Tüm İçerikleri Görüntüle
@@ -226,7 +282,7 @@ export default function MediaPage() {
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-primary-400 to-primary-600 opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-xl"></div>
             </Link>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -238,16 +294,35 @@ export default function MediaPage() {
       {/* Content Categories */}
       <section className="py-20 bg-gradient-to-br from-dark-900 to-dark-800">
         <div className="container-custom">
-          <div className="text-center mb-16">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+          >
             <h2 className="section-title">İçerik Kategorileri</h2>
             <p className="section-subtitle">
               Çeşitli kategorilerde ürettiğimiz kaliteli içerikler.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8 }}
+          >
             {contentCategories.map((category, index) => (
-              <div key={index} className="professional-card text-center group">
+              <motion.div 
+                key={index}
+                className="professional-card text-center group"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
                 <div className={`w-16 h-16 bg-gradient-to-br ${category.color} rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300`}>
                   <Video className="w-8 h-8 text-white" />
                 </div>
@@ -255,9 +330,9 @@ export default function MediaPage() {
                 <p className="text-dark-300 mb-4">{category.description}</p>
                 <div className="text-3xl font-bold text-primary-500 mb-2">{category.count}</div>
                 <div className="text-dark-400 text-sm">İçerik</div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -269,18 +344,37 @@ export default function MediaPage() {
       {/* Media Team */}
       <section className="py-20 bg-dark-950">
         <div className="container-custom">
-          <div className="text-center mb-16">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+          >
             <h2 className="section-title">Medya Ekibi</h2>
             <p className="section-subtitle">
               Yaratıcı ve profesyonel medya ekibimizle tanışın.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8 }}
+          >
             {mediaTeam.map((member) => {
               const IconComponent = roleIcons[member.role];
               return (
-                <div key={member.id} className="professional-card text-center">
+                <motion.div 
+                  key={member.id} 
+                  className="professional-card text-center"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                                     transition={{ duration: 0.6, delay: (typeof member.id === 'number' ? member.id : 0) * 0.1 }}
+                >
                   <div className="w-24 h-24 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
                     <IconComponent className="w-12 h-12 text-white" />
                   </div>
@@ -335,19 +429,25 @@ export default function MediaPage() {
                       </a>
                     )}
                   </div>
-                </div>
+                </motion.div>
               );
             })}
-          </div>
+          </motion.div>
 
-          <div className="text-center">
+          <motion.div 
+            className="text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
             <Link href="/medya/ekip" className="btn-secondary text-base px-8 py-4 flex items-center justify-center min-w-[200px] group relative">
               <span className="relative z-10 flex items-center">
                 Ekibin Tamamını Gör
                 <Users className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
               </span>
             </Link>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -359,21 +459,37 @@ export default function MediaPage() {
       {/* Social Media Platforms */}
       <section className="py-20 bg-gradient-to-br from-dark-900 to-dark-800">
         <div className="container-custom">
-          <div className="text-center mb-16">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+          >
             <h2 className="section-title">Sosyal Medya</h2>
             <p className="section-subtitle">
               Bizi tüm sosyal medya platformlarında takip edin.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8 }}
+          >
             {socialMediaPlatforms.map((platform, index) => (
-              <a
+              <motion.a
                 key={index}
                 href={platform.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="professional-card group hover:scale-105 transition-transform duration-300"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
               >
                 <div className="text-center">
                   <div className={`text-4xl font-bold mb-2 ${platform.color}`}>
@@ -386,9 +502,9 @@ export default function MediaPage() {
                     <span className="text-green-500 text-sm font-medium">{platform.growth}</span>
                   </div>
                 </div>
-              </a>
+              </motion.a>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -398,9 +514,15 @@ export default function MediaPage() {
       </div>
 
       {/* CTA Section */}
-      <section className="py-20 bg-dark-950">
+      <section className="py-20 bg-dark-950 snap-start snap-always min-h-screen flex items-center">
         <div className="container-custom">
-          <div className="bg-gradient-to-r from-purple-600 to-purple-500 rounded-3xl p-12 text-center">
+          <motion.div 
+            className="bg-gradient-to-r from-purple-600 to-purple-500 rounded-3xl p-12 text-center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+          >
             <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">
               İçeriklerimizi Takip Edin!
             </h2>
@@ -408,7 +530,13 @@ export default function MediaPage() {
               En yeni videolarımızdan haberdar olmak ve kulislerden görüntüleri kaçırmamak için 
               sosyal medya hesaplarımızı takip edin.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-4 justify-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
               <a href="https://youtube.com/@hydrabon" target="_blank" rel="noopener noreferrer"
                  className="bg-white text-purple-600 font-semibold py-4 px-8 rounded-lg hover:bg-purple-50 transition-all duration-300 flex items-center justify-center min-w-[180px] group">
                 <span className="flex items-center">
@@ -423,8 +551,8 @@ export default function MediaPage() {
                   <Instagram className="w-5 h-5 ml-2 group-hover:rotate-12 transition-transform duration-300" />
                 </span>
               </a>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
     </div>

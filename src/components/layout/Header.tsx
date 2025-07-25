@@ -119,9 +119,9 @@ export default function Header() {
 
   return (
     <motion.header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-dark-950/95 backdrop-blur-custom border-b border-dark-800'
+          ? 'bg-black/60 backdrop-blur-md border-b border-primary-500/30 shadow-lg shadow-black/20'
           : 'bg-transparent'
       }`}
       initial={{ y: -100 }}

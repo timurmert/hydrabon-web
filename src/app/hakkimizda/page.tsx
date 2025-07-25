@@ -1,3 +1,5 @@
+'use client';
+
 import {
   Target,
   Heart,
@@ -12,6 +14,7 @@ import {
   MapPin
 } from 'lucide-react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 const timeline = [
   {
@@ -98,9 +101,9 @@ const achievements = [
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen snap-y snap-mandatory overflow-y-scroll scroll-smooth">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden snap-start snap-always">
         {/* Multi-layered Dynamic Background */}
         <div className="absolute inset-0 bg-gradient-hero" style={{ zIndex: 0 }}></div>
         <div className="absolute inset-0 geometric-pattern" style={{ zIndex: 1 }}></div>
@@ -125,36 +128,61 @@ export default function AboutPage() {
         </div>
 
         <div className="container-custom relative z-20">
-          <div className="text-center mb-16">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
             {/* Brand Badge */}
-            <div className="flex justify-center mb-8">
+            <motion.div 
+              className="flex justify-center mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
               <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary-900/30 to-primary-800/30 border border-primary-500/40 rounded-full backdrop-blur-md">
                 <div className="w-2 h-2 bg-primary-400 rounded-full mr-3 animate-pulse"></div>
                 <span className="text-primary-200 text-sm font-semibold tracking-wider uppercase">Organizasyon</span>
                 <div className="w-2 h-2 bg-primary-400 rounded-full ml-3 animate-pulse"></div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Enhanced Title */}
-            <div className="relative mb-8">
+            <motion.div 
+              className="relative mb-8"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight">
                 <span className="bg-gradient-to-r from-primary-300 via-white to-primary-300 bg-clip-text text-transparent">
                   Hakkımızda
                 </span>
               </h1>
-              <div className="w-32 h-1 bg-gradient-to-r from-transparent via-primary-500 to-transparent mx-auto mt-6 rounded-full"></div>
-            </div>
+              <motion.div 
+                className="w-32 h-1 bg-gradient-to-r from-transparent via-primary-500 to-transparent mx-auto mt-6 rounded-full"
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+              ></motion.div>
+            </motion.div>
 
             {/* Enhanced Description */}
-            <div className="max-w-4xl mx-auto mb-12">
+            <motion.div 
+              className="max-w-4xl mx-auto mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
               <p className="text-base md:text-lg text-dark-100 leading-relaxed font-medium">
                 Profesyonel yaklaşım, disiplinli yapı ve 
                 <span className="text-primary-300 font-semibold"> kaplan sembolizmini </span>
                 benimseyen HydRaboN organizasyonunun 
                 <span className="text-white font-semibold"> hikayesi ve değerleri</span>.
               </p>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
@@ -164,10 +192,22 @@ export default function AboutPage() {
       </div>
 
       {/* Mission & Vision */}
-      <section className="py-20 bg-dark-950">
+      <section className="py-20 bg-dark-950 snap-start snap-always min-h-screen flex items-center">
         <div className="container-custom">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div className="professional-card">
+          <motion.div 
+            className="grid grid-cols-1 lg:grid-cols-2 gap-12"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+          >
+            <motion.div 
+              className="professional-card"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
               <div className="w-16 h-16 bg-primary-500/20 rounded-xl flex items-center justify-center mb-6">
                 <Target className="w-8 h-8 text-primary-500" />
               </div>
@@ -181,9 +221,15 @@ export default function AboutPage() {
                 topluluğumuza değer katan projeler geliştiririz. Disiplinli çalışma, 
                 sürekli öğrenme ve takım ruhu ile esports dünyasında iz bırakırız.
               </p>
-            </div>
+            </motion.div>
 
-            <div className="professional-card">
+            <motion.div 
+              className="professional-card"
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
               <div className="w-16 h-16 bg-orange-500/20 rounded-xl flex items-center justify-center mb-6">
                 <Crown className="w-8 h-8 text-orange-500" />
               </div>
@@ -197,8 +243,8 @@ export default function AboutPage() {
                 medya prodüksiyonuna kadar her alanda mükemmelliği hedefleyerek, 
                 esports&apos;ın geleceğini şekillendiren öncü organizasyon olmak.
               </p>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
@@ -208,14 +254,20 @@ export default function AboutPage() {
       </div>
 
       {/* Timeline */}
-      <section className="py-20 bg-gradient-to-br from-dark-900 to-dark-800">
+      <section className="py-20 bg-gradient-to-br from-dark-900 to-dark-800 snap-start snap-always min-h-screen flex items-center">
         <div className="container-custom">
-          <div className="text-center mb-16">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+          >
             <h2 className="section-title">Yolculuğumuz</h2>
             <p className="section-subtitle">
               HydRaboN&apos;un kuruluşundan bugüne kadar geçirdiği önemli aşamalar.
             </p>
-          </div>
+          </motion.div>
 
           <div className="max-w-4xl mx-auto">
             <div className="relative">
@@ -226,10 +278,23 @@ export default function AboutPage() {
                 {timeline.map((item, index) => {
                   const IconComponent = item.icon;
                   return (
-                    <div key={index} className="relative flex items-start space-x-6">
-                      <div className="w-16 h-16 bg-dark-800 border-4 border-primary-500 rounded-full flex items-center justify-center relative z-10">
+                    <motion.div 
+                      key={index} 
+                      className="relative flex items-start space-x-6"
+                      initial={{ opacity: 0, x: -30 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: index * 0.2 }}
+                    >
+                      <motion.div 
+                        className="w-16 h-16 bg-dark-800 border-4 border-primary-500 rounded-full flex items-center justify-center relative z-10"
+                        initial={{ scale: 0 }}
+                        whileInView={{ scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: index * 0.2 + 0.2 }}
+                      >
                         <IconComponent className="w-8 h-8 text-primary-500" />
-                      </div>
+                      </motion.div>
                       <div className="flex-1">
                         <div className="professional-card">
                           <div className="flex items-center space-x-4 mb-4">
@@ -239,7 +304,7 @@ export default function AboutPage() {
                           <p className="text-dark-300">{item.description}</p>
                         </div>
                       </div>
-                    </div>
+                    </motion.div>
                   );
                 })}
               </div>
@@ -254,29 +319,48 @@ export default function AboutPage() {
       </div>
 
       {/* Values */}
-      <section className="py-20 bg-dark-950">
+      <section className="py-20 bg-dark-950 snap-start snap-always min-h-screen flex items-center">
         <div className="container-custom">
-          <div className="text-center mb-16">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+          >
             <h2 className="section-title">Değerlerimiz</h2>
             <p className="section-subtitle">
               Organizasyonumuzun temelini oluşturan değerler ve ilkeler.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8 }}
+          >
             {values.map((value, index) => {
               const IconComponent = value.icon;
               return (
-                <div key={index} className="professional-card text-center group">
+                <motion.div 
+                  key={index} 
+                  className="professional-card text-center group"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                >
                   <div className="w-16 h-16 bg-primary-500/20 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-500/30 transition-colors duration-300">
                     <IconComponent className="w-8 h-8 text-primary-500" />
                   </div>
                   <h3 className="text-xl font-bold text-white mb-4">{value.title}</h3>
                   <p className="text-dark-300 leading-relaxed">{value.description}</p>
-                </div>
+                </motion.div>
               );
             })}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -286,27 +370,46 @@ export default function AboutPage() {
       </div>
 
       {/* Achievements */}
-      <section className="py-20 bg-gradient-to-br from-dark-900 to-dark-800">
+      <section className="py-20 bg-gradient-to-br from-dark-900 to-dark-800 snap-start snap-always min-h-screen flex items-center">
         <div className="container-custom">
-          <div className="text-center mb-16">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+          >
             <h2 className="section-title">Başarılarımız</h2>
             <p className="section-subtitle">
               Bugüne kadar elde ettiğimiz önemli başarılar ve kilometre taşları.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8 }}
+          >
             {achievements.map((achievement, index) => (
-              <div key={index} className="professional-card text-center">
+              <motion.div 
+                key={index} 
+                className="professional-card text-center"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
                 <div className="w-12 h-12 bg-yellow-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Award className="w-6 h-6 text-yellow-500" />
                 </div>
                 <h3 className="text-lg font-bold text-white mb-2">{achievement.title}</h3>
                 <p className="text-primary-500 font-medium mb-2">{achievement.description}</p>
                 <span className="text-dark-400 text-sm">{achievement.year}</span>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -316,11 +419,23 @@ export default function AboutPage() {
       </div>
 
       {/* Team Philosophy */}
-      <section className="py-20 bg-dark-950">
+      <section className="py-20 bg-dark-950 snap-start snap-always min-h-screen flex items-center">
         <div className="container-custom">
-          <div className="max-w-4xl mx-auto text-center">
+          <motion.div 
+            className="max-w-4xl mx-auto text-center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+          >
             <h2 className="section-title mb-8">Takım Felsefemiz</h2>
-            <div className="space-y-8">
+            <motion.div 
+              className="space-y-8"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
               <p className="text-xl md:text-2xl text-dark-200 leading-relaxed">
                 &ldquo;Kaplan gibi güçlü, disiplinli ve kararlı bir organizasyon olarak, 
                 <span className="text-gradient font-semibold"> her başarının ardında takım ruhu </span>
@@ -331,8 +446,8 @@ export default function AboutPage() {
                 gelişim odaklı yaklaşımımızla esports dünyasında fark yaratıyoruz. 
                 Profesyonellik, saygı ve fair play ilkelerimiz hiçbir zaman ödün vermediğimiz değerlerdir.
               </p>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
@@ -342,16 +457,28 @@ export default function AboutPage() {
       </div>
 
       {/* Divisions Overview */}
-      <section className="py-20 bg-gradient-to-br from-dark-900 to-dark-800">
+      <section className="py-20 bg-gradient-to-br from-dark-900 to-dark-800 snap-start snap-always min-h-screen flex items-center">
         <div className="container-custom">
-          <div className="text-center mb-16">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+          >
             <h2 className="section-title">Departmanlarımız</h2>
             <p className="section-subtitle">
               Dört ana departmanımızın her biri kendine özgü uzmanlık alanlarında faaliyet gösterir.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-2 gap-8"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8 }}
+          >
             <Link href="/espor" className="professional-card group hover:scale-105 transition-transform duration-300">
               <div className="w-16 h-16 bg-red-500/20 rounded-xl flex items-center justify-center mb-6">
                 <Trophy className="w-8 h-8 text-red-500" />
@@ -395,7 +522,7 @@ export default function AboutPage() {
               </p>
               <div className="text-primary-500 font-medium">Detayları görüntüle →</div>
             </Link>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -405,9 +532,15 @@ export default function AboutPage() {
       </div>
 
       {/* CTA Section */}
-      <section className="py-20 bg-dark-950">
+      <section className="py-20 bg-dark-950 snap-start snap-always min-h-screen flex items-center">
         <div className="container-custom">
-          <div className="bg-gradient-to-r from-orange-600 to-orange-500 rounded-3xl p-12 text-center">
+          <motion.div 
+            className="bg-gradient-to-r from-orange-600 to-orange-500 rounded-3xl p-12 text-center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+          >
             <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">
               Bize Katılın!
             </h2>
@@ -415,7 +548,13 @@ export default function AboutPage() {
               HydRaboN ailesinin bir parçası olmak ve esports dünyasında iz bırakmak için 
               bugün bizimle iletişime geçin.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-4 justify-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
               <Link href="/topluluk/basvur" className="bg-white text-orange-600 font-semibold py-4 px-8 rounded-lg hover:bg-orange-50 transition-all duration-300 flex items-center justify-center min-w-[160px] group">
                 <span className="flex items-center">
                   Takıma Başvur
@@ -428,8 +567,8 @@ export default function AboutPage() {
                   <MapPin className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                 </span>
               </Link>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
     </div>

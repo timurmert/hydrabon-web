@@ -1,3 +1,5 @@
+'use client';
+
 import { 
   Trophy, 
   Target, 
@@ -10,6 +12,7 @@ import {
   Play
 } from 'lucide-react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import { players, staff, upcomingMatches, recentMatches, teamStats } from '@/data/esports';
 
 const roleColors = {
@@ -22,9 +25,9 @@ const roleColors = {
 
 export default function EsportsPage() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen snap-y snap-mandatory overflow-y-scroll scroll-smooth">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden snap-start snap-always">
         {/* Multi-layered Dynamic Background */}
         <div className="absolute inset-0 bg-gradient-hero" style={{ zIndex: 0 }}></div>
         <div className="absolute inset-0 geometric-pattern" style={{ zIndex: 1 }}></div>
@@ -49,60 +52,88 @@ export default function EsportsPage() {
         </div>
 
         <div className="container-custom relative z-20">
-          <div className="text-center mb-16">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
             {/* Brand Badge */}
-            <div className="flex justify-center mb-8">
+            <motion.div 
+              className="flex justify-center mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
               <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary-900/30 to-primary-800/30 border border-primary-500/40 rounded-full backdrop-blur-md">
                 <div className="w-2 h-2 bg-primary-400 rounded-full mr-3 animate-pulse"></div>
                 <span className="text-primary-200 text-sm font-semibold tracking-wider uppercase">Espor Takımı</span>
                 <div className="w-2 h-2 bg-primary-400 rounded-full ml-3 animate-pulse"></div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Enhanced Title */}
-            <div className="relative mb-8">
+            <motion.div 
+              className="relative mb-8"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight">
                 <span className="bg-gradient-to-r from-primary-300 via-white to-primary-300 bg-clip-text text-transparent">
                   HydRaboN Espor
                 </span>
               </h1>
-              <div className="w-32 h-1 bg-gradient-to-r from-transparent via-primary-500 to-transparent mx-auto mt-6 rounded-full"></div>
-            </div>
+              <motion.div 
+                className="w-32 h-1 bg-gradient-to-r from-transparent via-primary-500 to-transparent mx-auto mt-6 rounded-full"
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+              ></motion.div>
+            </motion.div>
 
             {/* Enhanced Description */}
-            <div className="max-w-4xl mx-auto mb-12">
+            <motion.div 
+              className="max-w-4xl mx-auto mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
               <p className="text-base md:text-lg text-dark-100 leading-relaxed font-medium">
                 Özellikle Valorant odaklı 
                 <span className="text-primary-300 font-semibold"> profesyonel takım yapılanması</span>. 
                 Premier League dahil olmak üzere birçok resmi turnuva ve ligde mücadele eden 
                 <span className="text-white font-semibold"> güçlü kadromuz</span>.
               </p>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Team Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-            <div className="professional-card text-center">
-              <Trophy className="w-8 h-8 text-primary-500 mx-auto mb-3" />
-              <div className="text-3xl font-bold text-white mb-1">{teamStats.winRate}%</div>
-              <div className="text-dark-300">Galibiyet Oranı</div>
-            </div>
-            <div className="professional-card text-center">
-              <Target className="w-8 h-8 text-primary-500 mx-auto mb-3" />
-              <div className="text-3xl font-bold text-white mb-1">{teamStats.matchesPlayed}</div>
-              <div className="text-dark-300">Toplam Maç</div>
-            </div>
-            <div className="professional-card text-center">
-              <Medal className="w-8 h-8 text-primary-500 mx-auto mb-3" />
-              <div className="text-3xl font-bold text-white mb-1">{teamStats.championships}</div>
-              <div className="text-dark-300">Şampiyonluk</div>
-            </div>
-            <div className="professional-card text-center">
-              <Zap className="w-8 h-8 text-primary-500 mx-auto mb-3" />
-              <div className="text-3xl font-bold text-white mb-1">{teamStats.tournaments}</div>
-              <div className="text-dark-300">Turnuva</div>
-            </div>
-          </div>
+          <motion.div 
+            className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
+            {[
+              { icon: Trophy, value: `${teamStats.winRate}%`, label: 'Galibiyet Oranı', color: 'text-primary-500' },
+              { icon: Target, value: teamStats.matchesPlayed, label: 'Toplam Maç', color: 'text-primary-500' },
+              { icon: Medal, value: teamStats.championships, label: 'Şampiyonluk', color: 'text-primary-500' },
+              { icon: Zap, value: teamStats.tournaments, label: 'Turnuva', color: 'text-primary-500' }
+            ].map((stat, index) => (
+              <motion.div 
+                key={index}
+                className="professional-card text-center"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
+              >
+                <stat.icon className={`w-8 h-8 ${stat.color} mx-auto mb-3`} />
+                <div className="text-3xl font-bold text-white mb-1">{stat.value}</div>
+                <div className="text-dark-300">{stat.label}</div>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
@@ -112,18 +143,37 @@ export default function EsportsPage() {
       </div>
 
       {/* Players Section */}
-      <section className="py-20 bg-dark-950">
+      <section className="py-20 bg-dark-950 snap-start snap-always min-h-screen flex items-center">
         <div className="container-custom">
-          <div className="text-center mb-16">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+          >
             <h2 className="section-title">Oyuncu Kadrosu</h2>
             <p className="section-subtitle">
               Her biri kendi alanında uzman, takım içi koordinasyonu mükemmel oyuncular.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {players.map((player) => (
-              <div key={player.id} className="professional-card group">
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8 }}
+          >
+            {players.map((player, index) => (
+              <motion.div 
+                key={player.id} 
+                className="professional-card group"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
                 <div className="flex items-start space-x-4 mb-6">
                   <div className="w-16 h-16 bg-dark-700 rounded-full flex items-center justify-center">
                     <Users className="w-8 h-8 text-primary-500" />
@@ -172,11 +222,17 @@ export default function EsportsPage() {
                     </a>
                   )}
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
 
-          <div className="text-center">
+          <motion.div 
+            className="text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
             <Link href="/espor/takim" className="btn-primary text-base px-8 py-4 flex items-center justify-center min-w-[200px] group relative overflow-hidden">
               <span className="relative z-10 flex items-center">
                 Takım Detayları
@@ -184,7 +240,7 @@ export default function EsportsPage() {
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-primary-400 to-primary-600 opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-xl"></div>
             </Link>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -194,18 +250,37 @@ export default function EsportsPage() {
       </div>
 
       {/* Staff Section */}
-      <section className="py-20 bg-gradient-to-br from-dark-900 to-dark-800">
+      <section className="py-20 bg-gradient-to-br from-dark-900 to-dark-800 snap-start snap-always min-h-screen flex items-center">
         <div className="container-custom">
-          <div className="text-center mb-16">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+          >
             <h2 className="section-title">Teknik Kadro</h2>
             <p className="section-subtitle">
               Takımımızın başarısının arkasındaki deneyimli profesyoneller.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {staff.map((member) => (
-              <div key={member.id} className="professional-card text-center">
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8 }}
+          >
+            {staff.map((member, index) => (
+              <motion.div 
+                key={member.id} 
+                className="professional-card text-center"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
                 <div className="w-24 h-24 bg-primary-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Users className="w-12 h-12 text-primary-500" />
                 </div>
@@ -215,9 +290,9 @@ export default function EsportsPage() {
                 </div>
                 <p className="text-dark-300 mb-4">{member.bio}</p>
                 <p className="text-sm text-dark-400">{member.experience}</p>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -227,18 +302,37 @@ export default function EsportsPage() {
       </div>
 
       {/* Upcoming Matches */}
-      <section className="py-20 bg-dark-950">
+      <section className="py-20 bg-dark-950 snap-start snap-always min-h-screen flex items-center">
         <div className="container-custom">
-          <div className="text-center mb-16">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+          >
             <h2 className="section-title">Yaklaşan Maçlar</h2>
             <p className="section-subtitle">
               Takımımızın gelecek maç programını takip edin ve canlı yayınları kaçırmayın.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid gap-6 mb-12">
+          <motion.div 
+            className="grid gap-6 mb-12"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8 }}
+          >
             {upcomingMatches.slice(0, 3).map((match) => (
-              <div key={match.id} className="professional-card">
+              <motion.div 
+                key={match.id} 
+                className="professional-card"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+              >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-6">
                     <div className="flex items-center space-x-4">
@@ -274,18 +368,24 @@ export default function EsportsPage() {
                     )}
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
 
-          <div className="text-center">
+          <motion.div 
+            className="text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
             <Link href="/espor/maclar" className="btn-secondary text-base px-8 py-4 flex items-center justify-center min-w-[200px] group relative">
               <span className="relative z-10 flex items-center">
                 Tüm Maçları Görüntüle
                 <Calendar className="w-5 h-5 ml-2 group-hover:rotate-12 transition-transform duration-300" />
               </span>
             </Link>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -295,18 +395,37 @@ export default function EsportsPage() {
       </div>
 
       {/* Recent Results */}
-      <section className="py-20 bg-gradient-to-br from-dark-900 to-dark-800">
+      <section className="py-20 bg-gradient-to-br from-dark-900 to-dark-800 snap-start snap-always min-h-screen flex items-center">
         <div className="container-custom">
-          <div className="text-center mb-16">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+          >
             <h2 className="section-title">Son Sonuçlar</h2>
             <p className="section-subtitle">
               Takımımızın son maç performansları ve sonuçları.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid gap-6">
+          <motion.div 
+            className="grid gap-6"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8 }}
+          >
             {recentMatches.slice(0, 3).map((match) => (
-              <div key={match.id} className="professional-card">
+              <motion.div 
+                key={match.id} 
+                className="professional-card"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+              >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-6">
                     <div className="flex items-center space-x-4">
@@ -340,9 +459,9 @@ export default function EsportsPage() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -352,9 +471,15 @@ export default function EsportsPage() {
       </div>
 
       {/* CTA Section */}
-      <section className="py-20 bg-dark-950">
+      <section className="py-20 bg-dark-950 snap-start snap-always min-h-screen flex items-center">
         <div className="container-custom">
-          <div className="bg-gradient-to-r from-primary-600 to-primary-500 rounded-3xl p-12 text-center">
+          <motion.div 
+            className="bg-gradient-to-r from-primary-600 to-primary-500 rounded-3xl p-12 text-center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+          >
             <h2 className="text-4xl font-bold text-white mb-6">
               Takımımızı Destekle!
             </h2>
@@ -376,7 +501,7 @@ export default function EsportsPage() {
                 </span>
               </a>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
     </div>

@@ -12,6 +12,7 @@ import {
   Youtube,
   Github
 } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { useState } from 'react';
 
 const contactInfo = [
@@ -132,9 +133,9 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen snap-y snap-mandatory overflow-y-scroll scroll-smooth">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden snap-start snap-always">
         {/* Multi-layered Dynamic Background */}
         <div className="absolute inset-0 bg-gradient-hero" style={{ zIndex: 0 }}></div>
         <div className="absolute inset-0 geometric-pattern" style={{ zIndex: 1 }}></div>
@@ -159,36 +160,61 @@ export default function ContactPage() {
         </div>
 
         <div className="container-custom relative z-20">
-          <div className="text-center mb-16">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
             {/* Brand Badge */}
-            <div className="flex justify-center mb-8">
+            <motion.div 
+              className="flex justify-center mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
               <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary-900/30 to-primary-800/30 border border-primary-500/40 rounded-full backdrop-blur-md">
                 <div className="w-2 h-2 bg-primary-400 rounded-full mr-3 animate-pulse"></div>
                 <span className="text-primary-200 text-sm font-semibold tracking-wider uppercase">İletişim</span>
                 <div className="w-2 h-2 bg-primary-400 rounded-full ml-3 animate-pulse"></div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Enhanced Title */}
-            <div className="relative mb-8">
+            <motion.div 
+              className="relative mb-8"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight">
                 <span className="bg-gradient-to-r from-primary-300 via-white to-primary-300 bg-clip-text text-transparent">
                   İletişim
                 </span>
               </h1>
-              <div className="w-32 h-1 bg-gradient-to-r from-transparent via-primary-500 to-transparent mx-auto mt-6 rounded-full"></div>
-            </div>
+              <motion.div 
+                className="w-32 h-1 bg-gradient-to-r from-transparent via-primary-500 to-transparent mx-auto mt-6 rounded-full"
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+              ></motion.div>
+            </motion.div>
 
             {/* Enhanced Description */}
-            <div className="max-w-4xl mx-auto mb-12">
+            <motion.div 
+              className="max-w-4xl mx-auto mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
               <p className="text-base md:text-lg text-dark-100 leading-relaxed font-medium">
                 Bizimle iletişime geçin. Sorularınız, önerileriniz ve 
                 <span className="text-primary-300 font-semibold"> iş birliği teklifleriniz </span>
                 için 
                 <span className="text-white font-semibold"> her zaman buradayız</span>.
               </p>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
@@ -198,11 +224,23 @@ export default function ContactPage() {
       </div>
 
       {/* Contact Form & Info */}
-      <section className="py-20 bg-dark-950">
+      <section className="py-20 bg-dark-950 snap-start snap-always min-h-screen flex items-center">
         <div className="container-custom">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <motion.div 
+            className="grid grid-cols-1 lg:grid-cols-2 gap-12"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+          >
             {/* Contact Form */}
-            <div className="professional-card">
+            <motion.div 
+              className="professional-card"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
               <h2 className="text-3xl font-display font-bold text-white mb-8">Bize Mesaj Gönderin</h2>
               
               {submitStatus === 'success' && (
@@ -326,17 +364,30 @@ export default function ContactPage() {
                   )}
                 </button>
               </form>
-            </div>
+            </motion.div>
 
             {/* Contact Information */}
-            <div className="space-y-8">
+            <motion.div 
+              className="space-y-8"
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
               <div className="professional-card">
                 <h3 className="text-2xl font-bold text-white mb-6">İletişim Bilgileri</h3>
                 <div className="space-y-6">
                   {contactInfo.map((info, index) => {
                     const IconComponent = info.icon;
                     return (
-                      <div key={index} className="flex items-start space-x-4">
+                      <motion.div 
+                        key={index} 
+                        className="flex items-start space-x-4"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.4, delay: index * 0.1 }}
+                      >
                         <div className="w-12 h-12 bg-primary-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
                           <IconComponent className="w-6 h-6 text-primary-500" />
                         </div>
@@ -347,7 +398,7 @@ export default function ContactPage() {
                           ))}
                           <p className="text-dark-400 text-sm">{info.description}</p>
                         </div>
-                      </div>
+                      </motion.div>
                     );
                   })}
                 </div>
@@ -357,18 +408,25 @@ export default function ContactPage() {
                 <h3 className="text-2xl font-bold text-white mb-6">Departman E-postaları</h3>
                 <div className="space-y-4">
                   {departments.map((dept, index) => (
-                    <div key={index} className="border-l-4 border-primary-500 pl-4">
+                    <motion.div 
+                      key={index} 
+                      className="border-l-4 border-primary-500 pl-4"
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: index * 0.1 }}
+                    >
                       <h4 className="text-white font-semibold">{dept.name}</h4>
                       <a href={`mailto:${dept.email}`} className="text-primary-500 hover:text-primary-400 transition-colors duration-300">
                         {dept.email}
                       </a>
                       <p className="text-dark-400 text-sm">{dept.description}</p>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
@@ -422,9 +480,15 @@ export default function ContactPage() {
       </div>
 
       {/* Discord CTA */}
-      <section className="py-20 bg-dark-950">
+      <section className="py-20 bg-dark-950 snap-start snap-always min-h-screen flex items-center">
         <div className="container-custom">
-          <div className="bg-gradient-to-r from-indigo-600 to-indigo-500 rounded-3xl p-12 text-center">
+          <motion.div 
+            className="bg-gradient-to-r from-indigo-600 to-indigo-500 rounded-3xl p-12 text-center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+          >
             <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">
               Discord Topluluğumuza Katılın!
             </h2>
@@ -432,7 +496,13 @@ export default function ContactPage() {
               En hızlı iletişim için Discord sunucumuza katılın. 2500+ aktif üye ile 
               canlı sohbetler, etkinlikler ve anlık duyurular.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-4 justify-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
               <a href="https://discord.gg/hydrabon" target="_blank" rel="noopener noreferrer"
                  className="bg-white text-indigo-600 font-semibold py-4 px-8 rounded-lg hover:bg-indigo-50 transition-all duration-300 flex items-center justify-center min-w-[160px] group">
                 <span className="flex items-center">
@@ -447,8 +517,8 @@ export default function ContactPage() {
                   <Mail className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
                 </span>
               </a>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
     </div>
