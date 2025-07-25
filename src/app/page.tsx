@@ -394,6 +394,11 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Section Separator */}
+      <div className="container-custom">
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
+      </div>
+
       {/* CTA Section */}
       <section className="py-20 bg-dark-950 relative overflow-hidden snap-start snap-always min-h-screen flex items-center">
         <div className="container-custom">
