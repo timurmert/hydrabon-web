@@ -1,3 +1,5 @@
+'use client';
+
 import {
   Users,
   Calendar,
@@ -9,9 +11,11 @@ import {
   HelpCircle,
   ExternalLink,
   Zap,
-  Gift
+  Gift,
+  Target
 } from 'lucide-react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import { 
   communityStats, 
   upcomingEvents, 
@@ -22,50 +26,123 @@ import {
 
 export default function CommunityPage() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen snap-y snap-mandatory overflow-y-scroll scroll-smooth">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-hero overflow-hidden">
-        <div className="absolute inset-0 tiger-pattern opacity-10"></div>
-        <div className="container-custom relative">
-          <div className="text-center mb-16">
-            <div className="flex justify-center mb-6">
-              <div className="w-20 h-20 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-full flex items-center justify-center">
-                <Users className="w-10 h-10 text-white" />
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden snap-start snap-always">
+        {/* Multi-layered Dynamic Background */}
+        <div className="absolute inset-0 bg-gradient-hero" style={{ zIndex: 0 }}></div>
+        <div className="absolute inset-0 geometric-pattern" style={{ zIndex: 1 }}></div>
+        <div className="absolute inset-0 tiger-pattern opacity-15 animate-pulse-slow" style={{ zIndex: 2 }}></div>
+        <div className="absolute inset-0 animated-grid opacity-20" style={{ zIndex: 3 }}></div>
+        
+        {/* Floating Particles */}
+        <div className="absolute inset-0" style={{ zIndex: 4 }}>
+          <div className="particle"></div>
+          <div className="particle"></div>
+          <div className="particle"></div>
+          <div className="particle"></div>
+          <div className="particle"></div>
+          <div className="particle"></div>
+        </div>
+        
+        {/* Glowing Orbs */}
+        <div className="absolute inset-0" style={{ zIndex: 5 }}>
+          <div className="glow-orb glow-orb-1"></div>
+          <div className="glow-orb glow-orb-2"></div>
+          <div className="glow-orb glow-orb-3"></div>
+        </div>
+
+        <div className="container-custom relative z-20">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            {/* Brand Badge */}
+            <motion.div 
+              className="flex justify-center mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary-900/30 to-primary-800/30 border border-primary-500/40 rounded-full backdrop-blur-md">
+                <div className="w-2 h-2 bg-primary-400 rounded-full mr-3 animate-pulse"></div>
+                <span className="text-primary-200 text-sm font-semibold tracking-wider uppercase">Discord Topluluğu</span>
+                <div className="w-2 h-2 bg-primary-400 rounded-full ml-3 animate-pulse"></div>
               </div>
-            </div>
-            <h1 className="section-title">Discord Topluluğu</h1>
-            <p className="section-subtitle">
-              Kalabalık ve organize Discord sunucumuz. Etkinlik takibi, yetkili yönetimi, 
-              başvuru sistemleri ve kullanıcı etkileşimi ile aktif bir topluluk.
-            </p>
-          </div>
+            </motion.div>
+
+            {/* Enhanced Title */}
+            <motion.div 
+              className="relative mb-8"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight">
+                <span className="bg-gradient-to-r from-primary-300 via-white to-primary-300 bg-clip-text text-transparent">
+                  Discord Topluluğu
+                </span>
+              </h1>
+              <motion.div 
+                className="w-32 h-1 bg-gradient-to-r from-transparent via-primary-500 to-transparent mx-auto mt-6 rounded-full"
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+              ></motion.div>
+            </motion.div>
+
+            {/* Enhanced Description */}
+            <motion.div 
+              className="max-w-4xl mx-auto mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              <p className="text-base md:text-lg text-dark-100 leading-relaxed font-medium">
+                Kalabalık ve organize Discord sunucumuz. Etkinlik takibi, yetkili yönetimi, 
+                <span className="text-primary-300 font-semibold"> başvuru sistemleri </span>
+                ve kullanıcı etkileşimi ile 
+                <span className="text-white font-semibold"> aktif bir topluluk</span>.
+              </p>
+            </motion.div>
+          </motion.div>
 
           {/* Community Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-            <div className="professional-card text-center">
-              <Users className="w-8 h-8 text-primary-500 mx-auto mb-3" />
-              <div className="text-3xl font-bold text-white mb-1">{communityStats.totalMembers.toLocaleString()}</div>
-              <div className="text-dark-300">Toplam Üye</div>
-            </div>
-            <div className="professional-card text-center">
-              <Zap className="w-8 h-8 text-green-500 mx-auto mb-3" />
-              <div className="text-3xl font-bold text-white mb-1">{communityStats.onlineMembers}</div>
-              <div className="text-dark-300">Çevrimiçi</div>
-            </div>
-            <div className="professional-card text-center">
-              <Gift className="w-8 h-8 text-purple-500 mx-auto mb-3" />
-              <div className="text-3xl font-bold text-white mb-1">Seviye {communityStats.boostLevel}</div>
-              <div className="text-dark-300">Server Boost</div>
-            </div>
-            <div className="professional-card text-center">
-              <Calendar className="w-8 h-8 text-blue-500 mx-auto mb-3" />
-              <div className="text-3xl font-bold text-white mb-1">{upcomingEvents.length}</div>
-              <div className="text-dark-300">Yaklaşan Etkinlik</div>
-            </div>
-          </div>
+          <motion.div 
+            className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
+            {[
+              { icon: Users, value: communityStats.totalMembers.toLocaleString(), label: 'Toplam Üye', color: 'text-primary-500' },
+              { icon: Zap, value: communityStats.onlineMembers, label: 'Çevrimiçi', color: 'text-green-500' },
+              { icon: Gift, value: `Seviye ${communityStats.boostLevel}`, label: 'Server Boost', color: 'text-purple-500' },
+              { icon: Calendar, value: upcomingEvents.length, label: 'Yaklaşan Etkinlik', color: 'text-blue-500' }
+            ].map((stat, index) => (
+              <motion.div 
+                key={index}
+                className="professional-card text-center"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
+              >
+                <stat.icon className={`w-8 h-8 ${stat.color} mx-auto mb-3`} />
+                <div className="text-3xl font-bold text-white mb-1">{stat.value}</div>
+                <div className="text-dark-300">{stat.label}</div>
+              </motion.div>
+            ))}
+          </motion.div>
 
           {/* Discord Join CTA */}
-          <div className="text-center">
+          <motion.div 
+            className="text-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1.2 }}
+          >
             <a 
               href="https://discord.gg/hydrabon" 
               target="_blank" 
@@ -76,23 +153,47 @@ export default function CommunityPage() {
               Discord&apos;a Katıl
               <ExternalLink className="w-5 h-5 ml-3" />
             </a>
-          </div>
+          </motion.div>
         </div>
       </section>
 
+      {/* Section Separator */}
+      <div className="container-custom">
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
+      </div>
+
       {/* Server Roles */}
-      <section className="py-20 bg-dark-950">
+      <section className="py-20 bg-dark-950 snap-start snap-always min-h-screen flex items-center">
         <div className="container-custom">
-          <div className="text-center mb-16">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+          >
             <h2 className="section-title">Sunucu Rolleri</h2>
             <p className="section-subtitle">
               Topluluk içindeki rollerden bazıları ve sorumluluklarını keşfedin.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            {communityStats.roles.slice(0, 6).map((role) => (
-              <div key={role.id} className="professional-card">
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8 }}
+          >
+            {communityStats.roles.slice(0, 6).map((role, index) => (
+              <motion.div 
+                key={role.id} 
+                className="professional-card"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
                 <div className="flex items-start space-x-4 mb-4">
                   <div 
                     className="w-4 h-4 rounded-full flex-shrink-0 mt-2"
@@ -109,32 +210,65 @@ export default function CommunityPage() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
 
-          <div className="text-center">
+          <motion.div 
+            className="text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
             <p className="text-dark-300 mb-4">Toplam {communityStats.roles.length} farklı rol bulunmaktadır.</p>
-            <Link href="/topluluk/roller" className="btn-secondary">
-              Tüm Rolleri Görüntüle
+            <Link href="/topluluk/roller" className="btn-secondary text-base px-8 py-4 flex items-center justify-center min-w-[200px] group relative">
+              <span className="relative z-10 flex items-center">
+                Tüm Rolleri Görüntüle
+                <Star className="w-5 h-5 ml-2 group-hover:rotate-12 transition-transform duration-300" />
+              </span>
             </Link>
-          </div>
+          </motion.div>
         </div>
       </section>
 
+      {/* Section Separator */}
+      <div className="container-custom">
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
+      </div>
+
       {/* Upcoming Events */}
-      <section className="py-20 bg-gradient-to-br from-dark-900 to-dark-800">
+      <section className="py-20 bg-gradient-to-br from-dark-900 to-dark-800 snap-start snap-always min-h-screen flex items-center">
         <div className="container-custom">
-          <div className="text-center mb-16">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+          >
             <h2 className="section-title">Yaklaşan Etkinlikler</h2>
             <p className="section-subtitle">
               Topluluk etkinliklerimize katılın ve eğlenceli vakit geçirin.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+          <motion.div 
+            className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8 }}
+          >
             {upcomingEvents.slice(0, 4).map((event) => (
-              <div key={event.id} className="professional-card">
+              <motion.div 
+                key={event.id} 
+                className="professional-card"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                                 transition={{ duration: 0.6, delay: (typeof event.id === 'number' ? event.id : 0) * 0.1 }}
+              >
                 <div className="flex items-start space-x-4 mb-6">
                   <div className="w-16 h-16 bg-primary-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
                     {event.type === 'Tournament' && <Trophy className="w-8 h-8 text-primary-500" />}
@@ -196,31 +330,65 @@ export default function CommunityPage() {
                     Detayları Gör →
                   </Link>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
 
-          <div className="text-center">
-            <Link href="/topluluk/etkinlikler" className="btn-primary">
-              Tüm Etkinlikleri Görüntüle
+          <motion.div 
+            className="text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <Link href="/topluluk/etkinlikler" className="btn-primary text-base px-8 py-4 flex items-center justify-center min-w-[200px] group relative overflow-hidden">
+              <span className="relative z-10 flex items-center">
+                Tüm Etkinlikleri Görüntüle
+                <Calendar className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-primary-400 to-primary-600 opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-xl"></div>
             </Link>
-          </div>
+          </motion.div>
         </div>
       </section>
 
+      {/* Section Separator */}
+      <div className="container-custom">
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
+      </div>
+
       {/* Application Types */}
-      <section className="py-20 bg-dark-950">
+      <section className="py-20 bg-dark-950 snap-start snap-always min-h-screen flex items-center">
         <div className="container-custom">
-          <div className="text-center mb-16">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+          >
             <h2 className="section-title">Başvuru Türleri</h2>
             <p className="section-subtitle">
               HydRaboN ailesine katılmak için farklı alanlarda başvuru yapabilirsiniz.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8 }}
+          >
             {applicationTypes.map((app) => (
-              <div key={app.id} className="professional-card">
+              <motion.div 
+                key={app.id} 
+                className="professional-card"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                                 transition={{ duration: 0.6, delay: (typeof app.id === 'number' ? app.id : 0) * 0.1 }}
+              >
                 <h3 className="text-2xl font-bold text-white mb-4">{app.title}</h3>
                 <p className="text-dark-300 mb-6">{app.description}</p>
 
@@ -241,28 +409,56 @@ export default function CommunityPage() {
                   <p className="text-dark-300 text-sm">{app.process}</p>
                 </div>
 
-                <Link href="/topluluk/basvur" className="btn-primary w-full">
-                  Başvuru Yap
+                <Link href="/topluluk/basvur" className="btn-primary text-base px-6 py-4 w-full flex items-center justify-center group relative overflow-hidden">
+                  <span className="relative z-10 flex items-center">
+                    Başvuru Yap
+                    <Target className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
+                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary-400 to-primary-600 opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-xl"></div>
                 </Link>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
+      {/* Section Separator */}
+      <div className="container-custom">
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
+      </div>
+
       {/* Rules Section */}
-      <section className="py-20 bg-gradient-to-br from-dark-900 to-dark-800">
+      <section className="py-20 bg-gradient-to-br from-dark-900 to-dark-800 snap-start snap-always min-h-screen flex items-center">
         <div className="container-custom">
-          <div className="text-center mb-16">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+          >
             <h2 className="section-title">Sunucu Kuralları</h2>
             <p className="section-subtitle">
               Topluluk düzenini korumak için belirlenen temel kurallar.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8 }}
+          >
             {discordRules.map((rule) => (
-              <div key={rule.id} className="professional-card">
+              <motion.div 
+                key={rule.id} 
+                className="professional-card"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                                 transition={{ duration: 0.6, delay: (typeof rule.id === 'number' ? rule.id : 0) * 0.1 }}
+              >
                 <div className="flex items-start space-x-4">
                   <div className="w-8 h-8 bg-primary-500/20 rounded-full flex items-center justify-center flex-shrink-0">
                     <span className="text-primary-500 font-bold text-sm">{rule.id}</span>
@@ -272,32 +468,65 @@ export default function CommunityPage() {
                     <p className="text-dark-300 text-sm">{rule.description}</p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
 
-          <div className="text-center mt-12">
-            <Link href="/topluluk/kurallar" className="btn-secondary">
-              Detaylı Kuralları Oku
+          <motion.div 
+            className="text-center mt-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <Link href="/topluluk/kurallar" className="btn-secondary text-base px-8 py-4 flex items-center justify-center min-w-[200px] group relative">
+              <span className="relative z-10 flex items-center">
+                Detaylı Kuralları Oku
+                <HelpCircle className="w-5 h-5 ml-2 group-hover:rotate-12 transition-transform duration-300" />
+              </span>
             </Link>
-          </div>
+          </motion.div>
         </div>
       </section>
 
+      {/* Section Separator */}
+      <div className="container-custom">
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
+      </div>
+
       {/* FAQ Section */}
-      <section className="py-20 bg-dark-950">
+      <section className="py-20 bg-dark-950 snap-start snap-always min-h-screen flex items-center">
         <div className="container-custom">
-          <div className="text-center mb-16">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+          >
             <h2 className="section-title">Sıkça Sorulan Sorular</h2>
             <p className="section-subtitle">
               Topluluk hakkında merak edilen sorular ve cevapları.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="max-w-4xl mx-auto">
+          <motion.div 
+            className="max-w-4xl mx-auto"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8 }}
+          >
             <div className="grid gap-6">
               {faqItems.slice(0, 6).map((faq) => (
-                <div key={faq.id} className="professional-card">
+                <motion.div 
+                  key={faq.id} 
+                  className="professional-card"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                                     transition={{ duration: 0.6, delay: (typeof faq.id === 'number' ? faq.id : 0) * 0.1 }}
+                >
                   <div className="flex items-start space-x-4">
                     <div className="w-8 h-8 bg-primary-500/20 rounded-full flex items-center justify-center flex-shrink-0">
                       <HelpCircle className="w-4 h-4 text-primary-500" />
@@ -307,23 +536,43 @@ export default function CommunityPage() {
                       <p className="text-dark-300">{faq.answer}</p>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
 
-            <div className="text-center mt-12">
-              <Link href="/topluluk/sss" className="btn-secondary">
-                Tüm Soruları Görüntüle
+            <motion.div 
+              className="text-center mt-12"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <Link href="/topluluk/sss" className="btn-secondary text-base px-8 py-4 flex items-center justify-center min-w-[200px] group relative">
+                <span className="relative z-10 flex items-center">
+                  Tüm Soruları Görüntüle
+                  <HelpCircle className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
+                </span>
               </Link>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
+      {/* Section Separator */}
+      <div className="container-custom">
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
+      </div>
+
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-dark-900 to-dark-800">
+      <section className="py-20 bg-gradient-to-br from-dark-900 to-dark-800 snap-start snap-always min-h-screen flex items-center">
         <div className="container-custom">
-          <div className="bg-gradient-to-r from-indigo-600 to-indigo-500 rounded-3xl p-12 text-center">
+          <motion.div 
+            className="bg-gradient-to-r from-indigo-600 to-indigo-500 rounded-3xl p-12 text-center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+          >
             <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">
               Topluluğumuza Katılın!
             </h2>
@@ -331,18 +580,30 @@ export default function CommunityPage() {
               {communityStats.totalMembers.toLocaleString()}+ kişilik aktif topluluğumuzun bir parçası olun. 
               Etkinliklere katılın, yeni arkadaşlıklar kurun ve eğlenceli vakit geçirin.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-4 justify-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
               <a href="https://discord.gg/hydrabon" target="_blank" rel="noopener noreferrer"
-                 className="bg-white text-indigo-600 font-semibold py-4 px-8 rounded-lg hover:bg-indigo-50 transition-colors duration-300">
-                Discord&apos;a Katıl
+                 className="bg-white text-indigo-600 font-semibold py-4 px-8 rounded-lg hover:bg-indigo-50 transition-all duration-300 flex items-center justify-center min-w-[160px] group">
+                <span className="flex items-center">
+                  Discord&apos;a Katıl
+                  <Users className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
+                </span>
               </a>
-              <Link href="/topluluk/basvur" className="bg-indigo-700 text-white font-semibold py-4 px-8 rounded-lg hover:bg-indigo-800 transition-colors duration-300">
-                Ekibe Başvur
+              <Link href="/topluluk/basvur" className="bg-indigo-700 text-white font-semibold py-4 px-8 rounded-lg hover:bg-indigo-800 transition-all duration-300 flex items-center justify-center min-w-[160px] group">
+                <span className="flex items-center">
+                  Ekibe Başvur
+                  <Target className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                </span>
               </Link>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
     </div>
   );
-} 
+}

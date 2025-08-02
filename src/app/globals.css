@@ -189,14 +189,7 @@ body {
     @apply absolute bottom-0 left-0 w-full h-0.5 bg-primary-500 content-[''] transform scale-x-0 transition-transform duration-300;
   }
   
-  /* Tiger Pattern Background */
-  .tiger-pattern {
-    background-image: 
-      radial-gradient(circle at 25% 25%, rgba(249, 115, 22, 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 75% 75%, rgba(249, 115, 22, 0.1) 0%, transparent 50%);
-    pointer-events: none;
-    user-select: none;
-  }
+
   
   /* Glowing Effect */
   .glow-effect {
@@ -278,254 +271,26 @@ body {
 .bg-gradient-hero {
   background: linear-gradient(
     135deg,
-    #0a0a0a 0%,
-    #1a1a1a 25%,
-    rgba(249, 115, 22, 0.03) 50%,
-    #0a0a0a 75%,
-    #111111 100%
+    #080808 0%,
+    #101010 25%,
+    rgba(249, 115, 22, 0.02) 50%,
+    #080808 75%,
+    #0c0c0c 100%
   );
-  animation: gradientShift 12s ease-in-out infinite;
+  /* animation: gradientShift 12s ease-in-out infinite; - Animasyon kaldırıldı */
   pointer-events: none;
   user-select: none;
 }
 
-/* Dynamic Background Animations */
-@keyframes gradientShift {
-  0%, 100% {
-    background: linear-gradient(
-      135deg,
-      #0a0a0a 0%,
-      #1a1a1a 25%,
-      rgba(249, 115, 22, 0.03) 50%,
-      #0a0a0a 75%,
-      #111111 100%
-    );
-  }
-  50% {
-    background: linear-gradient(
-      135deg,
-      #111111 0%,
-      rgba(249, 115, 22, 0.04) 25%,
-      #0a0a0a 50%,
-      rgba(249, 115, 22, 0.02) 75%,
-      #1a1a1a 100%
-    );
-  }
-}
 
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  33% {
-    transform: translateY(-15px) rotate(2deg);
-  }
-  66% {
-    transform: translateY(8px) rotate(-2deg);
-  }
-}
 
-@keyframes drift {
-  0% {
-    transform: translateX(-80px) translateY(-80px);
-  }
-  100% {
-    transform: translateX(80px) translateY(80px);
-  }
-}
 
-@keyframes pulse-slow {
-  0%, 100% {
-    opacity: 0.2;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.4;
-    transform: scale(1.08);
-  }
-}
 
-@keyframes twinkle {
-  0%, 100% {
-    opacity: 0.4;
-    transform: scale(0.9);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.3);
-  }
-}
 
-@keyframes orbitalRotation {
-  0% {
-    transform: rotate(0deg) translateX(120px) rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg) translateX(120px) rotate(-360deg);
-  }
-}
 
-/* Floating Elements */
-.floating-element {
-  position: absolute;
-  border-radius: 50% !important;
-  animation: float 3s ease-in-out infinite;
-  pointer-events: none;
-  user-select: none;
-}
 
-.floating-element:nth-child(odd) {
-  animation-delay: -1s;
-  animation-duration: 4s;
-}
 
-.floating-element:nth-child(even) {
-  animation-delay: -2s;
-  animation-duration: 5s;
-}
 
-.drift-element {
-  position: absolute;
-  border-radius: 50% !important;
-  animation: drift 12s linear infinite;
-  opacity: 0.15;
-  pointer-events: none;
-  user-select: none;
-}
-
-.drift-element:nth-child(odd) {
-  animation-direction: reverse;
-  animation-duration: 15s;
-}
-
-/* Particle Effects */
-.particle {
-  position: absolute;
-  background: radial-gradient(circle, rgba(249, 115, 22, 0.9) 0%, transparent 70%);
-  border-radius: 50%;
-  animation: twinkle 1.5s ease-in-out infinite;
-  pointer-events: none;
-  user-select: none;
-}
-
-.particle:nth-child(1) { width: 4px; height: 4px; top: 20%; left: 10%; animation-delay: 0s; }
-.particle:nth-child(2) { width: 3px; height: 3px; top: 40%; left: 20%; animation-delay: 0.3s; }
-.particle:nth-child(3) { width: 5px; height: 5px; top: 60%; left: 30%; animation-delay: 0.6s; }
-.particle:nth-child(4) { width: 3px; height: 3px; top: 30%; left: 60%; animation-delay: 0.9s; }
-.particle:nth-child(5) { width: 4px; height: 4px; top: 70%; left: 70%; animation-delay: 1.2s; }
-.particle:nth-child(6) { width: 3px; height: 3px; top: 15%; left: 80%; animation-delay: 1.5s; }
-.particle:nth-child(7) { width: 5px; height: 5px; top: 80%; left: 15%; animation-delay: 1.8s; }
-.particle:nth-child(8) { width: 3px; height: 3px; top: 50%; left: 85%; animation-delay: 2.1s; }
-
-.animate-pulse-slow {
-  animation: pulse-slow 2.5s ease-in-out infinite;
-}
-
-/* Orbital Elements */
-.orbital-element {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  border: 2px solid rgba(249, 115, 22, 0.4);
-  border-radius: 50%;
-  animation: orbitalRotation 15s linear infinite;
-  pointer-events: none;
-  user-select: none;
-}
-
-.orbital-element::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 5px;
-  height: 5px;
-  background: rgba(249, 115, 22, 0.8);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-}
-
-/* Grid Animation */
-.animated-grid {
-  background-image: 
-    linear-gradient(rgba(249, 115, 22, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(249, 115, 22, 0.1) 1px, transparent 1px);
-  background-size: 50px 50px;
-  animation: gridMove 20s linear infinite;
-  pointer-events: none;
-  user-select: none;
-}
-
-@keyframes gridMove {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 50px 50px;
-  }
-}
-
-/* Glowing Orbs */
-.glow-orb {
-  position: absolute;
-  background: radial-gradient(circle, rgba(249, 115, 22, 0.5) 0%, rgba(249, 115, 22, 0.15) 40%, transparent 80%);
-  border-radius: 50%;
-  filter: blur(1.5px);
-  animation: float 4s ease-in-out infinite;
-  pointer-events: none;
-  user-select: none;
-}
-
-.glow-orb-1 {
-  width: 140px;
-  height: 140px;
-  top: 10%;
-  left: 15%;
-  animation-delay: 0s;
-  animation-duration: 4.5s;
-}
-
-.glow-orb-2 {
-  width: 100px;
-  height: 100px;
-  top: 60%;
-  right: 20%;
-  animation-delay: -1.5s;
-  animation-duration: 5s;
-}
-
-.glow-orb-3 {
-  width: 120px;
-  height: 120px;
-  bottom: 20%;
-  left: 25%;
-  animation-delay: -3s;
-  animation-duration: 4s;
-}
-
-/* Geometric Patterns */
-.geometric-pattern {
-  position: absolute;
-  inset: 0;
-  background-image: 
-    radial-gradient(circle at 20% 50%, rgba(249, 115, 22, 0.05) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(249, 115, 22, 0.03) 0%, transparent 50%),
-    radial-gradient(circle at 40% 80%, rgba(249, 115, 22, 0.04) 0%, transparent 50%);
-  animation: patternShift 15s ease-in-out infinite;
-  pointer-events: none;
-  user-select: none;
-}
-
-@keyframes patternShift {
-  0%, 100% {
-    opacity: 0.3;
-    transform: scale(1) rotate(0deg);
-  }
-  50% {
-    opacity: 0.6;
-    transform: scale(1.1) rotate(2deg);
-  }
-}
 
 /* Loading Animation */
 .loading-spinner {
@@ -746,21 +511,8 @@ body {
     will-change: transform, opacity, filter;
   }
   
-  /* GPU Acceleration for animated elements */
-  .floating-element,
-  .particle,
-  .glow-orb,
-  .orbital-element,
-  .drift-element {
-    transform: translateZ(0);
-    backface-visibility: hidden;
-    will-change: transform;
-  }
-  
   /* Optimize background animations */
-  .bg-gradient-hero,
-  .geometric-pattern,
-  .animated-grid {
+  .bg-gradient-hero {
     transform: translateZ(0);
     backface-visibility: hidden;
   }

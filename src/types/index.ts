@@ -310,4 +310,98 @@ export interface ButtonProps extends ComponentProps {
   loading?: boolean;
   onClick?: () => void;
   type?: 'button' | 'submit' | 'reset';
+}
+
+// CS2 Server türleri
+export interface CS2Server {
+  id: string;
+  name: string;
+  ip: string;
+  port: number;
+  currentMap: string;
+  gameMode: string;
+  maxPlayers: number;
+  currentPlayers: number;
+  status: 'online' | 'offline' | 'maintenance';
+  region: string;
+  tickrate: number;
+  anticheat: string;
+  password?: boolean;
+}
+
+export interface CS2Map {
+  id: string;
+  name: string;
+  displayName: string;
+  type: 'Competitive' | 'Casual' | 'Deathmatch' | 'Arms Race' | 'Custom';
+  image: string;
+  description: string;
+  playCount: number;
+  averageRating: number;
+  lastPlayed?: string;
+}
+
+export interface CS2GameMode {
+  id: string;
+  name: string;
+  description: string;
+  icon: string;
+  playerCount: string;
+  duration: string;
+  features: string[];
+  available: boolean;
+}
+
+export interface CS2PlayerStats {
+  steamId: string;
+  nickname: string;
+  avatar: string;
+  rank?: string;
+  hoursPlayed: number;
+  kills: number;
+  deaths: number;
+  assists: number;
+  kdr: number;
+  headshots: number;
+  headshotPercentage: number;
+  matchesWon: number;
+  matchesLost: number;
+  winRate: number;
+  favoriteWeapon: string;
+  favoriteMap: string;
+  lastSeen: string;
+}
+
+export interface CS2ServerStats {
+  totalPlaytime: number;
+  totalMatches: number;
+  totalKills: number;
+  averagePlayers: number;
+  peakPlayers: number;
+  popularMaps: string[];
+  activePlayerCount: number;
+  registeredPlayers: number;
+}
+
+export interface CS2Event {
+  id: string;
+  title: string;
+  description: string;
+  type: 'Tournament' | 'Training' | 'Fun Match' | 'Community Event';
+  startDate: string;
+  endDate: string;
+  maxParticipants?: number;
+  currentParticipants?: number;
+  prizePool?: string;
+  rules: string[];
+  requirements: string[];
+  status: 'upcoming' | 'ongoing' | 'completed' | 'cancelled';
+}
+
+export interface CS2ServerRule {
+  id: string;
+  title: string;
+  description: string;
+  category: 'General' | 'Gameplay' | 'Chat' | 'Admin';
+  severity: 'info' | 'warning' | 'strict';
 } 

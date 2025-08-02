@@ -1,3 +1,5 @@
+'use client';
+
 import { 
   Code, 
   Rocket, 
@@ -12,6 +14,7 @@ import {
   Lightbulb
 } from 'lucide-react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import { projects, technologies, teamMembers } from '@/data/rnd';
 
 const statusColors = {
@@ -43,72 +46,170 @@ export default function RndPage() {
   const activeProjects = projects.filter(p => p.status !== 'completed');
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen snap-y snap-mandatory overflow-y-scroll scroll-smooth">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-hero overflow-hidden">
-        <div className="absolute inset-0 tiger-pattern opacity-10"></div>
-        <div className="container-custom relative">
-          <div className="text-center mb-16">
-            <div className="flex justify-center mb-6">
-              <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
-                <Code className="w-10 h-10 text-white" />
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden snap-start snap-always">
+        {/* Multi-layered Dynamic Background */}
+        <div className="absolute inset-0 bg-gradient-hero" style={{ zIndex: 0 }}></div>
+        <div className="absolute inset-0 geometric-pattern" style={{ zIndex: 1 }}></div>
+        <div className="absolute inset-0 tiger-pattern opacity-15 animate-pulse-slow" style={{ zIndex: 2 }}></div>
+        <div className="absolute inset-0 animated-grid opacity-20" style={{ zIndex: 3 }}></div>
+        
+        {/* Floating Particles */}
+        <div className="absolute inset-0" style={{ zIndex: 4 }}>
+          <div className="particle"></div>
+          <div className="particle"></div>
+          <div className="particle"></div>
+          <div className="particle"></div>
+          <div className="particle"></div>
+          <div className="particle"></div>
+        </div>
+        
+        {/* Glowing Orbs */}
+        <div className="absolute inset-0" style={{ zIndex: 5 }}>
+          <div className="glow-orb glow-orb-1"></div>
+          <div className="glow-orb glow-orb-2"></div>
+          <div className="glow-orb glow-orb-3"></div>
+        </div>
+
+        <div className="container-custom relative z-20">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            {/* Brand Badge */}
+            <motion.div 
+              className="flex justify-center mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary-900/30 to-primary-800/30 border border-primary-500/40 rounded-full backdrop-blur-md">
+                <div className="w-2 h-2 bg-primary-400 rounded-full mr-3 animate-pulse"></div>
+                <span className="text-primary-200 text-sm font-semibold tracking-wider uppercase">Teknoloji Merkezi</span>
+                <div className="w-2 h-2 bg-primary-400 rounded-full ml-3 animate-pulse"></div>
               </div>
-            </div>
-            <h1 className="section-title">Ar-Ge & Yazılım</h1>
-            <p className="section-subtitle">
-              Discord botları, turnuva yönetim sistemleri, AI tabanlı analiz sistemleri ve 
-              yazılıma dayalı organizasyon çözümleri geliştiren teknoloji merkezimiz.
-            </p>
-          </div>
+            </motion.div>
+
+            {/* Enhanced Title */}
+            <motion.div 
+              className="relative mb-8"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight">
+                <span className="bg-gradient-to-r from-primary-300 via-white to-primary-300 bg-clip-text text-transparent">
+                  Ar-Ge & Yazılım
+                </span>
+              </h1>
+              <motion.div 
+                className="w-32 h-1 bg-gradient-to-r from-transparent via-primary-500 to-transparent mx-auto mt-6 rounded-full"
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+              ></motion.div>
+            </motion.div>
+
+            {/* Enhanced Description */}
+            <motion.div 
+              className="max-w-4xl mx-auto mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              <p className="text-base md:text-lg text-dark-100 leading-relaxed font-medium">
+                Discord botları, turnuva yönetim sistemleri, 
+                <span className="text-primary-300 font-semibold"> AI tabanlı analiz sistemleri </span>
+                ve yazılıma dayalı organizasyon çözümleri geliştiren 
+                <span className="text-white font-semibold"> teknoloji merkezimiz</span>.
+              </p>
+            </motion.div>
+          </motion.div>
 
           {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-            <div className="professional-card text-center">
-              <Target className="w-8 h-8 text-primary-500 mx-auto mb-3" />
-              <div className="text-3xl font-bold text-white mb-1">{projects.length}</div>
-              <div className="text-dark-300">Toplam Proje</div>
-            </div>
-            <div className="professional-card text-center">
-              <CheckCircle className="w-8 h-8 text-green-500 mx-auto mb-3" />
-              <div className="text-3xl font-bold text-white mb-1">{completedProjects.length}</div>
-              <div className="text-dark-300">Tamamlanan</div>
-            </div>
-            <div className="professional-card text-center">
-              <Clock className="w-8 h-8 text-yellow-500 mx-auto mb-3" />
-              <div className="text-3xl font-bold text-white mb-1">{activeProjects.length}</div>
-              <div className="text-dark-300">Aktif Proje</div>
-            </div>
-            <div className="professional-card text-center">
-              <Users className="w-8 h-8 text-blue-500 mx-auto mb-3" />
-              <div className="text-3xl font-bold text-white mb-1">{teamMembers.length}</div>
-              <div className="text-dark-300">Geliştirici</div>
-            </div>
-          </div>
+          <motion.div 
+            className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
+            {[
+              { icon: Target, value: projects.length, label: 'Toplam Proje', color: 'text-primary-500' },
+              { icon: CheckCircle, value: completedProjects.length, label: 'Tamamlanan', color: 'text-green-500' },
+              { icon: Clock, value: activeProjects.length, label: 'Aktif Proje', color: 'text-yellow-500' },
+              { icon: Users, value: teamMembers.length, label: 'Geliştirici', color: 'text-blue-500' }
+            ].map((stat, index) => (
+              <motion.div 
+                key={index}
+                className="professional-card text-center"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
+              >
+                <stat.icon className={`w-8 h-8 ${stat.color} mx-auto mb-3`} />
+                <div className="text-3xl font-bold text-white mb-1">{stat.value}</div>
+                <div className="text-dark-300">{stat.label}</div>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
+      {/* Section Separator */}
+      <div className="container-custom">
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
+      </div>
+
       {/* Featured Projects */}
-      <section className="py-20 bg-dark-950">
+      <section className="py-20 bg-dark-950 snap-start snap-always min-h-screen flex items-center">
         <div className="container-custom">
-          <div className="text-center mb-16">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+          >
             <h2 className="section-title">Öne Çıkan Projeler</h2>
             <p className="section-subtitle">
               Teknoloji ve inovasyon odaklı çözümlerimizle esports dünyasına değer katıyoruz.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-            {projects.slice(0, 4).map((project) => (
-              <div key={project.id} className="professional-card group">
+          <motion.div 
+            className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8 }}
+          >
+            {projects.slice(0, 4).map((project, index) => (
+              <motion.div 
+                key={project.id} 
+                className="professional-card group"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
                 <div className="flex items-start justify-between mb-6">
                   <div className="flex items-start space-x-4">
-                    <div className={`w-16 h-16 bg-gradient-to-br ${categoryColors[project.category]} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                    <motion.div 
+                      className={`w-16 h-16 bg-gradient-to-br ${categoryColors[project.category]} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
+                      initial={{ scale: 0 }}
+                      whileInView={{ scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: index * 0.1 + 0.2 }}
+                    >
                       {project.category === 'Discord Bot' && <Zap className="w-8 h-8 text-white" />}
                       {project.category === 'Tournament System' && <Target className="w-8 h-8 text-white" />}
                       {project.category === 'AI Analysis' && <Brain className="w-8 h-8 text-white" />}
                       {project.category === 'Web Application' && <Code className="w-8 h-8 text-white" />}
                       {project.category === 'Mobile App' && <Rocket className="w-8 h-8 text-white" />}
-                    </div>
+                    </motion.div>
                     <div className="flex-1">
                       <h3 className="text-2xl font-display font-bold text-white mb-2">
                         {project.name}
@@ -174,56 +275,114 @@ export default function RndPage() {
                     </a>
                   )}
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
 
-          <div className="text-center">
-            <Link href="/ar-ge/projeler" className="btn-primary">
-              Tüm Projeleri Görüntüle
+          <motion.div 
+            className="text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <Link href="/ar-ge/projeler" className="btn-primary text-base px-8 py-4 flex items-center justify-center min-w-[200px] group relative overflow-hidden">
+              <span className="relative z-10 flex items-center">
+                Tüm Projeleri Görüntüle
+                <Rocket className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-primary-400 to-primary-600 opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-xl"></div>
             </Link>
-          </div>
+          </motion.div>
         </div>
       </section>
 
+      {/* Section Separator */}
+      <div className="container-custom">
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
+      </div>
+
       {/* Technologies */}
-      <section className="py-20 bg-gradient-to-br from-dark-900 to-dark-800">
+      <section className="py-20 bg-gradient-to-br from-dark-900 to-dark-800 snap-start snap-always min-h-screen flex items-center">
         <div className="container-custom">
-          <div className="text-center mb-16">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+          >
             <h2 className="section-title">Teknoloji Yığınımız</h2>
             <p className="section-subtitle">
               Modern ve güvenilir teknolojilerle projelerimizi hayata geçiriyoruz.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <motion.div 
+            className="grid grid-cols-2 md:grid-cols-4 gap-6"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8 }}
+          >
             {technologies.map((tech, index) => (
-              <div key={index} className="professional-card text-center group">
+              <motion.div 
+                key={index} 
+                className="professional-card text-center group"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
                 <div className="w-16 h-16 bg-dark-700 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-primary-500/20 transition-colors duration-300">
                   <Code className="w-8 h-8 text-primary-500" />
                 </div>
                 <h3 className="text-lg font-bold text-white mb-2">{tech.name}</h3>
                 <div className="text-sm text-primary-500 mb-2">{tech.category}</div>
                 <div className="text-xs text-dark-400">{tech.experience}</div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
+      {/* Section Separator */}
+      <div className="container-custom">
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
+      </div>
+
       {/* Team Section */}
-      <section className="py-20 bg-dark-950">
+      <section className="py-20 bg-dark-950 snap-start snap-always min-h-screen flex items-center">
         <div className="container-custom">
-          <div className="text-center mb-16">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+          >
             <h2 className="section-title">Geliştirici Ekibi</h2>
             <p className="section-subtitle">
               Teknoloji alanında uzman, deneyimli ve yaratıcı ekibimizle tanışın.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {teamMembers.slice(0, 6).map((member) => (
-              <div key={member.id} className="professional-card text-center">
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8 }}
+          >
+            {teamMembers.slice(0, 6).map((member, index) => (
+              <motion.div 
+                key={member.id} 
+                className="professional-card text-center"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
                 <div className="w-24 h-24 bg-gradient-to-br from-primary-500 to-primary-600 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Users className="w-12 h-12 text-white" />
                 </div>
@@ -267,23 +426,43 @@ export default function RndPage() {
                     </a>
                   )}
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
 
-          <div className="text-center">
-            <Link href="/ar-ge/ekip" className="btn-secondary">
-              Ekibin Tamamını Gör
+          <motion.div 
+            className="text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <Link href="/ar-ge/ekip" className="btn-secondary text-base px-8 py-4 flex items-center justify-center min-w-[200px] group relative">
+              <span className="relative z-10 flex items-center">
+                Ekibin Tamamını Gör
+                <Users className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
+              </span>
             </Link>
-          </div>
+          </motion.div>
         </div>
       </section>
 
+      {/* Section Separator */}
+      <div className="container-custom">
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
+      </div>
+
       {/* Innovation Section */}
-      <section className="py-20 bg-gradient-to-br from-dark-900 to-dark-800 relative">
+      <section className="py-20 bg-gradient-to-br from-dark-900 to-dark-800 relative snap-start snap-always min-h-screen flex items-center">
         <div className="absolute inset-0 tiger-pattern opacity-5"></div>
         <div className="container-custom relative">
-          <div className="max-w-4xl mx-auto text-center">
+          <motion.div 
+            className="max-w-4xl mx-auto text-center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+          >
             <Lightbulb className="w-16 h-16 text-primary-500 mx-auto mb-6" />
             <h2 className="section-title">İnovasyon ve Gelişim</h2>
             <p className="text-xl md:text-2xl text-dark-200 leading-relaxed mb-8">
@@ -296,23 +475,47 @@ export default function RndPage() {
               esports dünyasında teknolojik dönüşümün öncüsü olmaya devam ediyoruz.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Link href="/ar-ge/projeler" className="btn-primary text-lg px-8 py-4">
-                Projelerimizi İncele
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-6 justify-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <Link href="/ar-ge/projeler" className="btn-primary text-lg px-8 py-4 flex items-center justify-center min-w-[220px] group relative overflow-hidden">
+                <span className="relative z-10 flex items-center">
+                  Projelerimizi İncele
+                  <Target className="w-5 h-5 ml-2 group-hover:rotate-12 transition-transform duration-300" />
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-primary-400 to-primary-600 opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-xl"></div>
               </Link>
               <a href="https://github.com/hydrabon" target="_blank" rel="noopener noreferrer"
-                 className="btn-secondary text-lg px-8 py-4">
-                GitHub&apos;da Takip Et
+                 className="btn-secondary text-lg px-8 py-4 flex items-center justify-center min-w-[220px] group relative">
+                <span className="relative z-10 flex items-center">
+                  GitHub&apos;da Takip Et
+                  <ExternalLink className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                </span>
               </a>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
+      {/* Section Separator */}
+      <div className="container-custom">
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
+      </div>
+
       {/* CTA Section */}
-      <section className="py-20 bg-dark-950">
+      <section className="py-20 bg-dark-950 snap-start snap-always min-h-screen flex items-center">
         <div className="container-custom">
-          <div className="bg-gradient-to-r from-blue-600 to-blue-500 rounded-3xl p-12 text-center">
+          <motion.div 
+            className="bg-gradient-to-r from-blue-600 to-blue-500 rounded-3xl p-12 text-center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+          >
             <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">
               Ekibimize Katılın!
             </h2>
@@ -320,17 +523,29 @@ export default function RndPage() {
               Yenilikçi projeler geliştirmek, teknoloji dünyasında iz bırakmak ve 
               kariyerinizi ilerletmek için bizimle çalışın.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/topluluk/basvur" className="bg-white text-blue-600 font-semibold py-4 px-8 rounded-lg hover:bg-blue-50 transition-colors duration-300">
-                Geliştirici Başvurusu
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-4 justify-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <Link href="/topluluk/basvur" className="bg-white text-blue-600 font-semibold py-4 px-8 rounded-lg hover:bg-blue-50 transition-all duration-300 flex items-center justify-center min-w-[180px] group">
+                <span className="flex items-center">
+                  Geliştirici Başvurusu
+                  <Rocket className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                </span>
               </Link>
-              <Link href="/ar-ge/ekip" className="bg-blue-700 text-white font-semibold py-4 px-8 rounded-lg hover:bg-blue-800 transition-colors duration-300">
-                Ekibi Tanı
+              <Link href="/ar-ge/ekip" className="bg-blue-700 text-white font-semibold py-4 px-8 rounded-lg hover:bg-blue-800 transition-all duration-300 flex items-center justify-center min-w-[180px] group">
+                <span className="flex items-center">
+                  Ekibi Tanı
+                  <Users className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
+                </span>
               </Link>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
     </div>
   );
-} 
+}
