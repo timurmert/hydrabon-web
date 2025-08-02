@@ -9,11 +9,12 @@ import {
   Zap,
   Medal,
   ExternalLink,
-  Play
+  Play,
+  Award
 } from 'lucide-react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { players, staff, upcomingMatches, recentMatches, teamStats } from '@/data/esports';
+import { players, staff, historicalMatches, recentMatches, teamStats, historicalAchievements, careerHighlights } from '@/data/esports';
 
 const roleColors = {
   'Duelist': 'from-red-500 to-red-600',
@@ -66,9 +67,9 @@ export default function EsportsPage() {
               transition={{ duration: 0.6 }}
             >
               <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary-900/30 to-primary-800/30 border border-primary-500/40 rounded-full backdrop-blur-md">
-                <div className="w-2 h-2 bg-primary-400 rounded-full mr-3 animate-pulse"></div>
-                <span className="text-primary-200 text-sm font-semibold tracking-wider uppercase">Espor Takımı</span>
-                <div className="w-2 h-2 bg-primary-400 rounded-full ml-3 animate-pulse"></div>
+                <div className="w-2 h-2 bg-primary-400 rounded-full mr-3"></div>
+                <span className="text-primary-200 text-sm font-semibold tracking-wider uppercase">Espor Mirasımız</span>
+                <div className="w-2 h-2 bg-primary-400 rounded-full ml-3"></div>
               </div>
             </motion.div>
 
@@ -100,10 +101,12 @@ export default function EsportsPage() {
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <p className="text-base md:text-lg text-dark-100 leading-relaxed font-medium">
-                Özellikle Valorant odaklı 
-                <span className="text-primary-300 font-semibold"> profesyonel takım yapılanması</span>. 
-                Premier League dahil olmak üzere birçok resmi turnuva ve ligde mücadele eden 
-                <span className="text-white font-semibold"> güçlü kadromuz</span>.
+                Valorant sahasında 
+                <span className="text-primary-300 font-semibold"> tarihi başarılara imza atmış </span> 
+                takımımızın gurur verici geçmişi. 
+                <br />
+                Şampiyonluklar, rekorlar ve 
+                <span className="text-white font-semibold"> unutulmaz anılarla dolu</span> espor yolculuğumuz.
               </p>
             </motion.div>
           </motion.div>
@@ -152,9 +155,9 @@ export default function EsportsPage() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="section-title">Oyuncu Kadrosu</h2>
+            <h2 className="section-title">Efsane Oyuncular</h2>
             <p className="section-subtitle">
-              Her biri kendi alanında uzman, takım içi koordinasyonu mükemmel oyuncular.
+              Şampiyonluk yolculuğumuzda yer almış, tarihi başarılara imza atmış oyuncu kadromuz.
             </p>
           </motion.div>
 
@@ -259,9 +262,9 @@ export default function EsportsPage() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="section-title">Teknik Kadro</h2>
+            <h2 className="section-title">Başarının Mimarları</h2>
             <p className="section-subtitle">
-              Takımımızın başarısının arkasındaki deneyimli profesyoneller.
+              Şampiyonluk yolculuğumuzda takımı zirveye taşıyan deneyimli teknik kadromuz.
             </p>
           </motion.div>
 
@@ -301,7 +304,7 @@ export default function EsportsPage() {
         <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
       </div>
 
-      {/* Upcoming Matches */}
+      {/* Historical Achievements */}
       <section className="py-20 bg-dark-950 snap-start snap-always min-h-screen flex items-center">
         <div className="container-custom">
           <motion.div 
@@ -311,9 +314,9 @@ export default function EsportsPage() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="section-title">Yaklaşan Maçlar</h2>
+            <h2 className="section-title">Tarihi Başarılarımız</h2>
             <p className="section-subtitle">
-              Takımımızın gelecek maç programını takip edin ve canlı yayınları kaçırmayın.
+              Espor yolculuğumuzda elde ettiğimiz önemli kilometre taşları ve şampiyonluklar.
             </p>
           </motion.div>
 
@@ -324,48 +327,43 @@ export default function EsportsPage() {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.8 }}
           >
-            {upcomingMatches.slice(0, 3).map((match) => (
+            {historicalAchievements.slice(0, 3).map((achievement, index) => (
               <motion.div 
-                key={match.id} 
+                key={achievement.id} 
                 className="professional-card"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.8 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-6">
-                    <div className="flex items-center space-x-4">
-                      <div className="w-16 h-16 bg-gradient-tiger rounded-lg flex items-center justify-center">
-                        <span className="text-white font-bold text-xl">H</span>
-                      </div>
-                      <div className="text-2xl font-bold text-white">VS</div>
-                      <div className="w-16 h-16 bg-dark-700 rounded-lg flex items-center justify-center">
-                        <span className="text-white font-bold text-sm">{match.opponent.slice(0, 2)}</span>
-                      </div>
+                <div className="flex items-start justify-between">
+                  <div className="flex items-start space-x-6 flex-1">
+                    <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-full">
+                      {achievement.importance === 'high' ? (
+                        <Trophy className="w-8 h-8 text-white" />
+                      ) : (
+                        <Medal className="w-8 h-8 text-white" />
+                      )}
                     </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-white">{match.opponent}</h3>
-                      <p className="text-dark-300">{match.tournament}</p>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-white mb-2">{achievement.title}</h3>
+                      <p className="text-dark-300 mb-3">{achievement.description}</p>
+                      <p className="text-sm text-dark-400">{achievement.details}</p>
                     </div>
                   </div>
 
-                  <div className="text-right">
+                  <div className="text-right ml-4">
                     <div className="flex items-center space-x-2 text-dark-300 mb-2">
                       <Calendar className="w-4 h-4" />
-                      <span>{new Date(match.date).toLocaleDateString('tr-TR')}</span>
+                      <span>{new Date(achievement.date).toLocaleDateString('tr-TR')}</span>
                     </div>
-                    <div className="flex items-center space-x-2 text-dark-300 mb-2">
-                      <Clock className="w-4 h-4" />
-                      <span>{match.time}</span>
+                    <div className={`inline-block px-3 py-1 rounded-full text-sm font-medium ${
+                      achievement.importance === 'high' 
+                        ? 'bg-primary-500/20 text-primary-500' 
+                        : 'bg-yellow-500/20 text-yellow-500'
+                    }`}>
+                      {achievement.category}
                     </div>
-                    {match.stream && (
-                      <a href={match.stream} target="_blank" rel="noopener noreferrer" 
-                         className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-primary-500 to-primary-600 border border-primary-500/40 rounded-lg text-white font-semibold transition-all duration-300 hover:scale-105 hover:border-primary-400 group/link">
-                        <Play className="w-4 h-4 mr-2 group-hover/link:scale-110 transition-transform duration-300" />
-                        Canlı İzle
-                      </a>
-                    )}
                   </div>
                 </div>
               </motion.div>
@@ -379,10 +377,10 @@ export default function EsportsPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <Link href="/espor/maclar" className="btn-secondary text-base px-8 py-4 flex items-center justify-center min-w-[200px] group relative">
+            <Link href="/espor/tarihce" className="btn-secondary text-base px-8 py-4 flex items-center justify-center min-w-[200px] group relative">
               <span className="relative z-10 flex items-center">
-                Tüm Maçları Görüntüle
-                <Calendar className="w-5 h-5 ml-2 group-hover:rotate-12 transition-transform duration-300" />
+                Tüm Başarıları Görüntüle
+                <Trophy className="w-5 h-5 ml-2 group-hover:rotate-12 transition-transform duration-300" />
               </span>
             </Link>
           </motion.div>
@@ -394,7 +392,7 @@ export default function EsportsPage() {
         <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
       </div>
 
-      {/* Recent Results */}
+      {/* Historical Results */}
       <section className="py-20 bg-gradient-to-br from-dark-900 to-dark-800 snap-start snap-always min-h-screen flex items-center">
         <div className="container-custom">
           <motion.div 
@@ -404,9 +402,9 @@ export default function EsportsPage() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="section-title">Son Sonuçlar</h2>
+            <h2 className="section-title">Tarihi Maç Sonuçları</h2>
             <p className="section-subtitle">
-              Takımımızın son maç performansları ve sonuçları.
+              Şampiyonluk yolunda oynadığımız önemli maçların sonuçları ve performanslarımız.
             </p>
           </motion.div>
 
@@ -417,7 +415,7 @@ export default function EsportsPage() {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.8 }}
           >
-            {recentMatches.slice(0, 3).map((match) => (
+            {historicalMatches.slice(0, 3).map((match) => (
               <motion.div 
                 key={match.id} 
                 className="professional-card"
@@ -470,7 +468,59 @@ export default function EsportsPage() {
         <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
       </div>
 
-      {/* CTA Section */}
+      {/* Career Highlights */}
+      <section className="py-20 bg-gradient-to-br from-dark-900 to-dark-800 snap-start snap-always min-h-screen flex items-center">
+        <div className="container-custom">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="section-title">Kariyer Rekorları</h2>
+            <p className="section-subtitle">
+              Espor yolculuğumuzda elde ettiğimiz en önemli rekorlar ve istatistikler.
+            </p>
+          </motion.div>
+
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8 }}
+          >
+            {careerHighlights.map((highlight, index) => (
+              <motion.div 
+                key={index} 
+                className="professional-card text-center"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
+                <div className="w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                  {highlight.icon === 'Trophy' && <Trophy className="w-8 h-8 text-white" />}
+                  {highlight.icon === 'Medal' && <Medal className="w-8 h-8 text-white" />}
+                  {highlight.icon === 'Award' && <Award className="w-8 h-8 text-white" />}
+                  {highlight.icon === 'Target' && <Target className="w-8 h-8 text-white" />}
+                </div>
+                <h3 className="text-3xl font-bold text-primary-500 mb-2">{highlight.value}</h3>
+                <h4 className="text-lg font-semibold text-white mb-3">{highlight.title}</h4>
+                <p className="text-dark-300 text-sm">{highlight.description}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Section Separator */}
+      <div className="container-custom">
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
+      </div>
+
+      {/* Heritage Section */}
       <section className="py-20 bg-dark-950 snap-start snap-always min-h-screen flex items-center">
         <div className="container-custom">
           <motion.div 
@@ -481,25 +531,26 @@ export default function EsportsPage() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-4xl font-bold text-white mb-6">
-              Takımımızı Destekle!
+              Espor Mirasımızı Keşfet!
             </h2>
             <p className="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
-              Maçlarımızı takip et, canlı yayınlarımızı izle ve HydRaboN ailesinin bir parçası ol.
+              Şampiyonluklar, rekorlar ve unutulmaz anılarla dolu espor tarihimizi keşfet. 
+              HydRaboN ailesinin gurur verici başarı hikayesi.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/espor/maclar" className="bg-white text-primary-600 font-semibold py-4 px-8 rounded-lg hover:bg-primary-50 transition-all duration-300 flex items-center justify-center min-w-[160px] group">
+              <Link href="/espor/tarihce" className="bg-white text-primary-600 font-semibold py-4 px-8 rounded-lg hover:bg-primary-50 transition-all duration-300 flex items-center justify-center min-w-[160px] group">
                 <span className="flex items-center">
-                  Maç Takvimi
-                  <Calendar className="w-5 h-5 ml-2 group-hover:rotate-12 transition-transform duration-300" />
+                  Başarı Tarihçesi
+                  <Trophy className="w-5 h-5 ml-2 group-hover:rotate-12 transition-transform duration-300" />
                 </span>
               </Link>
-              <a href="https://twitch.tv/hydrabon_official" target="_blank" rel="noopener noreferrer"
-                 className="bg-primary-700 text-white font-semibold py-4 px-8 rounded-lg hover:bg-primary-800 transition-all duration-300 flex items-center justify-center min-w-[160px] group">
+              <Link href="/espor/istatistikler" 
+                    className="bg-primary-700 text-white font-semibold py-4 px-8 rounded-lg hover:bg-primary-800 transition-all duration-300 flex items-center justify-center min-w-[160px] group">
                 <span className="flex items-center">
-                  Canlı Yayın
-                  <Play className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
+                  İstatistikler
+                  <Target className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
                 </span>
-              </a>
+              </Link>
             </div>
           </motion.div>
         </div>
