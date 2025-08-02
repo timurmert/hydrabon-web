@@ -42,11 +42,64 @@ body {
 /* Custom Components */
 @layer components {
   .btn-primary {
-    @apply bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:shadow-tiger hover:scale-105 active:scale-95;
+    @apply bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-500 hover:scale-105 active:scale-95 relative overflow-hidden;
+    box-shadow: 
+      0 4px 15px rgba(249, 115, 22, 0.3),
+      0 0 20px rgba(249, 115, 22, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+  
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+  }
+  
+  .btn-primary:hover::before {
+    left: 100%;
+  }
+  
+  .btn-primary:hover {
+    box-shadow: 
+      0 8px 25px rgba(249, 115, 22, 0.4),
+      0 0 30px rgba(249, 115, 22, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
   }
   
   .btn-secondary {
-    @apply bg-dark-800 border-2 border-primary-500 text-primary-500 font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:bg-primary-500 hover:text-white hover:shadow-tiger;
+    @apply bg-dark-800/50 border-2 border-primary-500/70 text-primary-400 font-semibold py-4 px-8 rounded-xl transition-all duration-500 hover:bg-primary-500 hover:text-white hover:scale-105 relative overflow-hidden;
+    backdrop-filter: blur(10px);
+    box-shadow: 
+      0 4px 15px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+  
+  .btn-secondary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(249, 115, 22, 0.1), transparent);
+    transition: left 0.6s ease;
+  }
+  
+  .btn-secondary:hover::before {
+    left: 100%;
+  }
+  
+  .btn-secondary:hover {
+    border-color: rgba(249, 115, 22, 1);
+    box-shadow: 
+      0 8px 25px rgba(249, 115, 22, 0.3),
+      0 0 30px rgba(249, 115, 22, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
   }
   
   .card {
@@ -54,11 +107,65 @@ body {
   }
   
   .section-title {
-    @apply text-4xl md:text-5xl font-display font-bold bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent mb-6;
+    @apply text-3xl md:text-4xl lg:text-5xl font-display font-bold bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent mb-6 tracking-tight;
   }
   
   .section-subtitle {
-    @apply text-lg md:text-xl text-dark-300 mb-12 max-w-3xl mx-auto text-center;
+    @apply text-base md:text-lg lg:text-xl text-dark-300 mb-12 max-w-4xl mx-auto text-center leading-relaxed font-medium;
+  }
+  
+  /* Modern Stats Card */
+  .stats-card {
+    @apply bg-gradient-to-br from-dark-900/90 to-dark-800/90 backdrop-blur-lg rounded-3xl p-8 transition-all duration-700 hover:scale-110 border border-dark-700/60 relative overflow-hidden;
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.3),
+      0 0 80px rgba(249, 115, 22, 0.05),
+      inset 0 2px 0 rgba(255, 255, 255, 0.1),
+      inset 0 -2px 0 rgba(249, 115, 22, 0.1);
+  }
+  
+  .stats-card:hover {
+    border-color: rgba(249, 115, 22, 0.5);
+    box-shadow: 
+      0 20px 60px rgba(0, 0, 0, 0.4),
+      0 0 120px rgba(249, 115, 22, 0.2),
+      inset 0 2px 0 rgba(255, 255, 255, 0.2),
+      inset 0 -2px 0 rgba(249, 115, 22, 0.3);
+    transform: translateY(-10px) scale(1.05);
+  }
+  
+  .stats-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(249, 115, 22, 0.08) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.7s ease;
+  }
+  
+  .stats-card:hover::before {
+    opacity: 1;
+  }
+  
+  .stats-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(from 0deg, transparent, rgba(249, 115, 22, 0.1), transparent);
+    opacity: 0;
+    transition: opacity 0.7s ease, transform 2s ease;
+    transform: rotate(0deg);
+  }
+  
+  .stats-card:hover::after {
+    opacity: 1;
+    transform: rotate(360deg);
   }
   
   .container-custom {
@@ -82,12 +189,7 @@ body {
     @apply absolute bottom-0 left-0 w-full h-0.5 bg-primary-500 content-[''] transform scale-x-0 transition-transform duration-300;
   }
   
-  /* Tiger Pattern Background */
-  .tiger-pattern {
-    background-image: 
-      radial-gradient(circle at 25% 25%, rgba(249, 115, 22, 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 75% 75%, rgba(249, 115, 22, 0.1) 0%, transparent 50%);
-  }
+
   
   /* Glowing Effect */
   .glow-effect {
@@ -107,12 +209,38 @@ body {
   
   /* Professional Card Styles */
   .professional-card {
-    @apply bg-gradient-to-br from-dark-900 to-dark-800 border border-dark-700 rounded-xl p-8 transition-all duration-500 hover:border-primary-500 hover:shadow-tiger;
-    backdrop-filter: blur(10px);
+    @apply bg-gradient-to-br from-dark-900/90 to-dark-800/90 border border-dark-700/50 rounded-2xl p-8 transition-all duration-500 hover:border-primary-500/70;
+    backdrop-filter: blur(15px);
+    box-shadow: 
+      0 4px 20px rgba(0, 0, 0, 0.3),
+      0 0 40px rgba(249, 115, 22, 0.05),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
   
   .professional-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.4),
+      0 0 60px rgba(249, 115, 22, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+  
+  .professional-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, transparent 50%);
+    border-radius: 1rem;
+    opacity: 0;
+    transition: opacity 0.7s ease;
+    z-index: -1;
+  }
+  
+  .professional-card:hover::before {
+    opacity: 1;
   }
 }
 
@@ -121,7 +249,7 @@ body {
   .text-gradient {
     @apply bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent;
   }
-  
+
   .border-gradient {
     border-image: linear-gradient(135deg, #f97316, #ea580c, #c2410c) 1;
   }
@@ -140,6 +268,30 @@ body {
   background: linear-gradient(135deg, #FF6B35 0%, #F7931E 25%, #FFD23F 50%, #FF6B35 75%, #F7931E 100%);
 }
 
+.bg-gradient-hero {
+  background: linear-gradient(
+    135deg,
+    #080808 0%,
+    #101010 25%,
+    rgba(249, 115, 22, 0.02) 50%,
+    #080808 75%,
+    #0c0c0c 100%
+  );
+  /* animation: gradientShift 12s ease-in-out infinite; - Animasyon kaldırıldı */
+  pointer-events: none;
+  user-select: none;
+}
+
+
+
+
+
+
+
+
+
+
+
 /* Loading Animation */
 .loading-spinner {
   width: 40px;
@@ -154,6 +306,8 @@ body {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+
 
 /* Selection Styles */
 ::selection {
@@ -314,5 +468,71 @@ body {
 }
 
 .scroll-container::-webkit-scrollbar-thumb:hover {
-  background: #e55a2d;
+  background: #ea580c;
+}
+
+/* Mobile Hover Performance Optimizations */
+@media (hover: none) and (pointer: coarse) {
+  /* Disable hover effects on touch devices */
+  .group:hover *,
+  *:hover {
+    transform: none !important;
+    scale: none !important;
+    box-shadow: none !important;
+    filter: none !important;
+    color: inherit !important;
+    background: inherit !important;
+  }
+  
+  /* Keep only essential touch interactions */
+  .btn-primary:active {
+    @apply scale-95;
+  }
+  
+  .btn-secondary:active {
+    @apply scale-95;
+  }
+}
+
+/* Performance optimizations for smooth animations */
+@media (prefers-reduced-motion: no-preference) {
+  .will-change-transform {
+    will-change: transform;
+  }
+  
+  .transform-gpu {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+  
+  /* Optimize logo hover animations */
+  .group:hover .will-change-transform {
+    will-change: transform, opacity, filter;
+  }
+  
+  /* Optimize background animations */
+  .bg-gradient-hero {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .transform-gpu {
+    transform: none !important;
+  }
+  
+  .will-change-transform {
+    will-change: auto !important;
+  }
 }

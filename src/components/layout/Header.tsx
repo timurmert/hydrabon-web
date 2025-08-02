@@ -4,11 +4,12 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 import { 
   Menu, 
   X, 
-  ChevronDown, 
-  Gamepad2, 
+  Gamepad2,
+  Crosshair, 
   Code, 
   Video, 
   Users, 
@@ -20,50 +21,29 @@ import {
 
 const navigation = [
   {
-    name: 'Ana Sayfa',
-    href: '/',
-    icon: null,
-  },
-  {
     name: 'Espor',
     href: '/espor',
     icon: Gamepad2,
-    submenu: [
-      { name: 'Takım', href: '/espor/takim' },
-      { name: 'Maçlar', href: '/espor/maclar' },
-      { name: 'İstatistikler', href: '/espor/istatistikler' },
-      { name: 'Turnuvalar', href: '/espor/turnuvalar' },
-    ],
   },
   {
-    name: 'Ar-Ge & Yazılım',
+    name: 'CS2',
+    href: '/cs2',
+    icon: Crosshair,
+  },
+  {
+    name: 'Ar-Ge',
     href: '/ar-ge',
     icon: Code,
-    submenu: [
-      { name: 'Projeler', href: '/ar-ge/projeler' },
-      { name: 'Ekip', href: '/ar-ge/ekip' },
-      { name: 'Teknolojiler', href: '/ar-ge/teknolojiler' },
-    ],
   },
   {
     name: 'Medya',
     href: '/medya',
     icon: Video,
-    submenu: [
-      { name: 'Videolar', href: '/medya/videolar' },
-      { name: 'Galeriler', href: '/medya/galeriler' },
-      { name: 'Ekip', href: '/medya/ekip' },
-    ],
   },
   {
     name: 'Topluluk',
     href: '/topluluk',
     icon: Users,
-    submenu: [
-      { name: 'Discord', href: '/topluluk/discord' },
-      { name: 'Etkinlikler', href: '/topluluk/etkinlikler' },
-      { name: 'Başvur', href: '/topluluk/basvur' },
-    ],
   },
   {
     name: 'Hakkımızda',
@@ -79,8 +59,8 @@ const navigation = [
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
+  const [isLogoHovered, setIsLogoHovered] = useState(false);
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -95,18 +75,33 @@ export default function Header() {
 
   useEffect(() => {
     setIsOpen(false);
-    setActiveSubmenu(null);
   }, [pathname]);
 
-  const handleSubmenuToggle = (name: string) => {
-    setActiveSubmenu(activeSubmenu === name ? null : name);
+
+
+  // Optimized hover handlers with requestAnimationFrame for smoother performance
+  const handleLogoMouseEnter = () => {
+    // Only enable hover effects on non-touch devices
+    if (window.matchMedia('(hover: hover)').matches) {
+      requestAnimationFrame(() => {
+        setIsLogoHovered(true);
+      });
+    }
+  };
+
+  const handleLogoMouseLeave = () => {
+    if (window.matchMedia('(hover: hover)').matches) {
+      requestAnimationFrame(() => {
+        setIsLogoHovered(false);
+      });
+    }
   };
 
   return (
     <motion.header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-dark-950/95 backdrop-blur-custom border-b border-dark-800'
+          ? 'bg-black/60 backdrop-blur-md border-b border-primary-500/30 shadow-lg shadow-black/20'
           : 'bg-transparent'
       }`}
       initial={{ y: -100 }}
@@ -116,79 +111,80 @@ export default function Header() {
       <div className="container-custom">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3 group">
-                                  <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
-              <span className="text-white font-bold text-xl">H</span>
+          <Link 
+            href="/" 
+            className="flex items-center space-x-3 group" 
+            style={{outline: 'none'}} 
+            onFocus={(e) => e.target.blur()}
+            onMouseEnter={handleLogoMouseEnter}
+            onMouseLeave={handleLogoMouseLeave}
+          >
+            <div className="w-16 h-16 flex items-center justify-center transition-transform duration-200 ease-out group-hover:scale-105 p-2 will-change-transform transform-gpu">
+              <Image
+                src="/logo-transparent.png"
+                alt="HydRaboN Logo"
+                width={48}
+                height={48}
+                className="w-full h-full object-contain"
+                priority
+              />
             </div>
             <div className="hidden sm:block">
-              <h1 className="text-2xl font-display font-bold text-gradient">
+              <h1 className="text-2xl font-display font-bold bg-gradient-to-r from-orange-400 via-primary-500 to-orange-600 bg-clip-text text-transparent group-hover:from-primary-500 group-hover:via-orange-500 group-hover:to-orange-700 transition-all duration-300 ease-out group-hover:scale-[1.01] group-hover:translate-x-1 group-hover:tracking-wide group-hover:drop-shadow-[0_0_12px_rgba(255,107,53,0.4)] will-change-transform transform-gpu">
                 HydRaboN
               </h1>
-              <p className="text-xs text-dark-400 font-medium">
-                Professional Esports Organization
+              <p className="text-xs text-orange-400 font-medium transition-all duration-300 ease-out group-hover:text-orange-300 group-hover:translate-x-1 group-hover:font-semibold group-hover:tracking-wide group-hover:drop-shadow-[0_0_6px_rgba(255,107,53,0.3)] group-hover:scale-[1.02] will-change-transform transform-gpu">
+                Çok Yönlü Dijital Topluluk
               </p>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-1">
+          <nav 
+            className="hidden lg:flex items-center space-x-4 will-change-transform transform-gpu"
+            style={{
+              transform: `translateX(${isLogoHovered ? '0.25rem' : '0'})`,
+              transition: 'transform 300ms cubic-bezier(0.4, 0, 0.2, 1)'
+            }}
+          >
             {navigation.map((item) => (
               <div key={item.name} className="relative group">
                 <Link
                   href={item.href}
-                  className={`nav-link px-4 py-2 rounded-lg flex items-center space-x-2 transition-all duration-300 ${
+                  className={`nav-link px-5 py-3 rounded-lg flex items-center space-x-2 transition-all duration-200 ease-out whitespace-nowrap ${
                     pathname === item.href
                       ? 'text-primary-500 bg-primary-500/10'
                       : ''
                   }`}
-                  onMouseEnter={() => item.submenu && setActiveSubmenu(item.name)}
+                  style={{outline: 'none'}}
+                  onFocus={(e) => e.target.blur()}
+
                 >
                   {item.icon && <item.icon className="w-4 h-4" />}
                   <span>{item.name}</span>
-                  {item.submenu && (
-                    <ChevronDown className="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" />
-                  )}
                 </Link>
 
-                {/* Submenu */}
-                {item.submenu && (
-                  <AnimatePresence>
-                    {activeSubmenu === item.name && (
-                      <motion.div
-                        className="absolute top-full left-0 mt-2 w-56 bg-dark-900/95 backdrop-blur-custom border border-dark-700 rounded-xl shadow-dark-lg"
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -10 }}
-                        transition={{ duration: 0.2 }}
-                        onMouseLeave={() => setActiveSubmenu(null)}
-                      >
-                        <div className="p-2">
-                          {item.submenu.map((subItem) => (
-                            <Link
-                              key={subItem.name}
-                              href={subItem.href}
-                              className="block px-4 py-3 text-dark-300 hover:text-primary-500 hover:bg-primary-500/10 rounded-lg transition-all duration-300"
-                            >
-                              {subItem.name}
-                            </Link>
-                          ))}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                )}
+
               </div>
             ))}
           </nav>
 
           {/* Discord Button & Mobile Menu */}
-          <div className="flex items-center space-x-4">
+          <div 
+            className="flex items-center space-x-8 will-change-transform transform-gpu"
+            style={{
+              transform: `translateX(${isLogoHovered ? '0.25rem' : '0'})`,
+              transition: 'transform 300ms cubic-bezier(0.4, 0, 0.2, 1)'
+            }}
+          >
             {/* Discord Button */}
             <a
-              href="#"
+              href="https://discord.gg/hydrabon"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden md:flex items-center space-x-2 btn-primary"
+              className="hidden md:flex items-center space-x-2 btn-primary transition-all duration-200 ease-out hover:scale-105 hover:shadow-lg hover:shadow-primary-500/25 will-change-transform transform-gpu"
+              style={{outline: 'none'}}
+              onFocus={(e) => e.target.blur()}
             >
               <Users className="w-4 h-4" />
               <span>Discord</span>
@@ -198,7 +194,9 @@ export default function Header() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden p-2 text-dark-300 hover:text-primary-500 transition-colors duration-300"
+              className="lg:hidden p-2 text-dark-300 hover:text-primary-500 transition-colors duration-200 ease-out"
+              style={{outline: 'none'}}
+              onFocus={(e) => e.target.blur()}
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -220,52 +218,17 @@ export default function Header() {
               <nav className="space-y-2">
                 {navigation.map((item) => (
                   <div key={item.name}>
-                    <div className="flex items-center justify-between">
-                      <Link
-                        href={item.href}
-                        className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition-all duration-300 ${
-                          pathname === item.href
-                            ? 'text-primary-500 bg-primary-500/10'
-                            : 'text-dark-300 hover:text-primary-500 hover:bg-dark-800'
-                        }`}
-                      >
-                        {item.icon && <item.icon className="w-5 h-5" />}
-                        <span className="font-medium">{item.name}</span>
-                      </Link>
-                      {item.submenu && (
-                        <button
-                          onClick={() => handleSubmenuToggle(item.name)}
-                          className="p-2 text-dark-400 hover:text-primary-500 transition-colors duration-300"
-                        >
-                          <ChevronDown
-                            className={`w-4 h-4 transition-transform duration-300 ${
-                              activeSubmenu === item.name ? 'rotate-180' : ''
-                            }`}
-                          />
-                        </button>
-                      )}
-                    </div>
-
-                    {/* Mobile Submenu */}
-                    {item.submenu && activeSubmenu === item.name && (
-                      <motion.div
-                        className="ml-6 mt-2 space-y-1"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        {item.submenu.map((subItem) => (
-                          <Link
-                            key={subItem.name}
-                            href={subItem.href}
-                            className="block px-4 py-2 text-dark-400 hover:text-primary-500 transition-colors duration-300"
-                          >
-                            {subItem.name}
-                          </Link>
-                        ))}
-                      </motion.div>
-                    )}
+                    <Link
+                      href={item.href}
+                      className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition-all duration-300 ${
+                        pathname === item.href
+                          ? 'text-primary-500 bg-primary-500/10'
+                          : 'text-dark-300 hover:text-primary-500 hover:bg-dark-800'
+                      }`}
+                    >
+                      {item.icon && <item.icon className="w-5 h-5" />}
+                      <span className="font-medium">{item.name}</span>
+                    </Link>
                   </div>
                 ))}
               </nav>
@@ -273,7 +236,7 @@ export default function Header() {
               {/* Mobile Discord Button */}
               <div className="mt-6 px-4">
                 <a
-                  href="#"
+                  href="https://discord.gg/hydrabon"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center space-x-2 btn-primary w-full"
@@ -316,20 +279,6 @@ export default function Header() {
                     >
                       {item.name}
                     </Link>
-                    {item.submenu && (
-                      <div className="ml-4 mt-2 space-y-2">
-                        {item.submenu.map((subItem) => (
-                          <Link
-                            key={subItem.href}
-                            href={subItem.href}
-                            className="block py-2 px-4 text-sm text-dark-300 hover:text-white hover:bg-dark-800 rounded-lg transition-all duration-300"
-                            onClick={() => setIsMenuOpen(false)}
-                          >
-                            {subItem.name}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
                   </div>
                 ))}
               </nav>
