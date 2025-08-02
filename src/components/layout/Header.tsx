@@ -9,7 +9,8 @@ import {
   Menu, 
   X, 
   ChevronDown, 
-  Gamepad2, 
+  Gamepad2,
+  Crosshair, 
   Code, 
   Video, 
   Users, 
@@ -29,6 +30,17 @@ const navigation = [
       { name: 'Maçlar', href: '/espor/maclar' },
       { name: 'İstatistikler', href: '/espor/istatistikler' },
       { name: 'Turnuvalar', href: '/espor/turnuvalar' },
+    ],
+  },
+  {
+    name: 'CS2',
+    href: '/cs2',
+    icon: Crosshair,
+    submenu: [
+      { name: 'Sunucu Bilgisi', href: '/cs2/sunucu' },
+      { name: 'Haritalar', href: '/cs2/haritalar' },
+      { name: 'Oyuncular', href: '/cs2/oyuncular' },
+      { name: 'Etkinlikler', href: '/cs2/etkinlikler' },
     ],
   },
   {
@@ -161,7 +173,7 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav 
-            className="hidden lg:flex items-center space-x-1 will-change-transform transform-gpu"
+            className="hidden lg:flex items-center space-x-4 will-change-transform transform-gpu"
             style={{
               transform: `translateX(${isLogoHovered ? '0.25rem' : '0'})`,
               transition: 'transform 300ms cubic-bezier(0.4, 0, 0.2, 1)'
@@ -171,7 +183,7 @@ export default function Header() {
               <div key={item.name} className="relative group">
                 <Link
                   href={item.href}
-                  className={`nav-link px-4 py-2 rounded-lg flex items-center space-x-2 transition-all duration-200 ease-out ${
+                  className={`nav-link px-5 py-3 rounded-lg flex items-center space-x-2 transition-all duration-200 ease-out whitespace-nowrap ${
                     pathname === item.href
                       ? 'text-primary-500 bg-primary-500/10'
                       : ''

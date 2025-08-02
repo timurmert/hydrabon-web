@@ -1,6 +1,6 @@
 'use client';
 
-import { Gamepad2, Code, Video, Users, ArrowRight, Trophy, Target, Zap, Info } from 'lucide-react';
+import { Gamepad2, Crosshair, Code, Video, Users, ArrowRight, Trophy, Target, Zap, Info } from 'lucide-react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
@@ -12,6 +12,14 @@ const divisions = [
     href: '/espor',
     features: ['Profesyonel Takım', 'Turnuva Başarıları', 'Analiz Sistemi', 'Koçluk Desteği'],
     color: 'from-primary-500 to-primary-700',
+  },
+  {
+    title: 'CS2 Sunucusu',
+    description: '16 slot, 128 tick, anti-cheat korumalı profesyonel Counter-Strike 2 sunucumuz. Competitive\'den casual\'a kadar geniş oyun modu yelpazesi.',
+    icon: Crosshair,
+    href: '/cs2',
+    features: ['16 Slot Server', 'Anti-Cheat Koruması', 'Çoklu Oyun Modu', '7/24 Hizmet'],
+    color: 'from-orange-500 to-orange-700',
   },
   {
     title: 'Ar-Ge & Yazılım',
