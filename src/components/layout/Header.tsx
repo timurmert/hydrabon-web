@@ -8,7 +8,6 @@ import Image from 'next/image';
 import { 
   Menu, 
   X, 
-  ChevronDown, 
   Gamepad2,
   Crosshair, 
   Code, 
@@ -25,53 +24,26 @@ const navigation = [
     name: 'Espor',
     href: '/espor',
     icon: Gamepad2,
-    submenu: [
-      { name: 'Takım', href: '/espor/takim' },
-      { name: 'Maçlar', href: '/espor/maclar' },
-      { name: 'İstatistikler', href: '/espor/istatistikler' },
-      { name: 'Turnuvalar', href: '/espor/turnuvalar' },
-    ],
   },
   {
     name: 'CS2',
     href: '/cs2',
     icon: Crosshair,
-    submenu: [
-      { name: 'Sunucu Bilgisi', href: '/cs2/sunucu' },
-      { name: 'Haritalar', href: '/cs2/haritalar' },
-      { name: 'Oyuncular', href: '/cs2/oyuncular' },
-      { name: 'Etkinlikler', href: '/cs2/etkinlikler' },
-    ],
   },
   {
     name: 'Ar-Ge',
     href: '/ar-ge',
     icon: Code,
-    submenu: [
-      { name: 'Projeler', href: '/ar-ge/projeler' },
-      { name: 'Ekip', href: '/ar-ge/ekip' },
-      { name: 'Teknolojiler', href: '/ar-ge/teknolojiler' },
-    ],
   },
   {
     name: 'Medya',
     href: '/medya',
     icon: Video,
-    submenu: [
-      { name: 'Videolar', href: '/medya/videolar' },
-      { name: 'Galeriler', href: '/medya/galeriler' },
-      { name: 'Ekip', href: '/medya/ekip' },
-    ],
   },
   {
     name: 'Topluluk',
     href: '/topluluk',
     icon: Users,
-    submenu: [
-      { name: 'Discord', href: '/topluluk/discord' },
-      { name: 'Etkinlikler', href: '/topluluk/etkinlikler' },
-      { name: 'Başvur', href: '/topluluk/basvur' },
-    ],
   },
   {
     name: 'Hakkımızda',
@@ -87,7 +59,6 @@ const navigation = [
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const [isLogoHovered, setIsLogoHovered] = useState(false);
   const pathname = usePathname();
@@ -104,12 +75,9 @@ export default function Header() {
 
   useEffect(() => {
     setIsOpen(false);
-    setActiveSubmenu(null);
   }, [pathname]);
 
-  const handleSubmenuToggle = (name: string) => {
-    setActiveSubmenu(activeSubmenu === name ? null : name);
-  };
+
 
   // Optimized hover handlers with requestAnimationFrame for smoother performance
   const handleLogoMouseEnter = () => {
@@ -190,53 +158,20 @@ export default function Header() {
                   }`}
                   style={{outline: 'none'}}
                   onFocus={(e) => e.target.blur()}
-                  onMouseEnter={() => item.submenu && setActiveSubmenu(item.name)}
-                  onMouseLeave={() => item.submenu && setActiveSubmenu(null)}
+
                 >
                   {item.icon && <item.icon className="w-4 h-4" />}
                   <span>{item.name}</span>
-                  {item.submenu && (
-                    <ChevronDown className="w-4 h-4 transition-transform duration-200 ease-out group-hover:rotate-180 will-change-transform transform-gpu" />
-                  )}
                 </Link>
 
-                {/* Submenu */}
-                {item.submenu && (
-                  <AnimatePresence>
-                    {activeSubmenu === item.name && (
-                      <motion.div
-                        className="absolute top-full left-0 mt-2 w-56 bg-dark-900/95 backdrop-blur-custom border border-dark-700 rounded-xl shadow-dark-lg"
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -10 }}
-                        transition={{ duration: 0.15, ease: "easeOut" }}
-                        onMouseEnter={() => setActiveSubmenu(item.name)}
-                        onMouseLeave={() => setActiveSubmenu(null)}
-                      >
-                        <div className="p-2">
-                          {item.submenu.map((subItem) => (
-                            <Link
-                              key={subItem.name}
-                              href={subItem.href}
-                              className="block px-4 py-3 text-dark-300 hover:text-primary-500 hover:bg-primary-500/10 rounded-lg transition-all duration-150 ease-out"
-                              style={{outline: 'none'}}
-                              onFocus={(e) => e.target.blur()}
-                            >
-                              {subItem.name}
-                            </Link>
-                          ))}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                )}
+
               </div>
             ))}
           </nav>
 
           {/* Discord Button & Mobile Menu */}
           <div 
-            className="flex items-center space-x-4 will-change-transform transform-gpu"
+            className="flex items-center space-x-8 will-change-transform transform-gpu"
             style={{
               transform: `translateX(${isLogoHovered ? '0.25rem' : '0'})`,
               transition: 'transform 300ms cubic-bezier(0.4, 0, 0.2, 1)'
@@ -283,52 +218,17 @@ export default function Header() {
               <nav className="space-y-2">
                 {navigation.map((item) => (
                   <div key={item.name}>
-                    <div className="flex items-center justify-between">
-                      <Link
-                        href={item.href}
-                        className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition-all duration-300 ${
-                          pathname === item.href
-                            ? 'text-primary-500 bg-primary-500/10'
-                            : 'text-dark-300 hover:text-primary-500 hover:bg-dark-800'
-                        }`}
-                      >
-                        {item.icon && <item.icon className="w-5 h-5" />}
-                        <span className="font-medium">{item.name}</span>
-                      </Link>
-                      {item.submenu && (
-                        <button
-                          onClick={() => handleSubmenuToggle(item.name)}
-                          className="p-2 text-dark-400 hover:text-primary-500 transition-colors duration-300"
-                        >
-                          <ChevronDown
-                            className={`w-4 h-4 transition-transform duration-300 ${
-                              activeSubmenu === item.name ? 'rotate-180' : ''
-                            }`}
-                          />
-                        </button>
-                      )}
-                    </div>
-
-                    {/* Mobile Submenu */}
-                    {item.submenu && activeSubmenu === item.name && (
-                      <motion.div
-                        className="ml-6 mt-2 space-y-1"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        {item.submenu.map((subItem) => (
-                          <Link
-                            key={subItem.name}
-                            href={subItem.href}
-                            className="block px-4 py-2 text-dark-400 hover:text-primary-500 transition-colors duration-300"
-                          >
-                            {subItem.name}
-                          </Link>
-                        ))}
-                      </motion.div>
-                    )}
+                    <Link
+                      href={item.href}
+                      className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition-all duration-300 ${
+                        pathname === item.href
+                          ? 'text-primary-500 bg-primary-500/10'
+                          : 'text-dark-300 hover:text-primary-500 hover:bg-dark-800'
+                      }`}
+                    >
+                      {item.icon && <item.icon className="w-5 h-5" />}
+                      <span className="font-medium">{item.name}</span>
+                    </Link>
                   </div>
                 ))}
               </nav>
@@ -379,20 +279,6 @@ export default function Header() {
                     >
                       {item.name}
                     </Link>
-                    {item.submenu && (
-                      <div className="ml-4 mt-2 space-y-2">
-                        {item.submenu.map((subItem) => (
-                          <Link
-                            key={subItem.href}
-                            href={subItem.href}
-                            className="block py-2 px-4 text-sm text-dark-300 hover:text-white hover:bg-dark-800 rounded-lg transition-all duration-300"
-                            onClick={() => setIsMenuOpen(false)}
-                          >
-                            {subItem.name}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
                   </div>
                 ))}
               </nav>
