@@ -11,7 +11,8 @@ import {
   Calendar,
   Award,
   Crown,
-  MapPin
+  MapPin,
+  Crosshair
 } from 'lucide-react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -80,6 +81,11 @@ const achievements = [
   {
     title: 'VCT Turkey Challengers',
     description: 'Top 8 başarısı',
+    year: '2024',
+  },
+  {
+    title: 'CS2 Sunucu Altyapısı',
+    description: '128 tick profesyonel server',
     year: '2024',
   },
   {
@@ -202,7 +208,9 @@ export default function AboutPage() {
             transition={{ duration: 0.8 }}
           >
             <motion.div 
-              className="professional-card"
+              id="misyon"
+              className="professional-card scroll-mt-110"
+              style={{ scrollMarginTop: '27rem' }}
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -224,7 +232,9 @@ export default function AboutPage() {
             </motion.div>
 
             <motion.div 
-              className="professional-card"
+              id="vizyon"
+              className="professional-card scroll-mt-110"
+              style={{ scrollMarginTop: '27rem' }}
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -254,7 +264,7 @@ export default function AboutPage() {
       </div>
 
       {/* Timeline */}
-      <section className="py-20 bg-gradient-to-br from-dark-900 to-dark-800 snap-start snap-always min-h-screen flex items-center">
+      <section id="tarihce" className="py-20 bg-gradient-to-br from-dark-900 to-dark-800 snap-start snap-always min-h-screen flex items-center">
         <div className="container-custom">
           <motion.div 
             className="text-center mb-16"
@@ -319,7 +329,7 @@ export default function AboutPage() {
       </div>
 
       {/* Values */}
-      <section className="py-20 bg-dark-950 snap-start snap-always min-h-screen flex items-center">
+      <section id="degerler" className="py-20 bg-dark-950 snap-start snap-always min-h-screen flex items-center">
         <div className="container-custom">
           <motion.div 
             className="text-center mb-16"
@@ -468,12 +478,12 @@ export default function AboutPage() {
           >
             <h2 className="section-title">Departmanlarımız</h2>
             <p className="section-subtitle">
-              Dört ana departmanımızın her biri kendine özgü uzmanlık alanlarında faaliyet gösterir.
+              Beş ana departmanımızın her biri kendine özgü uzmanlık alanlarında faaliyet gösterir.
             </p>
           </motion.div>
 
           <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, amount: 0.2 }}
@@ -483,9 +493,20 @@ export default function AboutPage() {
               <div className="w-16 h-16 bg-red-500/20 rounded-xl flex items-center justify-center mb-6">
                 <Trophy className="w-8 h-8 text-red-500" />
               </div>
-              <h3 className="text-2xl font-bold text-white mb-4">Espor</h3>
+              <h3 className="text-2xl font-bold text-white mb-4">Espor Mirası</h3>
               <p className="text-dark-300 mb-4">
-                Profesyonel Valorant takımımız ile turnuvalarda mücadele eden rekabetçi departmanımız.
+                Valorant sahasında elde ettiğimiz tarihi başarılar, şampiyonluklar ve unutulmaz esports mirasımız.
+              </p>
+              <div className="text-primary-500 font-medium">Detayları görüntüle →</div>
+            </Link>
+
+            <Link href="/cs2" className="professional-card group hover:scale-105 transition-transform duration-300">
+              <div className="w-16 h-16 bg-orange-500/20 rounded-xl flex items-center justify-center mb-6">
+                <Crosshair className="w-8 h-8 text-orange-500" />
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-4">CS2 Sunucusu</h3>
+              <p className="text-dark-300 mb-4">
+                16 slot, 128 tick, anti-cheat korumalı profesyonel Counter-Strike 2 sunucumuz ve hizmetlerimiz.
               </p>
               <div className="text-primary-500 font-medium">Detayları görüntüle →</div>
             </Link>

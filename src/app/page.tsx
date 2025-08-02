@@ -1,6 +1,6 @@
 'use client';
 
-import { Gamepad2, Crosshair, Code, Video, Users, ArrowRight, Trophy, Target, Zap, Info } from 'lucide-react';
+import { Gamepad2, Crosshair, Code, Video, Users, ArrowRight, Trophy, Target, Zap, Info, HelpCircle } from 'lucide-react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
@@ -44,6 +44,14 @@ const divisions = [
     href: '/topluluk',
     features: ['Aktif Topluluk', 'Etkinlikler', 'Rütbe Sistemi', '7/24 Destek'],
     color: 'from-indigo-500 to-indigo-700',
+  },
+  {
+    title: '???',
+    description: 'Yakında duyurulacak yeni projeler ve birimlerimiz. Gelişmeleri takip etmek için bizi izlemeye devam edin.',
+    icon: HelpCircle,
+    href: '#',
+    features: ['Yakında', 'Sürpriz Projeler', 'Yeni Fikirler', 'Daha Fazlası'],
+    color: 'from-gray-500 to-gray-700',
   },
 ];
 
@@ -239,7 +247,7 @@ export default function HomePage() {
 
             {/* Enhanced Division Cards */}
             <motion.div 
-              className="grid grid-cols-1 lg:grid-cols-2 gap-10"
+              className="grid grid-cols-1 md:grid-cols-2 gap-10"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true, amount: 0.2 }}

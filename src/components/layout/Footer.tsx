@@ -10,6 +10,7 @@ import {
   Instagram,
   Youtube,
   Gamepad2,
+  Crosshair,
   MessageCircle,
   ExternalLink,
   ArrowUp,
@@ -31,7 +32,8 @@ const footerLinks = {
     title: 'Birimlerimiz',
     links: [
       { name: 'Espor Takımı', href: '/espor' },
-      { name: 'Ar-Ge', href: '/ar-ge' },
+      { name: 'CS2 Sunucusu', href: '/cs2' },
+      { name: 'Ar-Ge & Yazılım', href: '/ar-ge' },
       { name: 'Medya Ekibi', href: '/medya' },
       { name: 'Discord Topluluğu', href: '/topluluk' },
     ],
@@ -39,11 +41,10 @@ const footerLinks = {
   community: {
     title: 'Topluluk',
     links: [
-      { name: 'Discord Sunucusu', href: '/topluluk/discord' },
-      { name: 'Etkinlikler', href: '/topluluk/etkinlikler' },
-      { name: 'Başvuru Formu', href: '/topluluk/basvur' },
-      { name: 'SSS', href: '/topluluk/sss' },
-      { name: 'Kurallar', href: '/topluluk/kurallar' },
+      { name: 'Discord Sunucusu', href: '/topluluk' },
+      { name: 'Steam Grubu', href: 'https://steamcommunity.com/groups/HydRaboN' },
+      { name: 'Başvuru Formu', href: '/topluluk#basvuru' },
+      { name: 'İletişim', href: '/iletisim' },
     ],
   },
   legal: {
@@ -52,7 +53,6 @@ const footerLinks = {
       { name: 'Gizlilik Politikası', href: '/gizlilik' },
       { name: 'Kullanım Şartları', href: '/kullanim-sartlari' },
       { name: 'Çerez Politikası', href: '/cerez-politikasi' },
-      { name: 'İletişim', href: '/iletisim' },
     ],
   },
 };
@@ -73,7 +73,7 @@ const socialMedia = [
     bgColor: 'hover:bg-red-500/10',
   },
   {
-    name: 'Steam',
+    name: 'Steam Community',
     href: 'https://steamcommunity.com/groups/HydRaboN',
     icon: Gamepad2,
     color: 'hover:text-blue-300 hover:shadow-blue-300/25',
@@ -194,7 +194,7 @@ export default function Footer() {
               </Link>
               
               <p className="text-dark-300 text-lg mb-8 leading-relaxed transition-colors duration-300 hover:text-dark-200">
-                Espor, teknoloji, medya ve topluluk yönetiminde yenilikçi çözümler üreten, 
+                Espor, CS2 sunucusu, teknoloji, medya ve topluluk yönetiminde yenilikçi çözümler üreten, 
                 güçlü bir simgeye ve organizasyonel yapıya sahip, genç ve disiplinli bir topluluk yapılanması.
               </p>
 
