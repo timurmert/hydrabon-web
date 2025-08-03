@@ -107,7 +107,16 @@ body {
   }
   
   .section-title {
-    @apply text-3xl md:text-4xl lg:text-5xl font-display font-bold bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent mb-6 tracking-tight;
+    @apply text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-6 tracking-tight leading-relaxed;
+    background: linear-gradient(to right, #f97316, #ea580c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    overflow: visible !important;
+    padding-bottom: 8px;
+    padding-top: 2px;
+    display: inline-block;
+    width: fit-content;
   }
   
   .section-subtitle {
@@ -328,7 +337,12 @@ body {
 
   .section-title {
     font-size: 1.875rem;
-    line-height: 2.25rem;
+    line-height: 3rem;
+    overflow: visible !important;
+    padding-bottom: 8px;
+    padding-top: 2px;
+    display: inline-block;
+    width: fit-content;
   }
 
   .section-subtitle {
@@ -357,15 +371,15 @@ body {
 
   /* Improved typography for mobile */
   h1 {
-    @apply text-2xl md:text-4xl lg:text-5xl;
+    @apply text-2xl md:text-4xl lg:text-5xl leading-normal;
   }
 
   h2 {
-    @apply text-xl md:text-2xl lg:text-3xl;
+    @apply text-xl md:text-2xl lg:text-3xl leading-normal;
   }
 
   h3 {
-    @apply text-lg md:text-xl lg:text-2xl;
+    @apply text-lg md:text-xl lg:text-2xl leading-normal;
   }
 
   /* Better spacing for mobile */
@@ -390,7 +404,7 @@ body {
 
 @media (max-width: 640px) {
   .hero-title {
-    @apply text-3xl leading-tight;
+    @apply text-3xl leading-normal;
   }
 
   .hero-subtitle {

@@ -184,7 +184,7 @@ export default function Footer() {
                   />
                 </div>
                 <div>
-                  <h3 className="text-3xl font-display font-bold bg-gradient-to-r from-orange-400 via-primary-500 to-orange-600 bg-clip-text text-transparent group-hover:from-primary-500 group-hover:via-orange-500 group-hover:to-orange-700 transition-all duration-300 ease-out group-hover:scale-[1.02] group-hover:tracking-wide group-hover:drop-shadow-[0_0_15px_rgba(255,107,53,0.4)] will-change-transform transform-gpu">
+                  <h3 className="text-3xl font-display font-bold bg-gradient-to-r from-orange-400 via-primary-500 to-orange-600 bg-clip-text text-transparent group-hover:from-primary-500 group-hover:via-orange-500 group-hover:to-orange-700 transition-all duration-300 ease-out group-hover:scale-[1.02] group-hover:tracking-wide group-hover:drop-shadow-[0_0_15px_rgba(255,107,53,0.4)] will-change-transform transform-gpu leading-normal">
                     HydRaboN
                   </h3>
                   <p className="text-orange-400 font-medium transition-all duration-300 ease-out group-hover:text-orange-300 group-hover:font-semibold group-hover:tracking-wide group-hover:drop-shadow-[0_0_8px_rgba(255,107,53,0.3)] will-change-transform transform-gpu">

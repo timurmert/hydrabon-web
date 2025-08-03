@@ -21,14 +21,9 @@ import {
 
 const navigation = [
   {
-    name: 'Espor',
-    href: '/espor',
-    icon: Gamepad2,
-  },
-  {
-    name: 'CS2',
-    href: '/cs2',
-    icon: Crosshair,
+    name: 'Topluluk',
+    href: '/topluluk',
+    icon: Users,
   },
   {
     name: 'Ar-Ge',
@@ -41,9 +36,14 @@ const navigation = [
     icon: Video,
   },
   {
-    name: 'Topluluk',
-    href: '/topluluk',
-    icon: Users,
+    name: 'CS2',
+    href: '/cs2',
+    icon: Crosshair,
+  },
+  {
+    name: 'Espor',
+    href: '/espor',
+    icon: Gamepad2,
   },
   {
     name: 'Hakkımızda',
@@ -130,7 +130,7 @@ export default function Header() {
               />
             </div>
             <div className="hidden sm:block">
-              <h1 className="text-2xl font-display font-bold bg-gradient-to-r from-orange-400 via-primary-500 to-orange-600 bg-clip-text text-transparent group-hover:from-primary-500 group-hover:via-orange-500 group-hover:to-orange-700 transition-all duration-300 ease-out group-hover:scale-[1.01] group-hover:translate-x-1 group-hover:tracking-wide group-hover:drop-shadow-[0_0_12px_rgba(255,107,53,0.4)] will-change-transform transform-gpu">
+              <h1 className="text-2xl font-display font-bold bg-gradient-to-r from-orange-400 via-primary-500 to-orange-600 bg-clip-text text-transparent group-hover:from-primary-500 group-hover:via-orange-500 group-hover:to-orange-700 transition-all duration-300 ease-out group-hover:scale-[1.01] group-hover:translate-x-1 group-hover:tracking-wide group-hover:drop-shadow-[0_0_12px_rgba(255,107,53,0.4)] will-change-transform transform-gpu leading-normal">
                 HydRaboN
               </h1>
               <p className="text-xs text-orange-400 font-medium transition-all duration-300 ease-out group-hover:text-orange-300 group-hover:translate-x-1 group-hover:font-semibold group-hover:tracking-wide group-hover:drop-shadow-[0_0_6px_rgba(255,107,53,0.3)] group-hover:scale-[1.02] will-change-transform transform-gpu">

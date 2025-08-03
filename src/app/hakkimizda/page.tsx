@@ -109,7 +109,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen snap-y snap-mandatory overflow-y-scroll scroll-smooth">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden snap-start snap-always">
+      <section className="relative min-h-screen flex items-center justify-center overflow-x-hidden snap-start snap-always">
         {/* Multi-layered Dynamic Background */}
         <div className="absolute inset-0 bg-gradient-hero" style={{ zIndex: 0 }}></div>
         <div className="absolute inset-0 geometric-pattern" style={{ zIndex: 1 }}></div>
@@ -161,7 +161,7 @@ export default function AboutPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight leading-normal">
                 <span className="bg-gradient-to-r from-primary-300 via-white to-primary-300 bg-clip-text text-transparent">
                   Hakkımızda
                 </span>
@@ -219,7 +219,7 @@ export default function AboutPage() {
               <div className="w-16 h-16 bg-primary-500/20 rounded-xl flex items-center justify-center mb-6">
                 <Target className="w-8 h-8 text-primary-500" />
               </div>
-              <h2 className="text-3xl font-display font-bold text-white mb-6">Misyonumuz</h2>
+              <h2 className="text-3xl font-display font-bold text-white mb-6 leading-normal">Misyonumuz</h2>
               <p className="text-dark-200 text-lg leading-relaxed mb-6">
                 Türkiye esports ekosisteminde profesyonel standartları yükselterek, 
                 yetenekli oyuncuları desteklemek ve esports kültürünü geliştirmek.
@@ -243,7 +243,7 @@ export default function AboutPage() {
               <div className="w-16 h-16 bg-orange-500/20 rounded-xl flex items-center justify-center mb-6">
                 <Crown className="w-8 h-8 text-orange-500" />
               </div>
-              <h2 className="text-3xl font-display font-bold text-white mb-6">Vizyonumuz</h2>
+              <h2 className="text-3xl font-display font-bold text-white mb-6 leading-normal">Vizyonumuz</h2>
               <p className="text-dark-200 text-lg leading-relaxed mb-6">
                 Türkiye&apos;nin en saygın esports organizasyonlarından biri olarak, 
                 uluslararası arenada ülkemizi başarıyla temsil etmek.
@@ -493,7 +493,7 @@ export default function AboutPage() {
               <div className="w-16 h-16 bg-red-500/20 rounded-xl flex items-center justify-center mb-6">
                 <Trophy className="w-8 h-8 text-red-500" />
               </div>
-              <h3 className="text-2xl font-bold text-white mb-4">Espor Mirası</h3>
+              <h3 className="text-2xl font-bold text-white mb-4 leading-normal">Espor Mirası</h3>
               <p className="text-dark-300 mb-4">
                 Valorant sahasında elde ettiğimiz tarihi başarılar, şampiyonluklar ve unutulmaz esports mirasımız.
               </p>
@@ -504,7 +504,7 @@ export default function AboutPage() {
               <div className="w-16 h-16 bg-orange-500/20 rounded-xl flex items-center justify-center mb-6">
                 <Crosshair className="w-8 h-8 text-orange-500" />
               </div>
-              <h3 className="text-2xl font-bold text-white mb-4">CS2 Sunucusu</h3>
+              <h3 className="text-2xl font-bold text-white mb-4 leading-normal">CS2 Sunucusu</h3>
               <p className="text-dark-300 mb-4">
                 16 slot, 128 tick, anti-cheat korumalı profesyonel Counter-Strike 2 sunucumuz ve hizmetlerimiz.
               </p>
@@ -515,7 +515,7 @@ export default function AboutPage() {
               <div className="w-16 h-16 bg-blue-500/20 rounded-xl flex items-center justify-center mb-6">
                 <Zap className="w-8 h-8 text-blue-500" />
               </div>
-              <h3 className="text-2xl font-bold text-white mb-4">Ar-Ge & Yazılım</h3>
+              <h3 className="text-2xl font-bold text-white mb-4 leading-normal">Ar-Ge & Yazılım</h3>
               <p className="text-dark-300 mb-4">
                 Discord botları, AI sistemleri ve web uygulamaları geliştiren teknoloji departmanımız.
               </p>
@@ -526,7 +526,7 @@ export default function AboutPage() {
               <div className="w-16 h-16 bg-purple-500/20 rounded-xl flex items-center justify-center mb-6">
                 <Calendar className="w-8 h-8 text-purple-500" />
               </div>
-              <h3 className="text-2xl font-bold text-white mb-4">Medya</h3>
+              <h3 className="text-2xl font-bold text-white mb-4 leading-normal">Medya</h3>
               <p className="text-dark-300 mb-4">
                 Video prodüksiyonu, grafik tasarım ve sosyal medya yönetimi yapan kreatif departmanımız.
               </p>
@@ -537,7 +537,7 @@ export default function AboutPage() {
               <div className="w-16 h-16 bg-green-500/20 rounded-xl flex items-center justify-center mb-6">
                 <Users className="w-8 h-8 text-green-500" />
               </div>
-              <h3 className="text-2xl font-bold text-white mb-4">Discord Topluluğu</h3>
+              <h3 className="text-2xl font-bold text-white mb-4 leading-normal">Discord Topluluğu</h3>
               <p className="text-dark-300 mb-4">
                 2500+ üyeli aktif Discord sunucumuzun yönetimini sağlayan topluluk departmanımız.
               </p>
@@ -562,7 +562,7 @@ export default function AboutPage() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6 leading-normal">
               Bize Katılın!
             </h2>
             <p className="text-xl text-orange-100 mb-8 max-w-2xl mx-auto">
