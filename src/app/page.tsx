@@ -52,7 +52,7 @@ const divisions = [
   },
   {
     title: '???',
-    description: 'Yakında duyurulacak yeni projeler ve birimlerimiz. Gelişmeleri takip etmek için bizi izlemeye devam edin.',
+    description: 'Sessizce şekillenen yeni birim ve projeler. Gelişmeleri takip etmek için bizi takipte kalın.',
     icon: HelpCircle,
     href: '#',
     features: ['Yakında', 'Yakında', 'Yakında', 'Yakında'],
