@@ -108,12 +108,12 @@ export default function Header() {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="container-custom">
+      <div className="container-header">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link 
             href="/" 
-            className="flex items-center space-x-3 group" 
+            className="flex items-center space-x-3 group mr-6" 
             style={{outline: 'none'}} 
             onFocus={(e) => e.target.blur()}
             onMouseEnter={handleLogoMouseEnter}
@@ -141,7 +141,7 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav 
-            className="hidden lg:flex items-center space-x-4 will-change-transform transform-gpu"
+            className="hidden lg:flex items-center space-x-4 mr-6 will-change-transform transform-gpu"
             style={{
               transform: `translateX(${isLogoHovered ? '0.25rem' : '0'})`,
               transition: 'transform 300ms cubic-bezier(0.4, 0, 0.2, 1)'
@@ -214,7 +214,7 @@ export default function Header() {
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <div className="container-custom py-6">
+            <div className="container-header py-6">
               <nav className="space-y-2">
                 {navigation.map((item) => (
                   <div key={item.name}>

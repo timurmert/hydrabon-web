@@ -180,6 +180,10 @@ body {
   .container-custom {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
+
+  .container-header {
+    @apply max-w-full mx-auto px-8 sm:px-12 lg:px-16 xl:px-20;
+  }
   
   .grid-auto-fit {
     @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6;
@@ -333,6 +337,10 @@ body {
 @media (max-width: 768px) {
   .container-custom {
     @apply px-4;
+  }
+
+  .container-header {
+    @apply px-6;
   }
 
   .section-title {
