@@ -1,6 +1,6 @@
 'use client';
 
-import { Gamepad2, Crosshair, Code, Video, Users, ArrowRight, Trophy, Target, Zap, Info, HelpCircle } from 'lucide-react';
+import { Gamepad2, Crosshair, Code, Video, Users, ArrowRight, Trophy, Target, Zap, Info, HelpCircle, PlayCircle } from 'lucide-react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
@@ -63,9 +63,9 @@ const divisions = [
 
 const stats = [
   { label: 'Aktif Üye', value: '850+', icon: Users },
-  { label: 'Oynanan Maç', value: '100+', icon: Trophy },
   { label: 'Proje Tamamlandı', value: '10+', icon: Target },
-  { label: 'CS2 Server Saati', value: '2400+', icon: Zap },
+  { label: 'Oynanan Maç', value: '100+', icon: Trophy },
+  { label: 'Görüntülenme', value: '1.5M+', icon: PlayCircle },
 ];
 
 export default function HomePage() {
@@ -345,12 +345,12 @@ export default function HomePage() {
                   <div className="flex justify-center mb-6">
                     <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-primary-900/20 to-primary-800/20 border border-primary-500/30 rounded-full backdrop-blur-sm">
                       <Trophy className="w-4 h-4 text-primary-400 mr-2" />
-                      <span className="text-primary-200 text-xs font-semibold tracking-widest uppercase">Prestij</span>
+                      <span className="text-primary-200 text-xs font-semibold tracking-widest uppercase">Yüksek Standartlı Yapı Güvencesi</span>
                     </div>
                   </div>
                   <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-8 leading-normal">
                     <span className="bg-gradient-to-r from-primary-300 via-white to-primary-300 bg-clip-text text-transparent">
-                      Güven ve Kalite Garantisi
+                      Güvenilirlik, Kalite ve Vizyon
                     </span>
                   </h3>
                 </div>
@@ -366,8 +366,8 @@ export default function HomePage() {
                     <div className="w-24 h-24 bg-gradient-to-br from-yellow-500/30 to-yellow-600/30 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-500 border-2 border-yellow-500/20">
                       <Trophy className="w-12 h-12 text-yellow-400" />
                     </div>
-                    <p className="text-yellow-400 font-bold text-xl mb-2">Premier League</p>
-                    <p className="text-dark-300 text-base">Resmi Katılım</p>
+                    <p className="text-yellow-400 font-bold text-xl mb-2">Turnuva Geçmişi</p>
+                    <p className="text-dark-300 text-base">Organize Takım Yapısı</p>
                   </motion.div>
 
                   <motion.div 
@@ -380,8 +380,8 @@ export default function HomePage() {
                     <div className="w-24 h-24 bg-gradient-to-br from-blue-500/30 to-blue-600/30 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-500 border-2 border-blue-500/20">
                       <Zap className="w-12 h-12 text-blue-400" />
                     </div>
-                    <p className="text-blue-400 font-bold text-xl mb-2">AI Destekli</p>
-                    <p className="text-dark-300 text-base">Analiz Sistemi</p>
+                    <p className="text-blue-400 font-bold text-xl mb-2">Gelişmiş Altyapı</p>
+                    <p className="text-dark-300 text-base">Yazılım Tabanlı Çözümler</p>
                   </motion.div>
 
                   <motion.div 
@@ -394,8 +394,8 @@ export default function HomePage() {
                     <div className="w-24 h-24 bg-gradient-to-br from-green-500/30 to-green-600/30 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-500 border-2 border-green-500/20">
                       <Target className="w-12 h-12 text-green-400" />
                     </div>
-                    <p className="text-green-400 font-bold text-xl mb-2">Profesyonel</p>
-                    <p className="text-dark-300 text-base">Yönetim</p>
+                    <p className="text-green-400 font-bold text-xl mb-2">Kurumsal Yönetim</p>
+                    <p className="text-dark-300 text-base">Disiplinli Organizasyon</p>
                   </motion.div>
 
                   <motion.div 
@@ -447,38 +447,31 @@ export default function HomePage() {
               
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-white mb-6 tracking-tight leading-normal">
                 <span className="bg-gradient-to-r from-primary-300 via-white to-primary-300 bg-clip-text text-transparent">
-                  Aramıza Katılmaya Hazır mısın?
+                  Yeteneğini Değere Dönüştür!
                 </span>
               </h2>
               <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-primary-500 to-transparent mx-auto mb-8 rounded-full"></div>
               
               <p className="text-base md:text-lg text-dark-200 mb-10 max-w-3xl mx-auto font-medium leading-relaxed">
-                HydRaboN ailesinin bir parçası ol. Espor, teknoloji, medya ve topluluk yönetimi 
-                alanlarında yeteneklerini geliştir ve 
+                Espor, yazılım, medya ve topluluk yönetimi gibi alanlarda kendini geliştir;
+                 disiplinli bir yapının parçası olarak
                 <span className="text-primary-300 font-semibold"> profesyonel kariyerine </span>
-                yön ver.
+                ilk adımı at.
               </p>
               
               <motion.div 
-                className="flex flex-col sm:flex-row gap-6 justify-center"
+                className="flex justify-center"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.3 }}
               >
-                <Link href="/topluluk/basvur" className="btn-primary text-base px-8 py-4 flex items-center justify-center min-w-[200px] group relative overflow-hidden">
+                <a href="https://discord.gg/hydrabon" target="_blank" rel="noopener noreferrer" className="btn-secondary text-base px-8 py-4 flex items-center justify-center min-w-[200px] group relative">
                   <span className="relative z-10 flex items-center">
-                    Başvuru Yap
-                    <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                  </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary-400 to-primary-600 opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-xl"></div>
-                </Link>
-                <Link href="/topluluk/discord" className="btn-secondary text-base px-8 py-4 flex items-center justify-center min-w-[200px] group relative">
-                  <span className="relative z-10 flex items-center">
-                    Discord&apos;a Katıl
+                    Aramıza Katıl!
                     <Users className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
                   </span>
-                </Link>
+                </a>
               </motion.div>
             </div>
           </motion.div>
