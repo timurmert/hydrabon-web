@@ -239,7 +239,7 @@ export default function Header() {
                   href="https://discord.gg/hydrabon"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center space-x-2 btn-primary w-full"
+                  className="flex items-center justify-center space-x-2 btn-primary w-full hover:scale-105 transition-transform duration-300 transform"
                 >
                   <Users className="w-4 h-4" />
                   <span>Discord Sunucumuza Katıl</span>
@@ -288,7 +288,7 @@ export default function Header() {
                   href="https://discord.gg/hydrabon"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center w-full bg-primary-500 hover:bg-primary-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300"
+                  className="flex items-center justify-center w-full bg-primary-500 hover:bg-primary-600 hover:scale-105 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <MessageSquare className="w-5 h-5 mr-2" />

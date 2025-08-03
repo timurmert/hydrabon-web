@@ -137,7 +137,7 @@ export default function HomePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
               >
-                <a href="https://discord.gg/hydrabon" target="_blank" rel="noopener noreferrer" className="btn-primary text-base px-6 py-4 w-full sm:w-[240px] h-[56px] flex items-center justify-center group relative overflow-hidden">
+                <a href="https://discord.gg/hydrabon" target="_blank" rel="noopener noreferrer" className="btn-primary text-base px-6 py-4 w-full sm:w-[240px] h-[56px] flex items-center justify-center group relative overflow-hidden hover:scale-105 transition-transform duration-300 transform">
                   <span className="relative z-10 flex items-center justify-center">
                     Topluluğa Katıl
                     <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
@@ -466,7 +466,7 @@ export default function HomePage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.3 }}
               >
-                <a href="https://discord.gg/hydrabon" target="_blank" rel="noopener noreferrer" className="btn-secondary text-base px-8 py-4 flex items-center justify-center min-w-[200px] group relative">
+                <a href="https://discord.gg/hydrabon" target="_blank" rel="noopener noreferrer" className="btn-secondary text-base px-8 py-4 flex items-center justify-center min-w-[200px] group relative hover:scale-105 transition-transform duration-300 transform">
                   <span className="relative z-10 flex items-center">
                     Aramıza Katıl!
                     <Users className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />

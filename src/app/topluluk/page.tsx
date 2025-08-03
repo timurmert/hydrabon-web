@@ -2,29 +2,24 @@
 
 import {
   Users,
-  Calendar,
-  Mic,
-  Trophy,
-  Star,
-  Clock,
-  MapPin,
   HelpCircle,
   ExternalLink,
   Zap,
   Gift,
-  Target
+  MessageCircle
 } from 'lucide-react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { 
   communityStats, 
-  upcomingEvents, 
   discordRules, 
-  faqItems, 
-  applicationTypes
+  faqItems
 } from '@/data/community';
+import { useDiscordStats } from '@/hooks/useDiscordStats';
 
 export default function CommunityPage() {
+  const { stats: discordStats, loading: discordLoading, error: discordError } = useDiscordStats();
+
   return (
     <div className="min-h-screen snap-y snap-mandatory overflow-y-scroll scroll-smooth">
       {/* Hero Section */}
@@ -68,7 +63,7 @@ export default function CommunityPage() {
             >
               <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary-900/30 to-primary-800/30 border border-primary-500/40 rounded-full backdrop-blur-md">
                 <div className="w-2 h-2 bg-primary-400 rounded-full mr-3 animate-pulse"></div>
-                <span className="text-primary-200 text-sm font-semibold tracking-wider uppercase">Discord Topluluğu</span>
+                <span className="text-primary-200 text-sm font-semibold tracking-wider uppercase">Topluluğumuz</span>
                 <div className="w-2 h-2 bg-primary-400 rounded-full ml-3 animate-pulse"></div>
               </div>
             </motion.div>
@@ -101,10 +96,10 @@ export default function CommunityPage() {
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <p className="text-base md:text-lg text-dark-100 leading-relaxed font-medium">
-                Kalabalık ve organize Discord sunucumuz. Etkinlik takibi, yetkili yönetimi, 
-                <span className="text-primary-300 font-semibold"> başvuru sistemleri </span>
-                ve kullanıcı etkileşimi ile 
-                <span className="text-white font-semibold"> aktif bir topluluk</span>.
+                HydRaboN’un iletişim ağı, insan kaynağı ve dinamik yapısının merkezi:
+                <span className="text-primary-300 font-semibold"> Discord topluluğumuz. </span>
+                Sistemli yönetim anlayışı, güçlü etkileşim ortamı ve prestijli yapısıyla 
+                <span className="text-primary-300 font-semibold"> bütün organizasyonumuzun kalbidir</span>.
               </p>
             </motion.div>
           </motion.div>
@@ -117,10 +112,30 @@ export default function CommunityPage() {
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             {[
-              { icon: Users, value: communityStats.totalMembers.toLocaleString(), label: 'Toplam Üye', color: 'text-primary-500' },
-              { icon: Zap, value: communityStats.onlineMembers, label: 'Çevrimiçi', color: 'text-green-500' },
-              { icon: Gift, value: `Seviye ${communityStats.boostLevel}`, label: 'Server Boost', color: 'text-purple-500' },
-              { icon: Calendar, value: upcomingEvents.length, label: 'Yaklaşan Etkinlik', color: 'text-blue-500' }
+              { 
+                icon: Users, 
+                value: discordLoading ? '...' : (discordStats?.totalMembers?.toString() || communityStats.totalMembers.toString()),
+                label: 'Toplam Üye', 
+                color: 'text-primary-500' 
+              },
+              { 
+                icon: Zap, 
+                value: discordLoading ? '...' : (discordStats?.onlineMembers || communityStats.onlineMembers), 
+                label: 'Çevrimiçi', 
+                color: 'text-green-500' 
+              },
+              { 
+                icon: Gift, 
+                value: discordLoading ? '...' : `Seviye ${discordStats?.boostLevel || communityStats.boostLevel}`, 
+                label: 'Sunucu Takviyesi', 
+                color: 'text-purple-500' 
+              },
+              { 
+                icon: MessageCircle, 
+                value: discordLoading ? '...' : (discordError ? "10.000+" : (discordStats?.monthlyMessages ?? "10.000+")), 
+                label: 'Aylık Mesaj', 
+                color: 'text-blue-500' 
+              }
             ].map((stat, index) => (
               <motion.div 
                 key={index}
@@ -147,7 +162,7 @@ export default function CommunityPage() {
               href="https://discord.gg/hydrabon" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-flex items-center bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-lg transition-colors duration-300 text-lg"
+              className="inline-flex items-center bg-indigo-600 hover:bg-indigo-700 hover:scale-105 text-white font-bold py-4 px-8 rounded-lg transition-all duration-300 text-lg transform"
             >
               <Users className="w-6 h-6 mr-3" />
               Discord&apos;a Katıl
@@ -174,7 +189,7 @@ export default function CommunityPage() {
           >
             <h2 className="section-title">Sunucu Rolleri</h2>
             <p className="section-subtitle">
-              Topluluk içindeki rollerden bazıları ve sorumluluklarını keşfedin.
+              Topluluk içindeki rollerden bazılarını ve sorumluluklarını keşfedin.
             </p>
           </motion.div>
 
@@ -214,211 +229,7 @@ export default function CommunityPage() {
             ))}
           </motion.div>
 
-          <motion.div 
-            className="text-center"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <p className="text-dark-300 mb-4">Toplam {communityStats.roles.length} farklı rol bulunmaktadır.</p>
-            <Link href="/topluluk/roller" className="btn-secondary text-base px-8 py-4 flex items-center justify-center min-w-[200px] group relative">
-              <span className="relative z-10 flex items-center">
-                Tüm Rolleri Görüntüle
-                <Star className="w-5 h-5 ml-2 group-hover:rotate-12 transition-transform duration-300" />
-              </span>
-            </Link>
-          </motion.div>
-        </div>
-      </section>
 
-      {/* Section Separator */}
-      <div className="container-custom">
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
-      </div>
-
-      {/* Upcoming Events */}
-      <section className="py-20 bg-gradient-to-br from-dark-900 to-dark-800 snap-start snap-always min-h-screen flex items-center">
-        <div className="container-custom">
-          <motion.div 
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="section-title">Yaklaşan Etkinlikler</h2>
-            <p className="section-subtitle">
-              Topluluk etkinliklerimize katılın ve eğlenceli vakit geçirin.
-            </p>
-          </motion.div>
-
-          <motion.div 
-            className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8 }}
-          >
-            {upcomingEvents.slice(0, 4).map((event) => (
-              <motion.div 
-                key={event.id} 
-                className="professional-card"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                                 transition={{ duration: 0.6, delay: (typeof event.id === 'number' ? event.id : 0) * 0.1 }}
-              >
-                <div className="flex items-start space-x-4 mb-6">
-                  <div className="w-16 h-16 bg-primary-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                    {event.type === 'Tournament' && <Trophy className="w-8 h-8 text-primary-500" />}
-                    {event.type === 'Meeting' && <Users className="w-8 h-8 text-primary-500" />}
-                    {event.type === 'Community Event' && <Star className="w-8 h-8 text-primary-500" />}
-                    {event.type === 'Stream' && <Mic className="w-8 h-8 text-primary-500" />}
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-bold text-white mb-2">{event.title}</h3>
-                    <div className="inline-block px-3 py-1 bg-primary-500/20 rounded-full text-primary-500 text-sm font-medium mb-3">
-                      {event.type}
-                    </div>
-                  </div>
-                </div>
-
-                <p className="text-dark-300 mb-6">{event.description}</p>
-
-                <div className="grid grid-cols-2 gap-4 mb-6">
-                  <div className="flex items-center space-x-2 text-dark-300">
-                    <Calendar className="w-4 h-4 text-primary-500" />
-                    <span className="text-sm">{new Date(event.date).toLocaleDateString('tr-TR')}</span>
-                  </div>
-                  <div className="flex items-center space-x-2 text-dark-300">
-                    <Clock className="w-4 h-4 text-primary-500" />
-                    <span className="text-sm">{event.time}</span>
-                  </div>
-                  <div className="flex items-center space-x-2 text-dark-300">
-                    <MapPin className="w-4 h-4 text-primary-500" />
-                    <span className="text-sm">{event.discordChannel}</span>
-                  </div>
-                  <div className="flex items-center space-x-2 text-dark-300">
-                    <Users className="w-4 h-4 text-primary-500" />
-                    <span className="text-sm">{event.participants}/{event.maxParticipants}</span>
-                  </div>
-                </div>
-
-                {event.prizes && (
-                  <div className="mb-4">
-                    <h4 className="text-sm font-semibold text-white mb-2">Ödüller:</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {event.prizes.slice(0, 3).map((prize, index) => (
-                        <span key={index} className="px-2 py-1 bg-yellow-500/20 text-yellow-500 text-xs rounded">
-                          {prize}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                <div className="flex justify-between items-center">
-                  <div className={`text-sm font-medium ${
-                    (event.participants ?? 0) >= (event.maxParticipants ?? 0)
-                      ? 'text-red-500' 
-                      : 'text-green-500'
-                  }`}>
-                    {(event.participants ?? 0) >= (event.maxParticipants ?? 0) ? 'Dolu' : 'Yer Var'}
-                  </div>
-                  <Link href="/topluluk/etkinlikler" className="text-primary-500 hover:text-primary-400 text-sm font-medium">
-                    Detayları Gör →
-                  </Link>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-
-          <motion.div 
-            className="text-center"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <Link href="/topluluk/etkinlikler" className="btn-primary text-base px-8 py-4 flex items-center justify-center min-w-[200px] group relative overflow-hidden">
-              <span className="relative z-10 flex items-center">
-                Tüm Etkinlikleri Görüntüle
-                <Calendar className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-              </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-primary-400 to-primary-600 opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-xl"></div>
-            </Link>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Section Separator */}
-      <div className="container-custom">
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
-      </div>
-
-      {/* Application Types */}
-      <section className="py-20 bg-dark-950 snap-start snap-always min-h-screen flex items-center">
-        <div className="container-custom">
-          <motion.div 
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="section-title">Başvuru Türleri</h2>
-            <p className="section-subtitle">
-              HydRaboN ailesine katılmak için farklı alanlarda başvuru yapabilirsiniz.
-            </p>
-          </motion.div>
-
-          <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8 }}
-          >
-            {applicationTypes.map((app) => (
-              <motion.div 
-                key={app.id} 
-                className="professional-card"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                                 transition={{ duration: 0.6, delay: (typeof app.id === 'number' ? app.id : 0) * 0.1 }}
-              >
-                <h3 className="text-2xl font-bold text-white mb-4">{app.title}</h3>
-                <p className="text-dark-300 mb-6">{app.description}</p>
-
-                <div className="mb-6">
-                  <h4 className="text-lg font-semibold text-white mb-3">Gereksinimler:</h4>
-                  <ul className="space-y-2">
-                    {app.requirements.map((req, index) => (
-                      <li key={index} className="flex items-start space-x-2">
-                        <div className="w-2 h-2 bg-primary-500 rounded-full mt-2 flex-shrink-0"></div>
-                        <span className="text-dark-300 text-sm">{req}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="mb-6">
-                  <h4 className="text-lg font-semibold text-white mb-3">Süreç:</h4>
-                  <p className="text-dark-300 text-sm">{app.process}</p>
-                </div>
-
-                <Link href="/topluluk/basvur" className="btn-primary text-base px-6 py-4 w-full flex items-center justify-center group relative overflow-hidden">
-                  <span className="relative z-10 flex items-center">
-                    Başvuru Yap
-                    <Target className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
-                  </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary-400 to-primary-600 opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-xl"></div>
-                </Link>
-              </motion.div>
-            ))}
-          </motion.div>
         </div>
       </section>
 
@@ -472,20 +283,7 @@ export default function CommunityPage() {
             ))}
           </motion.div>
 
-          <motion.div 
-            className="text-center mt-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <Link href="/topluluk/kurallar" className="btn-secondary text-base px-8 py-4 flex items-center justify-center min-w-[200px] group relative">
-              <span className="relative z-10 flex items-center">
-                Detaylı Kuralları Oku
-                <HelpCircle className="w-5 h-5 ml-2 group-hover:rotate-12 transition-transform duration-300" />
-              </span>
-            </Link>
-          </motion.div>
+
         </div>
       </section>
 
@@ -518,7 +316,7 @@ export default function CommunityPage() {
             transition={{ duration: 0.8 }}
           >
             <div className="grid gap-6">
-              {faqItems.slice(0, 6).map((faq) => (
+              {faqItems.map((faq) => (
                 <motion.div 
                   key={faq.id} 
                   className="professional-card"
@@ -540,20 +338,7 @@ export default function CommunityPage() {
               ))}
             </div>
 
-            <motion.div 
-              className="text-center mt-12"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
-              <Link href="/topluluk/sss" className="btn-secondary text-base px-8 py-4 flex items-center justify-center min-w-[200px] group relative">
-                <span className="relative z-10 flex items-center">
-                  Tüm Soruları Görüntüle
-                  <HelpCircle className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
-                </span>
-              </Link>
-            </motion.div>
+
           </motion.div>
         </div>
       </section>
@@ -577,29 +362,23 @@ export default function CommunityPage() {
               Topluluğumuza Katılın!
             </h2>
             <p className="text-xl text-indigo-100 mb-8 max-w-2xl mx-auto">
-              {communityStats.totalMembers.toLocaleString()}+ kişilik aktif topluluğumuzun bir parçası olun. 
-              Etkinliklere katılın, yeni arkadaşlıklar kurun ve eğlenceli vakit geçirin.
+              {discordLoading ? '...' : (discordStats?.totalMembers?.toString() || communityStats.totalMembers.toString())} kişilik aktif topluluğumuzun bir parçası olun. 
+              Yeni arkadaşlıklar kurun, birlikte oyunlar oynayın ve eğlenceli vakit geçirin.
             </p>
             <motion.div 
-              className="flex flex-col sm:flex-row gap-4 justify-center"
+              className="flex justify-center"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
               <a href="https://discord.gg/hydrabon" target="_blank" rel="noopener noreferrer"
-                 className="bg-white text-indigo-600 font-semibold py-4 px-8 rounded-lg hover:bg-indigo-50 transition-all duration-300 flex items-center justify-center min-w-[160px] group">
+                 className="bg-white text-indigo-600 font-semibold py-4 px-8 rounded-lg hover:bg-indigo-50 hover:scale-105 transition-all duration-300 flex items-center justify-center min-w-[160px] group transform">
                 <span className="flex items-center">
                   Discord&apos;a Katıl
                   <Users className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
                 </span>
               </a>
-              <Link href="/topluluk/basvur" className="bg-indigo-700 text-white font-semibold py-4 px-8 rounded-lg hover:bg-indigo-800 transition-all duration-300 flex items-center justify-center min-w-[160px] group">
-                <span className="flex items-center">
-                  Ekibe Başvur
-                  <Target className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                </span>
-              </Link>
             </motion.div>
           </motion.div>
         </div>

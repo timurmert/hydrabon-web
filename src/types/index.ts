@@ -128,8 +128,8 @@ export interface MediaTeam {
 
 // Discord topluluk türleri
 export interface CommunityStats {
-  totalMembers: number;
-  onlineMembers: number;
+  totalMembers: number | string;
+  onlineMembers: number | string;
   boostLevel: number;
   boostCount: number;
   roles: DiscordRole[];
@@ -153,39 +153,9 @@ export interface DiscordChannel {
   memberCount?: number;
 }
 
-export interface Event {
-  id: string;
-  title: string;
-  description: string;
-  type: 'Tournament' | 'Training' | 'Community Event' | 'Meeting' | 'Stream';
-  date: string;
-  time: string;
-  duration: string;
-  location?: string;
-  discordChannel?: string;
-  participants?: number;
-  maxParticipants?: number;
-  requirements?: string[];
-  prizes?: string[];
-  status: 'upcoming' | 'ongoing' | 'completed' | 'cancelled';
-}
 
-export interface Application {
-  id: string;
-  type: 'Player' | 'Staff' | 'Developer' | 'Media Team' | 'Moderator';
-  applicantName: string;
-  applicantEmail: string;
-  applicantAge: number;
-  experience: string;
-  motivation: string;
-  availability: string;
-  portfolio?: string;
-  socialMedia: SocialMedia;
-  status: 'pending' | 'reviewing' | 'accepted' | 'rejected';
-  submissionDate: string;
-  reviewDate?: string;
-  reviewerNotes?: string;
-}
+
+
 
 // Genel yardımcı türler
 export interface SocialMedia {

@@ -457,7 +457,7 @@ export default function CS2Page() {
                 </span>
               </button>
               <Link href="/topluluk" 
-                    className="bg-orange-700 text-white font-semibold py-4 px-8 rounded-lg hover:bg-orange-800 transition-all duration-300 flex items-center justify-center min-w-[160px] group">
+                    className="bg-orange-700 text-white font-semibold py-4 px-8 rounded-lg hover:bg-orange-800 hover:scale-105 transition-all duration-300 flex items-center justify-center min-w-[160px] group transform">
                 <span className="flex items-center">
                   Discord'a Katıl
                   <ExternalLink className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
