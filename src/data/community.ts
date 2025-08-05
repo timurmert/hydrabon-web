@@ -42,7 +42,7 @@ export const communityStats: CommunityStats = {
       id: '5',
       name: 'Medya Ekibi',
       color: '#ff8400',
-      memberCount: 4,
+      memberCount: 3,
       permissions: ['Manage Messages', 'Attach Files'],
       requirements: 'Medya Ekibi Üyesi',
     },
@@ -50,7 +50,7 @@ export const communityStats: CommunityStats = {
       id: '6',
       name: 'CS2 Ekibi',
       color: '#ff8400',
-      memberCount: 2,
+      memberCount: 4,
       permissions: ['Manage Messages', 'Timeout Members', 'Kick Members'],
       requirements: 'CS2 Ekibi Üyesi',
     },
@@ -192,7 +192,7 @@ export const faqItems = [
   {
     id: '1',
     question: 'HydRaboN topluluğu nedir? Biz kimiz, ne yapabilirim?',
-    answer: 'HydRaboN 2018 yılında kurulmuş, Discord, Instagram, YouTube, TikTok, WhatsApp, Steam, Valorant, CS2 gibi birçok platformda/platform için aktiflik gösteren bir topluluktur. Burada sevdiğiniz oyunları oynayabilir, çekilişlere katılabilir, kaliteli insanlardan kaliteli yardımlar alabilir, hayati dostluklar kurabilir, Ar-Ge birimine katılabilir ve yetkili kadromuza dahil olabilirsiniz.',
+    answer: 'HydRaboN 2018 yılında kurulmuş, Discord, Instagram, YouTube, TikTok, WhatsApp, Steam, Valorant, CS2 gibi birçok platformda/platform için aktiflik gösteren bir topluluktur. Burada sevdiğiniz oyunları topluca oynayabilir, çekilişlere katılabilir, her konuda yardımlar alabilir, hayat boyu sürecek dostluklar kurabilir, birimlere katılabilir ve yetkili kadromuza dahil olabilirsiniz.',
   },
   {
     id: '2',
