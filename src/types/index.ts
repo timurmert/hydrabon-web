@@ -80,7 +80,6 @@ export interface Project {
   category: 'Discord Bot' | 'Tournament System' | 'AI Analysis' | 'Web Application' | 'Mobile App';
   status: 'planning' | 'development' | 'testing' | 'completed' | 'maintenance';
   technologies: string[];
-  team: TeamMember[];
   startDate: string;
   completionDate?: string;
   githubUrl?: string;

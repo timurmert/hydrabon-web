@@ -8,32 +8,7 @@ export const projects: Project[] = [
     category: 'Discord Bot',
     status: 'completed',
     technologies: ['Node.js', 'Discord.js', 'MongoDB', 'Redis', 'TypeScript'],
-    team: [
-      {
-        id: '1',
-        name: 'Emirhan Kod',
-        role: 'Lead Developer',
-        avatar: '/images/team/emirhan.jpg',
-        skills: ['Node.js', 'TypeScript', 'MongoDB', 'Discord API'],
-        experience: '4+ yıl backend geliştirme',
-        socialMedia: {
-          github: 'emirhankod',
-          twitter: '@emirhan_dev',
-        },
-      },
-      {
-        id: '2', 
-        name: 'Selin Yılmaz',
-        role: 'Frontend Developer',
-        avatar: '/images/team/selin.jpg',
-        skills: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript'],
-        experience: '3+ yıl frontend geliştirme',
-        socialMedia: {
-          github: 'selinyilmaz',
-          linkedin: 'selin-yilmaz-dev',
-        },
-      },
-    ],
+
     startDate: '2023-06-01',
     completionDate: '2024-02-15',
     githubUrl: 'https://github.com/hydrabon/hydrabot',
@@ -43,9 +18,6 @@ export const projects: Project[] = [
       'Sunucu moderasyonu ve otomasyon',
       'Müzik bot entegrasyonu',
       'Ekonomi ve seviye sistemi',
-      'Özel komut oluşturma',
-      'Real-time istatistikler',
-      'Multi-server desteği',
     ],
   },
   {
@@ -55,32 +27,7 @@ export const projects: Project[] = [
     category: 'Tournament System',
     status: 'development',
     technologies: ['Next.js', 'PostgreSQL', 'Prisma', 'Socket.io', 'Redis'],
-    team: [
-      {
-        id: '3',
-        name: 'Kerem Akın',
-        role: 'Backend Developer', 
-        avatar: '/images/team/kerem.jpg',
-        skills: ['Node.js', 'PostgreSQL', 'Prisma', 'Socket.io'],
-        experience: '5+ yıl fullstack geliştirme',
-        socialMedia: {
-          github: 'keremakin',
-          twitter: '@kerem_codes',
-        },
-      },
-      {
-        id: '4',
-        name: 'Ayşe Demir',
-        role: 'UI/UX Designer',
-        avatar: '/images/team/ayse.jpg',
-        skills: ['Figma', 'Adobe XD', 'Prototyping', 'User Research'],
-        experience: '4+ yıl UI/UX tasarım',
-        socialMedia: {
-          linkedin: 'ayse-demir-ux',
-          instagram: 'ayse_designs',
-        },
-      },
-    ],
+
     startDate: '2024-03-01',
     githubUrl: 'https://github.com/hydrabon/tournament-hub',
     images: ['/images/projects/tournament-1.jpg', '/images/projects/tournament-2.jpg'],
@@ -88,9 +35,6 @@ export const projects: Project[] = [
       'Takım kayıt sistemi',
       'Otomatik bracket oluşturma',
       'Canlı skor güncellemeleri',
-      'Admin kontrol paneli',
-      'İstatistik raporları',
-      'Multi-platform desteği',
     ],
   },
   {
@@ -100,32 +44,7 @@ export const projects: Project[] = [
     category: 'AI Analysis',
     status: 'testing',
     technologies: ['Python', 'TensorFlow', 'OpenCV', 'FastAPI', 'PostgreSQL'],
-    team: [
-      {
-        id: '5',
-        name: 'Dr. Mehmet Özkan',
-        role: 'Lead Developer',
-        avatar: '/images/team/mehmet.jpg',
-        skills: ['Python', 'Machine Learning', 'Computer Vision', 'Data Science'],
-        experience: '7+ yıl AI/ML geliştirme',
-        socialMedia: {
-          github: 'mehmetozkan',
-          linkedin: 'dr-mehmet-ozkan',
-        },
-      },
-      {
-        id: '6',
-        name: 'Fatma Kaya',
-        role: 'Quality Assurance',
-        avatar: '/images/team/fatma.jpg',
-        skills: ['Test Automation', 'Selenium', 'Postman', 'Performance Testing'],
-        experience: '3+ yıl QA testing',
-        socialMedia: {
-          linkedin: 'fatma-kaya-qa',
-          github: 'fatmakaya',
-        },
-      },
-    ],
+
     startDate: '2024-01-15',
     githubUrl: 'https://github.com/hydrabon/valorant-ai',
     images: ['/images/projects/valorantai-1.jpg', '/images/projects/valorantai-2.jpg'],
@@ -133,9 +52,6 @@ export const projects: Project[] = [
       'Gameplay analizi ve öneriler',
       'Performans metrik tracking',
       'Takım stratejisi optimizasyonu',
-      'Karşılaştırmalı analiz',
-      'Real-time coaching önerileri',
-      'Gelişim roadmap oluşturma',
     ],
   },
   {
@@ -145,20 +61,7 @@ export const projects: Project[] = [
     category: 'Web Application',
     status: 'completed',
     technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
-    team: [
-      {
-        id: '7',
-        name: 'Timur Mert',
-        role: 'Frontend Developer',
-        avatar: '/images/team/timur.jpg',
-        skills: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'],
-        experience: '4+ yıl frontend geliştirme',
-        socialMedia: {
-          github: 'timurmert',
-          linkedin: 'timur-mert-dev',
-        },
-      },
-    ],
+
     startDate: '2024-12-09',
     completionDate: '2024-12-09',
     githubUrl: 'https://github.com/hydrabon/hydrabon-web',
@@ -168,9 +71,6 @@ export const projects: Project[] = [
       'Responsive tasarım',
       'Animasyonlu UI bileşenleri',
       'SEO optimizasyonu',
-      'Modern performans',
-      'Content Management',
-      'Mobile-first approach',
     ],
   },
   {
@@ -180,29 +80,13 @@ export const projects: Project[] = [
     category: 'Mobile App',
     status: 'planning',
     technologies: ['React Native', 'TypeScript', 'Firebase', 'Redux'],
-    team: [
-      {
-        id: '8',
-        name: 'Can Yıldız',
-        role: 'Lead Developer',
-        avatar: '/images/team/can.jpg',
-        skills: ['React Native', 'iOS', 'Android', 'Firebase'],
-        experience: '3+ yıl mobile geliştirme',
-        socialMedia: {
-          github: 'canyildiz',
-          twitter: '@can_mobile_dev',
-        },
-      },
-    ],
+
     startDate: '2025-01-01',
     images: ['/images/projects/mobile-1.jpg'],
     features: [
       'Discord entegrasyonu',
       'Maç takip sistemi',
       'Push bildirimleri',
-      'Topluluk chat',
-      'Profil yönetimi',
-      'Offline mode',
     ],
   },
 ];
