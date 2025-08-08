@@ -77,25 +77,12 @@ export interface Project {
   id: string;
   name: string;
   description: string;
-  category: 'Discord Bot' | 'Tournament System' | 'AI Analysis' | 'Web Application' | 'Mobile App';
+  category: 'Discord Bot' | 'Tournament System' | 'AI Systems' | 'Web Application' | 'Mobile App' | 'Automation Systems';
   status: 'planning' | 'development' | 'testing' | 'completed' | 'maintenance';
   technologies: string[];
   startDate: string;
   completionDate?: string;
-  githubUrl?: string;
-  demoUrl?: string;
-  images: string[];
   features: string[];
-}
-
-export interface TeamMember {
-  id: string;
-  name: string;
-  role: 'Lead Developer' | 'Frontend Developer' | 'Backend Developer' | 'UI/UX Designer' | 'DevOps Engineer' | 'Quality Assurance';
-  avatar: string;
-  skills: string[];
-  experience: string;
-  socialMedia: SocialMedia;
 }
 
 // Medya türleri

@@ -37,9 +37,10 @@ const statusLabels = {
 const categoryColors = {
   'Discord Bot': 'from-indigo-500 to-indigo-600',
   'Tournament System': 'from-green-500 to-green-600',
-  'AI Analysis': 'from-purple-500 to-purple-600',
+  'AI Systems': 'from-purple-500 to-purple-600',
   'Web Application': 'from-blue-500 to-blue-600',
   'Mobile App': 'from-pink-500 to-pink-600',
+  'Automation Systems': 'from-red-500 to-red-600',
 };
 
 export default function RndPage() {
@@ -178,7 +179,7 @@ export default function RndPage() {
           >
             <h2 className="section-title">Öne Çıkan Projeler</h2>
             <p className="section-subtitle">
-              Teknoloji ve inovasyon odaklı çözümlerimizle esports dünyasına değer katıyoruz.
+            Teknoloji ve inovasyon odaklı çalışmalarımızla geleceğe yön veren çözümler üretiyoruz.
             </p>
           </motion.div>
 
@@ -209,9 +210,10 @@ export default function RndPage() {
                     >
                       {project.category === 'Discord Bot' && <Zap className="w-8 h-8 text-white" />}
                       {project.category === 'Tournament System' && <Target className="w-8 h-8 text-white" />}
-                      {project.category === 'AI Analysis' && <Brain className="w-8 h-8 text-white" />}
+                      {project.category === 'AI Systems' && <Brain className="w-8 h-8 text-white" />}
                       {project.category === 'Web Application' && <Code className="w-8 h-8 text-white" />}
                       {project.category === 'Mobile App' && <Rocket className="w-8 h-8 text-white" />}
+                      {project.category === 'Automation Systems' && <Rocket className="w-8 h-8 text-white" />}
                     </motion.div>
                     <div className="flex-1">
                       <h3 className="text-2xl font-display font-bold text-white mb-2">
@@ -337,8 +339,8 @@ export default function RndPage() {
               Ar-Ge Ekibimize Katılın!
             </h2>
             <p className="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
-              Yenilikçi projeler geliştirmek, teknoloji dünyasında iz bırakmak ve 
-              kariyerinizi ilerletmek için bizimle çalışın. Sürekli öğrenen ekibimizin bir parçası olun.
+            Yenilikçi projeler üretmek, teknoloji dünyasında iz bırakmak ve kariyerinde ilerlemek istiyorsan bize katıl.
+            Sürekli öğrenen, birlikte gelişen ekibimizin bir parçası ol!
             </p>
             <motion.div 
               className="flex flex-col sm:flex-row gap-4 justify-center"
