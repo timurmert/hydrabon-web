@@ -95,7 +95,7 @@ export interface MediaContent {
   url: string;
   thumbnail: string;
   publishDate: string;
-  views?: number;
+  views?: number | string;
   duration?: string; // For videos
   tags: string[];
   featured: boolean;
@@ -127,10 +127,6 @@ export interface DiscordChannel {
   description: string;
   memberCount?: number;
 }
-
-
-
-
 
 // Genel yardımcı türler
 export interface SocialMedia {
@@ -164,7 +160,7 @@ export interface News {
   image: string;
   tags: string[];
   featured: boolean;
-  views: number;
+  views: number | string;
 }
 
 export interface Partnership {

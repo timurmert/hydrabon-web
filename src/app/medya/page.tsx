@@ -10,11 +10,12 @@ import {
   Clock,
   Calendar,
   Users,
-  TrendingUp,
   ExternalLink,
   Youtube,
   Instagram,
-  Gift
+  Twitter,
+  Gift,
+  House
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { featuredContent, mediaStats, socialMediaPlatforms } from '@/data/media';
@@ -35,6 +36,13 @@ const categoryColors = {
 };
 
 // mediaTeam kaldırıldığı için roleIcons gereksiz
+
+const platformIcons: Record<string, React.ComponentType<any>> = {
+  YouTube: Youtube,
+  Instagram: Instagram,
+  Twitter: Twitter,
+  Discord: House,
+};
 
 export default function MediaPage() {
   return (
@@ -80,7 +88,7 @@ export default function MediaPage() {
             >
               <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary-900/30 to-primary-800/30 border border-primary-500/40 rounded-full backdrop-blur-md">
                 <div className="w-2 h-2 bg-primary-400 rounded-full mr-3 animate-pulse"></div>
-                <span className="text-primary-200 text-sm font-semibold tracking-wider uppercase">Medya Departmanı</span>
+                <span className="text-primary-200 text-sm font-semibold tracking-wider uppercase">İçerik Merkezi</span>
                 <div className="w-2 h-2 bg-primary-400 rounded-full ml-3 animate-pulse"></div>
               </div>
             </motion.div>
@@ -224,7 +232,7 @@ export default function MediaPage() {
                       </div>
                       <div className="flex items-center space-x-1">
                         <Eye className="w-4 h-4" />
-                        <span>{content.views?.toLocaleString()} izlenme</span>
+                        <span>{content.views} görüntüleme</span>
                       </div>
                       {content.duration && (
                         <div className="flex items-center space-x-1">
@@ -286,31 +294,36 @@ export default function MediaPage() {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.8 }}
           >
-            {socialMediaPlatforms.map((platform, index) => (
-              <motion.a
-                key={index}
-                href={platform.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="professional-card group hover:scale-105 transition-transform duration-300"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <div className="text-center">
-                  <div className={`text-4xl font-bold mb-2 ${platform.color}`}>
-                    {platform.followers}
+            {socialMediaPlatforms.map((platform, index) => {
+              const Icon = platformIcons[platform.name] || ExternalLink;
+              return (
+                <motion.a
+                  key={index}
+                  href={platform.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="professional-card group hover:scale-105 transition-transform duration-300"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                >
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-dark-700 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary-500/20 transition-colors duration-300">
+                      <Icon className={`w-8 h-8 ${platform.color}`} />
+                    </div>
+                    <div className={`text-4xl font-bold mb-2 ${platform.color}`}>
+                      {platform.followers}
+                    </div>
+                    <h3 className="text-lg font-semibold text-white mb-2">{platform.name}</h3>
+                    <p className="text-dark-300 text-sm mb-3">{platform.handle}</p>
+                    <div className={`text-4xl font-bold mb-2 ${platform.color}`}>
+                      {platform.followersText}
+                    </div>
                   </div>
-                  <h3 className="text-lg font-semibold text-white mb-2">{platform.name}</h3>
-                  <p className="text-dark-300 text-sm mb-3">{platform.handle}</p>
-                  <div className="flex items-center justify-center space-x-2">
-                    <TrendingUp className="w-4 h-4 text-green-500" />
-                    <span className="text-green-500 text-sm font-medium">{platform.growth}</span>
-                  </div>
-                </div>
-              </motion.a>
-            ))}
+                </motion.a>
+              );
+            })}
           </motion.div>
         </div>
       </section>
@@ -331,11 +344,10 @@ export default function MediaPage() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">
-              İçeriklerimizi Takip Edin!
+            Gelişmelerden haberdar olun!
             </h2>
             <p className="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
-              En yeni videolarımızdan haberdar olmak ve kulislerden görüntüleri kaçırmamak için 
-              sosyal medya hesaplarımızı takip edin.
+            Güncel gelişmeleri kaçırmamak ve topluluğumuzla bağlantıda kalmak için bizleri sosyal medyadan takip edin!
             </p>
             <motion.div 
               className="flex flex-col sm:flex-row gap-4 justify-center"
@@ -344,17 +356,25 @@ export default function MediaPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <a href="https://youtube.com/@hydrabon" target="_blank" rel="noopener noreferrer"
-                 className="bg-white text-purple-600 font-semibold py-4 px-8 rounded-lg hover:bg-purple-50 transition-all duration-300 flex items-center justify-center min-w-[180px] group">
+              <a 
+                href="https://youtube.com/@hydrabon" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="bg-white text-purple-600 font-semibold py-4 px-8 rounded-lg hover:bg-purple-50 transition-all duration-300 flex items-center justify-center min-w-[180px] group transform-gpu hover:scale-105 active:scale-95"
+              >
                 <span className="flex items-center">
-                  YouTube&apos;da Abone Ol
+                  Abone Ol
                   <Youtube className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
                 </span>
               </a>
-              <a href="https://instagram.com/hydrabon_esports" target="_blank" rel="noopener noreferrer"
-                 className="bg-purple-700 text-white font-semibold py-4 px-8 rounded-lg hover:bg-purple-800 transition-all duration-300 flex items-center justify-center min-w-[180px] group">
+              <a 
+                href="https://instagram.com/hydrabon_esports" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="bg-purple-700 text-white font-semibold py-4 px-8 rounded-lg hover:bg-purple-800 transition-all duration-300 flex items-center justify-center min-w-[180px] group transform-gpu hover:scale-105 active:scale-95"
+              >
                 <span className="flex items-center">
-                  Instagram&apos;da Takip Et
+                  Takip Et
                   <Instagram className="w-5 h-5 ml-2 group-hover:rotate-12 transition-transform duration-300" />
                 </span>
               </a>
