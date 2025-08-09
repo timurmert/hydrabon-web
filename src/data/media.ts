@@ -1,4 +1,4 @@
-import { MediaContent, MediaTeam } from '@/types';
+import { MediaContent } from '@/types';
 
 export const mediaContent: MediaContent[] = [
   {
@@ -114,172 +114,45 @@ export const mediaContent: MediaContent[] = [
 
 export const featuredContent = mediaContent.filter(content => content.featured);
 
-export const mediaTeam: MediaTeam[] = [
-  {
-    id: '1',
-    name: 'Deniz Kara',
-    role: 'Video Editor',
-    avatar: '/images/media-team/deniz.jpg',
-    portfolio: [
-      '/portfolio/deniz-reel1.mp4',
-      '/portfolio/deniz-reel2.mp4',
-      '/portfolio/deniz-reel3.mp4',
-    ],
-    specialties: ['Motion Graphics', 'Color Grading', 'Sound Design', 'Esports Content'],
-    experience: '5+ yıl video editörlüğü deneyimi. Esports içerikleri ve live streaming uzmanı.',
-    socialMedia: {
-      youtube: 'DenizKaraEdits',
-      instagram: 'deniz_video_editor',
-      linkedin: 'deniz-kara-editor',
-    },
-  },
-  {
-    id: '2',
-    name: 'Elif Özdemir',
-    role: 'Graphic Designer',
-    avatar: '/images/media-team/elif.jpg',
-    portfolio: [
-      '/portfolio/elif-design1.jpg',
-      '/portfolio/elif-design2.jpg',
-      '/portfolio/elif-design3.jpg',
-    ],
-    specialties: ['Brand Design', 'Social Media Graphics', 'Illustration', 'UI Design'],
-    experience: '4+ yıl grafik tasarım deneyimi. Esports branding ve sosyal medya içerikleri uzmanı.',
-    socialMedia: {
-      instagram: 'elif_designs',
-      linkedin: 'elif-ozdemir-designer',
-      twitter: '@elif_gfx',
-    },
-  },
-  {
-    id: '3',
-    name: 'Murat Yıldırım',
-    role: 'Photographer',
-    avatar: '/images/media-team/murat.jpg',
-    portfolio: [
-      '/portfolio/murat-photo1.jpg',
-      '/portfolio/murat-photo2.jpg',
-      '/portfolio/murat-photo3.jpg',
-    ],
-    specialties: ['Event Photography', 'Portrait Photography', 'Sports Photography', 'Post-Processing'],
-    experience: '6+ yıl profesyonel fotoğrafçılık. Esports etkinlikleri ve takım fotoğrafları uzmanı.',
-    socialMedia: {
-      instagram: 'murat_photography',
-      linkedin: 'murat-yildirim-photographer',
-      flickr: 'muratyildirim_photos',
-    },
-  },
-  {
-    id: '4',
-    name: 'Aylin Şahin',
-    role: 'Content Creator',
-    avatar: '/images/media-team/aylin.jpg',
-    portfolio: [
-      '/portfolio/aylin-content1.jpg',
-      '/portfolio/aylin-content2.mp4',
-      '/portfolio/aylin-content3.jpg',
-    ],
-    specialties: ['Content Strategy', 'Script Writing', 'Social Media Management', 'Community Engagement'],
-    experience: '3+ yıl içerik üretimi deneyimi. Sosyal medya stratejisi ve topluluk yönetimi uzmanı.',
-    socialMedia: {
-      twitter: '@aylin_content',
-      instagram: 'aylin_creates',
-      linkedin: 'aylin-sahin-content',
-    },
-  },
-  {
-    id: '5',
-    name: 'Berk Arslan',
-    role: 'Social Media Manager',
-    avatar: '/images/media-team/berk.jpg',
-    portfolio: [
-      '/portfolio/berk-campaign1.jpg',
-      '/portfolio/berk-campaign2.jpg',
-      '/portfolio/berk-analytics.png',
-    ],
-    specialties: ['Social Media Strategy', 'Analytics', 'Paid Advertising', 'Trend Analysis'],
-    experience: '4+ yıl sosyal medya yönetimi. Esports markalar için kampanya yönetimi uzmanı.',
-    socialMedia: {
-      twitter: '@berk_social',
-      linkedin: 'berk-arslan-social-media',
-      instagram: 'berk_smm',
-    },
-  },
-];
-
 export const mediaStats = {
-  totalVideos: 45,
-  totalViews: 125000,
-  subscribers: 8500,
-  averageEngagement: 12.5,
-  monthlyGrowth: 23.8,
-  contentProduced: 78,
+  totalVideos: "150+",
+  totalViews: "1.5M+",
+  subscribers: "800+",
+  campaign: "10+",
+  contentProduced: "150+",
 };
-
-export const contentCategories = [
-  {
-    name: 'Team Highlights',
-    count: 12,
-    description: 'Takım performansları ve öne çıkan anlar',
-    color: 'from-primary-500 to-primary-600',
-  },
-  {
-    name: 'Tournament Coverage',
-    count: 8,
-    description: 'Turnuva kapsamları ve analiz içerikleri',
-    color: 'from-green-500 to-green-600',
-  },
-  {
-    name: 'Behind Scenes',
-    count: 15,
-    description: 'Kulislerden görüntüler ve röportajlar',
-    color: 'from-purple-500 to-purple-600',
-  },
-  {
-    name: 'Announcements',
-    count: 6,
-    description: 'Duyurular ve organizasyon haberleri',
-    color: 'from-blue-500 to-blue-600',
-  },
-  {
-    name: 'Training',
-    count: 10,
-    description: 'Antrenman içerikleri ve eğitim materyalleri',
-    color: 'from-orange-500 to-orange-600',
-  },
-];
 
 export const socialMediaPlatforms = [
   {
     name: 'YouTube',
-    handle: '@HydRaboNOfficial',
-    followers: '8.5K',
+    handle: '@HydRaboN',
+    followers: '600+',
     growth: '+23.8%',
     url: 'https://youtube.com/@hydrabon',
     color: 'text-red-500',
   },
   {
     name: 'Instagram',
-    handle: '@hydrabon_esports',
-    followers: '12.3K',
+    handle: '@hydrabon.official',
+    followers: '100+',
     growth: '+18.2%',
-    url: 'https://instagram.com/hydrabon_esports',
+    url: 'https://instagram.com/hydrabon.official',
     color: 'text-pink-500',
   },
   {
     name: 'Twitter',
-    handle: '@HydRaboN_',
-    followers: '15.7K',
-    growth: '+31.5%',
-    url: 'https://twitter.com/hydrabon_',
+    handle: '@hydrabonesports',
+    followers: '100+',
+    growth: '+11.5%',
+    url: 'https://x.com/hydrabonesports',
     color: 'text-blue-500',
   },
   {
-    name: 'TikTok',
-    handle: '@hydrabon.official',
-    followers: '6.2K',
-    growth: '+45.1%',
-    url: 'https://tiktok.com/@hydrabon.official',
+    name: 'Discord',
+    handle: 'HydRaboN',
+    followers: '850+',
+    growth: '+23.6%',
+    url: 'https://discord.gg/hydrabon',
     color: 'text-gray-900',
   },
 ]; 

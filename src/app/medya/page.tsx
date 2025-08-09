@@ -11,17 +11,13 @@ import {
   Calendar,
   Users,
   TrendingUp,
-  Camera,
-  Edit,
-  Megaphone,
   ExternalLink,
   Youtube,
   Instagram,
-  Twitter
+  Gift
 } from 'lucide-react';
-import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { featuredContent, mediaTeam, mediaStats, contentCategories, socialMediaPlatforms } from '@/data/media';
+import { featuredContent, mediaStats, socialMediaPlatforms } from '@/data/media';
 
 const typeIcons = {
   'video': Video,
@@ -38,13 +34,7 @@ const categoryColors = {
   'Training': 'from-orange-500 to-orange-600',
 };
 
-const roleIcons = {
-  'Video Editor': Edit,
-  'Graphic Designer': ImageIcon,
-  'Photographer': Camera,
-  'Content Creator': FileText,
-  'Social Media Manager': Megaphone,
-};
+// mediaTeam kaldırıldığı için roleIcons gereksiz
 
 export default function MediaPage() {
   return (
@@ -123,10 +113,9 @@ export default function MediaPage() {
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <p className="text-base md:text-lg text-dark-100 leading-relaxed font-medium">
-                Teaser videolar, takım tanıtımları, taraftar içerikleri ve 
-                <span className="text-primary-300 font-semibold"> sosyal medya kampanyaları </span>
-                hazırlayan 
-                <span className="text-white font-semibold"> aktif medya departmanımız</span>.
+                Ürettiğimiz içeriklerle topluluğumuzun değerlerini daha geniş kitlelere ulaştırıyor, etkileşimi artırıyor ve
+                <span className="text-primary-300 font-semibold"> dış dünyada </span>
+                <span className="text-white font-semibold"> güçlü bir etki yaratıyoruz.</span>
               </p>
             </motion.div>
           </motion.div>
@@ -140,9 +129,9 @@ export default function MediaPage() {
           >
             {[
               { icon: Video, value: mediaStats.totalVideos, label: 'Video İçerik', color: 'text-primary-500' },
-              { icon: Eye, value: `${(mediaStats.totalViews / 1000).toFixed(0)}K`, label: 'Toplam İzlenme', color: 'text-green-500' },
-              { icon: Users, value: `${(mediaStats.subscribers / 1000).toFixed(1)}K`, label: 'Abone', color: 'text-blue-500' },
-              { icon: TrendingUp, value: `${mediaStats.monthlyGrowth}%`, label: 'Aylık Büyüme', color: 'text-purple-500' }
+              { icon: Eye, value: `${mediaStats.totalViews}`, label: 'Toplam İzlenme', color: 'text-green-500' },
+              { icon: Users, value: `${mediaStats.subscribers}`, label: 'Takipçi', color: 'text-blue-500' },
+              { icon: Gift, value: `${mediaStats.campaign}`, label: 'Kampanya Çalışması', color: 'text-purple-500' }
             ].map((stat, index) => (
               <motion.div 
                 key={index}
@@ -268,193 +257,11 @@ export default function MediaPage() {
             })}
           </motion.div>
 
-          <motion.div 
-            className="text-center"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <Link href="/medya/videolar" className="btn-primary text-base px-8 py-4 flex items-center justify-center min-w-[200px] group relative overflow-hidden">
-              <span className="relative z-10 flex items-center">
-                Tüm İçerikleri Görüntüle
-                <Video className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
-              </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-primary-400 to-primary-600 opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-xl"></div>
-            </Link>
-          </motion.div>
+          
         </div>
       </section>
 
-      {/* Section Separator */}
-      <div className="container-custom">
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
-      </div>
-
-      {/* Content Categories */}
-      <section className="py-20 bg-gradient-to-br from-dark-900 to-dark-800">
-        <div className="container-custom">
-          <motion.div 
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="section-title">İçerik Kategorileri</h2>
-            <p className="section-subtitle">
-              Çeşitli kategorilerde ürettiğimiz kaliteli içerikler.
-            </p>
-          </motion.div>
-
-          <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8 }}
-          >
-            {contentCategories.map((category, index) => (
-              <motion.div 
-                key={index}
-                className="professional-card text-center group"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <div className={`w-16 h-16 bg-gradient-to-br ${category.color} rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                  <Video className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">{category.name}</h3>
-                <p className="text-dark-300 mb-4">{category.description}</p>
-                <div className="text-3xl font-bold text-primary-500 mb-2">{category.count}</div>
-                <div className="text-dark-400 text-sm">İçerik</div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Section Separator */}
-      <div className="container-custom">
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
-      </div>
-
-      {/* Media Team */}
-      <section className="py-20 bg-dark-950">
-        <div className="container-custom">
-          <motion.div 
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="section-title">Medya Ekibi</h2>
-            <p className="section-subtitle">
-              Yaratıcı ve profesyonel medya ekibimizle tanışın.
-            </p>
-          </motion.div>
-
-          <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8 }}
-          >
-            {mediaTeam.map((member) => {
-              const IconComponent = roleIcons[member.role];
-              return (
-                <motion.div 
-                  key={member.id} 
-                  className="professional-card text-center"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                                     transition={{ duration: 0.6, delay: (typeof member.id === 'number' ? member.id : 0) * 0.1 }}
-                >
-                  <div className="w-24 h-24 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <IconComponent className="w-12 h-12 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-2">{member.name}</h3>
-                  <div className="inline-block px-4 py-2 bg-purple-500/20 rounded-full text-purple-500 font-medium text-sm mb-4">
-                    {member.role}
-                  </div>
-                  <p className="text-dark-300 mb-6 text-sm leading-relaxed">{member.experience}</p>
-                  
-                  {/* Specialties */}
-                  <div className="mb-6">
-                    <h4 className="text-sm font-semibold text-white mb-3">Uzmanlık Alanları</h4>
-                    <div className="flex flex-wrap gap-2 justify-center">
-                      {member.specialties.slice(0, 3).map((specialty, index) => (
-                        <span key={index} className="px-2 py-1 bg-dark-800 text-dark-300 text-xs rounded">
-                          {specialty}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Social Links */}
-                  <div className="flex justify-center space-x-3">
-                    {member.socialMedia.youtube && (
-                      <a
-                        href={`https://youtube.com/${member.socialMedia.youtube}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-2 bg-dark-800 rounded-lg text-dark-400 hover:text-red-500 transition-colors duration-300"
-                      >
-                        <Youtube className="w-4 h-4" />
-                      </a>
-                    )}
-                    {member.socialMedia.instagram && (
-                      <a
-                        href={`https://instagram.com/${member.socialMedia.instagram}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-2 bg-dark-800 rounded-lg text-dark-400 hover:text-pink-500 transition-colors duration-300"
-                      >
-                        <Instagram className="w-4 h-4" />
-                      </a>
-                    )}
-                    {member.socialMedia.twitter && (
-                      <a
-                        href={`https://twitter.com/${member.socialMedia.twitter.slice(1)}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-2 bg-dark-800 rounded-lg text-dark-400 hover:text-blue-400 transition-colors duration-300"
-                      >
-                        <Twitter className="w-4 h-4" />
-                      </a>
-                    )}
-                  </div>
-                </motion.div>
-              );
-            })}
-          </motion.div>
-
-          <motion.div 
-            className="text-center"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <Link href="/medya/ekip" className="btn-secondary text-base px-8 py-4 flex items-center justify-center min-w-[200px] group relative">
-              <span className="relative z-10 flex items-center">
-                Ekibin Tamamını Gör
-                <Users className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
-              </span>
-            </Link>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Section Separator */}
-      <div className="container-custom">
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
-      </div>
+      
 
       {/* Social Media Platforms */}
       <section className="py-20 bg-gradient-to-br from-dark-900 to-dark-800">
@@ -468,7 +275,7 @@ export default function MediaPage() {
           >
             <h2 className="section-title">Sosyal Medya</h2>
             <p className="section-subtitle">
-              Bizi tüm sosyal medya platformlarında takip edin.
+              Bizi tüm sosyal medya platformlarından takip edin!
             </p>
           </motion.div>
 

@@ -101,17 +101,6 @@ export interface MediaContent {
   featured: boolean;
 }
 
-export interface MediaTeam {
-  id: string;
-  name: string;
-  role: 'Video Editor' | 'Graphic Designer' | 'Photographer' | 'Content Creator' | 'Social Media Manager';
-  avatar: string;
-  portfolio: string[];
-  specialties: string[];
-  experience: string;
-  socialMedia: SocialMedia;
-}
-
 // Discord topluluk türleri
 export interface CommunityStats {
   totalMembers: number | string;
