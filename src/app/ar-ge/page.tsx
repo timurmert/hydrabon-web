@@ -17,6 +17,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { projects, technologies } from '@/data/rnd';
 import { communityStats } from '@/data/community';
+import Image from 'next/image';
 
 const statusColors = {
   'planning': 'bg-blue-500/20 text-blue-500',
@@ -302,7 +303,17 @@ export default function RndPage() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
                 <div className="w-16 h-16 bg-dark-700 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-primary-500/20 transition-colors duration-300">
-                  <Code className="w-8 h-8 text-primary-500" />
+                  {tech.icon ? (
+                    <Image
+                      src={tech.icon}
+                      alt={`${tech.name} logo`}
+                      width={32}
+                      height={32}
+                      className="w-12 h-12 object-contain"
+                    />
+                  ) : (
+                    <Code className="w-8 h-8 text-primary-500" />
+                  )}
                 </div>
                 <h3 className="text-lg font-bold text-white mb-2">{tech.name}</h3>
                 <div className="text-sm text-primary-500 mb-2">{tech.category}</div>
