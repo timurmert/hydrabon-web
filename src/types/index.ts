@@ -259,10 +259,7 @@ export interface CS2Server {
   name: string;
   ip: string;
   port: number;
-  currentMap: string;
   gameMode: string;
-  maxPlayers: number;
-  currentPlayers: number;
   status: 'online' | 'offline' | 'maintenance';
   region: string;
   tickrate: number;

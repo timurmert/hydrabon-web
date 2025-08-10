@@ -295,6 +295,77 @@ body {
   user-select: none;
 }
 
+/* Background Layers */
+.animated-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(45deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(-45deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-position: top left; /* çapraz çizgileri sol üste kadar taşı */
+}
+
+.geometric-pattern {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(800px 400px at 0% 0%, rgba(249, 115, 22, 0.06), transparent 60%),
+    radial-gradient(600px 300px at 100% 0%, rgba(59, 130, 246, 0.04), transparent 60%),
+    radial-gradient(600px 300px at 0% 100%, rgba(34, 197, 94, 0.04), transparent 60%);
+}
+
+.tiger-pattern {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    135deg,
+    rgba(249, 115, 22, 0.04) 0px,
+    rgba(249, 115, 22, 0.04) 2px,
+    transparent 2px,
+    transparent 14px
+  );
+}
+
+.glow-orb {
+  position: absolute;
+  width: 480px;
+  height: 480px;
+  filter: blur(80px);
+  opacity: 0.25;
+  border-radius: 9999px;
+}
+
+.glow-orb-1 { top: -10%; left: -10%; background: radial-gradient(circle, rgba(249, 115, 22, 0.5), transparent 60%); }
+.glow-orb-2 { top: 20%; right: -15%; background: radial-gradient(circle, rgba(239, 68, 68, 0.5), transparent 60%); }
+.glow-orb-3 { bottom: -10%; left: 25%; background: radial-gradient(circle, rgba(34, 197, 94, 0.5), transparent 60%); }
+
+.particle { 
+  position: absolute; 
+  width: 3px; 
+  height: 3px; 
+  background: rgba(255,255,255,0.08); 
+  border-radius: 9999px; 
+  pointer-events: none;
+  animation: particle-float 9s ease-in-out infinite;
+}
+
+/* Konteyner içindeki ilk 6 partikül için sabit konumlar - sol üstte toplanmayı engelle */
+.particle:nth-child(1) { top: 12%; left: 18%; animation-delay: 0s; }
+.particle:nth-child(2) { top: 28%; left: 72%; animation-delay: 1s; }
+.particle:nth-child(3) { top: 50%; left: 40%; animation-delay: 2s; }
+.particle:nth-child(4) { top: 68%; left: 22%; animation-delay: 3s; }
+.particle:nth-child(5) { top: 82%; left: 76%; animation-delay: 4s; }
+.particle:nth-child(6) { top: 38%; left: 86%; animation-delay: 2.5s; }
+
+@keyframes particle-float {
+  0% { transform: translateY(0) translateX(0); opacity: 0.8; }
+  50% { transform: translateY(-8px) translateX(4px); opacity: 0.6; }
+  100% { transform: translateY(0) translateX(0); opacity: 0.8; }
+}
 
 
 
