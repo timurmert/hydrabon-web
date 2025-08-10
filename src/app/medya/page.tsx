@@ -18,6 +18,7 @@ import {
   House
 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { featuredContent, mediaStats, socialMediaPlatforms } from '@/data/media';
 
 const typeIcons = {
@@ -28,11 +29,7 @@ const typeIcons = {
 };
 
 const categoryColors = {
-  'Team Highlights': 'from-primary-500 to-primary-600',
-  'Tournament Coverage': 'from-green-500 to-green-600',
-  'Behind Scenes': 'from-purple-500 to-purple-600',
-  'Announcements': 'from-blue-500 to-blue-600',
-  'Training': 'from-orange-500 to-orange-600',
+  'Mix': 'from-purple-500 to-purple-600',
 };
 
 // mediaTeam kaldırıldığı için roleIcons gereksiz
@@ -197,19 +194,36 @@ export default function MediaPage() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                 >
                   <div className="relative mb-6 overflow-hidden rounded-lg">
-                    <div className="aspect-video bg-dark-700 flex items-center justify-center">
-                      <div className="text-center">
-                        <IconComponent className="w-16 h-16 text-primary-500 mx-auto mb-4" />
-                        <div className="text-white font-medium">{content.title}</div>
-                      </div>
-                    </div>
-                    {content.type === 'video' && (
-                      <div className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <div className="w-16 h-16 bg-primary-500 rounded-full flex items-center justify-center">
-                          <Play className="w-8 h-8 text-white ml-1" />
+                    <a
+                      href={content.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="aspect-video relative bg-dark-700 block"
+                      aria-label={`${content.title} bağlantısını yeni sekmede aç`}
+                    >
+                      {content.thumbnail ? (
+                        <Image
+                          src={content.thumbnail}
+                          alt={content.title}
+                          fill
+                          sizes="(min-width: 1024px) 600px, 100vw"
+                          quality={90}
+                          className="object-cover"
+                          priority={index < 2}
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center">
+                          <IconComponent className="w-16 h-16 text-primary-500" />
                         </div>
-                      </div>
-                    )}
+                      )}
+                      {content.type === 'video' && (
+                        <div className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <div className="w-16 h-16 bg-primary-500 rounded-full flex items-center justify-center">
+                            <Play className="w-8 h-8 text-white ml-1" />
+                          </div>
+                        </div>
+                      )}
+                    </a>
                   </div>
 
                   <div className="mb-6">

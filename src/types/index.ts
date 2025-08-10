@@ -91,7 +91,7 @@ export interface MediaContent {
   title: string;
   description: string;
   type: 'video' | 'image' | 'article' | 'infographic';
-  category: 'Team Highlights' | 'Tournament Coverage' | 'Behind Scenes' | 'Announcements' | 'Training';
+  category: 'Mix';
   url: string;
   thumbnail: string;
   publishDate: string;
