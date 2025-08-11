@@ -12,95 +12,128 @@ import {
   Award,
   Crown,
   MapPin,
-  Crosshair
+  Crosshair,
+  Rocket,
+  Gamepad2,
+  TrendingUp,
+  FlaskConical,
+  Binoculars,
+  ExternalLink
 } from 'lucide-react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 const timeline = [
   {
-    year: '2022',
+    year: '2018',
     title: 'Kuruluş',
-    description: 'HydRaboN organizasyonu Türkiye esports sahnesinde yer almak üzere kuruldu.',
-    icon: Star,
+    description: 'HydRaboN’u kurarak topluluk temellerini ve marka kimliğimizi oluşturduk.',
+    icon: Star, // alternatif: Sparkles
+  },
+  {
+    year: '2021',
+    title: 'Yapılanma ve İlk Adımlar',
+    description: 'Discord topluluğunu yapılandırıp büyütürken süreç, kural ve görev tanımlarını netleştirdik.',
+    icon: Rocket, // MapPin yerine Rocket daha isabetli
   },
   {
     year: '2023',
-    title: 'İlk Takım',
-    description: 'Valorant takımımızı kurduk ve ilk resmi turnuvalara katıldık.',
-    icon: Users,
+    title: 'Platformlaşma: CS2 & Espor',
+    description: 'İlk espor takımımızı duyurup CS2 altyapımızı devreye alarak topluluktan platforma geçişi başlattık.',
+    icon: Gamepad2, // alternatif: Users veya Trophy
   },
   {
     year: '2024',
-    title: 'Büyüme',
-    description: 'Ar-Ge, Medya ve Discord departmanlarımızı genişlettik.',
-    icon: Zap,
+    title: 'Operasyonel Büyüme (CS2 & Espor)',
+    description: 'İkinci espor takımımızı duyurup CS2 sunucularımızı ölçeklendirdik.',
+    icon: TrendingUp, // Zap yerine büyümeyi vurgular
+  },
+  {
+    year: '2025',
+    title: 'Odak: Ar-Ge & Medya',
+    description: 'Esporu geçici olarak pasife alıp kaynaklarımızı Ar-Ge ve Medya’ya taşıyarak ürünleşme ve düzenli içerik üretimine odaklandık.',
+    icon: FlaskConical, // alternatif: Microscope veya PlayCircle (medya vurgusu)
   },
   {
     year: 'Gelecek',
     title: 'Vizyon',
-    description: 'Türkiye\'nin en büyük esports organizasyonlarından biri olmak.',
-    icon: Crown,
+    description: 'Ar-Ge çıktılarının ürünleştiği, medyada bölgesel erişimi büyüten, CS2’de örnek standartlar geliştiren ve sürdürülebilir bir modelle e-spora yeniden dönen uluslararası bir platform olmayı hedefliyoruz.',
+    icon: Crown, // alternatif: Binoculars
   },
-];
+]
 
 const values = [
   {
     icon: Heart,
     title: 'Tutku',
-    description: 'Esports\'a olan tutkumuz tüm yaptıklarımızın merkezinde yer alır.',
+    description: 'Oyun, topluluk ve üretime duyduğumuz tutku yaptığımız her işe yön verir.',
   },
   {
     icon: Users,
     title: 'Takım Ruhu',
-    description: 'Birlik, beraberlik ve dayanışma ile güçlü bir ekip oluşturuyoruz.',
+    description: 'Birlikte kazanır, farklı disiplinleri tek bir amaç etrafında senkronize ederiz.',
   },
   {
     icon: Target,
     title: 'Hedef Odaklılık',
-    description: 'Belirlediğimiz hedeflere odaklanarak kararlı adımlarla ilerleriz.',
+    description: 'Ölçülebilir hedefler koyar, veriye dayalı kararlarla istikrarlı ilerleriz.',
   },
   {
     icon: Trophy,
-    title: 'Mükemmellik',
-    description: 'Her alanda mükemmeliyi hedefler, sürekli gelişim için çalışırız.',
+    title: 'Kalite ve Disiplin',
+    description: 'Standartlarımızı sürekli yükseltir, her sürümde daha iyisini sunarız.',
   },
   {
     icon: Shield,
-    title: 'Güvenilirlik',
-    description: 'Sözümüzde durur, profesyonel yaklaşımımızla güven veririz.',
+    title: 'Güven ve Şeffaflık',
+    description: 'Sözümüzde durur, şeffaf süreçlerle topluluğa ve iş ortaklarımıza güven veririz.',
   },
   {
     icon: Zap,
-    title: 'İnovasyon',
-    description: 'Yenilikçi çözümlerle esports dünyasında fark yaratırız.',
+    title: 'Yenilikçilik',
+    description: 'Ar-Ge odağıyla yeni fikirleri hızlı deneyip etkisi kanıtlananları ölçekleriz.',
   },
 ];
 
 const achievements = [
   {
-    title: 'VCT Turkey Challengers',
-    description: 'Top 8 başarısı',
-    year: '2024',
+    title: 'Web Platformu',
+    description: 'Tüm süreçlerimizi ve alanlarımızı sizlerle paylaşmak için internet sitemizi kullanıma açtık.',
+    year: '2025',
   },
   {
-    title: 'CS2 Sunucu Altyapısı',
-    description: '128 tick profesyonel server',
-    year: '2024',
+    title: 'Topluluk Etkinlikleri',
+    description: '100+ katılımcıyla beraber, 20+ çekiliş ve etkinlik düzenledik.',
+    year: '2025',
   },
   {
-    title: 'Community Tournament',
-    description: '15+ başarılı etkinlik',
-    year: '2024',
+    title: 'Medya İçerikleri',
+    description: 'YouTube’da 1.5M+ görüntülenmeye ulaşarak marka görünürlüğümüzü güçlendirdik.',
+    year: '2025',
   },
   {
     title: 'Discord Topluluğu',
-    description: '2500+ aktif üye',
+    description: '850+ üyeli, aktif moderasyon ve düzenli etkinliklerle büyüyen bir topluluk inşa ettik.',
+    year: '2025',
+  },
+  {
+    title: 'Operasyonel Otomasyonlar',
+    description: 'Discord ve web süreçlerinde otomasyonlarla görev akışlarını hızlandırdık.',
+    year: '2025',
+  },
+  {
+    title: 'Ar-Ge Dersleri',
+    description: 'Topluluğumuz için 10+ saatlik ücretsiz dersler düzenledik.',
     year: '2024',
   },
   {
-    title: 'Open Source Projeler',
-    description: '5+ proje yayınlandı',
+    title: 'CS2 Rekabetçi Altyapı',
+    description: '128 tick, düşük gecikme ve istikrar odaklı profesyonel sunucu altyapısını devreye aldık.',
+    year: '2024',
+  },
+  {
+    title: 'Valorant Premier League Şampiyonlukları',
+    description: 'Tüm takımlarımızca 10\'dan fazla Playoff\'a katıldık, 2 şampiyonluk elde ettik.',
     year: '2024',
   },
 ];
@@ -109,7 +142,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen snap-y snap-mandatory overflow-y-scroll scroll-smooth">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-x-hidden snap-start snap-always">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden snap-start snap-always">
         {/* Multi-layered Dynamic Background */}
         <div className="absolute inset-0 bg-gradient-hero" style={{ zIndex: 0 }}></div>
         <div className="absolute inset-0 geometric-pattern" style={{ zIndex: 1 }}></div>
@@ -161,7 +194,7 @@ export default function AboutPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight leading-normal">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight">
                 <span className="bg-gradient-to-r from-primary-300 via-white to-primary-300 bg-clip-text text-transparent">
                   Hakkımızda
                 </span>
@@ -176,12 +209,12 @@ export default function AboutPage() {
 
             {/* Enhanced Description */}
             <motion.div 
-              className="max-w-4xl mx-auto mb-12"
+              className="max-w-4xl mx-auto mb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <p className="text-base md:text-lg text-dark-100 leading-relaxed font-medium">
+              <p className="text-base md:text-lg text-dark-100 leading-relaxed">
                 Profesyonel yaklaşım, disiplinli yapı ve 
                 <span className="text-primary-300 font-semibold"> kaplan sembolizmini </span>
                 benimseyen HydRaboN organizasyonunun 
@@ -198,7 +231,7 @@ export default function AboutPage() {
       </div>
 
       {/* Mission & Vision */}
-      <section className="py-20 bg-dark-950 snap-start snap-always min-h-screen flex items-center">
+      <section className="py-20 bg-dark-950 snap-start snap-always flex items-center">
         <div className="container-custom">
           <motion.div 
             className="grid grid-cols-1 lg:grid-cols-2 gap-12"
@@ -221,13 +254,7 @@ export default function AboutPage() {
               </div>
               <h2 className="text-3xl font-display font-bold text-white mb-6 leading-normal">Misyonumuz</h2>
               <p className="text-dark-200 text-lg leading-relaxed mb-6">
-                Türkiye esports ekosisteminde profesyonel standartları yükselterek, 
-                yetenekli oyuncuları desteklemek ve esports kültürünü geliştirmek.
-              </p>
-              <p className="text-dark-300 leading-relaxed">
-                Teknoloji ve yaratıcılığı harmanlayarak, hem oyuncularımıza hem de 
-                topluluğumuza değer katan projeler geliştiririz. Disiplinli çalışma, 
-                sürekli öğrenme ve takım ruhu ile esports dünyasında iz bırakırız.
+              Discord topluluğu, Ar-Ge, medya ve CS2 ekseninde adil, güvenli ve üretken bir ekosistem kurarak; veriyle desteklenen yazılım/otomasyon çözümleri ve tutarlı bir marka diliyle kalıcı değer üretmek, geçmişteki e-spor disiplinimizi tüm süreçlere yansıtmaktır.
               </p>
             </motion.div>
 
@@ -245,13 +272,7 @@ export default function AboutPage() {
               </div>
               <h2 className="text-3xl font-display font-bold text-white mb-6 leading-normal">Vizyonumuz</h2>
               <p className="text-dark-200 text-lg leading-relaxed mb-6">
-                Türkiye&apos;nin en saygın esports organizasyonlarından biri olarak, 
-                uluslararası arenada ülkemizi başarıyla temsil etmek.
-              </p>
-              <p className="text-dark-300 leading-relaxed">
-                Oyuncu gelişiminden teknoloji inovasyonuna, topluluk yönetiminden 
-                medya prodüksiyonuna kadar her alanda mükemmelliği hedefleyerek, 
-                esports&apos;ın geleceğini şekillendiren öncü organizasyon olmak.
+              Türkiye’den doğup bölgede referans gösterilen bir platform olarak; Ar-Ge çıktılarımızı ürünleştirip ölçeklenebilir iş modelleriyle medya etkisini ve CS2 operasyon standartlarını yükseltmeyi, koşullar olgunlaştığında e-sporu sürdürülebilir bir programla yeniden etkinleştirerek ekosistemimizi tamamlamayı hedefliyoruz.
               </p>
             </motion.div>
           </motion.div>
@@ -264,7 +285,7 @@ export default function AboutPage() {
       </div>
 
       {/* Timeline */}
-      <section id="tarihce" className="py-20 bg-gradient-to-br from-dark-900 to-dark-800 snap-start snap-always min-h-screen flex items-center">
+      <section id="tarihce" className="py-20 bg-gradient-to-br from-dark-900 to-dark-800 snap-start snap-always flex items-center">
         <div className="container-custom">
           <motion.div 
             className="text-center mb-16"
@@ -329,7 +350,7 @@ export default function AboutPage() {
       </div>
 
       {/* Values */}
-      <section id="degerler" className="py-20 bg-dark-950 snap-start snap-always min-h-screen flex items-center">
+      <section id="degerler" className="py-20 bg-dark-950 snap-start snap-always flex items-center">
         <div className="container-custom">
           <motion.div 
             className="text-center mb-16"
@@ -380,7 +401,7 @@ export default function AboutPage() {
       </div>
 
       {/* Achievements */}
-      <section className="py-20 bg-gradient-to-br from-dark-900 to-dark-800 snap-start snap-always min-h-screen flex items-center">
+      <section className="py-20 bg-gradient-to-br from-dark-900 to-dark-800 snap-start snap-always flex items-center">
         <div className="container-custom">
           <motion.div 
             className="text-center mb-16"
@@ -429,7 +450,7 @@ export default function AboutPage() {
       </div>
 
       {/* Team Philosophy */}
-      <section className="py-20 bg-dark-950 snap-start snap-always min-h-screen flex items-center">
+      <section className="py-20 bg-dark-950 snap-start snap-always flex items-center">
         <div className="container-custom">
           <motion.div 
             className="max-w-4xl mx-auto text-center"
@@ -438,7 +459,7 @@ export default function AboutPage() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="section-title mb-8">Takım Felsefemiz</h2>
+            <h2 className="section-title mb-8">Felsefemiz</h2>
             <motion.div 
               className="space-y-8"
               initial={{ opacity: 0, y: 20 }}
@@ -447,14 +468,13 @@ export default function AboutPage() {
               transition={{ duration: 0.6 }}
             >
               <p className="text-xl md:text-2xl text-dark-200 leading-relaxed">
-                &ldquo;Kaplan gibi güçlü, disiplinli ve kararlı bir organizasyon olarak, 
-                <span className="text-gradient font-semibold"> her başarının ardında takım ruhu </span>
-                olduğuna inanıyoruz.&rdquo;
+                &ldquo;Kaplan gibi güçlü, disiplinli ve kararlı bir organizasyonuz; 
+                <span className="text-gradient font-semibold"> her kalıcı başarının ardında takım ruhu </span>
+                ve tutarlı iş birliği olduğuna inanırız.&rdquo;
               </p>
               <p className="text-lg text-dark-300 leading-relaxed">
-                Bireysel yetenekleri takım başarısına dönüştürürken, sürekli öğrenme ve 
-                gelişim odaklı yaklaşımımızla esports dünyasında fark yaratıyoruz. 
-                Profesyonellik, saygı ve fair play ilkelerimiz hiçbir zaman ödün vermediğimiz değerlerdir.
+                Bireysel yetenekleri ölçülebilir hedeflerle takım başarısına dönüştürür; sürekli öğrenme ve gelişimi kültürümüzün temeline koyarız. 
+                Profesyonellik, saygı, etik ve şeffaflık ilkelerimizden asla ödün vermeyiz.
               </p>
             </motion.div>
           </motion.div>
@@ -476,9 +496,9 @@ export default function AboutPage() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="section-title">Departmanlarımız</h2>
+            <h2 className="section-title">Alanlarımız</h2>
             <p className="section-subtitle">
-              Beş ana departmanımızın her biri kendine özgü uzmanlık alanlarında faaliyet gösterir.
+              Beş ana alanımızın her biri kendi içerisinde profesyonelce faaliyet gösterir.
             </p>
           </motion.div>
 
@@ -489,13 +509,35 @@ export default function AboutPage() {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.8 }}
           >
-            <Link href="/espor" className="professional-card group hover:scale-105 transition-transform duration-300">
-              <div className="w-16 h-16 bg-red-500/20 rounded-xl flex items-center justify-center mb-6">
-                <Trophy className="w-8 h-8 text-red-500" />
+            <Link href="/topluluk" className="professional-card group hover:scale-105 transition-transform duration-300">
+              <div className="w-16 h-16 bg-green-500/20 rounded-xl flex items-center justify-center mb-6">
+                <Users className="w-8 h-8 text-green-500" />
               </div>
-              <h3 className="text-2xl font-bold text-white mb-4 leading-normal">Espor Mirası</h3>
+              <h3 className="text-2xl font-bold text-white mb-4 leading-normal">Discord Topluluğu</h3>
               <p className="text-dark-300 mb-4">
-                Valorant sahasında elde ettiğimiz tarihi başarılar, şampiyonluklar ve unutulmaz esports mirasımız.
+                850+ üyeli aktif Discord sunucumuzun yönetimini sağlayan topluluk alanımız.
+              </p>
+              <div className="text-primary-500 font-medium">Detayları görüntüle →</div>
+            </Link>
+
+            <Link href="/ar-ge" className="professional-card group hover:scale-105 transition-transform duration-300">
+              <div className="w-16 h-16 bg-blue-500/20 rounded-xl flex items-center justify-center mb-6">
+                <Zap className="w-8 h-8 text-blue-500" />
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-4 leading-normal">Ar-Ge & Yazılım</h3>
+              <p className="text-dark-300 mb-4">
+                Discord botları, AI sistemleri ve web tabanlı otomasyonlar geliştiren alanımız.
+              </p>
+              <div className="text-primary-500 font-medium">Detayları görüntüle →</div>
+            </Link>
+
+            <Link href="/medya" className="professional-card group hover:scale-105 transition-transform duration-300">
+              <div className="w-16 h-16 bg-purple-500/20 rounded-xl flex items-center justify-center mb-6">
+                <Calendar className="w-8 h-8 text-purple-500" />
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-4 leading-normal">Medya</h3>
+              <p className="text-dark-300 mb-4">
+                Video prodüksiyonu, grafik tasarım ve sosyal medya yönetimi yapan kreatif alanımız.
               </p>
               <div className="text-primary-500 font-medium">Detayları görüntüle →</div>
             </Link>
@@ -511,38 +553,17 @@ export default function AboutPage() {
               <div className="text-primary-500 font-medium">Detayları görüntüle →</div>
             </Link>
 
-            <Link href="/ar-ge" className="professional-card group hover:scale-105 transition-transform duration-300">
-              <div className="w-16 h-16 bg-blue-500/20 rounded-xl flex items-center justify-center mb-6">
-                <Zap className="w-8 h-8 text-blue-500" />
+            <Link href="/espor" className="professional-card group hover:scale-105 transition-transform duration-300">
+              <div className="w-16 h-16 bg-red-500/20 rounded-xl flex items-center justify-center mb-6">
+                <Trophy className="w-8 h-8 text-red-500" />
               </div>
-              <h3 className="text-2xl font-bold text-white mb-4 leading-normal">Ar-Ge & Yazılım</h3>
+              <h3 className="text-2xl font-bold text-white mb-4 leading-normal">Espor Mirası</h3>
               <p className="text-dark-300 mb-4">
-                Discord botları, AI sistemleri ve web uygulamaları geliştiren teknoloji departmanımız.
+                Valorant sahasında elde ettiğimiz tarihi başarılar, şampiyonluklar ve unutulmaz espor mirasımız.
               </p>
               <div className="text-primary-500 font-medium">Detayları görüntüle →</div>
             </Link>
 
-            <Link href="/medya" className="professional-card group hover:scale-105 transition-transform duration-300">
-              <div className="w-16 h-16 bg-purple-500/20 rounded-xl flex items-center justify-center mb-6">
-                <Calendar className="w-8 h-8 text-purple-500" />
-              </div>
-              <h3 className="text-2xl font-bold text-white mb-4 leading-normal">Medya</h3>
-              <p className="text-dark-300 mb-4">
-                Video prodüksiyonu, grafik tasarım ve sosyal medya yönetimi yapan kreatif departmanımız.
-              </p>
-              <div className="text-primary-500 font-medium">Detayları görüntüle →</div>
-            </Link>
-
-            <Link href="/topluluk" className="professional-card group hover:scale-105 transition-transform duration-300">
-              <div className="w-16 h-16 bg-green-500/20 rounded-xl flex items-center justify-center mb-6">
-                <Users className="w-8 h-8 text-green-500" />
-              </div>
-              <h3 className="text-2xl font-bold text-white mb-4 leading-normal">Discord Topluluğu</h3>
-              <p className="text-dark-300 mb-4">
-                2500+ üyeli aktif Discord sunucumuzun yönetimini sağlayan topluluk departmanımız.
-              </p>
-              <div className="text-primary-500 font-medium">Detayları görüntüle →</div>
-            </Link>
           </motion.div>
         </div>
       </section>
@@ -563,31 +584,24 @@ export default function AboutPage() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6 leading-normal">
-              Bize Katılın!
+              Bize Katıl!
             </h2>
             <p className="text-xl text-orange-100 mb-8 max-w-2xl mx-auto">
-              HydRaboN ailesinin bir parçası olmak ve esports dünyasında iz bırakmak için 
-              bugün bizimle iletişime geçin.
+              Topluluğumuzla bağ kur, gelişmelerden haberdar ol ve yeni fırsatları kaçırma.
             </p>
             <motion.div 
-              className="flex flex-col sm:flex-row gap-4 justify-center"
+              className="flex justify-center"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <Link href="/topluluk/basvur" className="bg-white text-orange-600 font-semibold py-4 px-8 rounded-lg hover:bg-orange-50 transition-all duration-300 flex items-center justify-center min-w-[160px] group">
+              <a href="https://discord.gg/hydrabon" target="_blank" rel="noopener noreferrer" className="bg-white text-orange-600 font-semibold py-4 px-8 rounded-lg hover:bg-orange-50 transition-all duration-300 flex items-center justify-center min-w-[200px] group transform hover:scale-105 active:scale-95">
                 <span className="flex items-center">
-                  Takıma Başvur
-                  <Users className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
+                  Aramıza Katıl!
+                  <ExternalLink className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
                 </span>
-              </Link>
-              <Link href="/iletisim" className="bg-orange-700 text-white font-semibold py-4 px-8 rounded-lg hover:bg-orange-800 transition-all duration-300 flex items-center justify-center min-w-[160px] group">
-                <span className="flex items-center">
-                  İletişime Geç
-                  <MapPin className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                </span>
-              </Link>
+              </a>
             </motion.div>
           </motion.div>
         </div>
