@@ -14,9 +14,9 @@ export interface Player {
   id: string;
   name: string;
   nickname: string;
-  role: 'Duelist' | 'Initiator' | 'Controller' | 'Sentinel' | 'IGL';
+  role: 'Duelist' | 'Initiator' | 'Controller' | 'Sentinel' | 'IGL' | 'Oyuncu, Koç, Yönetici';
   avatar: string;
-  age: number;
+  age?: number;
   nationality: string;
   joinDate: string;
   stats: PlayerStats;
@@ -36,8 +36,7 @@ export interface PlayerStats {
 export interface Staff {
   id: string;
   name: string;
-  role: 'Coach' | 'Manager' | 'Analyst' | 'Mental Coach';
-  avatar: string;
+  role: 'Coach' | 'Manager' | 'Analyst' | 'Mental Coach' | 'Player';
   bio: string;
   experience: string;
   socialMedia: SocialMedia;
@@ -58,6 +57,8 @@ export interface Match {
   };
   maps?: string[];
   stream?: string;
+  duration?: string; // e.g. '1s 42dk'
+  matchUrl?: string; // detay sayfası ya da VOD linki
 }
 
 export interface Tournament {

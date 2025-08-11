@@ -31,28 +31,27 @@ const footerLinks = {
   divisions: {
     title: 'Birimlerimiz',
     links: [
-      { name: 'Espor Takımı', href: '/espor' },
-      { name: 'CS2 Sunucusu', href: '/cs2' },
+      { name: 'Topluluğumuz', href: '/topluluk' },
       { name: 'Ar-Ge & Yazılım', href: '/ar-ge' },
-      { name: 'Medya Ekibi', href: '/medya' },
-      { name: 'Discord Topluluğu', href: '/topluluk' },
+      { name: 'Medya Ekibimiz', href: '/medya' },
+      { name: 'CS2 Sunucumuz', href: '/cs2' },
+      { name: 'Espor Takımımız', href: '/espor' },
     ],
   },
   community: {
     title: 'Topluluk',
     links: [
-      { name: 'Discord Sunucusu', href: '/topluluk' },
-      { name: 'Steam Grubu', href: 'https://steamcommunity.com/groups/HydRaboN' },
-      { name: 'Başvuru Formu', href: '/topluluk#basvuru' },
+      { name: 'Discord Sunucumuz', href: 'https://discord.gg/hydrabon' },
+      { name: 'Steam Grubumuz', href: 'https://steamcommunity.com/groups/HydRaboN' },
       { name: 'İletişim', href: '/iletisim' },
     ],
   },
   legal: {
     title: 'Yasal',
     links: [
-      { name: 'Gizlilik Politikası', href: '/gizlilik' },
-      { name: 'Kullanım Şartları', href: '/kullanim-sartlari' },
-      { name: 'Çerez Politikası', href: '/cerez-politikasi' },
+      { name: 'Gizlilik Politikası', href: '/yasal#gizlilik' },
+      { name: 'Kullanım Şartları', href: '/yasal#kullanim-sartlari' },
+      { name: 'Çerez Politikası', href: '/yasal#cerez-politikasi' },
     ],
   },
 };
