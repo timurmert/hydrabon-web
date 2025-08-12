@@ -11,14 +11,14 @@ import {
   Calendar,
   Award,
   Crown,
-  MapPin,
   Crosshair,
   Rocket,
   Gamepad2,
   TrendingUp,
   FlaskConical,
-  Binoculars,
-  ExternalLink
+  ExternalLink,
+  HelpCircle,
+  Timer
 } from 'lucide-react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -57,8 +57,8 @@ const timeline = [
   {
     year: 'Gelecek',
     title: 'Vizyon',
-    description: 'Ar-Ge çıktılarının ürünleştiği, medyada bölgesel erişimi büyüten, CS2’de örnek standartlar geliştiren ve sürdürülebilir bir modelle e-spora yeniden dönen uluslararası bir platform olmayı hedefliyoruz.',
-    icon: Crown, // alternatif: Binoculars
+    description: 'Ar-Ge çıktılarının ürünleştiği, medyada bölgesel erişimi büyüten, CS2’de örnek standartlar geliştiren ve sürdürülebilir bir modelle espora yeniden dönen uluslararası bir platform olmayı hedefliyoruz.',
+    icon: HelpCircle, // soru işareti ile devam hissi
   },
 ]
 
@@ -89,7 +89,7 @@ const values = [
     description: 'Sözümüzde durur, şeffaf süreçlerle topluluğa ve iş ortaklarımıza güven veririz.',
   },
   {
-    icon: Zap,
+    icon: Timer,
     title: 'Yenilikçilik',
     description: 'Ar-Ge odağıyla yeni fikirleri hızlı deneyip etkisi kanıtlananları ölçekleriz.',
   },
@@ -189,7 +189,7 @@ export default function AboutPage() {
 
             {/* Enhanced Title */}
             <motion.div 
-              className="relative mb-8"
+              className="relative -mt-6 md:-mt-10 pt-6 md:pt-8 mb-8"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -254,7 +254,7 @@ export default function AboutPage() {
               </div>
               <h2 className="text-3xl font-display font-bold text-white mb-6 leading-normal">Misyonumuz</h2>
               <p className="text-dark-200 text-lg leading-relaxed mb-6">
-              Discord topluluğu, Ar-Ge, medya ve CS2 ekseninde adil, güvenli ve üretken bir ekosistem kurarak; veriyle desteklenen yazılım/otomasyon çözümleri ve tutarlı bir marka diliyle kalıcı değer üretmek, geçmişteki e-spor disiplinimizi tüm süreçlere yansıtmaktır.
+              Discord topluluğu, Ar-Ge, Medya ve CS2 ekseninde adil, güvenli ve üretken bir ekosistem kurarak; veriyle desteklenen yazılım/otomasyon çözümleri ve tutarlı bir marka diliyle kalıcı değer üretmek, geçmişteki espor disiplinimizi tüm süreçlere yansıtmaktır.
               </p>
             </motion.div>
 
@@ -272,7 +272,7 @@ export default function AboutPage() {
               </div>
               <h2 className="text-3xl font-display font-bold text-white mb-6 leading-normal">Vizyonumuz</h2>
               <p className="text-dark-200 text-lg leading-relaxed mb-6">
-              Türkiye’den doğup bölgede referans gösterilen bir platform olarak; Ar-Ge çıktılarımızı ürünleştirip ölçeklenebilir iş modelleriyle medya etkisini ve CS2 operasyon standartlarını yükseltmeyi, koşullar olgunlaştığında e-sporu sürdürülebilir bir programla yeniden etkinleştirerek ekosistemimizi tamamlamayı hedefliyoruz.
+              Türkiye’den doğup bölgede referans gösterilen bir platform olarak; Ar-Ge çıktılarımızı ürünleştirip ölçeklenebilir iş modelleriyle medya etkisini ve CS2 operasyon standartlarını yükseltmeyi, koşullar olgunlaştığında esporu sürdürülebilir bir programla yeniden etkinleştirerek ekosistemimizi tamamlamayı hedefliyoruz.
               </p>
             </motion.div>
           </motion.div>
@@ -285,7 +285,7 @@ export default function AboutPage() {
       </div>
 
       {/* Timeline */}
-      <section id="tarihce" className="py-20 bg-gradient-to-br from-dark-900 to-dark-800 snap-start snap-always flex items-center">
+      <section id="tarihce" className="py-20 bg-gradient-to-br from-dark-900 to-dark-800 snap-start snap-always flex items-center scroll-mt-28 md:scroll-mt-20">
         <div className="container-custom">
           <motion.div 
             className="text-center mb-16"
@@ -302,8 +302,8 @@ export default function AboutPage() {
 
           <div className="max-w-4xl mx-auto">
             <div className="relative">
-              {/* Timeline Line */}
-              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary-500 to-orange-500"></div>
+              {/* Continuous timeline line ending near last node */}
+              <div className="absolute left-8 top-0 bottom-10 w-0.5 bg-gradient-to-b from-primary-500 to-orange-500"></div>
               
               <div className="space-y-12">
                 {timeline.map((item, index) => {
@@ -317,15 +317,17 @@ export default function AboutPage() {
                       viewport={{ once: true }}
                       transition={{ duration: 0.6, delay: index * 0.2 }}
                     >
-                      <motion.div 
-                        className="w-16 h-16 bg-dark-800 border-4 border-primary-500 rounded-full flex items-center justify-center relative z-10"
-                        initial={{ scale: 0 }}
-                        whileInView={{ scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: index * 0.2 + 0.2 }}
-                      >
-                        <IconComponent className="w-8 h-8 text-primary-500" />
-                      </motion.div>
+                      <div className="relative flex-shrink-0">
+                        <motion.div 
+                          className="w-16 h-16 bg-dark-800 border-4 border-primary-500 rounded-full flex items-center justify-center relative z-10"
+                          initial={{ scale: 0 }}
+                          whileInView={{ scale: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.5, delay: index * 0.2 + 0.2 }}
+                        >
+                          <IconComponent className="w-8 h-8 text-primary-500" />
+                        </motion.div>
+                      </div>
                       <div className="flex-1">
                         <div className="professional-card">
                           <div className="flex items-center space-x-4 mb-4">
@@ -350,7 +352,7 @@ export default function AboutPage() {
       </div>
 
       {/* Values */}
-      <section id="degerler" className="py-20 bg-dark-950 snap-start snap-always flex items-center">
+      <section id="degerler" className="py-20 bg-dark-950 snap-start snap-always flex items-center scroll-mt-28 md:scroll-mt-44">
         <div className="container-custom">
           <motion.div 
             className="text-center mb-16"
@@ -452,7 +454,7 @@ export default function AboutPage() {
       {/* Team Philosophy */}
       <section className="py-20 bg-dark-950 snap-start snap-always flex items-center">
         <div className="container-custom">
-          <motion.div 
+            <motion.div 
             className="max-w-4xl mx-auto text-center"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -515,7 +517,7 @@ export default function AboutPage() {
               </div>
               <h3 className="text-2xl font-bold text-white mb-4 leading-normal">Discord Topluluğu</h3>
               <p className="text-dark-300 mb-4">
-                850+ üyeli aktif Discord sunucumuzun yönetimini sağlayan topluluk alanımız.
+                İletişim ağımızın kalbi, 850+ aktif üyeye sahip alanımız.
               </p>
               <div className="text-primary-500 font-medium">Detayları görüntüle →</div>
             </Link>
@@ -596,7 +598,7 @@ export default function AboutPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <a href="https://discord.gg/hydrabon" target="_blank" rel="noopener noreferrer" className="bg-white text-orange-600 font-semibold py-4 px-8 rounded-lg hover:bg-orange-50 transition-all duration-300 flex items-center justify-center min-w-[200px] group transform hover:scale-105 active:scale-95">
+              <a href="https://discord.gg/hydrabon" target="_blank" rel="noopener noreferrer" onMouseDown={(e) => e.preventDefault()} onClick={(e) => (e.currentTarget as HTMLAnchorElement).blur()} className="bg-white text-orange-600 font-semibold py-4 px-8 rounded-lg hover:bg-orange-50 transition-all duration-300 flex items-center justify-center min-w-[200px] group transform hover:scale-105 active:scale-95 focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0">
                 <span className="flex items-center">
                   Aramıza Katıl!
                   <ExternalLink className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />

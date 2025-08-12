@@ -202,7 +202,7 @@ export const faqItems = [
   {
     id: '3',
     question: 'HydRaboN\'un faaliyetleri hangi alanlarda yoğunlaşıyor?',
-    answer: 'Ar-Ge, Discord, Medya ve benzeri alanlara eşit ağırlık vermekte olup, her alanda profesyonelce ilerlemekteyiz. Gerek maddi gerekse eğitim bakımından üst düzey kalitede desteklenen ekiplerimizle faaliyetlerimizi sürdürmekteyiz.',
+    answer: 'Ar-Ge, Medya ve benzeri alanlara eşit ağırlık vermekte olup, her alanda profesyonelce ilerlemekteyiz. Gerek maddi gerekse eğitim bakımından üst düzey kalitede desteklenen ekiplerimizle faaliyetlerimizi sürdürmekteyiz.',
   },
   {
     id: '4',

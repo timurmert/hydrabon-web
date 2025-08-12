@@ -96,8 +96,7 @@ export default function CommunityPage() {
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <p className="text-base md:text-lg text-dark-100 leading-relaxed font-medium">
-                HydRaboN’un iletişim ağı, insan kaynağı ve dinamik yapısının merkezi:
-                <span className="text-primary-300 font-semibold"> Discord topluluğumuz. </span>
+                HydRaboN’un iletişim ağı, insan kaynağı ve dinamik yapısının merkezi.
                 Sistemli yönetim anlayışı, güçlü etkileşim ortamı ve prestijli yapısıyla 
                 <span className="text-primary-300 font-semibold"> bütün organizasyonumuzun kalbidir</span>.
               </p>
@@ -162,7 +161,9 @@ export default function CommunityPage() {
               href="https://discord.gg/hydrabon" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-flex items-center bg-indigo-600 hover:bg-indigo-700 hover:scale-105 text-white font-bold py-4 px-8 rounded-lg transition-all duration-300 text-lg transform"
+              onMouseDown={(e) => e.preventDefault()}
+              onClick={(e) => (e.currentTarget as HTMLAnchorElement).blur()}
+              className="inline-flex items-center bg-indigo-600 hover:bg-indigo-700 hover:scale-105 text-white font-bold py-4 px-8 rounded-lg transition-all duration-300 text-lg transform focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0"
             >
               <Users className="w-6 h-6 mr-3" />
               Discord&apos;a Katıl

@@ -99,7 +99,7 @@ export default function MediaPage() {
             >
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight">
                 <span className="bg-gradient-to-r from-primary-300 via-white to-primary-300 bg-clip-text text-transparent">
-                  HydRaboN Medya
+                  Sosyal Medya
                 </span>
               </h1>
               <motion.div 
@@ -198,7 +198,9 @@ export default function MediaPage() {
                       href={content.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="aspect-video relative bg-dark-700 block"
+                      onMouseDown={(e) => e.preventDefault()}
+                      onClick={(e) => (e.currentTarget as HTMLAnchorElement).blur()}
+                      className="aspect-video relative bg-dark-700 block focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0"
                       aria-label={`${content.title} bağlantısını yeni sekmede aç`}
                     >
                       {content.thumbnail ? (
@@ -269,7 +271,9 @@ export default function MediaPage() {
                     href={content.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center text-primary-500 hover:text-primary-400 font-medium transition-colors duration-300"
+                    onMouseDown={(e) => e.preventDefault()}
+                    onClick={(e) => (e.currentTarget as HTMLAnchorElement).blur()}
+                    className="inline-flex items-center text-primary-500 hover:text-primary-400 font-medium transition-colors duration-300 focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0"
                   >
                     İçeriği Görüntüle
                     <ExternalLink className="w-4 h-4 ml-2" />
@@ -382,7 +386,7 @@ export default function MediaPage() {
                 </span>
               </a>
               <a 
-                href="https://instagram.com/hydrabon_esports" 
+                href="https://instagram.com/hydrabon.official" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="bg-purple-700 text-white font-semibold py-4 px-8 rounded-lg hover:bg-purple-800 transition-all duration-300 flex items-center justify-center min-w-[180px] group transform-gpu hover:scale-105 active:scale-95"

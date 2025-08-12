@@ -61,7 +61,7 @@ export default function CS2Page() {
             >
               <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-orange-900/30 to-orange-800/30 border border-orange-500/40 rounded-full backdrop-blur-md">
                 <div className="w-2 h-2 bg-orange-400 rounded-full mr-3 animate-pulse"></div>
-                <span className="text-orange-200 text-sm font-semibold tracking-wider uppercase">Counter-Strike 2</span>
+                <span className="text-orange-200 text-sm font-semibold tracking-wider uppercase">Eğlence Merkezi</span>
                 <div className="w-2 h-2 bg-orange-400 rounded-full ml-3 animate-pulse"></div>
               </div>
             </motion.div>
@@ -75,7 +75,7 @@ export default function CS2Page() {
             >
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight">
                 <span className="bg-gradient-to-r from-orange-300 via-white to-orange-300 bg-clip-text text-transparent">
-                  HydRaboN CS2
+                Counter-Strike 2
                 </span>
               </h1>
               <motion.div 
@@ -149,7 +149,7 @@ export default function CS2Page() {
                 <div className="text-2xl font-mono font-bold text-orange-500 mb-2">
                   {serverInfo.ip}
                 </div>
-                <a href="https://discord.gg/hydrabon" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 border border-orange-500/40 rounded-lg text-white font-semibold transition-all duration-300 hover:scale-105 hover:border-orange-400 group">
+                <a href="https://discord.gg/hydrabon" target="_blank" rel="noopener noreferrer" onMouseDown={(e) => e.preventDefault()} onClick={(e) => (e.currentTarget as HTMLAnchorElement).blur()} className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 border border-orange-500/40 rounded-lg text-white font-semibold transition-all duration-300 hover:scale-105 hover:border-orange-400 group focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0">
                   <Play className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform duration-300" />
                   Aramıza Katıl!
                 </a>
@@ -221,7 +221,7 @@ export default function CS2Page() {
                 <div className="grid grid-cols-2 gap-4 mb-4">
                   <div>
                     <div className="text-orange-500 font-semibold">{mode.playerCount}</div>
-                    <div className="text-xs text-dark-400">Oyuncu Sayısı</div>
+                    <div className="text-xs text-dark-400">Min. Oyuncu Sayısı</div>
                   </div>
                   <div>
                     <div className="text-orange-500 font-semibold">{mode.duration}</div>
@@ -360,7 +360,7 @@ export default function CS2Page() {
               Kaliteli CS2 deneyimi için sunucumuza bağlan ve HydRaboN topluluğunun bir parçası ol.
             </p>
             <div className="flex justify-center">
-              <a href="https://discord.gg/hydrabon" target="_blank" rel="noopener noreferrer" className="bg-white text-orange-600 font-semibold py-4 px-8 rounded-lg hover:bg-orange-50 transition-all duration-300 flex items-center justify-center min-w-[180px] group transform hover:scale-105 active:scale-95">
+              <a href="https://discord.gg/hydrabon" target="_blank" rel="noopener noreferrer" onMouseDown={(e) => e.preventDefault()} onClick={(e) => (e.currentTarget as HTMLAnchorElement).blur()} className="bg-white text-orange-600 font-semibold py-4 px-8 rounded-lg hover:bg-orange-50 transition-all duration-300 flex items-center justify-center min-w-[180px] group transform hover:scale-105 active:scale-95 focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0">
                 <span className="flex items-center">
                   Aramıza Katıl!
                   <ExternalLink className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />

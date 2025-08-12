@@ -4,16 +4,13 @@ import {
   Code, 
   Rocket, 
   Brain, 
-  Zap,
-  Github,
   ExternalLink,
   Users,
   CheckCircle,
   Clock,
   Target,
-  Lightbulb
+  Bot
 } from 'lucide-react';
-import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { projects, technologies } from '@/data/rnd';
 import { communityStats } from '@/data/community';
@@ -209,7 +206,7 @@ export default function RndPage() {
                       viewport={{ once: true }}
                       transition={{ duration: 0.5, delay: index * 0.1 + 0.2 }}
                     >
-                      {project.category === 'Discord Bot' && <Zap className="w-8 h-8 text-white" />}
+                      {project.category === 'Discord Bot' && <Bot className="w-8 h-8 text-white" />}
                       {project.category === 'Tournament System' && <Target className="w-8 h-8 text-white" />}
                       {project.category === 'AI Systems' && <Brain className="w-8 h-8 text-white" />}
                       {project.category === 'Web Application' && <Code className="w-8 h-8 text-white" />}
@@ -382,7 +379,9 @@ export default function RndPage() {
                 href="https://discord.gg/hydrabon" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="bg-primary-700 text-white font-semibold py-4 px-8 rounded-lg hover:bg-primary-800 hover:scale-105 transition-all duration-300 flex items-center justify-center min-w-[180px] group transform"
+                onMouseDown={(e) => e.preventDefault()}
+                onClick={(e) => (e.currentTarget as HTMLAnchorElement).blur()}
+                className="bg-primary-700 text-white font-semibold py-4 px-8 rounded-lg hover:bg-primary-800 hover:scale-105 transition-all duration-300 flex items-center justify-center min-w-[180px] group transform focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0"
               >
                 <span className="flex items-center">
                   Discord'a Katıl

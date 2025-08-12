@@ -4,7 +4,7 @@ export const mediaContent: MediaContent[] = [
   {
     id: '1',
     title: 'Motive, Berksan, Hande Yener - PVG X HABERİ VAR MI (Mix)',
-    description: 'Motive\'nin PVG, Berksan ve Hande Yener\'in Haberi Var Mi şarkısının mixi.',
+    description: 'Motive\'nin "PVG", Berksan ve Hande Yener\'in "Haberi Var Mı" şarkılarının mix versiyonu.',
     type: 'video',
     category: 'Mix',
     url: 'https://youtu.be/jz-_YtAtsbQ',
@@ -18,7 +18,7 @@ export const mediaContent: MediaContent[] = [
   {
     id: '2',
     title: 'Eylem Aktaş - Yüreğimden Tut Fon Müziği [Slowed + Reverb]',
-    description: 'Eylem Aktaş\'ın Yüreğimden Tut Fon Müziği şarkısının slowed + reverb versiyonu.',
+    description: 'Eylem Aktaş\'ın "Yüreğimden Tut" şarkısının slowed & reverb versiyonu.',
     type: 'video',
     category: 'Mix',
     url: 'https://youtu.be/gAXvxdqMCro',

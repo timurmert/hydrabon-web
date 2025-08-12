@@ -43,7 +43,7 @@ const divisions = [
   },
   {
     title: 'Espor',
-    description: 'Espor birimimiz, disiplinini sahada, duruşunu toplulukta gösteren birimimiz.',
+    description: 'Disiplinini sahada, duruşunu toplulukta gösteren birimimiz.',
     icon: Gamepad2,
     href: '/espor',
     features: ['Disiplinli Takım Kültürü', 'Turnuva Başarıları', 'Analiz Sistemi', 'Koçluk Desteği'],
@@ -105,11 +105,6 @@ export default function HomePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
               >
-                <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary-900/30 to-primary-800/30 border border-primary-500/40 rounded-full backdrop-blur-md">
-                  <div className="w-2 h-2 bg-primary-400 rounded-full mr-3 animate-pulse"></div>
-                  <span className="text-primary-200 text-sm font-semibold tracking-wider uppercase">HydRaboN Community</span>
-                  <div className="w-2 h-2 bg-primary-400 rounded-full ml-3 animate-pulse"></div>
-                </div>
               </motion.div>
 
               {/* Enhanced Title */}
@@ -155,7 +150,7 @@ export default function HomePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
               >
-                <a href="https://discord.gg/hydrabon" target="_blank" rel="noopener noreferrer" className="btn-primary text-base px-6 py-4 w-full sm:w-[240px] h-[56px] flex items-center justify-center group relative overflow-hidden hover:scale-105 transition-transform duration-300 transform">
+                <a href="https://discord.gg/hydrabon" target="_blank" rel="noopener noreferrer" onMouseDown={(e) => e.preventDefault()} onClick={(e) => (e.currentTarget as HTMLAnchorElement).blur()} className="btn-primary text-base px-6 py-4 w-full sm:w-[240px] h-[56px] flex items-center justify-center group relative overflow-hidden hover:scale-105 transition-transform duration-300 transform focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0">
                   <span className="relative z-10 flex items-center justify-center">
                     Topluluğa Katıl
                     <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
@@ -471,7 +466,7 @@ export default function HomePage() {
               <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-primary-500 to-transparent mx-auto mb-8 rounded-full"></div>
               
               <p className="text-base md:text-lg text-dark-200 mb-10 max-w-3xl mx-auto font-medium leading-relaxed">
-                Espor, yazılım, medya ve topluluk yönetimi gibi alanlarda kendini geliştir;
+                Topluluk yönetimi, yazılım, medya ve espor gibi alanlarda kendini geliştir;
                  disiplinli bir yapının parçası olarak
                 <span className="text-primary-300 font-semibold"> profesyonel kariyerine </span>
                 ilk adımı at.
@@ -484,7 +479,7 @@ export default function HomePage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.3 }}
               >
-                <a href="https://discord.gg/hydrabon" target="_blank" rel="noopener noreferrer" className="btn-secondary text-base px-8 py-4 flex items-center justify-center min-w-[200px] group relative hover:scale-105 transition-transform duration-300 transform">
+                <a href="https://discord.gg/hydrabon" target="_blank" rel="noopener noreferrer" onMouseDown={(e) => e.preventDefault()} onClick={(e) => (e.currentTarget as HTMLAnchorElement).blur()} className="btn-secondary text-base px-8 py-4 flex items-center justify-center min-w-[200px] group relative hover:scale-105 transition-transform duration-300 transform focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0">
                   <span className="relative z-10 flex items-center">
                     Aramıza Katıl!
                     <Users className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />

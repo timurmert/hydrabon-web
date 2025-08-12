@@ -10,8 +10,7 @@ import {
   Instagram,
   Youtube,
   Gamepad2,
-  Crosshair,
-  MessageCircle,
+  House,
   ExternalLink,
   ArrowUp,
   Heart
@@ -81,7 +80,7 @@ const socialMedia = [
   {
     name: 'Discord',
     href: 'https://discord.gg/hydrabon',
-    icon: MessageCircle,
+    icon: House,
     color: 'hover:text-indigo-400 hover:shadow-indigo-400/25',
     bgColor: 'hover:bg-indigo-400/10',
   },
@@ -193,7 +192,7 @@ export default function Footer() {
               </Link>
               
               <p className="text-dark-300 text-lg mb-8 leading-relaxed transition-colors duration-300 hover:text-dark-200">
-                Espor, CS2 sunucusu, teknoloji, medya ve topluluk yönetiminde yenilikçi çözümler üreten, 
+                Topluluk yönetimi, teknoloji, medya ve espor alanlarında yenilikçi çözümler üreten, 
                 güçlü bir simgeye ve organizasyonel yapıya sahip, genç ve disiplinli bir topluluk yapılanması.
               </p>
 

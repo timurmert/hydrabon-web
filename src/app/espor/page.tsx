@@ -92,7 +92,7 @@ export default function EsportsPage() {
             >
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight">
                 <span className="bg-gradient-to-r from-primary-300 via-white to-primary-300 bg-clip-text text-transparent">
-                  HydRaboN Espor
+                  Espor Takımlarımız
                 </span>
               </h1>
               <motion.div 
@@ -113,7 +113,7 @@ export default function EsportsPage() {
               <p className="text-base md:text-lg text-dark-100 leading-relaxed font-medium">
                 Valorant sahasında 
                 <span className="text-primary-300 font-semibold"> tarihi başarılara imza atmış </span> 
-                takımımızın gurur verici geçmişi. 
+                takımlarımızın gurur verici geçmişi.
                 <br />
                 Şampiyonluklar, rekorlar ve 
                 <span className="text-white font-semibold"> unutulmaz anılarla dolu</span> espor yolculuğumuz.
@@ -218,7 +218,14 @@ export default function EsportsPage() {
 
                 <div className="flex gap-3 mt-6 justify-center md:justify-start">
                   {pioneer.socialMedia.twitter && (
-                    <a href={`https://x.com/${pioneer.socialMedia.twitter.slice(1)}`} target="_blank" rel="noopener noreferrer" className="p-2 bg-dark-800 rounded-lg text-dark-400 hover:text-blue-400 transition-colors flex items-center gap-2">
+                    <a
+                      href={`https://x.com/${pioneer.socialMedia.twitter.slice(1)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onMouseDown={(e) => e.preventDefault()}
+                      onClick={(e) => (e.currentTarget as HTMLAnchorElement).blur()}
+                      className="p-2 bg-dark-800 rounded-lg text-dark-400 hover:text-blue-400 transition-colors flex items-center gap-2 focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0"
+                    >
                       <Twitter className="w-4 h-4" />
                     </a>
                   )}
@@ -237,10 +244,10 @@ export default function EsportsPage() {
       </div>
 
       {/* Staff Section */}
-      <section className="py-20 bg-gradient-to-br from-dark-900 to-dark-800 snap-start snap-always min-h-screen flex items-center">
+      <section className="py-14 bg-gradient-to-br from-dark-900 to-dark-800 snap-start snap-always">
         <div className="container-custom">
           <motion.div 
-            className="text-center mb-16"
+            className="text-center mb-10"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
@@ -248,7 +255,7 @@ export default function EsportsPage() {
           >
             <h2 className="section-title">Başarının Mimarları</h2>
             <p className="section-subtitle">
-              Şampiyonluk yolculuğumuzda takımı zirveye taşıyan deneyimli teknik kadromuz.
+              Şampiyonluk yolculuğumuzda takımlarımızı zirveye taşıyan deneyimli kadromuz.
             </p>
           </motion.div>
 
@@ -266,7 +273,7 @@ export default function EsportsPage() {
             ];
             return (
           <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 xl:gap-12"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 xl:gap-10"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, amount: 0.2 }}
@@ -275,7 +282,7 @@ export default function EsportsPage() {
             {leaders.map((l, index) => (
                 <motion.div
                   key={`${l.label}-${index}`}
-                  className="professional-card text-center group px-6 py-10"
+                  className="professional-card text-center group px-6 py-8"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -443,7 +450,14 @@ export default function EsportsPage() {
                       </div>
                       {match.matchUrl && (
                         <div className="mt-2">
-                          <a href={match.matchUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-primary-500 hover:text-primary-400 font-medium">
+                          <a
+                            href={match.matchUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onMouseDown={(e) => e.preventDefault()}
+                            onClick={(e) => (e.currentTarget as HTMLAnchorElement).blur()}
+                            className="inline-flex items-center text-primary-500 hover:text-primary-400 font-medium focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0"
+                          >
                             Maçı görüntüle
                             <ExternalLink className="w-4 h-4 ml-1" />
                           </a>
@@ -495,7 +509,14 @@ export default function EsportsPage() {
               HydRaboN ailesinin gurur verici başarı hikayesi.
             </p>
             <div className="flex justify-center">
-              <a href="https://discord.gg/hydrabon" target="_blank" rel="noopener noreferrer" className="bg-white text-primary-600 font-semibold py-4 px-8 rounded-lg hover:bg-primary-50 transition-all duration-300 flex items-center justify-center min-w-[220px] group transform hover:scale-105 active:scale-95 will-change-transform">
+              <a
+                href="https://discord.gg/hydrabon"
+                target="_blank"
+                rel="noopener noreferrer"
+                onMouseDown={(e) => e.preventDefault()}
+                onClick={(e) => (e.currentTarget as HTMLAnchorElement).blur()}
+                className="bg-white text-primary-600 font-semibold py-4 px-8 rounded-lg hover:bg-primary-50 transition-all duration-300 flex items-center justify-center min-w-[220px] group transform hover:scale-105 active:scale-95 will-change-transform focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0"
+              >
                 <span className="flex items-center">
                   Bu Mirasın İzini Keşfet
                   <ExternalLink className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />

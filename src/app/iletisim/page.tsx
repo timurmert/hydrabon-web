@@ -7,9 +7,8 @@ import {
   Instagram,
   Twitter,
   Youtube,
-  Github,
   Copy,
-  Gamepad2
+  House
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useEffect } from 'react';
@@ -40,11 +39,11 @@ const socialPlatforms = [
     color: 'text-red-500',
   },
   {
-    icon: Gamepad2,
+    icon: House,
     name: 'Discord',
     handle: 'HydRaboN',
     url: 'https://discord.gg/hydrabon',
-    color: 'text-gray-400',
+    color: 'text-purple-400',
   },
 ];
 
@@ -176,7 +175,7 @@ export default function ContactPage() {
 
             {/* Enhanced Title */}
             <motion.div 
-              className="relative mb-8"
+              className="relative -mt-6 md:-mt-10 pt-6 md:pt-8 mb-8"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -388,7 +387,16 @@ export default function ContactPage() {
                   <div className="border border-dark-700 rounded-xl p-5 transition">
                     <div className="flex items-center justify-between mb-2">
                       <div className="text-white font-semibold">Discord <span className="ml-2 px-2 py-0.5 rounded-full bg-green-500/10 text-green-400 text-xs">Önerilen</span></div>
-                      <a href={DISCORD_INVITE_URL} target="_blank" rel="noopener noreferrer" className="text-primary-500 hover:text-primary-400 font-medium inline-flex items-center">Discord’da Ticket Aç <ExternalLink className="w-4 h-4 ml-1" /></a>
+                      <a 
+                        href={DISCORD_INVITE_URL} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        onMouseDown={(e) => e.preventDefault()} 
+                        onClick={(e) => (e.currentTarget as HTMLAnchorElement).blur()}
+                        className="text-primary-500 hover:text-primary-400 font-medium inline-flex items-center focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0"
+                      >
+                        Discord’da Ticket Aç <ExternalLink className="w-4 h-4 ml-1" />
+                      </a>
                     </div>
                     <div className="text-primary-500">discord.gg/hydrabon</div>
                     <p className="text-dark-300 text-sm">Destek ve hızlı iletişim için Discord’da ticket açın.</p>
@@ -424,14 +432,8 @@ export default function ContactPage() {
                     <div className="text-white font-semibold mb-1">Gizlilik</div>
                     <p className="text-dark-300 text-sm">Mesajlar yalnızca destek amacıyla işlenir ve makul süreyle saklanır.</p>
                   </div>
-
-                  
-
-                  
                 </div>
               </div>
-
-              
             </motion.div>
           </motion.div>
         </div>
@@ -508,9 +510,9 @@ export default function ContactPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
-            >
-              <a href="https://discord.gg/hydrabon" target="_blank" rel="noopener noreferrer"
-                 className="bg-white text-indigo-600 font-semibold py-4 px-8 rounded-lg hover:bg-indigo-50 hover:scale-105 transition-all duration-300 flex items-center justify-center min-w-[160px] group transform">
+            >   <a href="https://discord.gg/hydrabon" target="_blank" rel="noopener noreferrer"
+                 onMouseDown={(e) => e.preventDefault()} onClick={(e) => (e.currentTarget as HTMLAnchorElement).blur()}
+                 className="bg-white text-indigo-600 font-semibold py-4 px-8 rounded-lg hover:bg-indigo-50 hover:scale-105 transition-all duration-300 flex items-center justify-center min-w-[160px] group transform focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0">
                 <span className="flex items-center">
                   Discord&apos;a Katıl
                   <ExternalLink className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
