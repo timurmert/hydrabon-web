@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import type { LucideIcon } from 'lucide-react';
 import { featuredContent, mediaStats, socialMediaPlatforms } from '@/data/media';
 
 const typeIcons = {
@@ -34,7 +35,7 @@ const categoryColors = {
 
 // mediaTeam kaldırıldığı için roleIcons gereksiz
 
-const platformIcons: Record<string, React.ComponentType<any>> = {
+const platformIcons: Record<string, LucideIcon> = {
   YouTube: Youtube,
   Instagram: Instagram,
   Twitter: Twitter,

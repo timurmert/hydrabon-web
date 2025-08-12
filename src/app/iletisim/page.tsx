@@ -1,7 +1,6 @@
 'use client';
 
 import {
-  Mail,
   Send,
   ExternalLink,
   Instagram,
@@ -118,7 +117,7 @@ export default function ContactPage() {
 
       setSubmitStatus('success');
       setFormData({ name: '', email: '', area: '', subject: '', message: '', discord: '' });
-    } catch (err) {
+    } catch {
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);

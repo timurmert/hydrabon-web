@@ -1,4 +1,4 @@
-import { CS2Server, CS2Map, CS2GameMode, CS2PlayerStats, CS2ServerStats, CS2Event, CS2ServerRule } from '@/types';
+import { CS2Server, CS2GameMode } from '@/types';
 
 export const serverInfo: CS2Server = {
   id: 'hydrabon-main',

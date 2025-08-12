@@ -5,18 +5,16 @@ import {
   Target, 
   Calendar, 
   Clock,
-  Users,
   Zap,
   Medal,
   ExternalLink,
-  Play,
-  Award,
   Twitter,
   Crown,
   Gamepad2,
   BarChart3
 } from 'lucide-react';
-import Link from 'next/link';
+// Link kullanılmıyor
+// import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { staff, historicalMatches, teamStats, historicalAchievements, pioneer } from '@/data/esports';
@@ -264,7 +262,7 @@ export default function EsportsPage() {
             const coach = staff.find((m) => m.role === 'Coach');
             const analyst = staff.find((m) => m.role === 'Analyst');
             // Oyuncu kartı için personel listesinden seçim yap (isim eşleşmesi veya özel rol adı kullanılarak)
-            const playerStaff = staff.find((m) => (m as any).role === 'Player');
+            const playerStaff = staff.find((m) => m.role === 'Player');
             const leaders = [
               { label: 'Takım Sorumlusu', name: manager?.name ?? '—', note: manager?.experience || manager?.bio || '', Icon: Crown },
               { label: 'Koç', name: coach?.name ?? '—', note: coach?.experience || coach?.bio || '', Icon: Trophy },

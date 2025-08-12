@@ -34,7 +34,13 @@ export async function GET() {
       },
     });
 
-    const rolesData = await rolesResponse.json();
+    type DiscordApiRole = {
+      id: string;
+      name: string;
+      color: number;
+      permissions: string;
+    };
+    const rolesData: DiscordApiRole[] = await rolesResponse.json();
 
     // Aylık mesaj istatistiği (sabit değer)
     const monthlyMessages = "10.000+";
@@ -47,8 +53,8 @@ export async function GET() {
       boostCount: guildData.premium_subscription_count || 14,
       monthlyMessages: monthlyMessages,
       roles: rolesData
-        .filter((role: any) => role.name !== '@everyone')
-        .map((role: any) => ({
+        .filter((role: DiscordApiRole) => role.name !== '@everyone')
+        .map((role: DiscordApiRole) => ({
           id: role.id,
           name: role.name,
           color: `#${role.color.toString(16).padStart(6, '0')}`,
