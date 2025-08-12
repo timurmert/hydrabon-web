@@ -514,8 +514,8 @@ body {
   }
 }
 
-/* Focus improvements for accessibility */
-*:focus {
+/* Focus improvements for accessibility (keyboard only) */
+*:focus-visible {
   @apply outline-none ring-2 ring-primary-500 ring-offset-2 ring-offset-dark-950;
 }
 
@@ -566,25 +566,20 @@ body {
 
 /* Mobile Hover Performance Optimizations */
 @media (hover: none) and (pointer: coarse) {
-  /* Disable hover effects on touch devices */
+  /* Soften hover effects on touch devices without altering colors */
   .group:hover *,
   *:hover {
     transform: none !important;
-    scale: none !important;
     box-shadow: none !important;
     filter: none !important;
-    color: inherit !important;
-    background: inherit !important;
   }
+  
+  /* Remove tap highlight */
+  a, button { -webkit-tap-highlight-color: transparent; }
   
   /* Keep only essential touch interactions */
-  .btn-primary:active {
-    @apply scale-95;
-  }
-  
-  .btn-secondary:active {
-    @apply scale-95;
-  }
+  .btn-primary:active { @apply scale-95; }
+  .btn-secondary:active { @apply scale-95; }
 }
 
 /* Performance optimizations for smooth animations */

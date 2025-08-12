@@ -161,9 +161,9 @@ export default function Footer() {
       <div className="relative">
         {/* Top Section */}
         <div className="container-custom py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
             {/* Brand Section */}
-            <div className="lg:col-span-2">
+            <div className="col-span-2 sm:col-span-3 lg:col-span-2">
               <Link 
                 href="/"
                 className="flex items-center space-x-3 mb-6 group w-fit"
@@ -220,7 +220,7 @@ export default function Footer() {
               </div>
 
               {/* Social Media */}
-              <div className="flex items-center space-x-4 mt-8">
+              <div className="flex items-center gap-3 mt-8 flex-wrap">
                 {socialMedia.map((social) => (
                   <a
                     key={social.name}
@@ -240,9 +240,9 @@ export default function Footer() {
 
             {/* Links Sections */}
             {Object.entries(footerLinks).map(([key, section]) => (
-              <div key={key}>
+              <div key={key} className="min-w-[150px] break-words">
                 <h4 
-                  className="text-white font-display font-semibold text-lg mb-6 relative group"
+                  className="text-white font-display font-semibold text-base sm:text-lg mb-4 sm:mb-6 relative group leading-tight"
                   onMouseEnter={() => {
                     if (window.matchMedia('(hover: hover)').matches) {
                       setHoveredTitle(key);
@@ -268,12 +268,12 @@ export default function Footer() {
                     }}
                   ></div>
                 </h4>
-                <ul className="space-y-3">
+                <ul className="space-y-2 sm:space-y-3">
                   {section.links.map((link) => (
                     <li key={link.name}>
                       <Link
                         href={link.href}
-                        className="text-dark-300 hover:text-primary-400 transition-all duration-300 flex items-center group relative hover:translate-x-1 hover:tracking-wide hover:drop-shadow-[0_0_6px_rgba(255,107,53,0.3)] will-change-transform"
+                        className="text-dark-300 hover:text-primary-400 transition-all duration-300 flex items-center group relative hover:translate-x-1 hover:drop-shadow-[0_0_6px_rgba(255,107,53,0.3)] will-change-transform leading-snug"
                         style={{outline: 'none'}}
                         onFocus={(e) => e.target.blur()}
                       >

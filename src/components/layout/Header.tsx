@@ -102,14 +102,14 @@ export default function Header() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
           ? 'bg-black/60 backdrop-blur-md border-b border-primary-500/30 shadow-lg shadow-black/20'
-          : 'bg-transparent'
+          : 'bg-black/30 md:bg-transparent backdrop-blur-sm md:backdrop-blur-0 border-b border-dark-800/50 md:border-transparent'
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
       <div className="container-header">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
           <Link 
             href="/" 
@@ -119,7 +119,7 @@ export default function Header() {
             onMouseEnter={handleLogoMouseEnter}
             onMouseLeave={handleLogoMouseLeave}
           >
-            <div className="w-16 h-16 flex items-center justify-center transition-transform duration-200 ease-out group-hover:scale-105 p-2 will-change-transform transform-gpu">
+            <div className="w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center transition-transform duration-200 ease-out group-hover:scale-105 p-2 will-change-transform transform-gpu">
               <Image
                 src="/logo-transparent.png"
                 alt="HydRaboN Logo"
@@ -170,8 +170,8 @@ export default function Header() {
           </nav>
 
           {/* Discord Button & Mobile Menu */}
-          <div 
-            className="flex items-center space-x-8 will-change-transform transform-gpu"
+            <div 
+            className="flex items-center space-x-4 sm:space-x-8 will-change-transform transform-gpu"
             style={{
               transform: `translateX(${isLogoHovered ? '0.25rem' : '0'})`,
               transition: 'transform 300ms cubic-bezier(0.4, 0, 0.2, 1)'
