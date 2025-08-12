@@ -88,7 +88,7 @@ const socialMedia = [
 ];
 
 const contactInfo = {
-  email: 'info@hydrabon.com',
+  email: 'contact@hydrabon.com',
   address: 'Türkiye',
   hours: '7/24 Discord Desteği',
 };

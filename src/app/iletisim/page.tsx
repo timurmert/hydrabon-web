@@ -2,107 +2,92 @@
 
 import {
   Mail,
-  Phone,
-  MapPin,
-  Clock,
   Send,
   ExternalLink,
   Instagram,
   Twitter,
   Youtube,
-  Github
+  Github,
+  Copy,
+  Gamepad2
 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useEffect } from 'react';
 import { useState } from 'react';
 
-const contactInfo = [
-  {
-    icon: Mail,
-    title: 'E-posta',
-    details: ['info@hydrabon.com', 'management@hydrabon.com'],
-    description: 'Genel sorular ve iş birliği teklifleri',
-  },
-  {
-    icon: Phone,
-    title: 'Telefon',
-    details: ['+90 (212) 555 0123'],
-    description: 'Acil durumlar ve resmi konular',
-  },
-  {
-    icon: MapPin,
-    title: 'Adres',
-    details: ['İstanbul, Türkiye'],
-    description: 'Merkez ofisimiz',
-  },
-  {
-    icon: Clock,
-    title: 'Çalışma Saatleri',
-    details: ['Pazartesi - Cuma: 09:00 - 18:00', 'Cumartesi: 10:00 - 16:00'],
-    description: 'Destek saatleri',
-  },
-];
+const DISCORD_INVITE_URL = "https://discord.gg/hydrabon";
 
 const socialPlatforms = [
   {
     icon: Instagram,
     name: 'Instagram',
-    handle: '@hydrabon_esports',
-    url: 'https://instagram.com/hydrabon_esports',
+    handle: '@hydrabon.official',
+    url: 'https://instagram.com/hydrabon.official',
     color: 'text-pink-500',
   },
   {
     icon: Twitter,
     name: 'Twitter',
-    handle: '@HydRaboN_',
-    url: 'https://twitter.com/hydrabon_',
+    handle: '@hydrabonesports',
+    url: 'https://x.com/hydrabonesports',
     color: 'text-blue-500',
   },
   {
     icon: Youtube,
     name: 'YouTube',
-    handle: '@HydRaboNOfficial',
+    handle: '@hydrabon',
     url: 'https://youtube.com/@hydrabon',
     color: 'text-red-500',
   },
   {
-    icon: Github,
-    name: 'GitHub',
-    handle: '@hydrabon',
-    url: 'https://github.com/hydrabon',
+    icon: Gamepad2,
+    name: 'Discord',
+    handle: 'HydRaboN',
+    url: 'https://discord.gg/hydrabon',
     color: 'text-gray-400',
   },
 ];
 
-const departments = [
-  {
-    name: 'Espor Takımı',
-    email: 'esports@hydrabon.com',
-    description: 'Takım başvuruları ve sponsorluk',
-  },
-  {
-    name: 'Ar-Ge & Yazılım',
-    email: 'dev@hydrabon.com',
-    description: 'Teknik projeler ve geliştirici başvuruları',
-  },
-  {
-    name: 'Medya',
-    email: 'media@hydrabon.com',
-    description: 'İçerik üretimi ve medya iş birliği',
-  },
-  {
-    name: 'Discord Yönetimi',
-    email: 'community@hydrabon.com',
-    description: 'Topluluk yönetimi ve moderatör başvuruları',
-  },
-];
+const AREAS = ['Genel', 'Discord / Topluluk', 'CS2', 'Ar-Ge & Yazılım', 'Medya', 'İş Birliği / Sponsorluk'] as const;
 
 export default function ContactPage() {
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const btn = target.closest('.copy-email-btn') as HTMLElement | null;
+      if (btn) {
+        const text = btn.getAttribute('data-copy-toast') || 'Kopyalandı';
+        const toast = document.createElement('div');
+        toast.className = 'fixed bottom-6 left-1/2 -translate-x-1/2 bg-dark-800 border border-dark-700 text-white px-4 py-3 rounded-lg shadow-lg z-50 opacity-0 transition-opacity duration-300 flex items-center gap-2';
+        const check = document.createElement('span');
+        check.innerHTML = '✓';
+        check.className = 'text-green-500';
+        const label = document.createElement('span');
+        label.textContent = text || 'Kopyalandı';
+        toast.appendChild(check);
+        toast.appendChild(label);
+        document.body.appendChild(toast);
+        requestAnimationFrame(() => {
+          toast.classList.remove('opacity-0');
+          toast.classList.add('opacity-100');
+        });
+        setTimeout(() => {
+          toast.classList.remove('opacity-100');
+          toast.classList.add('opacity-0');
+          setTimeout(() => toast.remove(), 300);
+        }, 2500);
+      }
+    };
+    document.addEventListener('click', handler);
+    return () => document.removeEventListener('click', handler);
+  }, []);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    department: '',
+    area: '',
     subject: '',
     message: '',
+    discord: '',
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -119,13 +104,22 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
+    setSubmitStatus('idle');
+
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) {
+        throw new Error('Submit failed');
+      }
+
       setSubmitStatus('success');
-      setFormData({ name: '', email: '', department: '', subject: '', message: '' });
-    } catch {
+      setFormData({ name: '', email: '', area: '', subject: '', message: '', discord: '' });
+    } catch (err) {
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -241,7 +235,8 @@ export default function ContactPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl font-display font-bold text-white mb-8">Bize Mesaj Gönderin</h2>
+              <h2 className="text-3xl font-display font-bold text-white mb-2 text-center">Bize Ulaşın</h2>
+              <p className="text-dark-400 mb-6">Ortalama yanıt süresi: Discord 2–12 saat · E-posta 24–48 saat</p>
               
               {submitStatus === 'success' && (
                 <div className="mb-6 p-4 bg-green-500/20 border border-green-500/30 rounded-lg">
@@ -255,7 +250,7 @@ export default function ContactPage() {
                 </div>
               )}
 
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form id="contact-form" onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-white font-medium mb-2">
@@ -290,23 +285,21 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label htmlFor="department" className="block text-white font-medium mb-2">
-                    Departman
+                  <label htmlFor="area" className="block text-white font-medium mb-2">
+                    Alan *
                   </label>
                   <select
-                    id="department"
-                    name="department"
-                    value={formData.department}
+                    id="area"
+                    name="area"
+                    value={formData.area}
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 bg-dark-800 border border-dark-700 rounded-lg text-white focus:border-primary-500 focus:outline-none transition-colors duration-300"
+                    required
                   >
-                    <option value="">Departman seçin</option>
-                    <option value="genel">Genel Sorular</option>
-                    <option value="esports">Espor Takımı</option>
-                    <option value="development">Ar-Ge & Yazılım</option>
-                    <option value="media">Medya</option>
-                    <option value="community">Discord Topluluğu</option>
-                    <option value="sponsorship">Sponsorluk</option>
+                    <option value="">Alan seçin</option>
+                    {AREAS.map(a => (
+                      <option key={a} value={a}>{a}</option>
+                    ))}
                   </select>
                 </div>
 
@@ -342,6 +335,21 @@ export default function ContactPage() {
                   />
                 </div>
 
+                <div>
+                  <label htmlFor="discord" className="block text-white font-medium mb-2">
+                    Discord Kullanıcı Adı (İsteğe Bağlı)
+                  </label>
+                  <input
+                    type="text"
+                    id="discord"
+                    name="discord"
+                    value={formData.discord}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 bg-dark-800 border border-dark-700 rounded-lg text-white placeholder-dark-400 focus:border-primary-500 focus:outline-none transition-colors duration-300"
+                    placeholder="kullanıcıadı"
+                  />
+                </div>
+
                 <button
                   type="submit"
                   disabled={isSubmitting}
@@ -374,57 +382,56 @@ export default function ContactPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <div className="professional-card">
-                <h3 className="text-2xl font-bold text-white mb-6">İletişim Bilgileri</h3>
+              <div className="professional-card hover:!scale-100 focus:!scale-100 active:!scale-100 transform-none transition-none">
+                <h3 className="text-3xl font-display font-bold text-white mb-6 text-center">İletişim Kanalları</h3>
                 <div className="space-y-6">
-                  {contactInfo.map((info, index) => {
-                    const IconComponent = info.icon;
-                    return (
-                      <motion.div 
-                        key={index} 
-                        className="flex items-start space-x-4"
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.4, delay: index * 0.1 }}
+                  <div className="border border-dark-700 rounded-xl p-5 transition">
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="text-white font-semibold">Discord <span className="ml-2 px-2 py-0.5 rounded-full bg-green-500/10 text-green-400 text-xs">Önerilen</span></div>
+                      <a href={DISCORD_INVITE_URL} target="_blank" rel="noopener noreferrer" className="text-primary-500 hover:text-primary-400 font-medium inline-flex items-center">Discord’da Ticket Aç <ExternalLink className="w-4 h-4 ml-1" /></a>
+                    </div>
+                    <div className="text-primary-500">discord.gg/hydrabon</div>
+                    <p className="text-dark-300 text-sm">Destek ve hızlı iletişim için Discord’da ticket açın.</p>
+                  </div>
+
+                  <div className="border border-dark-700 rounded-xl p-5 transition">
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="text-white font-semibold">E-posta</div>
+                      <button
+                        type="button"
+                        onMouseDown={(e) => e.preventDefault()}
+                        onClick={(e) => {
+                          navigator.clipboard.writeText('contact@hydrabon.com');
+                          const btn = e.currentTarget as HTMLButtonElement;
+                          btn.innerHTML = '<svg class=\"w-4 h-4 mr-1 text-green-500\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M20 6L9 17l-5-5\"/></svg>Kopyalandı';
+                          setTimeout(() => {
+                            btn.innerHTML = '<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"w-4 h-4 mr-1\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"9\" y=\"9\" width=\"13\" height=\"13\" rx=\"2\" ry=\"2\"></rect><path d=\"M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1\"></path></svg>Kopyala';
+                          }, 2000);
+                          btn.blur();
+                        }}
+                        className="text-dark-300 hover:text-white inline-flex items-center text-sm focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0"
+                        title="Kopyala"
                       >
-                        <div className="w-12 h-12 bg-primary-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                          <IconComponent className="w-6 h-6 text-primary-500" />
-                        </div>
-                        <div className="flex-1">
-                          <h4 className="text-lg font-semibold text-white mb-2">{info.title}</h4>
-                          {info.details.map((detail, detailIndex) => (
-                            <p key={detailIndex} className="text-dark-200 mb-1">{detail}</p>
-                          ))}
-                          <p className="text-dark-400 text-sm">{info.description}</p>
-                        </div>
-                      </motion.div>
-                    );
-                  })}
+                        <Copy className="w-4 h-4 mr-1" /> Kopyala
+                      </button>
+                    </div>
+                    <div className="text-primary-500">contact@hydrabon.com</div>
+                    <p className="text-dark-300 text-sm mt-1">Genel sorular ve iş birliği talepleri.</p>
+                    <p className="text-dark-400 text-xs">Yanıt: 24–48 saat</p>
+                  </div>
+
+                  <div className="border border-dark-700 rounded-xl p-5 transition">
+                    <div className="text-white font-semibold mb-1">Gizlilik</div>
+                    <p className="text-dark-300 text-sm">Mesajlar yalnızca destek amacıyla işlenir ve makul süreyle saklanır.</p>
+                  </div>
+
+                  
+
+                  
                 </div>
               </div>
 
-              <div className="professional-card">
-                <h3 className="text-2xl font-bold text-white mb-6">Departman E-postaları</h3>
-                <div className="space-y-4">
-                  {departments.map((dept, index) => (
-                    <motion.div 
-                      key={index} 
-                      className="border-l-4 border-primary-500 pl-4"
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.4, delay: index * 0.1 }}
-                    >
-                      <h4 className="text-white font-semibold">{dept.name}</h4>
-                      <a href={`mailto:${dept.email}`} className="text-primary-500 hover:text-primary-400 transition-colors duration-300">
-                        {dept.email}
-                      </a>
-                      <p className="text-dark-400 text-sm">{dept.description}</p>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
+              
             </motion.div>
           </motion.div>
         </div>
@@ -493,11 +500,10 @@ export default function ContactPage() {
               Discord Topluluğumuza Katılın!
             </h2>
             <p className="text-xl text-indigo-100 mb-8 max-w-2xl mx-auto">
-              En hızlı iletişim için Discord sunucumuza katılın. 2500+ aktif üye ile 
-              canlı sohbetler, etkinlikler ve anlık duyurular.
+              En hızlı iletişim için Discord sunucumuza katılın. Aktif ortamımızda sizler de yerinizi alın.
             </p>
             <motion.div 
-              className="flex flex-col sm:flex-row gap-4 justify-center"
+              className="flex justify-center"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -508,13 +514,6 @@ export default function ContactPage() {
                 <span className="flex items-center">
                   Discord&apos;a Katıl
                   <ExternalLink className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                </span>
-              </a>
-              <a href="mailto:info@hydrabon.com"
-                 className="bg-indigo-700 text-white font-semibold py-4 px-8 rounded-lg hover:bg-indigo-800 transition-all duration-300 flex items-center justify-center min-w-[160px] group">
-                <span className="flex items-center">
-                  E-posta Gönder
-                  <Mail className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
                 </span>
               </a>
             </motion.div>

@@ -45,7 +45,7 @@ export default function LegalPage() {
             <motion.article id="kullanim-sartlari" className="professional-card" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }}>
               <h2 className="text-2xl font-display font-bold text-white mb-4">Kullanım Şartları</h2>
               <p className="text-dark-300 leading-relaxed">
-                Bu platformu kullanarak topluluk kurallarına ve geçerli mevzuata uygun davranmayı kabul etmiş olursunuz. Platform üzerinde paylaşılan içerikler, telif ve lisans haklarına tabidir. Hizmetlerde yapılan değişiklikler, bakım çalışmaları veya topluluk güvenliği için gerekli durumlarda erişim kısıtlanabilir. Kullanıcılar, hesap güvenliklerinden kendileri sorumludur.
+                Bu platformu kullanarak topluluk kurallarına ve geçerli mevzuata uygun davranmayı kabul etmiş olursunuz. Platform üzerinde paylaşılan içerikler, telif ve lisans haklarına tabidir. Hizmetlerde yapılan değişiklikler, bakım çalışmaları veya topluluk güvenliği için gerekli durumlarda erişim kısıtlanabilir.
               </p>
             </motion.article>
 

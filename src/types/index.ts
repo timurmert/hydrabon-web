@@ -208,7 +208,7 @@ export interface ContactForm {
   email: string;
   subject: string;
   message: string;
-  department: 'General' | 'Esports' | 'Development' | 'Media' | 'Community';
+  area: 'Genel' | 'Discord / Topluluk' | 'CS2' | 'Ar-Ge & Yazılım' | 'Medya' | 'İş Birliği / Basın';
 }
 
 export interface JoinForm {
