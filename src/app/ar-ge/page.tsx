@@ -44,7 +44,7 @@ const categoryColors = {
 export default function RndPage() {
   const completedProjects = projects.filter(p => p.status === 'completed');
   const activeProjects = projects.filter(p => p.status !== 'completed');
-  const argeTeam = communityStats.roles.find((role: any) => role.name === 'Ar-Ge Ekibi');
+  const argeTeam = communityStats.roles.find((role) => role.name === 'Ar-Ge Ekibi');
   const developerCount = argeTeam?.memberCount || 3;
 
   return (
@@ -384,7 +384,7 @@ export default function RndPage() {
                 className="bg-primary-700 text-white font-semibold py-4 px-8 rounded-lg hover:bg-primary-800 hover:scale-105 transition-all duration-300 flex items-center justify-center min-w-[180px] group transform focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0"
               >
                 <span className="flex items-center">
-                  Discord'a Katıl
+                  Discord&apos;a Katıl
                   <ExternalLink className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                 </span>
               </a>

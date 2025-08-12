@@ -97,7 +97,7 @@ export default function CS2Page() {
                 128 tick, anti-cheat korumalı profesyonel 
                 <span className="text-orange-300 font-semibold"> Counter-Strike 2 sunucumuz</span>. 
                 <br />
-                Competitive'den casual'a kadar geniş oyun modu yelpazesi ile 
+                Competitive&#39;den casual&#39;a kadar geniş oyun modu yelpazesi ile 
                 <span className="text-white font-semibold"> kaliteli oyun deneyimi</span> sunuyoruz.
               </p>
             </motion.div>

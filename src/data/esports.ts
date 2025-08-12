@@ -1,4 +1,4 @@
-import { Player, Staff, Match, Tournament } from '@/types';
+import { Player, Staff, Match } from '@/types';
 
 // Öncü oyuncu verisi - diğer oyunculardan bağımsız tutulur
 export const pioneer: Player = {

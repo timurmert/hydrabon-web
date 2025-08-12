@@ -8,7 +8,8 @@ import {
   Gift,
   MessageCircle
 } from 'lucide-react';
-import Link from 'next/link';
+// Link kullanılmıyor
+// import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { 
   communityStats, 
