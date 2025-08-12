@@ -6,52 +6,27 @@ import {
   Trophy,
   Target,
   Calendar,
-  Clock,
   Gamepad2,
   Shield,
   Zap,
   RefreshCw,
-  Award,
-  MapPin,
   Play,
   Wifi,
-  AlertTriangle,
-  Info,
   ExternalLink
 } from 'lucide-react';
-import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { serverInfo, popularMaps, gameModes, topPlayers, serverStats, upcomingEvents, serverRules } from '@/data/cs2';
-
-const rankColors = {
-  'Global Elite': 'from-yellow-500 to-yellow-600',
-  'Supreme Master First Class': 'from-red-500 to-red-600',
-  'Legendary Eagle Master': 'from-purple-500 to-purple-600',
-  'Legendary Eagle': 'from-blue-500 to-blue-600',
-  'Distinguished Master Guardian': 'from-green-500 to-green-600',
-};
-
-const ruleColors = {
-  'strict': 'border-red-500/40 bg-red-500/10',
-  'warning': 'border-yellow-500/40 bg-yellow-500/10',
-  'info': 'border-blue-500/40 bg-blue-500/10',
-};
+import { serverInfo, gameModes } from '@/data/cs2';
 
 export default function CS2Page() {
   return (
-    <div className="min-h-screen snap-y snap-mandatory overflow-y-scroll scroll-smooth">
+    <div className="min-h-screen md:snap-y md:snap-mandatory overflow-y-auto overflow-x-hidden scroll-smooth">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden snap-start snap-always">
-        {/* Multi-layered Dynamic Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-dark-900 to-dark-950" style={{ zIndex: 0 }}></div>
+        {/* Multi-layered Dynamic Background (standardized) */}
+        <div className="absolute inset-0 bg-gradient-hero" style={{ zIndex: 0 }}></div>
         <div className="absolute inset-0 geometric-pattern" style={{ zIndex: 1 }}></div>
-        <div className="absolute inset-0" style={{ 
-          zIndex: 2,
-          backgroundImage: `url('/images/cs2-bg-pattern.png')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          opacity: 0.1
-        }}></div>
+        <div className="absolute inset-0 tiger-pattern opacity-15 animate-pulse-slow" style={{ zIndex: 2 }}></div>
+        <div className="absolute inset-0 animated-grid opacity-20" style={{ zIndex: 3 }}></div>
         
         {/* Floating Particles */}
         <div className="absolute inset-0" style={{ zIndex: 4 }}>
@@ -65,9 +40,9 @@ export default function CS2Page() {
         
         {/* Glowing Orbs */}
         <div className="absolute inset-0" style={{ zIndex: 5 }}>
-          <div className="glow-orb glow-orb-1" style={{ background: 'linear-gradient(45deg, #f97316, #ea580c)' }}></div>
-          <div className="glow-orb glow-orb-2" style={{ background: 'linear-gradient(45deg, #dc2626, #b91c1c)' }}></div>
-          <div className="glow-orb glow-orb-3" style={{ background: 'linear-gradient(45deg, #059669, #047857)' }}></div>
+          <div className="glow-orb glow-orb-1"></div>
+          <div className="glow-orb glow-orb-2"></div>
+          <div className="glow-orb glow-orb-3"></div>
         </div>
 
         <div className="container-custom relative z-20">
@@ -86,7 +61,7 @@ export default function CS2Page() {
             >
               <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-orange-900/30 to-orange-800/30 border border-orange-500/40 rounded-full backdrop-blur-md">
                 <div className="w-2 h-2 bg-orange-400 rounded-full mr-3 animate-pulse"></div>
-                <span className="text-orange-200 text-sm font-semibold tracking-wider uppercase">CS2 Sunucumuz</span>
+                <span className="text-orange-200 text-sm font-semibold tracking-wider uppercase">Eğlence Merkezi</span>
                 <div className="w-2 h-2 bg-orange-400 rounded-full ml-3 animate-pulse"></div>
               </div>
             </motion.div>
@@ -100,7 +75,7 @@ export default function CS2Page() {
             >
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight">
                 <span className="bg-gradient-to-r from-orange-300 via-white to-orange-300 bg-clip-text text-transparent">
-                  HydRaboN CS2
+                Counter-Strike 2
                 </span>
               </h1>
               <motion.div 
@@ -174,93 +149,23 @@ export default function CS2Page() {
                 <div className="text-2xl font-mono font-bold text-orange-500 mb-2">
                   {serverInfo.ip}
                 </div>
-                <button className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 border border-orange-500/40 rounded-lg text-white font-semibold transition-all duration-300 hover:scale-105 hover:border-orange-400 group">
+                <a href="https://discord.gg/hydrabon" target="_blank" rel="noopener noreferrer" onMouseDown={(e) => e.preventDefault()} onClick={(e) => (e.currentTarget as HTMLAnchorElement).blur()} className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 border border-orange-500/40 rounded-lg text-white font-semibold transition-all duration-300 hover:scale-105 hover:border-orange-400 group focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0">
                   <Play className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform duration-300" />
-                  Sunucuya Bağlan
-                </button>
+                  Aramıza Katıl!
+                </a>
               </div>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Section Separator */}
+      {/* Section Separator (kept, maps removed) */}
       <div className="container-custom">
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-orange-500 to-transparent opacity-60"></div>
-      </div>
-
-      {/* Popular Maps Section */}
-      <section className="py-20 bg-dark-950 snap-start snap-always min-h-screen flex items-center">
-        <div className="container-custom">
-          <motion.div 
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="section-title">Popüler Haritalar</h2>
-            <p className="section-subtitle">
-              Sunucumuzda en çok oynanan ve sevilen CS2 haritaları.
-            </p>
-          </motion.div>
-
-          <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8 }}
-          >
-            {popularMaps.slice(0, 6).map((map, index) => (
-              <motion.div 
-                key={map.id} 
-                className="professional-card group"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <div className="relative mb-6 rounded-lg overflow-hidden">
-                  <div className="w-full h-48 bg-gradient-to-br from-orange-500/20 to-dark-700 flex items-center justify-center">
-                    <MapPin className="w-16 h-16 text-orange-500" />
-                  </div>
-                  <div className="absolute top-4 right-4 px-3 py-1 bg-orange-500/90 rounded-full text-white text-sm font-medium">
-                    {map.type}
-                  </div>
-                </div>
-                
-                <h3 className="text-xl font-bold text-white mb-2">{map.displayName}</h3>
-                <p className="text-dark-300 text-sm mb-4">{map.description}</p>
-                
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-4">
-                    <div className="text-center">
-                      <div className="text-lg font-bold text-orange-500">{map.playCount}</div>
-                      <div className="text-xs text-dark-400">Oynanma</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-lg font-bold text-orange-500">{map.averageRating}</div>
-                      <div className="text-xs text-dark-400">Puan</div>
-                    </div>
-                  </div>
-                  <div className="text-right text-xs text-dark-400">
-                    Son: {map.lastPlayed ? new Date(map.lastPlayed).toLocaleDateString('tr-TR') : 'Hiç'}
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Section Separator */}
-      <div className="container-custom">
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-orange-500 to-transparent opacity-60"></div>
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
       </div>
 
       {/* Game Modes Section */}
-      <section className="py-20 bg-gradient-to-br from-dark-900 to-dark-800 snap-start snap-always min-h-screen flex items-center">
+      <section className="py-20 bg-dark-950 snap-start snap-always min-h-screen flex items-center">
         <div className="container-custom">
           <motion.div 
             className="text-center mb-16"
@@ -316,7 +221,7 @@ export default function CS2Page() {
                 <div className="grid grid-cols-2 gap-4 mb-4">
                   <div>
                     <div className="text-orange-500 font-semibold">{mode.playerCount}</div>
-                    <div className="text-xs text-dark-400">Oyuncu Sayısı</div>
+                    <div className="text-xs text-dark-400">Min. Oyuncu Sayısı</div>
                   </div>
                   <div>
                     <div className="text-orange-500 font-semibold">{mode.duration}</div>
@@ -344,7 +249,7 @@ export default function CS2Page() {
       </div>
 
       {/* Community Benefits Section */}
-      <section className="py-20 bg-dark-950 snap-start snap-always min-h-screen flex items-center">
+      <section className="py-20 bg-gradient-to-br from-dark-900 to-dark-800 snap-start snap-always min-h-screen flex items-center">
         <div className="container-custom">
           <motion.div 
             className="text-center mb-16"
@@ -391,14 +296,14 @@ export default function CS2Page() {
               {
                 title: 'Çeşitli Oyun Modları',
                 description: 'Competitive\'den casual\'a farklı oyun tarzları.',
-                features: ['Competitive 5v5', 'Casual 10v10', 'Deathmatch'],
+                features: ['Aim & Awp', 'Minigames', 'Competitive 5v5'],
                 icon: Gamepad2,
                 color: 'text-orange-500'
               },
               {
                 title: 'Topluluk Etkinlikleri',
                 description: 'Düzenli turnuvalar ve özel etkinlikler.',
-                features: ['Haftalık Turnuvalar', 'Ödüllü Yarışmalar', 'Fun Etkinlikleri'],
+                features: ['Haftalık Turnuvalar', 'Ödüllü Yarışmalar', 'Eğlenceli Etkinlikler'],
                 icon: Trophy,
                 color: 'text-yellow-500'
               }
@@ -433,8 +338,13 @@ export default function CS2Page() {
         </div>
       </section>
 
+      {/* Section Separator (above CTA) */}
+      <div className="container-custom">
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-orange-500 to-transparent opacity-60"></div>
+      </div>
+
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-dark-900 to-dark-800 snap-start snap-always min-h-screen flex items-center">
+      <section className="py-20 bg-dark-950 snap-start snap-always min-h-screen flex items-center">
         <div className="container-custom">
           <motion.div 
             className="bg-gradient-to-r from-orange-600 to-orange-500 rounded-3xl p-12 text-center"
@@ -449,20 +359,13 @@ export default function CS2Page() {
             <p className="text-xl text-orange-100 mb-8 max-w-2xl mx-auto">
               Kaliteli CS2 deneyimi için sunucumuza bağlan ve HydRaboN topluluğunun bir parçası ol.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-orange-600 font-semibold py-4 px-8 rounded-lg hover:bg-orange-50 transition-all duration-300 flex items-center justify-center min-w-[160px] group">
+            <div className="flex justify-center">
+              <a href="https://discord.gg/hydrabon" target="_blank" rel="noopener noreferrer" onMouseDown={(e) => e.preventDefault()} onClick={(e) => (e.currentTarget as HTMLAnchorElement).blur()} className="bg-white text-orange-600 font-semibold py-4 px-8 rounded-lg hover:bg-orange-50 transition-all duration-300 flex items-center justify-center min-w-[180px] group transform hover:scale-105 active:scale-95 focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0">
                 <span className="flex items-center">
-                  Sunucuya Bağlan
-                  <Play className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
-                </span>
-              </button>
-              <Link href="/topluluk" 
-                    className="bg-orange-700 text-white font-semibold py-4 px-8 rounded-lg hover:bg-orange-800 transition-all duration-300 flex items-center justify-center min-w-[160px] group">
-                <span className="flex items-center">
-                  Discord'a Katıl
+                  Aramıza Katıl!
                   <ExternalLink className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
                 </span>
-              </Link>
+              </a>
             </div>
             
             <div className="mt-8 p-6 bg-white/10 rounded-xl backdrop-blur-md">
@@ -470,12 +373,17 @@ export default function CS2Page() {
                 connect {serverInfo.ip}
               </div>
               <p className="text-orange-100 text-sm">
-                Bu komutu CS2 konsolunda kullanarak direkt bağlanabilirsiniz
+                Bu komutu CS2 konsolunda kullanarak direkt bağlanabilirsiniz!
               </p>
             </div>
           </motion.div>
         </div>
       </section>
+
+      {/* Section Separator (below CTA) */}
+      <div className="container-custom">
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-orange-500 to-transparent opacity-60"></div>
+      </div>
     </div>
   );
 }

@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import Image from 'next/image';
 import { 
   Menu, 
@@ -21,14 +21,9 @@ import {
 
 const navigation = [
   {
-    name: 'Espor',
-    href: '/espor',
-    icon: Gamepad2,
-  },
-  {
-    name: 'CS2',
-    href: '/cs2',
-    icon: Crosshair,
+    name: 'Topluluk',
+    href: '/topluluk',
+    icon: Users,
   },
   {
     name: 'Ar-Ge',
@@ -41,9 +36,14 @@ const navigation = [
     icon: Video,
   },
   {
-    name: 'Topluluk',
-    href: '/topluluk',
-    icon: Users,
+    name: 'CS2',
+    href: '/cs2',
+    icon: Crosshair,
+  },
+  {
+    name: 'Espor',
+    href: '/espor',
+    icon: Gamepad2,
   },
   {
     name: 'Hakkımızda',
@@ -63,6 +63,7 @@ export default function Header() {
   const [isLogoHovered, setIsLogoHovered] = useState(false);
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -102,24 +103,24 @@ export default function Header() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
           ? 'bg-black/60 backdrop-blur-md border-b border-primary-500/30 shadow-lg shadow-black/20'
-          : 'bg-transparent'
+          : 'bg-black/30 md:bg-transparent backdrop-blur-sm md:backdrop-blur-0 border-b border-dark-800/50 md:border-transparent'
       }`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
+      initial={prefersReducedMotion ? { opacity: 0 } : { y: -12, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={prefersReducedMotion ? { duration: 0.25, ease: 'easeOut' } : { type: 'spring', stiffness: 500, damping: 32, mass: 0.6 }}
     >
-      <div className="container-custom">
-        <div className="flex items-center justify-between h-20">
+      <div className="container-header">
+        <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
           <Link 
             href="/" 
-            className="flex items-center space-x-3 group" 
+            className="flex items-center space-x-3 group mr-6" 
             style={{outline: 'none'}} 
             onFocus={(e) => e.target.blur()}
             onMouseEnter={handleLogoMouseEnter}
             onMouseLeave={handleLogoMouseLeave}
           >
-            <div className="w-16 h-16 flex items-center justify-center transition-transform duration-200 ease-out group-hover:scale-105 p-2 will-change-transform transform-gpu">
+            <div className="w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center transition-transform duration-200 ease-out group-hover:scale-105 p-2 will-change-transform transform-gpu">
               <Image
                 src="/logo-transparent.png"
                 alt="HydRaboN Logo"
@@ -130,7 +131,7 @@ export default function Header() {
               />
             </div>
             <div className="hidden sm:block">
-              <h1 className="text-2xl font-display font-bold bg-gradient-to-r from-orange-400 via-primary-500 to-orange-600 bg-clip-text text-transparent group-hover:from-primary-500 group-hover:via-orange-500 group-hover:to-orange-700 transition-all duration-300 ease-out group-hover:scale-[1.01] group-hover:translate-x-1 group-hover:tracking-wide group-hover:drop-shadow-[0_0_12px_rgba(255,107,53,0.4)] will-change-transform transform-gpu">
+              <h1 className="text-2xl font-display font-bold bg-gradient-to-r from-orange-400 via-primary-500 to-orange-600 bg-clip-text text-transparent group-hover:from-primary-500 group-hover:via-orange-500 group-hover:to-orange-700 transition-all duration-300 ease-out group-hover:scale-[1.01] group-hover:translate-x-1 group-hover:tracking-wide group-hover:drop-shadow-[0_0_12px_rgba(255,107,53,0.4)] will-change-transform transform-gpu leading-normal">
                 HydRaboN
               </h1>
               <p className="text-xs text-orange-400 font-medium transition-all duration-300 ease-out group-hover:text-orange-300 group-hover:translate-x-1 group-hover:font-semibold group-hover:tracking-wide group-hover:drop-shadow-[0_0_6px_rgba(255,107,53,0.3)] group-hover:scale-[1.02] will-change-transform transform-gpu">
@@ -141,7 +142,7 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav 
-            className="hidden lg:flex items-center space-x-4 will-change-transform transform-gpu"
+            className="hidden lg:flex items-center space-x-4 mr-6 will-change-transform transform-gpu"
             style={{
               transform: `translateX(${isLogoHovered ? '0.25rem' : '0'})`,
               transition: 'transform 300ms cubic-bezier(0.4, 0, 0.2, 1)'
@@ -170,8 +171,8 @@ export default function Header() {
           </nav>
 
           {/* Discord Button & Mobile Menu */}
-          <div 
-            className="flex items-center space-x-8 will-change-transform transform-gpu"
+            <div 
+            className="flex items-center space-x-4 sm:space-x-8 will-change-transform transform-gpu"
             style={{
               transform: `translateX(${isLogoHovered ? '0.25rem' : '0'})`,
               transition: 'transform 300ms cubic-bezier(0.4, 0, 0.2, 1)'
@@ -214,7 +215,7 @@ export default function Header() {
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <div className="container-custom py-6">
+            <div className="container-header py-6">
               <nav className="space-y-2">
                 {navigation.map((item) => (
                   <div key={item.name}>
@@ -239,7 +240,7 @@ export default function Header() {
                   href="https://discord.gg/hydrabon"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center space-x-2 btn-primary w-full"
+                  className="flex items-center justify-center space-x-2 btn-primary w-full hover:scale-105 transition-transform duration-300 transform"
                 >
                   <Users className="w-4 h-4" />
                   <span>Discord Sunucumuza Katıl</span>
@@ -288,7 +289,7 @@ export default function Header() {
                   href="https://discord.gg/hydrabon"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center w-full bg-primary-500 hover:bg-primary-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300"
+                  className="flex items-center justify-center w-full bg-primary-500 hover:bg-primary-600 hover:scale-105 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <MessageSquare className="w-5 h-5 mr-2" />

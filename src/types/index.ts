@@ -14,9 +14,9 @@ export interface Player {
   id: string;
   name: string;
   nickname: string;
-  role: 'Duelist' | 'Initiator' | 'Controller' | 'Sentinel' | 'IGL';
+  role: 'Duelist' | 'Initiator' | 'Controller' | 'Sentinel' | 'IGL' | 'Oyuncu, Koç, Yönetici';
   avatar: string;
-  age: number;
+  age?: number;
   nationality: string;
   joinDate: string;
   stats: PlayerStats;
@@ -36,8 +36,7 @@ export interface PlayerStats {
 export interface Staff {
   id: string;
   name: string;
-  role: 'Coach' | 'Manager' | 'Analyst' | 'Mental Coach';
-  avatar: string;
+  role: 'Coach' | 'Manager' | 'Analyst' | 'Mental Coach' | 'Player';
   bio: string;
   experience: string;
   socialMedia: SocialMedia;
@@ -58,6 +57,8 @@ export interface Match {
   };
   maps?: string[];
   stream?: string;
+  duration?: string; // e.g. '1s 42dk'
+  matchUrl?: string; // detay sayfası ya da VOD linki
 }
 
 export interface Tournament {
@@ -77,26 +78,12 @@ export interface Project {
   id: string;
   name: string;
   description: string;
-  category: 'Discord Bot' | 'Tournament System' | 'AI Analysis' | 'Web Application' | 'Mobile App';
+  category: 'Discord Bot' | 'Tournament System' | 'AI Systems' | 'Web Application' | 'Mobile App' | 'Automation Systems';
   status: 'planning' | 'development' | 'testing' | 'completed' | 'maintenance';
   technologies: string[];
-  team: TeamMember[];
   startDate: string;
   completionDate?: string;
-  githubUrl?: string;
-  demoUrl?: string;
-  images: string[];
   features: string[];
-}
-
-export interface TeamMember {
-  id: string;
-  name: string;
-  role: 'Lead Developer' | 'Frontend Developer' | 'Backend Developer' | 'UI/UX Designer' | 'DevOps Engineer' | 'Quality Assurance';
-  avatar: string;
-  skills: string[];
-  experience: string;
-  socialMedia: SocialMedia;
 }
 
 // Medya türleri
@@ -105,31 +92,20 @@ export interface MediaContent {
   title: string;
   description: string;
   type: 'video' | 'image' | 'article' | 'infographic';
-  category: 'Team Highlights' | 'Tournament Coverage' | 'Behind Scenes' | 'Announcements' | 'Training';
+  category: 'Mix';
   url: string;
   thumbnail: string;
   publishDate: string;
-  views?: number;
+  views?: number | string;
   duration?: string; // For videos
   tags: string[];
   featured: boolean;
 }
 
-export interface MediaTeam {
-  id: string;
-  name: string;
-  role: 'Video Editor' | 'Graphic Designer' | 'Photographer' | 'Content Creator' | 'Social Media Manager';
-  avatar: string;
-  portfolio: string[];
-  specialties: string[];
-  experience: string;
-  socialMedia: SocialMedia;
-}
-
 // Discord topluluk türleri
 export interface CommunityStats {
-  totalMembers: number;
-  onlineMembers: number;
+  totalMembers: number | string;
+  onlineMembers: number | string;
   boostLevel: number;
   boostCount: number;
   roles: DiscordRole[];
@@ -151,40 +127,6 @@ export interface DiscordChannel {
   type: 'text' | 'voice' | 'category' | 'forum';
   description: string;
   memberCount?: number;
-}
-
-export interface Event {
-  id: string;
-  title: string;
-  description: string;
-  type: 'Tournament' | 'Training' | 'Community Event' | 'Meeting' | 'Stream';
-  date: string;
-  time: string;
-  duration: string;
-  location?: string;
-  discordChannel?: string;
-  participants?: number;
-  maxParticipants?: number;
-  requirements?: string[];
-  prizes?: string[];
-  status: 'upcoming' | 'ongoing' | 'completed' | 'cancelled';
-}
-
-export interface Application {
-  id: string;
-  type: 'Player' | 'Staff' | 'Developer' | 'Media Team' | 'Moderator';
-  applicantName: string;
-  applicantEmail: string;
-  applicantAge: number;
-  experience: string;
-  motivation: string;
-  availability: string;
-  portfolio?: string;
-  socialMedia: SocialMedia;
-  status: 'pending' | 'reviewing' | 'accepted' | 'rejected';
-  submissionDate: string;
-  reviewDate?: string;
-  reviewerNotes?: string;
 }
 
 // Genel yardımcı türler
@@ -219,7 +161,7 @@ export interface News {
   image: string;
   tags: string[];
   featured: boolean;
-  views: number;
+  views: number | string;
 }
 
 export interface Partnership {
@@ -266,7 +208,7 @@ export interface ContactForm {
   email: string;
   subject: string;
   message: string;
-  department: 'General' | 'Esports' | 'Development' | 'Media' | 'Community';
+  area: 'Genel' | 'Discord / Topluluk' | 'CS2' | 'Ar-Ge & Yazılım' | 'Medya' | 'İş Birliği / Basın';
 }
 
 export interface JoinForm {
@@ -318,10 +260,7 @@ export interface CS2Server {
   name: string;
   ip: string;
   port: number;
-  currentMap: string;
   gameMode: string;
-  maxPlayers: number;
-  currentPlayers: number;
   status: 'online' | 'offline' | 'maintenance';
   region: string;
   tickrate: number;

@@ -4,18 +4,17 @@ import {
   Code, 
   Rocket, 
   Brain, 
-  Zap,
-  Github,
   ExternalLink,
   Users,
   CheckCircle,
   Clock,
   Target,
-  Lightbulb
+  Bot
 } from 'lucide-react';
-import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { projects, technologies, teamMembers } from '@/data/rnd';
+import { projects, technologies } from '@/data/rnd';
+import { communityStats } from '@/data/community';
+import Image from 'next/image';
 
 const statusColors = {
   'planning': 'bg-blue-500/20 text-blue-500',
@@ -36,17 +35,20 @@ const statusLabels = {
 const categoryColors = {
   'Discord Bot': 'from-indigo-500 to-indigo-600',
   'Tournament System': 'from-green-500 to-green-600',
-  'AI Analysis': 'from-purple-500 to-purple-600',
+  'AI Systems': 'from-purple-500 to-purple-600',
   'Web Application': 'from-blue-500 to-blue-600',
   'Mobile App': 'from-pink-500 to-pink-600',
+  'Automation Systems': 'from-red-500 to-red-600',
 };
 
 export default function RndPage() {
   const completedProjects = projects.filter(p => p.status === 'completed');
   const activeProjects = projects.filter(p => p.status !== 'completed');
+  const argeTeam = communityStats.roles.find((role: any) => role.name === 'Ar-Ge Ekibi');
+  const developerCount = argeTeam?.memberCount || 3;
 
   return (
-    <div className="min-h-screen snap-y snap-mandatory overflow-y-scroll scroll-smooth">
+    <div className="min-h-screen md:snap-y md:snap-mandatory overflow-y-auto overflow-x-hidden scroll-smooth">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden snap-start snap-always">
         {/* Multi-layered Dynamic Background */}
@@ -121,10 +123,10 @@ export default function RndPage() {
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <p className="text-base md:text-lg text-dark-100 leading-relaxed font-medium">
-                Discord botları, turnuva yönetim sistemleri, 
-                <span className="text-primary-300 font-semibold"> AI tabanlı analiz sistemleri </span>
-                ve yazılıma dayalı organizasyon çözümleri geliştiren 
-                <span className="text-white font-semibold"> teknoloji merkezimiz</span>.
+              Web tabanlı uygulamalar, otomasyon sistemleri ve yapay zekâ destekli özel yazılım çözümleri geliştiren;
+              organizasyonumuzun
+                <span className="text-primary-300 font-semibold"> hem iç yapısına hem de dış projelere </span>
+                teknik üretim sağlayan merkezidir.
               </p>
             </motion.div>
           </motion.div>
@@ -140,7 +142,7 @@ export default function RndPage() {
               { icon: Target, value: projects.length, label: 'Toplam Proje', color: 'text-primary-500' },
               { icon: CheckCircle, value: completedProjects.length, label: 'Tamamlanan', color: 'text-green-500' },
               { icon: Clock, value: activeProjects.length, label: 'Aktif Proje', color: 'text-yellow-500' },
-              { icon: Users, value: teamMembers.length, label: 'Geliştirici', color: 'text-blue-500' }
+              { icon: Users, value: developerCount, label: 'Geliştirici', color: 'text-blue-500' }
             ].map((stat, index) => (
               <motion.div 
                 key={index}
@@ -164,7 +166,7 @@ export default function RndPage() {
       </div>
 
       {/* Featured Projects */}
-      <section className="py-20 bg-dark-950 snap-start snap-always min-h-screen flex items-center">
+      <section data-section="projects" className="py-20 bg-dark-950 snap-start snap-always min-h-screen flex items-center">
         <div className="container-custom">
           <motion.div 
             className="text-center mb-16"
@@ -175,7 +177,7 @@ export default function RndPage() {
           >
             <h2 className="section-title">Öne Çıkan Projeler</h2>
             <p className="section-subtitle">
-              Teknoloji ve inovasyon odaklı çözümlerimizle esports dünyasına değer katıyoruz.
+            Teknoloji ve inovasyon odaklı çalışmalarımızla geleceğe yön veren çözümler üretiyoruz.
             </p>
           </motion.div>
 
@@ -186,7 +188,7 @@ export default function RndPage() {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.8 }}
           >
-            {projects.slice(0, 4).map((project, index) => (
+            {projects.map((project, index) => (
               <motion.div 
                 key={project.id} 
                 className="professional-card group"
@@ -204,11 +206,12 @@ export default function RndPage() {
                       viewport={{ once: true }}
                       transition={{ duration: 0.5, delay: index * 0.1 + 0.2 }}
                     >
-                      {project.category === 'Discord Bot' && <Zap className="w-8 h-8 text-white" />}
+                      {project.category === 'Discord Bot' && <Bot className="w-8 h-8 text-white" />}
                       {project.category === 'Tournament System' && <Target className="w-8 h-8 text-white" />}
-                      {project.category === 'AI Analysis' && <Brain className="w-8 h-8 text-white" />}
+                      {project.category === 'AI Systems' && <Brain className="w-8 h-8 text-white" />}
                       {project.category === 'Web Application' && <Code className="w-8 h-8 text-white" />}
                       {project.category === 'Mobile App' && <Rocket className="w-8 h-8 text-white" />}
+                      {project.category === 'Automation Systems' && <Rocket className="w-8 h-8 text-white" />}
                     </motion.div>
                     <div className="flex-1">
                       <h3 className="text-2xl font-display font-bold text-white mb-2">
@@ -250,50 +253,12 @@ export default function RndPage() {
                   </div>
                 </div>
 
-                {/* Links */}
-                <div className="flex space-x-4">
-                  {project.githubUrl && (
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center space-x-2 text-dark-400 hover:text-white transition-colors duration-300"
-                    >
-                      <Github className="w-4 h-4" />
-                      <span className="text-sm">GitHub</span>
-                    </a>
-                  )}
-                  {project.demoUrl && (
-                    <a
-                      href={project.demoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center space-x-2 text-primary-500 hover:text-primary-400 transition-colors duration-300"
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                      <span className="text-sm">Demo</span>
-                    </a>
-                  )}
-                </div>
+
               </motion.div>
             ))}
           </motion.div>
 
-          <motion.div 
-            className="text-center"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <Link href="/ar-ge/projeler" className="btn-primary text-base px-8 py-4 flex items-center justify-center min-w-[200px] group relative overflow-hidden">
-              <span className="relative z-10 flex items-center">
-                Tüm Projeleri Görüntüle
-                <Rocket className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-              </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-primary-400 to-primary-600 opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-xl"></div>
-            </Link>
-          </motion.div>
+
         </div>
       </section>
 
@@ -335,7 +300,17 @@ export default function RndPage() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
                 <div className="w-16 h-16 bg-dark-700 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-primary-500/20 transition-colors duration-300">
-                  <Code className="w-8 h-8 text-primary-500" />
+                  {tech.icon ? (
+                    <Image
+                      src={tech.icon}
+                      alt={`${tech.name} logo`}
+                      width={32}
+                      height={32}
+                      className="w-12 h-12 object-contain"
+                    />
+                  ) : (
+                    <Code className="w-8 h-8 text-primary-500" />
+                  )}
                 </div>
                 <h3 className="text-lg font-bold text-white mb-2">{tech.name}</h3>
                 <div className="text-sm text-primary-500 mb-2">{tech.category}</div>
@@ -351,148 +326,65 @@ export default function RndPage() {
         <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
       </div>
 
-      {/* Team Section */}
-      <section className="py-20 bg-dark-950 snap-start snap-always min-h-screen flex items-center">
-        <div className="container-custom">
-          <motion.div 
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="section-title">Geliştirici Ekibi</h2>
-            <p className="section-subtitle">
-              Teknoloji alanında uzman, deneyimli ve yaratıcı ekibimizle tanışın.
-            </p>
-          </motion.div>
 
-          <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8 }}
-          >
-            {teamMembers.slice(0, 6).map((member, index) => (
-              <motion.div 
-                key={member.id} 
-                className="professional-card text-center"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <div className="w-24 h-24 bg-gradient-to-br from-primary-500 to-primary-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Users className="w-12 h-12 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">{member.name}</h3>
-                <div className="inline-block px-4 py-2 bg-primary-500/20 rounded-full text-primary-500 font-medium text-sm mb-4">
-                  {member.role}
-                </div>
-                <p className="text-dark-300 mb-4 text-sm leading-relaxed">{member.experience}</p>
-                
-                {/* Skills */}
-                <div className="mb-6">
-                  <div className="flex flex-wrap gap-2 justify-center">
-                    {member.skills.slice(0, 3).map((skill, index) => (
-                      <span key={index} className="px-2 py-1 bg-dark-800 text-dark-300 text-xs rounded">
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Social Links */}
-                <div className="flex justify-center space-x-3">
-                  {member.socialMedia.github && (
-                    <a
-                      href={`https://github.com/${member.socialMedia.github}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 bg-dark-800 rounded-lg text-dark-400 hover:text-white transition-colors duration-300"
-                    >
-                      <Github className="w-4 h-4" />
-                    </a>
-                  )}
-                  {member.socialMedia.linkedin && (
-                    <a
-                      href={`https://linkedin.com/in/${member.socialMedia.linkedin}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 bg-dark-800 rounded-lg text-dark-400 hover:text-blue-400 transition-colors duration-300"
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                    </a>
-                  )}
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-
-          <motion.div 
-            className="text-center"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <Link href="/ar-ge/ekip" className="btn-secondary text-base px-8 py-4 flex items-center justify-center min-w-[200px] group relative">
-              <span className="relative z-10 flex items-center">
-                Ekibin Tamamını Gör
-                <Users className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
-              </span>
-            </Link>
-          </motion.div>
-        </div>
-      </section>
 
       {/* Section Separator */}
       <div className="container-custom">
         <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
       </div>
 
-      {/* Innovation Section */}
-      <section className="py-20 bg-gradient-to-br from-dark-900 to-dark-800 relative snap-start snap-always min-h-screen flex items-center">
-        <div className="absolute inset-0 tiger-pattern opacity-5"></div>
-        <div className="container-custom relative">
+      {/* CTA Section */}
+      <section className="py-20 bg-dark-950 snap-start snap-always min-h-screen flex items-center">
+        <div className="container-custom">
           <motion.div 
-            className="max-w-4xl mx-auto text-center"
+            className="bg-gradient-to-r from-primary-600 to-primary-500 rounded-3xl p-12 text-center"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
           >
-            <Lightbulb className="w-16 h-16 text-primary-500 mx-auto mb-6" />
-            <h2 className="section-title">İnovasyon ve Gelişim</h2>
-            <p className="text-xl md:text-2xl text-dark-200 leading-relaxed mb-8">
-              Sürekli öğrenen, gelişen ve 
-              <span className="text-gradient font-semibold"> yenilikçi çözümler </span>
-              üreten bir ekip olarak teknolojinin sınırlarını zorluyoruz.
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">
+              Ar-Ge Ekibimize Katılın!
+            </h2>
+            <p className="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
+            Yenilikçi projeler üretmek, teknoloji dünyasında iz bırakmak ve kariyerinde ilerlemek istiyorsan bize katıl.
+            Sürekli öğrenen, birlikte gelişen ekibimizin bir parçası ol!
             </p>
-            <p className="text-lg text-dark-300 leading-relaxed mb-12">
-              Açık kaynak projelerimizle topluma katkıda bulunurken, 
-              esports dünyasında teknolojik dönüşümün öncüsü olmaya devam ediyoruz.
-            </p>
-            
             <motion.div 
-              className="flex flex-col sm:flex-row gap-6 justify-center"
+              className="flex flex-col sm:flex-row gap-4 justify-center"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <Link href="/ar-ge/projeler" className="btn-primary text-lg px-8 py-4 flex items-center justify-center min-w-[220px] group relative overflow-hidden">
-                <span className="relative z-10 flex items-center">
-                  Projelerimizi İncele
+              <button 
+                onClick={() => {
+                  const projectsSection = document.querySelector('[data-section="projects"]');
+                  if (projectsSection) {
+                    const projectsSectionTop = projectsSection.getBoundingClientRect().top + window.pageYOffset - 80;
+                    window.scrollTo({
+                      top: projectsSectionTop,
+                      behavior: 'smooth'
+                    });
+                  }
+                }}
+                className="bg-white text-primary-600 font-semibold py-4 px-8 rounded-lg hover:bg-primary-50 hover:scale-105 transition-all duration-300 flex items-center justify-center min-w-[180px] group transform"
+              >
+                <span className="flex items-center">
+                  Projelerimizi Görüntüle
                   <Target className="w-5 h-5 ml-2 group-hover:rotate-12 transition-transform duration-300" />
                 </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-primary-400 to-primary-600 opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-xl"></div>
-              </Link>
-              <a href="https://github.com/hydrabon" target="_blank" rel="noopener noreferrer"
-                 className="btn-secondary text-lg px-8 py-4 flex items-center justify-center min-w-[220px] group relative">
-                <span className="relative z-10 flex items-center">
-                  GitHub&apos;da Takip Et
+              </button>
+              <a 
+                href="https://discord.gg/hydrabon" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                onMouseDown={(e) => e.preventDefault()}
+                onClick={(e) => (e.currentTarget as HTMLAnchorElement).blur()}
+                className="bg-primary-700 text-white font-semibold py-4 px-8 rounded-lg hover:bg-primary-800 hover:scale-105 transition-all duration-300 flex items-center justify-center min-w-[180px] group transform focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0"
+              >
+                <span className="flex items-center">
+                  Discord'a Katıl
                   <ExternalLink className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                 </span>
               </a>
@@ -506,46 +398,7 @@ export default function RndPage() {
         <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
       </div>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-dark-950 snap-start snap-always min-h-screen flex items-center">
-        <div className="container-custom">
-          <motion.div 
-            className="bg-gradient-to-r from-blue-600 to-blue-500 rounded-3xl p-12 text-center"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">
-              Ekibimize Katılın!
-            </h2>
-            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-              Yenilikçi projeler geliştirmek, teknoloji dünyasında iz bırakmak ve 
-              kariyerinizi ilerletmek için bizimle çalışın.
-            </p>
-            <motion.div 
-              className="flex flex-col sm:flex-row gap-4 justify-center"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
-              <Link href="/topluluk/basvur" className="bg-white text-blue-600 font-semibold py-4 px-8 rounded-lg hover:bg-blue-50 transition-all duration-300 flex items-center justify-center min-w-[180px] group">
-                <span className="flex items-center">
-                  Geliştirici Başvurusu
-                  <Rocket className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                </span>
-              </Link>
-              <Link href="/ar-ge/ekip" className="bg-blue-700 text-white font-semibold py-4 px-8 rounded-lg hover:bg-blue-800 transition-all duration-300 flex items-center justify-center min-w-[180px] group">
-                <span className="flex items-center">
-                  Ekibi Tanı
-                  <Users className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
-                </span>
-              </Link>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
+
     </div>
   );
 }

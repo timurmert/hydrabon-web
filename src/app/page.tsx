@@ -1,66 +1,98 @@
 'use client';
 
-import { Gamepad2, Crosshair, Code, Video, Users, ArrowRight, Trophy, Target, Zap, Info } from 'lucide-react';
+import { Gamepad2, Crosshair, Code, Video, Users, ArrowRight, Trophy, Target, Zap, Info, HelpCircle, PlayCircle } from 'lucide-react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 const divisions = [
   {
-    title: 'Espor',
-    description: 'Valorant odaklı profesyonel takım yapılanması ve espor organizasyonu. Premier League dahil olmak üzere birçok resmi turnuva ve ligde mücadele eden rekabetçi yapımız.',
-    icon: Gamepad2,
-    href: '/espor',
-    features: ['Profesyonel Takım', 'Turnuva Başarıları', 'Analiz Sistemi', 'Koçluk Desteği'],
-    color: 'from-primary-500 to-primary-700',
-  },
-  {
-    title: 'CS2 Sunucusu',
-    description: '16 slot, 128 tick, anti-cheat korumalı profesyonel Counter-Strike 2 sunucumuz. Competitive\'den casual\'a kadar geniş oyun modu yelpazesi.',
-    icon: Crosshair,
-    href: '/cs2',
-    features: ['16 Slot Server', 'Anti-Cheat Koruması', 'Çoklu Oyun Modu', '7/24 Hizmet'],
-    color: 'from-orange-500 to-orange-700',
+    title: 'Discord Topluluğu',
+    description: 'Kalabalık ve organize Discord sunucumuz. Etkinliklerle dolu bir takvim, düzenli sistemler ve her daim canlı bir Discord ortamı.',
+    icon: Users,
+    href: '/topluluk',
+    features: ['Aktif Topluluk', 'Etkinlikler', 'Sık Çekilişler', '7/24 Destek'],
+    color: 'from-indigo-500 to-indigo-700',
+    status: 'active',
   },
   {
     title: 'Ar-Ge & Yazılım',
-    description: 'Discord botları, turnuva yönetim sistemleri, AI tabanlı analiz sistemleri ve yazılıma dayalı organizasyon çözümleri geliştiren teknoloji merkezimiz.',
+    description: 'Fikirlerin sadece konuşulmadığı, satır satır gerçeğe dönüştüğü; yazılımın, zekânın ve hayalin aynı masada buluştuğu teknoloji merkezi.',
     icon: Code,
     href: '/ar-ge',
-    features: ['Discord Botları', 'AI Analiz', 'Turnuva Sistemleri', 'Özel Çözümler'],
+    features: ['Discord Botları', 'Kurumsal Sistemler', 'Ödül & Çekiliş Sistemleri', 'Özel Çözümler'],
     color: 'from-blue-500 to-blue-700',
+    status: 'active',
   },
   {
     title: 'Medya',
-    description: 'Teaser videolar, takım tanıtımları, topluluk içerikleri ve sosyal medya kampanyaları hazırlayan kreatif medya departmanımız.',
+    description: 'Görsel dünyanın gücünü kullanan kreatif birimimiz. Tanıtım videolarından sosyal medya içeriklerine, markamızı yansıtan her detayı titizlikle üretiyoruz.',
     icon: Video,
     href: '/medya',
-    features: ['Video Prodüksiyon', 'Grafik Tasarım', 'Sosyal Medya', 'İçerik Stratejisi'],
+    features: ['Sosyal Medya İçerik Tasarımı', 'Reels & Kısa Form İçerikler', 'Müzik & Mix İçerikleri', 'İçerik Prodüksiyonları'],
     color: 'from-purple-500 to-purple-700',
+    status: 'active',
   },
   {
-    title: 'Discord Topluluğu',
-    description: 'Kalabalık ve organize Discord sunucumuz. Etkinlik takibi, yetkili yönetimi, başvuru sistemleri ve aktif topluluk etkileşimi.',
-    icon: Users,
-    href: '/topluluk',
-    features: ['Aktif Topluluk', 'Etkinlikler', 'Rütbe Sistemi', '7/24 Destek'],
-    color: 'from-indigo-500 to-indigo-700',
+    title: 'Counter-Strike 2',
+    description: 'CS2 sahnesinde eğlence ve rekabeti bir araya getiriyoruz. Jailbreak’ten Aim Redline’a, özgün modlarımız ve aktif topluluğumuzla fark yaratıyoruz.',
+    icon: Crosshair,
+    href: '/cs2',
+    features: ['Topluluk Etkinlikleri', 'Anti-Cheat Koruması', 'Jailbreak & Özel Modlar', 'Kesintisiz Oyun Deneyimi'],
+    color: 'from-orange-500 to-orange-700',
+    status: 'active',
+  },
+  {
+    title: 'Espor',
+    description: 'Disiplinini sahada, duruşunu toplulukta gösteren birimimiz.',
+    icon: Gamepad2,
+    href: '/espor',
+    features: ['Disiplinli Takım Kültürü', 'Turnuva Başarıları', 'Analiz Sistemi', 'Koçluk Desteği'],
+    color: 'from-primary-500 to-primary-700',
+    status: 'passive',
+  },
+  {
+    title: '???',
+    description: 'Sessizce şekillenen yeni birim ve projeler. Gelişmeleri takip etmek için bizi takipte kalın.',
+    icon: HelpCircle,
+    href: '#',
+    features: ['Yakında', 'Yakında', 'Yakında', 'Yakında'],
+    color: 'from-gray-500 to-gray-700',
+    status: 'passive',
   },
 ];
 
 const stats = [
-  { label: 'Aktif Üye', value: '500+', icon: Users },
-  { label: 'Turnuva Galibiyeti', value: '25+', icon: Trophy },
-  { label: 'Proje Tamamlandı', value: '15+', icon: Target },
-  { label: 'Topluluk Etkinliği', value: '100+', icon: Zap },
+  { label: 'Aktif Üye', value: '850+', icon: Users },
+  { label: 'Proje Tamamlandı', value: '10+', icon: Target },
+  { label: 'Oynanan Maç', value: '100+', icon: Trophy },
+  { label: 'Görüntülenme', value: '1.5M+', icon: PlayCircle },
 ];
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen snap-y snap-mandatory overflow-y-scroll scroll-smooth">
+    <div className="min-h-screen md:snap-y md:snap-mandatory overflow-y-auto overflow-x-hidden scroll-smooth">
       {/* Hero Section - Extended */}
       <section className="relative flex flex-col overflow-hidden snap-start snap-always" style={{ minHeight: '100vh' }}>
         {/* Multi-layered Dynamic Background */}
         <div className="absolute inset-0 bg-gradient-hero" style={{ zIndex: 0 }}></div>
+        <div className="absolute inset-0 geometric-pattern" style={{ zIndex: 1 }}></div>
+        <div className="absolute inset-0 tiger-pattern opacity-15 animate-pulse-slow" style={{ zIndex: 2 }}></div>
+        <div className="absolute inset-0 animated-grid opacity-20" style={{ zIndex: 3 }}></div>
+        {/* Floating Particles */}
+        <div className="absolute inset-0" style={{ zIndex: 4 }}>
+          <div className="particle"></div>
+          <div className="particle"></div>
+          <div className="particle"></div>
+          <div className="particle"></div>
+          <div className="particle"></div>
+          <div className="particle"></div>
+        </div>
+        {/* Glowing Orbs */}
+        <div className="absolute inset-0" style={{ zIndex: 5 }}>
+          <div className="glow-orb glow-orb-1"></div>
+          <div className="glow-orb glow-orb-2"></div>
+          <div className="glow-orb glow-orb-3"></div>
+        </div>
         
         {/* Hero Content Section */}
         <div className="relative z-20 min-h-screen flex items-center justify-center">
@@ -73,11 +105,6 @@ export default function HomePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
               >
-                <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary-900/30 to-primary-800/30 border border-primary-500/40 rounded-full backdrop-blur-md">
-                  <div className="w-2 h-2 bg-primary-400 rounded-full mr-3 animate-pulse"></div>
-                  <span className="text-primary-200 text-sm font-semibold tracking-wider uppercase">HydRaboN Community</span>
-                  <div className="w-2 h-2 bg-primary-400 rounded-full ml-3 animate-pulse"></div>
-                </div>
               </motion.div>
 
               {/* Enhanced Title */}
@@ -87,7 +114,7 @@ export default function HomePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                <h1 className="text-6xl md:text-7xl lg:text-8xl font-display font-bold tracking-tight">
+                <h1 className="text-6xl md:text-7xl lg:text-8xl font-display font-bold tracking-tight leading-normal">
                   <span className="bg-gradient-to-r from-primary-300 via-white to-primary-300 bg-clip-text text-transparent">
                     HydRaboN
                   </span>
@@ -108,11 +135,11 @@ export default function HomePage() {
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
                 <p className="text-base md:text-lg text-dark-100 leading-relaxed font-medium tracking-wide">
-                  Espor, teknoloji, medya ve topluluk yönetiminde 
-                  <span className="text-primary-300 font-semibold"> yenilikçi çözümler </span>
-                  üreten, güçlü bir simgeye ve organizasyonel yapıya sahip, 
-                  <span className="text-white font-semibold"> genç ve disiplinli </span>
-                  bir topluluk yapılanması.
+                  Espor sahnesinden teknoloji dünyasına, 
+                  <span className="text-primary-300 font-semibold"> sınırları zorlayan </span>
+                  bir dijital topluluk. Video içeriklerinden yazılım projelerine, 
+                  <span className="text-white font-semibold"> tutkuyla </span>
+                  her alanda iz bırakan kişilerin adresi.
                 </p>
               </motion.div>
               
@@ -123,14 +150,14 @@ export default function HomePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
               >
-                <Link href="/topluluk/basvur" className="btn-primary text-base px-6 py-4 w-full sm:w-[240px] h-[56px] flex items-center justify-center group relative overflow-hidden">
+                <a href="https://discord.gg/hydrabon" target="_blank" rel="noopener noreferrer" onMouseDown={(e) => e.preventDefault()} onClick={(e) => (e.currentTarget as HTMLAnchorElement).blur()} className="btn-primary text-base px-6 py-4 w-full sm:w-[240px] h-[56px] flex items-center justify-center group relative overflow-hidden hover:scale-105 transition-transform duration-300 transform focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0">
                   <span className="relative z-10 flex items-center justify-center">
                     Topluluğa Katıl
                     <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                   </span>
                   {/* Enhanced glow effect */}
                   <div className="absolute inset-0 bg-gradient-to-r from-primary-400 to-primary-600 opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-xl"></div>
-                </Link>
+                </a>
                 
                 <Link href="/hakkimizda" className="btn-secondary text-base px-6 py-4 w-full sm:w-[240px] h-[56px] flex items-center justify-center group relative">
                   <span className="relative z-10 flex items-center justify-center">
@@ -214,7 +241,7 @@ export default function HomePage() {
 
               {/* Enhanced Section Title */}
               <div className="relative mb-8">
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold tracking-tight">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold tracking-tight leading-normal">
                   <span className="bg-gradient-to-r from-primary-300 via-white to-primary-300 bg-clip-text text-transparent">
                     Birimlerimiz
                   </span>
@@ -226,7 +253,7 @@ export default function HomePage() {
               <div className="max-w-4xl mx-auto">
                 <p className="text-base md:text-lg text-dark-100 leading-relaxed font-medium">
                   HydRaboN&apos;un 
-                  <span className="text-primary-300 font-semibold"> dört ana yapı taşını </span>
+                  <span className="text-primary-300 font-semibold"> ana yapı taşlarını </span>
                   keşfedin. Her birim, kendi alanında 
                   <span className="text-white font-semibold"> mükemmellik standartlarını </span>
                   koruyarak topluluğumuzun gücüne katkıda bulunur ve farklı ilgi alanlarına 
@@ -239,7 +266,7 @@ export default function HomePage() {
 
             {/* Enhanced Division Cards */}
             <motion.div 
-              className="grid grid-cols-1 lg:grid-cols-2 gap-10"
+              className="grid grid-cols-1 md:grid-cols-2 gap-10 auto-rows-fr"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true, amount: 0.2 }}
@@ -248,7 +275,7 @@ export default function HomePage() {
               {divisions.map((division, index) => (
                 <motion.div 
                   key={index} 
-                  className="professional-card group relative overflow-hidden"
+                  className="professional-card group relative overflow-hidden h-full flex flex-col"
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.3 }}
@@ -266,7 +293,7 @@ export default function HomePage() {
                       <division.icon className="w-10 h-10 text-white drop-shadow-lg" />
                     </motion.div>
                     <div className="flex-1">
-                      <h3 className="text-xl md:text-2xl font-display font-bold text-white mb-3 tracking-tight group-hover:text-primary-200 transition-colors duration-300">
+                      <h3 className="text-xl md:text-2xl font-display font-bold text-white mb-3 tracking-tight leading-normal group-hover:text-primary-200 transition-colors duration-300">
                         {division.title}
                       </h3>
                       <p className="text-dark-200 leading-relaxed text-sm md:text-base font-medium">
@@ -276,7 +303,7 @@ export default function HomePage() {
                   </div>
 
                   {/* Enhanced features section */}
-                  <div className="mb-8">
+                  <div className="flex-1">
                     <div className="flex items-center mb-4">
                       <div className="w-1 h-6 bg-gradient-to-b from-primary-500 to-primary-600 rounded-full mr-3"></div>
                       <h4 className="text-lg font-bold text-white">Temel Özellikler</h4>
@@ -292,7 +319,7 @@ export default function HomePage() {
                   </div>
 
                   {/* Enhanced CTA */}
-                  <div className="flex justify-between items-center">
+                  <div className="flex justify-between items-center mt-auto pt-4">
                     <Link 
                       href={division.href}
                       className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary-500/20 to-primary-600/20 border border-primary-500/40 rounded-xl text-primary-300 hover:text-white font-semibold transition-all duration-300 hover:scale-105 hover:border-primary-400 group/link"
@@ -303,8 +330,10 @@ export default function HomePage() {
                     
                     {/* Status indicator */}
                     <div className="flex items-center space-x-2">
-                      <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                      <span className="text-xs text-dark-400 font-medium">Aktif</span>
+                      <div className={`w-2 h-2 rounded-full ${division.status === 'active' ? 'bg-green-400 animate-pulse' : 'bg-red-400'}`}></div>
+                      <span className="text-xs text-dark-400 font-medium">
+                        {division.status === 'active' ? 'Aktif' : 'Pasif'}
+                      </span>
                     </div>
                   </div>
                 </motion.div>
@@ -329,12 +358,12 @@ export default function HomePage() {
                   <div className="flex justify-center mb-6">
                     <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-primary-900/20 to-primary-800/20 border border-primary-500/30 rounded-full backdrop-blur-sm">
                       <Trophy className="w-4 h-4 text-primary-400 mr-2" />
-                      <span className="text-primary-200 text-xs font-semibold tracking-widest uppercase">Prestij</span>
+                      <span className="text-primary-200 text-xs font-semibold tracking-widest uppercase">Yüksek Standartlı Yapı Güvencesi</span>
                     </div>
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-8">
+                  <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-8 leading-normal">
                     <span className="bg-gradient-to-r from-primary-300 via-white to-primary-300 bg-clip-text text-transparent">
-                      Güven ve Kalite Garantisi
+                      Güvenilirlik, Kalite ve Vizyon
                     </span>
                   </h3>
                 </div>
@@ -350,8 +379,8 @@ export default function HomePage() {
                     <div className="w-24 h-24 bg-gradient-to-br from-yellow-500/30 to-yellow-600/30 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-500 border-2 border-yellow-500/20">
                       <Trophy className="w-12 h-12 text-yellow-400" />
                     </div>
-                    <p className="text-yellow-400 font-bold text-xl mb-2">Premier League</p>
-                    <p className="text-dark-300 text-base">Resmi Katılım</p>
+                    <p className="text-yellow-400 font-bold text-xl mb-2">Turnuva Geçmişi</p>
+                    <p className="text-dark-300 text-base">Organize Takım Yapısı</p>
                   </motion.div>
 
                   <motion.div 
@@ -364,8 +393,8 @@ export default function HomePage() {
                     <div className="w-24 h-24 bg-gradient-to-br from-blue-500/30 to-blue-600/30 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-500 border-2 border-blue-500/20">
                       <Zap className="w-12 h-12 text-blue-400" />
                     </div>
-                    <p className="text-blue-400 font-bold text-xl mb-2">AI Destekli</p>
-                    <p className="text-dark-300 text-base">Analiz Sistemi</p>
+                    <p className="text-blue-400 font-bold text-xl mb-2">Gelişmiş Altyapı</p>
+                    <p className="text-dark-300 text-base">Yazılım Tabanlı Çözümler</p>
                   </motion.div>
 
                   <motion.div 
@@ -378,8 +407,8 @@ export default function HomePage() {
                     <div className="w-24 h-24 bg-gradient-to-br from-green-500/30 to-green-600/30 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-500 border-2 border-green-500/20">
                       <Target className="w-12 h-12 text-green-400" />
                     </div>
-                    <p className="text-green-400 font-bold text-xl mb-2">Profesyonel</p>
-                    <p className="text-dark-300 text-base">Yönetim</p>
+                    <p className="text-green-400 font-bold text-xl mb-2">Kurumsal Yönetim</p>
+                    <p className="text-dark-300 text-base">Disiplinli Organizasyon</p>
                   </motion.div>
 
                   <motion.div 
@@ -429,40 +458,33 @@ export default function HomePage() {
                 </div>
               </div>
               
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-white mb-6 tracking-tight">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-white mb-6 tracking-tight leading-normal">
                 <span className="bg-gradient-to-r from-primary-300 via-white to-primary-300 bg-clip-text text-transparent">
-                  Aramıza Katılmaya Hazır mısın?
+                  Yeteneğini Değere Dönüştür!
                 </span>
               </h2>
               <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-primary-500 to-transparent mx-auto mb-8 rounded-full"></div>
               
               <p className="text-base md:text-lg text-dark-200 mb-10 max-w-3xl mx-auto font-medium leading-relaxed">
-                HydRaboN ailesinin bir parçası ol. Espor, teknoloji, medya ve topluluk yönetimi 
-                alanlarında yeteneklerini geliştir ve 
+                Topluluk yönetimi, yazılım, medya ve espor gibi alanlarda kendini geliştir;
+                 disiplinli bir yapının parçası olarak
                 <span className="text-primary-300 font-semibold"> profesyonel kariyerine </span>
-                yön ver.
+                ilk adımı at.
               </p>
               
               <motion.div 
-                className="flex flex-col sm:flex-row gap-6 justify-center"
+                className="flex justify-center"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.3 }}
               >
-                <Link href="/topluluk/basvur" className="btn-primary text-base px-8 py-4 flex items-center justify-center min-w-[200px] group relative overflow-hidden">
+                <a href="https://discord.gg/hydrabon" target="_blank" rel="noopener noreferrer" onMouseDown={(e) => e.preventDefault()} onClick={(e) => (e.currentTarget as HTMLAnchorElement).blur()} className="btn-secondary text-base px-8 py-4 flex items-center justify-center min-w-[200px] group relative hover:scale-105 transition-transform duration-300 transform focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0">
                   <span className="relative z-10 flex items-center">
-                    Başvuru Yap
-                    <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                  </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary-400 to-primary-600 opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-xl"></div>
-                </Link>
-                <Link href="/topluluk/discord" className="btn-secondary text-base px-8 py-4 flex items-center justify-center min-w-[200px] group relative">
-                  <span className="relative z-10 flex items-center">
-                    Discord&apos;a Katıl
+                    Aramıza Katıl!
                     <Users className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
                   </span>
-                </Link>
+                </a>
               </motion.div>
             </div>
           </motion.div>

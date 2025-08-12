@@ -10,11 +10,16 @@ import {
   Medal,
   ExternalLink,
   Play,
-  Award
+  Award,
+  Twitter,
+  Crown,
+  Gamepad2,
+  BarChart3
 } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { players, staff, historicalMatches, recentMatches, teamStats, historicalAchievements, careerHighlights } from '@/data/esports';
+import { staff, historicalMatches, teamStats, historicalAchievements, pioneer } from '@/data/esports';
 
 const roleColors = {
   'Duelist': 'from-red-500 to-red-600',
@@ -22,11 +27,16 @@ const roleColors = {
   'Controller': 'from-blue-500 to-blue-600',
   'Sentinel': 'from-green-500 to-green-600',
   'IGL': 'from-purple-500 to-purple-600',
+  'Oyuncu, Koç, Yönetici': 'from-orange-500 to-orange-600',
 };
 
 export default function EsportsPage() {
+  const ourTeamLogo = '/images/teams/hydrabon.png';
+  const rankImages: Record<string, string> = {
+    Immortal: '/images/ranks/immortal.jpg',
+  };
   return (
-    <div className="min-h-screen snap-y snap-mandatory overflow-y-scroll scroll-smooth">
+    <div className="min-h-screen md:snap-y md:snap-mandatory overflow-y-auto overflow-x-hidden scroll-smooth">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden snap-start snap-always">
         {/* Multi-layered Dynamic Background */}
@@ -82,7 +92,7 @@ export default function EsportsPage() {
             >
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight">
                 <span className="bg-gradient-to-r from-primary-300 via-white to-primary-300 bg-clip-text text-transparent">
-                  HydRaboN Espor
+                  Espor Takımlarımız
                 </span>
               </h1>
               <motion.div 
@@ -103,7 +113,7 @@ export default function EsportsPage() {
               <p className="text-base md:text-lg text-dark-100 leading-relaxed font-medium">
                 Valorant sahasında 
                 <span className="text-primary-300 font-semibold"> tarihi başarılara imza atmış </span> 
-                takımımızın gurur verici geçmişi. 
+                takımlarımızın gurur verici geçmişi.
                 <br />
                 Şampiyonluklar, rekorlar ve 
                 <span className="text-white font-semibold"> unutulmaz anılarla dolu</span> espor yolculuğumuz.
@@ -121,8 +131,8 @@ export default function EsportsPage() {
             {[
               { icon: Trophy, value: `${teamStats.winRate}%`, label: 'Galibiyet Oranı', color: 'text-primary-500' },
               { icon: Target, value: teamStats.matchesPlayed, label: 'Toplam Maç', color: 'text-primary-500' },
+              { icon: Zap, value: teamStats.tournaments, label: 'Turnuva', color: 'text-primary-500' },
               { icon: Medal, value: teamStats.championships, label: 'Şampiyonluk', color: 'text-primary-500' },
-              { icon: Zap, value: teamStats.tournaments, label: 'Turnuva', color: 'text-primary-500' }
             ].map((stat, index) => (
               <motion.div 
                 key={index}
@@ -145,7 +155,7 @@ export default function EsportsPage() {
         <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
       </div>
 
-      {/* Players Section */}
+      {/* Players Section - Pioneer */}
       <section className="py-20 bg-dark-950 snap-start snap-always min-h-screen flex items-center">
         <div className="container-custom">
           <motion.div 
@@ -155,95 +165,76 @@ export default function EsportsPage() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="section-title">Efsane Oyuncular</h2>
-            <p className="section-subtitle">
-              Şampiyonluk yolculuğumuzda yer almış, tarihi başarılara imza atmış oyuncu kadromuz.
-            </p>
+            <h2 className="section-title">Bu Mirasın Öncüsü</h2>
+            <p className="section-subtitle">Bizi bu yola sokan, sahada ve sahne arkasında iz bırakan isim.</p>
           </motion.div>
 
           <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            className="professional-card relative overflow-hidden group"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.8 }}
           >
-            {players.map((player, index) => (
-              <motion.div 
-                key={player.id} 
-                className="professional-card group"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <div className="flex items-start space-x-4 mb-6">
-                  <div className="w-16 h-16 bg-dark-700 rounded-full flex items-center justify-center">
-                    <Users className="w-8 h-8 text-primary-500" />
+            <div className="absolute -top-24 -right-24 w-96 h-96 bg-primary-500/20 rounded-full blur-3xl group-hover:opacity-80 transition-opacity"></div>
+            <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-primary-600/10 rounded-full blur-3xl"></div>
+
+            <div className="relative z-10 flex flex-col md:flex-row items-center md:items-start gap-8">
+              <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden ring-4 ring-primary-500/40 shadow-xl">
+                <Image src={pioneer.avatar} alt={pioneer.nickname} width={160} height={160} className="object-cover w-full h-full" />
+              </div>
+              <div className="flex-1 text-center md:text-left">
+                <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary-500/20 text-primary-300 text-xs font-semibold mb-3">
+                  Mirasın Öncüsü
+                </div>
+                <h3 className="text-3xl md:text-4xl font-display font-bold text-white mb-2">{pioneer.nickname}</h3>
+                <p className="text-dark-300 mb-4">{pioneer.name}</p>
+                <div className={`inline-block px-3 py-1 rounded-full text-xs font-medium text-white bg-gradient-to-r ${roleColors[pioneer.role]} mb-6`}>
+                  {pioneer.role}
+                </div>
+
+                <div className="flex flex-wrap gap-3">
+                  <div className="px-3 py-2 bg-dark-800 rounded-lg">
+                    <div className="text-sm text-dark-400">Win Rate</div>
+                    <div className="text-xl font-bold text-primary-500">{pioneer.stats.winRate}%</div>
                   </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-bold text-white mb-1">{player.nickname}</h3>
-                    <p className="text-dark-300 text-sm mb-2">{player.name}</p>
-                    <div className={`inline-block px-3 py-1 rounded-full text-xs font-medium text-white bg-gradient-to-r ${roleColors[player.role]}`}>
-                      {player.role}
-                    </div>
+                  <div className="px-3 py-2 bg-dark-800 rounded-lg">
+                    <div className="text-sm text-dark-400">Avg KDA</div>
+                    <div className="text-xl font-bold text-primary-500">{pioneer.stats.averageKDA}</div>
+                  </div>
+                  <div className="px-3 py-2 bg-dark-800 rounded-lg">
+                    <div className="text-sm text-dark-400">Avg ACS</div>
+                    <div className="text-xl font-bold text-primary-500">{pioneer.stats.averageACS}</div>
+                  </div>
+                  <div className="px-3 py-2 bg-dark-800 rounded-lg">
+                    <div className="text-sm text-dark-400 mb-1">Rank</div>
+                    {rankImages[pioneer.stats.rank] ? (
+                      <Image src={rankImages[pioneer.stats.rank]} alt={pioneer.stats.rank} width={36} height={36} className="object-contain" />
+                    ) : (
+                      <div className="text-sm font-semibold text-white">{pioneer.stats.rank}</div>
+                    )}
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4 mb-6">
-                  <div>
-                    <div className="text-2xl font-bold text-primary-500">{player.stats.winRate}%</div>
-                    <div className="text-xs text-dark-400">Win Rate</div>
-                  </div>
-                  <div>
-                    <div className="text-2xl font-bold text-primary-500">{player.stats.averageKDA}</div>
-                    <div className="text-xs text-dark-400">Avg KDA</div>
-                  </div>
-                  <div>
-                    <div className="text-2xl font-bold text-primary-500">{player.stats.averageACS}</div>
-                    <div className="text-xs text-dark-400">Avg ACS</div>
-                  </div>
-                  <div>
-                    <div className="text-sm font-medium text-white">{player.stats.rank}</div>
-                    <div className="text-xs text-dark-400">Rank</div>
-                  </div>
-                </div>
-
-                <div className="flex space-x-3">
-                  {player.socialMedia.twitter && (
-                    <a href={`https://twitter.com/${player.socialMedia.twitter.slice(1)}`} 
-                       className="p-2 bg-dark-800 rounded-lg text-dark-400 hover:text-blue-400 transition-colors duration-300"
-                       target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="w-4 h-4" />
-                    </a>
-                  )}
-                  {player.socialMedia.twitch && (
-                    <a href={`https://twitch.tv/${player.socialMedia.twitch}`}
-                       className="p-2 bg-dark-800 rounded-lg text-dark-400 hover:text-purple-400 transition-colors duration-300"
-                       target="_blank" rel="noopener noreferrer">
-                      <Play className="w-4 h-4" />
+                <div className="flex gap-3 mt-6 justify-center md:justify-start">
+                  {pioneer.socialMedia.twitter && (
+                    <a
+                      href={`https://x.com/${pioneer.socialMedia.twitter.slice(1)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onMouseDown={(e) => e.preventDefault()}
+                      onClick={(e) => (e.currentTarget as HTMLAnchorElement).blur()}
+                      className="p-2 bg-dark-800 rounded-lg text-dark-400 hover:text-blue-400 transition-colors flex items-center gap-2 focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0"
+                    >
+                      <Twitter className="w-4 h-4" />
                     </a>
                   )}
                 </div>
-              </motion.div>
-            ))}
+              </div>
+            </div>
           </motion.div>
 
-          <motion.div 
-            className="text-center"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <Link href="/espor/takim" className="btn-primary text-base px-8 py-4 flex items-center justify-center min-w-[200px] group relative overflow-hidden">
-              <span className="relative z-10 flex items-center">
-                Takım Detayları
-                <Target className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
-              </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-primary-400 to-primary-600 opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-xl"></div>
-            </Link>
-          </motion.div>
+          
         </div>
       </section>
 
@@ -253,10 +244,10 @@ export default function EsportsPage() {
       </div>
 
       {/* Staff Section */}
-      <section className="py-20 bg-gradient-to-br from-dark-900 to-dark-800 snap-start snap-always min-h-screen flex items-center">
+      <section className="py-14 bg-gradient-to-br from-dark-900 to-dark-800 snap-start snap-always">
         <div className="container-custom">
           <motion.div 
-            className="text-center mb-16"
+            className="text-center mb-10"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
@@ -264,38 +255,54 @@ export default function EsportsPage() {
           >
             <h2 className="section-title">Başarının Mimarları</h2>
             <p className="section-subtitle">
-              Şampiyonluk yolculuğumuzda takımı zirveye taşıyan deneyimli teknik kadromuz.
+              Şampiyonluk yolculuğumuzda takımlarımızı zirveye taşıyan deneyimli kadromuz.
             </p>
           </motion.div>
 
+          {(() => {
+            const manager = staff.find((m) => m.role === 'Manager');
+            const coach = staff.find((m) => m.role === 'Coach');
+            const analyst = staff.find((m) => m.role === 'Analyst');
+            // Oyuncu kartı için personel listesinden seçim yap (isim eşleşmesi veya özel rol adı kullanılarak)
+            const playerStaff = staff.find((m) => (m as any).role === 'Player');
+            const leaders = [
+              { label: 'Takım Sorumlusu', name: manager?.name ?? '—', note: manager?.experience || manager?.bio || '', Icon: Crown },
+              { label: 'Koç', name: coach?.name ?? '—', note: coach?.experience || coach?.bio || '', Icon: Trophy },
+              { label: 'Analist', name: analyst?.name ?? '—', note: analyst?.experience || analyst?.bio || '', Icon: BarChart3 },
+              { label: 'Oyuncu', name: playerStaff?.name ?? '—', note: playerStaff?.experience || playerStaff?.bio || '', Icon: Gamepad2 },
+            ];
+            return (
           <motion.div 
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 xl:gap-10"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.8 }}
           >
-            {staff.map((member, index) => (
-              <motion.div 
-                key={member.id} 
-                className="professional-card text-center"
+            {leaders.map((l, index) => (
+                <motion.div
+                  key={`${l.label}-${index}`}
+                  className="professional-card text-center group px-6 py-8"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <div className="w-24 h-24 bg-primary-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Users className="w-12 h-12 text-primary-500" />
+                <div className="w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:opacity-90 transition-opacity duration-300 bg-gradient-to-br from-dark-700 to-dark-600 border border-dark-600">
+                  <l.Icon className="w-8 h-8 text-primary-400" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">{member.name}</h3>
+                <h3 className="text-xl font-bold text-white mb-2">{l.name}</h3>
                 <div className="inline-block px-4 py-2 bg-primary-500/20 rounded-full text-primary-500 font-medium text-sm mb-4">
-                  {member.role}
+                  {l.label}
                 </div>
-                <p className="text-dark-300 mb-4">{member.bio}</p>
-                <p className="text-sm text-dark-400">{member.experience}</p>
+                {l.note && (
+                  <p className="text-dark-300 text-sm leading-relaxed">{l.note}</p>
+                )}
               </motion.div>
             ))}
           </motion.div>
+            );
+          })()}
         </div>
       </section>
 
@@ -348,7 +355,6 @@ export default function EsportsPage() {
                     <div className="flex-1">
                       <h3 className="text-xl font-bold text-white mb-2">{achievement.title}</h3>
                       <p className="text-dark-300 mb-3">{achievement.description}</p>
-                      <p className="text-sm text-dark-400">{achievement.details}</p>
                     </div>
                   </div>
 
@@ -370,20 +376,7 @@ export default function EsportsPage() {
             ))}
           </motion.div>
 
-          <motion.div 
-            className="text-center"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <Link href="/espor/tarihce" className="btn-secondary text-base px-8 py-4 flex items-center justify-center min-w-[200px] group relative">
-              <span className="relative z-10 flex items-center">
-                Tüm Başarıları Görüntüle
-                <Trophy className="w-5 h-5 ml-2 group-hover:rotate-12 transition-transform duration-300" />
-              </span>
-            </Link>
-          </motion.div>
+          
         </div>
       </section>
 
@@ -418,7 +411,7 @@ export default function EsportsPage() {
             {historicalMatches.slice(0, 3).map((match) => (
               <motion.div 
                 key={match.id} 
-                className="professional-card"
+                className="professional-card group"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -426,20 +419,50 @@ export default function EsportsPage() {
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-6">
-                    <div className="flex items-center space-x-4">
-                      <div className="w-16 h-16 bg-gradient-tiger rounded-lg flex items-center justify-center">
-                        <span className="text-white font-bold text-xl">H</span>
-                      </div>
-                      <div className={`text-3xl font-bold ${match.score && match.score.us > match.score.them ? 'text-green-500' : 'text-red-500'}`}>
-                        {match.score?.us} - {match.score?.them}
-                      </div>
-                      <div className="w-16 h-16 bg-dark-700 rounded-lg flex items-center justify-center">
-                        <span className="text-white font-bold text-sm">{match.opponent.slice(0, 2)}</span>
-                      </div>
+                  <div className="flex items-center space-x-4">
+                    <div className="w-16 h-16 bg-dark-700 rounded-lg flex items-center justify-center overflow-hidden">
+                      <Image src={ourTeamLogo} alt="HydRaboN Esports" width={64} height={64} className="object-contain" />
                     </div>
+                    <div className={`text-3xl font-bold ${match.score && match.score.us > match.score.them ? 'text-green-500' : 'text-red-500'}`}>
+                      {match.score?.us} - {match.score?.them}
+                    </div>
+                    <div className="w-16 h-16 bg-dark-700 rounded-lg flex items-center justify-center overflow-hidden">
+                      {match.opponentLogo ? (
+                        <Image src={match.opponentLogo} alt={match.opponent} width={64} height={64} className="object-contain" />
+                      ) : (
+                        <span className="text-white font-bold text-sm">{match.opponent.slice(0, 2)}</span>
+                      )}
+                    </div>
+                  </div>
                     <div>
                       <h3 className="text-xl font-bold text-white">{match.opponent}</h3>
                       <p className="text-dark-300">{match.tournament}</p>
+                      <div className="flex items-center space-x-3 mt-2 text-sm text-dark-400">
+                        {match.duration && (
+                          <span className="inline-flex items-center">
+                            <Clock className="w-4 h-4 mr-1" />
+                            {match.duration}
+                          </span>
+                        )}
+                        {match.maps && (
+                          <span className="truncate max-w-[220px]">Oynanan Harita: {match.maps.join(', ')}</span>
+                        )}
+                      </div>
+                      {match.matchUrl && (
+                        <div className="mt-2">
+                          <a
+                            href={match.matchUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onMouseDown={(e) => e.preventDefault()}
+                            onClick={(e) => (e.currentTarget as HTMLAnchorElement).blur()}
+                            className="inline-flex items-center text-primary-500 hover:text-primary-400 font-medium focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0"
+                          >
+                            Maçı görüntüle
+                            <ExternalLink className="w-4 h-4 ml-1" />
+                          </a>
+                        </div>
+                      )}
                     </div>
                   </div>
 
@@ -468,58 +491,6 @@ export default function EsportsPage() {
         <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
       </div>
 
-      {/* Career Highlights */}
-      <section className="py-20 bg-gradient-to-br from-dark-900 to-dark-800 snap-start snap-always min-h-screen flex items-center">
-        <div className="container-custom">
-          <motion.div 
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="section-title">Kariyer Rekorları</h2>
-            <p className="section-subtitle">
-              Espor yolculuğumuzda elde ettiğimiz en önemli rekorlar ve istatistikler.
-            </p>
-          </motion.div>
-
-          <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8 }}
-          >
-            {careerHighlights.map((highlight, index) => (
-              <motion.div 
-                key={index} 
-                className="professional-card text-center"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <div className="w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                  {highlight.icon === 'Trophy' && <Trophy className="w-8 h-8 text-white" />}
-                  {highlight.icon === 'Medal' && <Medal className="w-8 h-8 text-white" />}
-                  {highlight.icon === 'Award' && <Award className="w-8 h-8 text-white" />}
-                  {highlight.icon === 'Target' && <Target className="w-8 h-8 text-white" />}
-                </div>
-                <h3 className="text-3xl font-bold text-primary-500 mb-2">{highlight.value}</h3>
-                <h4 className="text-lg font-semibold text-white mb-3">{highlight.title}</h4>
-                <p className="text-dark-300 text-sm">{highlight.description}</p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Section Separator */}
-      <div className="container-custom">
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
-      </div>
-
       {/* Heritage Section */}
       <section className="py-20 bg-dark-950 snap-start snap-always min-h-screen flex items-center">
         <div className="container-custom">
@@ -537,20 +508,20 @@ export default function EsportsPage() {
               Şampiyonluklar, rekorlar ve unutulmaz anılarla dolu espor tarihimizi keşfet. 
               HydRaboN ailesinin gurur verici başarı hikayesi.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/espor/tarihce" className="bg-white text-primary-600 font-semibold py-4 px-8 rounded-lg hover:bg-primary-50 transition-all duration-300 flex items-center justify-center min-w-[160px] group">
+            <div className="flex justify-center">
+              <a
+                href="https://discord.gg/hydrabon"
+                target="_blank"
+                rel="noopener noreferrer"
+                onMouseDown={(e) => e.preventDefault()}
+                onClick={(e) => (e.currentTarget as HTMLAnchorElement).blur()}
+                className="bg-white text-primary-600 font-semibold py-4 px-8 rounded-lg hover:bg-primary-50 transition-all duration-300 flex items-center justify-center min-w-[220px] group transform hover:scale-105 active:scale-95 will-change-transform focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0"
+              >
                 <span className="flex items-center">
-                  Başarı Tarihçesi
-                  <Trophy className="w-5 h-5 ml-2 group-hover:rotate-12 transition-transform duration-300" />
+                  Bu Mirasın İzini Keşfet
+                  <ExternalLink className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
                 </span>
-              </Link>
-              <Link href="/espor/istatistikler" 
-                    className="bg-primary-700 text-white font-semibold py-4 px-8 rounded-lg hover:bg-primary-800 transition-all duration-300 flex items-center justify-center min-w-[160px] group">
-                <span className="flex items-center">
-                  İstatistikler
-                  <Target className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
-                </span>
-              </Link>
+              </a>
             </div>
           </motion.div>
         </div>

@@ -10,18 +10,16 @@ import {
   Clock,
   Calendar,
   Users,
-  TrendingUp,
-  Camera,
-  Edit,
-  Megaphone,
   ExternalLink,
   Youtube,
   Instagram,
-  Twitter
+  Twitter,
+  Gift,
+  House
 } from 'lucide-react';
-import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { featuredContent, mediaTeam, mediaStats, contentCategories, socialMediaPlatforms } from '@/data/media';
+import Image from 'next/image';
+import { featuredContent, mediaStats, socialMediaPlatforms } from '@/data/media';
 
 const typeIcons = {
   'video': Video,
@@ -31,24 +29,21 @@ const typeIcons = {
 };
 
 const categoryColors = {
-  'Team Highlights': 'from-primary-500 to-primary-600',
-  'Tournament Coverage': 'from-green-500 to-green-600',
-  'Behind Scenes': 'from-purple-500 to-purple-600',
-  'Announcements': 'from-blue-500 to-blue-600',
-  'Training': 'from-orange-500 to-orange-600',
+  'Mix': 'from-purple-500 to-purple-600',
 };
 
-const roleIcons = {
-  'Video Editor': Edit,
-  'Graphic Designer': ImageIcon,
-  'Photographer': Camera,
-  'Content Creator': FileText,
-  'Social Media Manager': Megaphone,
+// mediaTeam kaldırıldığı için roleIcons gereksiz
+
+const platformIcons: Record<string, React.ComponentType<any>> = {
+  YouTube: Youtube,
+  Instagram: Instagram,
+  Twitter: Twitter,
+  Discord: House,
 };
 
 export default function MediaPage() {
   return (
-    <div className="min-h-screen snap-y snap-mandatory overflow-y-scroll scroll-smooth">
+    <div className="min-h-screen md:snap-y md:snap-mandatory overflow-y-auto overflow-x-hidden scroll-smooth">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden snap-start snap-always">
         {/* Multi-layered Dynamic Background */}
@@ -90,7 +85,7 @@ export default function MediaPage() {
             >
               <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary-900/30 to-primary-800/30 border border-primary-500/40 rounded-full backdrop-blur-md">
                 <div className="w-2 h-2 bg-primary-400 rounded-full mr-3 animate-pulse"></div>
-                <span className="text-primary-200 text-sm font-semibold tracking-wider uppercase">Medya Departmanı</span>
+                <span className="text-primary-200 text-sm font-semibold tracking-wider uppercase">İçerik Merkezi</span>
                 <div className="w-2 h-2 bg-primary-400 rounded-full ml-3 animate-pulse"></div>
               </div>
             </motion.div>
@@ -104,7 +99,7 @@ export default function MediaPage() {
             >
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight">
                 <span className="bg-gradient-to-r from-primary-300 via-white to-primary-300 bg-clip-text text-transparent">
-                  HydRaboN Medya
+                  Sosyal Medya
                 </span>
               </h1>
               <motion.div 
@@ -123,10 +118,9 @@ export default function MediaPage() {
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <p className="text-base md:text-lg text-dark-100 leading-relaxed font-medium">
-                Teaser videolar, takım tanıtımları, taraftar içerikleri ve 
-                <span className="text-primary-300 font-semibold"> sosyal medya kampanyaları </span>
-                hazırlayan 
-                <span className="text-white font-semibold"> aktif medya departmanımız</span>.
+                Ürettiğimiz içeriklerle topluluğumuzun değerlerini daha geniş kitlelere ulaştırıyor, etkileşimi artırıyor ve
+                <span className="text-primary-300 font-semibold"> dış dünyada </span>
+                <span className="text-white font-semibold"> güçlü bir etki yaratıyoruz.</span>
               </p>
             </motion.div>
           </motion.div>
@@ -140,9 +134,9 @@ export default function MediaPage() {
           >
             {[
               { icon: Video, value: mediaStats.totalVideos, label: 'Video İçerik', color: 'text-primary-500' },
-              { icon: Eye, value: `${(mediaStats.totalViews / 1000).toFixed(0)}K`, label: 'Toplam İzlenme', color: 'text-green-500' },
-              { icon: Users, value: `${(mediaStats.subscribers / 1000).toFixed(1)}K`, label: 'Abone', color: 'text-blue-500' },
-              { icon: TrendingUp, value: `${mediaStats.monthlyGrowth}%`, label: 'Aylık Büyüme', color: 'text-purple-500' }
+              { icon: Eye, value: `${mediaStats.totalViews}`, label: 'Toplam İzlenme', color: 'text-green-500' },
+              { icon: Users, value: `${mediaStats.subscribers}`, label: 'Takipçi', color: 'text-blue-500' },
+              { icon: Gift, value: `${mediaStats.campaign}`, label: 'Kampanya Çalışması', color: 'text-purple-500' }
             ].map((stat, index) => (
               <motion.div 
                 key={index}
@@ -200,19 +194,38 @@ export default function MediaPage() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                 >
                   <div className="relative mb-6 overflow-hidden rounded-lg">
-                    <div className="aspect-video bg-dark-700 flex items-center justify-center">
-                      <div className="text-center">
-                        <IconComponent className="w-16 h-16 text-primary-500 mx-auto mb-4" />
-                        <div className="text-white font-medium">{content.title}</div>
-                      </div>
-                    </div>
-                    {content.type === 'video' && (
-                      <div className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <div className="w-16 h-16 bg-primary-500 rounded-full flex items-center justify-center">
-                          <Play className="w-8 h-8 text-white ml-1" />
+                    <a
+                      href={content.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onMouseDown={(e) => e.preventDefault()}
+                      onClick={(e) => (e.currentTarget as HTMLAnchorElement).blur()}
+                      className="aspect-video relative bg-dark-700 block focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0"
+                      aria-label={`${content.title} bağlantısını yeni sekmede aç`}
+                    >
+                      {content.thumbnail ? (
+                        <Image
+                          src={content.thumbnail}
+                          alt={content.title}
+                          fill
+                          sizes="(min-width: 1024px) 600px, 100vw"
+                          quality={90}
+                          className="object-cover"
+                          priority={index < 2}
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center">
+                          <IconComponent className="w-16 h-16 text-primary-500" />
                         </div>
-                      </div>
-                    )}
+                      )}
+                      {content.type === 'video' && (
+                        <div className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <div className="w-16 h-16 bg-primary-500 rounded-full flex items-center justify-center">
+                            <Play className="w-8 h-8 text-white ml-1" />
+                          </div>
+                        </div>
+                      )}
+                    </a>
                   </div>
 
                   <div className="mb-6">
@@ -235,7 +248,7 @@ export default function MediaPage() {
                       </div>
                       <div className="flex items-center space-x-1">
                         <Eye className="w-4 h-4" />
-                        <span>{content.views?.toLocaleString()} izlenme</span>
+                        <span>{content.views} görüntüleme</span>
                       </div>
                       {content.duration && (
                         <div className="flex items-center space-x-1">
@@ -258,7 +271,9 @@ export default function MediaPage() {
                     href={content.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center text-primary-500 hover:text-primary-400 font-medium transition-colors duration-300"
+                    onMouseDown={(e) => e.preventDefault()}
+                    onClick={(e) => (e.currentTarget as HTMLAnchorElement).blur()}
+                    className="inline-flex items-center text-primary-500 hover:text-primary-400 font-medium transition-colors duration-300 focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0"
                   >
                     İçeriği Görüntüle
                     <ExternalLink className="w-4 h-4 ml-2" />
@@ -268,193 +283,11 @@ export default function MediaPage() {
             })}
           </motion.div>
 
-          <motion.div 
-            className="text-center"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <Link href="/medya/videolar" className="btn-primary text-base px-8 py-4 flex items-center justify-center min-w-[200px] group relative overflow-hidden">
-              <span className="relative z-10 flex items-center">
-                Tüm İçerikleri Görüntüle
-                <Video className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
-              </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-primary-400 to-primary-600 opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-xl"></div>
-            </Link>
-          </motion.div>
+          
         </div>
       </section>
 
-      {/* Section Separator */}
-      <div className="container-custom">
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
-      </div>
-
-      {/* Content Categories */}
-      <section className="py-20 bg-gradient-to-br from-dark-900 to-dark-800">
-        <div className="container-custom">
-          <motion.div 
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="section-title">İçerik Kategorileri</h2>
-            <p className="section-subtitle">
-              Çeşitli kategorilerde ürettiğimiz kaliteli içerikler.
-            </p>
-          </motion.div>
-
-          <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8 }}
-          >
-            {contentCategories.map((category, index) => (
-              <motion.div 
-                key={index}
-                className="professional-card text-center group"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <div className={`w-16 h-16 bg-gradient-to-br ${category.color} rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                  <Video className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">{category.name}</h3>
-                <p className="text-dark-300 mb-4">{category.description}</p>
-                <div className="text-3xl font-bold text-primary-500 mb-2">{category.count}</div>
-                <div className="text-dark-400 text-sm">İçerik</div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Section Separator */}
-      <div className="container-custom">
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
-      </div>
-
-      {/* Media Team */}
-      <section className="py-20 bg-dark-950">
-        <div className="container-custom">
-          <motion.div 
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="section-title">Medya Ekibi</h2>
-            <p className="section-subtitle">
-              Yaratıcı ve profesyonel medya ekibimizle tanışın.
-            </p>
-          </motion.div>
-
-          <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8 }}
-          >
-            {mediaTeam.map((member) => {
-              const IconComponent = roleIcons[member.role];
-              return (
-                <motion.div 
-                  key={member.id} 
-                  className="professional-card text-center"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                                     transition={{ duration: 0.6, delay: (typeof member.id === 'number' ? member.id : 0) * 0.1 }}
-                >
-                  <div className="w-24 h-24 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <IconComponent className="w-12 h-12 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-2">{member.name}</h3>
-                  <div className="inline-block px-4 py-2 bg-purple-500/20 rounded-full text-purple-500 font-medium text-sm mb-4">
-                    {member.role}
-                  </div>
-                  <p className="text-dark-300 mb-6 text-sm leading-relaxed">{member.experience}</p>
-                  
-                  {/* Specialties */}
-                  <div className="mb-6">
-                    <h4 className="text-sm font-semibold text-white mb-3">Uzmanlık Alanları</h4>
-                    <div className="flex flex-wrap gap-2 justify-center">
-                      {member.specialties.slice(0, 3).map((specialty, index) => (
-                        <span key={index} className="px-2 py-1 bg-dark-800 text-dark-300 text-xs rounded">
-                          {specialty}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Social Links */}
-                  <div className="flex justify-center space-x-3">
-                    {member.socialMedia.youtube && (
-                      <a
-                        href={`https://youtube.com/${member.socialMedia.youtube}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-2 bg-dark-800 rounded-lg text-dark-400 hover:text-red-500 transition-colors duration-300"
-                      >
-                        <Youtube className="w-4 h-4" />
-                      </a>
-                    )}
-                    {member.socialMedia.instagram && (
-                      <a
-                        href={`https://instagram.com/${member.socialMedia.instagram}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-2 bg-dark-800 rounded-lg text-dark-400 hover:text-pink-500 transition-colors duration-300"
-                      >
-                        <Instagram className="w-4 h-4" />
-                      </a>
-                    )}
-                    {member.socialMedia.twitter && (
-                      <a
-                        href={`https://twitter.com/${member.socialMedia.twitter.slice(1)}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-2 bg-dark-800 rounded-lg text-dark-400 hover:text-blue-400 transition-colors duration-300"
-                      >
-                        <Twitter className="w-4 h-4" />
-                      </a>
-                    )}
-                  </div>
-                </motion.div>
-              );
-            })}
-          </motion.div>
-
-          <motion.div 
-            className="text-center"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <Link href="/medya/ekip" className="btn-secondary text-base px-8 py-4 flex items-center justify-center min-w-[200px] group relative">
-              <span className="relative z-10 flex items-center">
-                Ekibin Tamamını Gör
-                <Users className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
-              </span>
-            </Link>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Section Separator */}
-      <div className="container-custom">
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
-      </div>
+      
 
       {/* Social Media Platforms */}
       <section className="py-20 bg-gradient-to-br from-dark-900 to-dark-800">
@@ -468,7 +301,7 @@ export default function MediaPage() {
           >
             <h2 className="section-title">Sosyal Medya</h2>
             <p className="section-subtitle">
-              Bizi tüm sosyal medya platformlarında takip edin.
+              Bizi tüm sosyal medya platformlarından takip edin!
             </p>
           </motion.div>
 
@@ -479,31 +312,36 @@ export default function MediaPage() {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.8 }}
           >
-            {socialMediaPlatforms.map((platform, index) => (
-              <motion.a
-                key={index}
-                href={platform.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="professional-card group hover:scale-105 transition-transform duration-300"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <div className="text-center">
-                  <div className={`text-4xl font-bold mb-2 ${platform.color}`}>
-                    {platform.followers}
+            {socialMediaPlatforms.map((platform, index) => {
+              const Icon = platformIcons[platform.name] || ExternalLink;
+              return (
+                <motion.a
+                  key={index}
+                  href={platform.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="professional-card group hover:scale-105 transition-transform duration-300"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                >
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-dark-700 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary-500/20 transition-colors duration-300">
+                      <Icon className={`w-8 h-8 ${platform.color}`} />
+                    </div>
+                    <div className={`text-4xl font-bold mb-2 ${platform.color}`}>
+                      {platform.followers}
+                    </div>
+                    <h3 className="text-lg font-semibold text-white mb-2">{platform.name}</h3>
+                    <p className="text-dark-300 text-sm mb-3">{platform.handle}</p>
+                    <div className={`text-4xl font-bold mb-2 ${platform.color}`}>
+                      {platform.followersText}
+                    </div>
                   </div>
-                  <h3 className="text-lg font-semibold text-white mb-2">{platform.name}</h3>
-                  <p className="text-dark-300 text-sm mb-3">{platform.handle}</p>
-                  <div className="flex items-center justify-center space-x-2">
-                    <TrendingUp className="w-4 h-4 text-green-500" />
-                    <span className="text-green-500 text-sm font-medium">{platform.growth}</span>
-                  </div>
-                </div>
-              </motion.a>
-            ))}
+                </motion.a>
+              );
+            })}
           </motion.div>
         </div>
       </section>
@@ -524,11 +362,10 @@ export default function MediaPage() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">
-              İçeriklerimizi Takip Edin!
+            Gelişmelerden haberdar olun!
             </h2>
             <p className="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
-              En yeni videolarımızdan haberdar olmak ve kulislerden görüntüleri kaçırmamak için 
-              sosyal medya hesaplarımızı takip edin.
+            Güncel gelişmeleri kaçırmamak ve topluluğumuzla bağlantıda kalmak için bizleri sosyal medyadan takip edin!
             </p>
             <motion.div 
               className="flex flex-col sm:flex-row gap-4 justify-center"
@@ -537,17 +374,25 @@ export default function MediaPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <a href="https://youtube.com/@hydrabon" target="_blank" rel="noopener noreferrer"
-                 className="bg-white text-purple-600 font-semibold py-4 px-8 rounded-lg hover:bg-purple-50 transition-all duration-300 flex items-center justify-center min-w-[180px] group">
+              <a 
+                href="https://youtube.com/@hydrabon" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="bg-white text-purple-600 font-semibold py-4 px-8 rounded-lg hover:bg-purple-50 transition-all duration-300 flex items-center justify-center min-w-[180px] group transform-gpu hover:scale-105 active:scale-95"
+              >
                 <span className="flex items-center">
-                  YouTube&apos;da Abone Ol
+                  Abone Ol
                   <Youtube className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
                 </span>
               </a>
-              <a href="https://instagram.com/hydrabon_esports" target="_blank" rel="noopener noreferrer"
-                 className="bg-purple-700 text-white font-semibold py-4 px-8 rounded-lg hover:bg-purple-800 transition-all duration-300 flex items-center justify-center min-w-[180px] group">
+              <a 
+                href="https://instagram.com/hydrabon.official" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="bg-purple-700 text-white font-semibold py-4 px-8 rounded-lg hover:bg-purple-800 transition-all duration-300 flex items-center justify-center min-w-[180px] group transform-gpu hover:scale-105 active:scale-95"
+              >
                 <span className="flex items-center">
-                  Instagram&apos;da Takip Et
+                  Takip Et
                   <Instagram className="w-5 h-5 ml-2 group-hover:rotate-12 transition-transform duration-300" />
                 </span>
               </a>

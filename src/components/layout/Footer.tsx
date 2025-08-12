@@ -10,7 +10,7 @@ import {
   Instagram,
   Youtube,
   Gamepad2,
-  MessageCircle,
+  House,
   ExternalLink,
   ArrowUp,
   Heart
@@ -30,29 +30,27 @@ const footerLinks = {
   divisions: {
     title: 'Birimlerimiz',
     links: [
-      { name: 'Espor Takımı', href: '/espor' },
-      { name: 'Ar-Ge', href: '/ar-ge' },
-      { name: 'Medya Ekibi', href: '/medya' },
-      { name: 'Discord Topluluğu', href: '/topluluk' },
+      { name: 'Topluluğumuz', href: '/topluluk' },
+      { name: 'Ar-Ge & Yazılım', href: '/ar-ge' },
+      { name: 'Medya Ekibimiz', href: '/medya' },
+      { name: 'CS2 Sunucumuz', href: '/cs2' },
+      { name: 'Espor Takımımız', href: '/espor' },
     ],
   },
   community: {
     title: 'Topluluk',
     links: [
-      { name: 'Discord Sunucusu', href: '/topluluk/discord' },
-      { name: 'Etkinlikler', href: '/topluluk/etkinlikler' },
-      { name: 'Başvuru Formu', href: '/topluluk/basvur' },
-      { name: 'SSS', href: '/topluluk/sss' },
-      { name: 'Kurallar', href: '/topluluk/kurallar' },
+      { name: 'Discord Sunucumuz', href: 'https://discord.gg/hydrabon' },
+      { name: 'Steam Grubumuz', href: 'https://steamcommunity.com/groups/HydRaboN' },
+      { name: 'İletişim', href: '/iletisim' },
     ],
   },
   legal: {
     title: 'Yasal',
     links: [
-      { name: 'Gizlilik Politikası', href: '/gizlilik' },
-      { name: 'Kullanım Şartları', href: '/kullanim-sartlari' },
-      { name: 'Çerez Politikası', href: '/cerez-politikasi' },
-      { name: 'İletişim', href: '/iletisim' },
+      { name: 'Gizlilik Politikası', href: '/yasal#gizlilik' },
+      { name: 'Kullanım Şartları', href: '/yasal#kullanim-sartlari' },
+      { name: 'Çerez Politikası', href: '/yasal#cerez-politikasi' },
     ],
   },
 };
@@ -73,7 +71,7 @@ const socialMedia = [
     bgColor: 'hover:bg-red-500/10',
   },
   {
-    name: 'Steam',
+    name: 'Steam Community',
     href: 'https://steamcommunity.com/groups/HydRaboN',
     icon: Gamepad2,
     color: 'hover:text-blue-300 hover:shadow-blue-300/25',
@@ -82,14 +80,14 @@ const socialMedia = [
   {
     name: 'Discord',
     href: 'https://discord.gg/hydrabon',
-    icon: MessageCircle,
+    icon: House,
     color: 'hover:text-indigo-400 hover:shadow-indigo-400/25',
     bgColor: 'hover:bg-indigo-400/10',
   },
 ];
 
 const contactInfo = {
-  email: 'info@hydrabon.com',
+  email: 'contact@hydrabon.com',
   address: 'Türkiye',
   hours: '7/24 Discord Desteği',
 };
@@ -163,9 +161,9 @@ export default function Footer() {
       <div className="relative">
         {/* Top Section */}
         <div className="container-custom py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
             {/* Brand Section */}
-            <div className="lg:col-span-2">
+            <div className="col-span-2 sm:col-span-3 lg:col-span-2">
               <Link 
                 href="/"
                 className="flex items-center space-x-3 mb-6 group w-fit"
@@ -184,7 +182,7 @@ export default function Footer() {
                   />
                 </div>
                 <div>
-                  <h3 className="text-3xl font-display font-bold bg-gradient-to-r from-orange-400 via-primary-500 to-orange-600 bg-clip-text text-transparent group-hover:from-primary-500 group-hover:via-orange-500 group-hover:to-orange-700 transition-all duration-300 ease-out group-hover:scale-[1.02] group-hover:tracking-wide group-hover:drop-shadow-[0_0_15px_rgba(255,107,53,0.4)] will-change-transform transform-gpu">
+                  <h3 className="text-3xl font-display font-bold bg-gradient-to-r from-orange-400 via-primary-500 to-orange-600 bg-clip-text text-transparent group-hover:from-primary-500 group-hover:via-orange-500 group-hover:to-orange-700 transition-all duration-300 ease-out group-hover:scale-[1.02] group-hover:tracking-wide group-hover:drop-shadow-[0_0_15px_rgba(255,107,53,0.4)] will-change-transform transform-gpu leading-normal">
                     HydRaboN
                   </h3>
                   <p className="text-orange-400 font-medium transition-all duration-300 ease-out group-hover:text-orange-300 group-hover:font-semibold group-hover:tracking-wide group-hover:drop-shadow-[0_0_8px_rgba(255,107,53,0.3)] will-change-transform transform-gpu">
@@ -194,7 +192,7 @@ export default function Footer() {
               </Link>
               
               <p className="text-dark-300 text-lg mb-8 leading-relaxed transition-colors duration-300 hover:text-dark-200">
-                Espor, teknoloji, medya ve topluluk yönetiminde yenilikçi çözümler üreten, 
+                Topluluk yönetimi, teknoloji, medya ve espor alanlarında yenilikçi çözümler üreten, 
                 güçlü bir simgeye ve organizasyonel yapıya sahip, genç ve disiplinli bir topluluk yapılanması.
               </p>
 
@@ -222,7 +220,7 @@ export default function Footer() {
               </div>
 
               {/* Social Media */}
-              <div className="flex items-center space-x-4 mt-8">
+              <div className="flex items-center gap-3 mt-8 flex-wrap">
                 {socialMedia.map((social) => (
                   <a
                     key={social.name}
@@ -242,9 +240,9 @@ export default function Footer() {
 
             {/* Links Sections */}
             {Object.entries(footerLinks).map(([key, section]) => (
-              <div key={key}>
+              <div key={key} className="min-w-[150px] break-words">
                 <h4 
-                  className="text-white font-display font-semibold text-lg mb-6 relative group"
+                  className="text-white font-display font-semibold text-base sm:text-lg mb-4 sm:mb-6 relative group leading-tight"
                   onMouseEnter={() => {
                     if (window.matchMedia('(hover: hover)').matches) {
                       setHoveredTitle(key);
@@ -270,12 +268,12 @@ export default function Footer() {
                     }}
                   ></div>
                 </h4>
-                <ul className="space-y-3">
+                <ul className="space-y-2 sm:space-y-3">
                   {section.links.map((link) => (
                     <li key={link.name}>
                       <Link
                         href={link.href}
-                        className="text-dark-300 hover:text-primary-400 transition-all duration-300 flex items-center group relative hover:translate-x-1 hover:tracking-wide hover:drop-shadow-[0_0_6px_rgba(255,107,53,0.3)] will-change-transform"
+                        className="text-dark-300 hover:text-primary-400 transition-all duration-300 flex items-center group relative hover:translate-x-1 hover:drop-shadow-[0_0_6px_rgba(255,107,53,0.3)] will-change-transform leading-snug"
                         style={{outline: 'none'}}
                         onFocus={(e) => e.target.blur()}
                       >
