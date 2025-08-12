@@ -16,11 +16,15 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   title: "HydRaboN - Çok Yönlü Dijital Topluluk",
-  description: "Espor, teknoloji, medya ve topluluk yönetiminde yenilikçi çözümler üreten, güçlü bir simgeye ve organizasyonel yapıya sahip, genç ve disiplinli bir topluluk yapılanması.",
+  description: "Topluluk yönetimi, teknoloji, medya ve espor üzerine yenilikçi çözümler üreten, güçlü bir simgeye ve organizasyonel yapıya sahip, genç ve disiplinli bir topluluk yapılanması.",
   keywords: ["topluluk", "esports", "valorant", "yazılım", "teknoloji", "medya", "discord", "türkiye", "hydrabon"],
   authors: [{ name: "HydRaboN Team" }],
   creator: "HydRaboN",
   publisher: "HydRaboN",
+  metadataBase: new URL("https://hydrabon.com"),
+  alternates: {
+    canonical: "/",
+  },
   robots: {
     index: true,
     follow: true,
@@ -30,13 +34,22 @@ export const metadata: Metadata = {
     locale: "tr_TR",
     url: "https://hydrabon.com",
     title: "HydRaboN - Çok Yönlü Dijital Topluluk",
-    description: "Espor, teknoloji, medya ve topluluk yönetiminde yenilikçi çözümler üreten, güçlü bir simgeye ve organizasyonel yapıya sahip, genç ve disiplinli bir topluluk yapılanması.",
+    description: "Topluluk yönetimi, teknoloji, medya ve espor üzerine yenilikçi çözümler üreten, güçlü bir simgeye ve organizasyonel yapıya sahip, genç ve disiplinli bir topluluk yapılanması.",
     siteName: "HydRaboN",
+    images: [
+      {
+        url: "/logo-transparent.png",
+        width: 1200,
+        height: 630,
+        alt: "HydRaboN",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "HydRaboN - Çok Yönlü Dijital Topluluk",
-    description: "Espor, teknoloji, medya ve topluluk yönetiminde yenilikçi çözümler üreten, güçlü bir simgeye ve organizasyonel yapıya sahip, genç ve disiplinli bir topluluk yapılanması.",
+    description: "Topluluk yönetimi, teknoloji, medya ve espor üzerine yenilikçi çözümler üreten, güçlü bir simgeye ve organizasyonel yapıya sahip, genç ve disiplinli bir topluluk yapılanması.",
+    images: ["/logo-transparent.png"],
   },
 
 };
@@ -50,6 +63,25 @@ export default function RootLayout({
     <html lang="tr" className={`${inter.variable} ${montserrat.variable}`}>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        {/* Organization JSON-LD */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              name: 'HydRaboN',
+              url: 'https://hydrabon.com',
+              logo: 'https://hydrabon.com/logo-transparent.png',
+              sameAs: [
+                'https://discord.gg/hydrabon',
+                'https://www.youtube.com/@hydrabon',
+                'https://x.com/hydrabonesports',
+                'https://instagram.com/hydrabon.official',
+              ],
+            }),
+          }}
+        />
       </head>
       <body className="min-h-screen bg-dark-950 text-white antialiased overflow-x-hidden">
         <Header />

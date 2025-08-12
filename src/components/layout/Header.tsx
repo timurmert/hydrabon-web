@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import Image from 'next/image';
 import { 
   Menu, 
@@ -63,6 +63,7 @@ export default function Header() {
   const [isLogoHovered, setIsLogoHovered] = useState(false);
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -104,9 +105,9 @@ export default function Header() {
           ? 'bg-black/60 backdrop-blur-md border-b border-primary-500/30 shadow-lg shadow-black/20'
           : 'bg-black/30 md:bg-transparent backdrop-blur-sm md:backdrop-blur-0 border-b border-dark-800/50 md:border-transparent'
       }`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
+      initial={prefersReducedMotion ? { opacity: 0 } : { y: -12, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={prefersReducedMotion ? { duration: 0.25, ease: 'easeOut' } : { type: 'spring', stiffness: 500, damping: 32, mass: 0.6 }}
     >
       <div className="container-header">
         <div className="flex items-center justify-between h-16 sm:h-20">
