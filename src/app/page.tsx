@@ -3,6 +3,7 @@
 import { Gamepad2, Crosshair, Code, Video, Users, ArrowRight, Trophy, Target, Zap, Info, HelpCircle, PlayCircle } from 'lucide-react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { useDiscordStats } from '@/hooks/useDiscordStats';
 
 const divisions = [
   {
@@ -61,14 +62,40 @@ const divisions = [
   },
 ];
 
-const stats = [
-  { label: 'Aktif Üye', value: '850+', icon: Users },
-  { label: 'Proje Tamamlandı', value: '10+', icon: Target },
-  { label: 'Oynanan Maç', value: '100+', icon: Trophy },
-  { label: 'Görüntülenme', value: '1.5M+', icon: PlayCircle },
-];
-
 export default function HomePage() {
+  const { stats: discordStats, loading, error } = useDiscordStats();
+
+  // Son 2 haneyi 0 yaparak formatla (örn: 935 -> 900+)
+  const formatMemberCount = (): string => {
+    // Loading durumunda, API'den veri gelmesini bekle
+    if (loading && !discordStats) {
+      return '...';
+    }
+    
+    // API başarısız olduysa veya veri yoksa fallback değer
+    if (error || !discordStats?.totalMembers) {
+      return '900+';
+    }
+    
+    const count = discordStats.totalMembers;
+    const numCount = typeof count === 'string' ? parseInt(count.replace(/\D/g, '')) : count;
+    
+    if (isNaN(numCount)) return '900+';
+    
+    const rounded = Math.floor(numCount / 100) * 100;
+    return `${rounded}+`;
+  };
+
+  const stats = [
+    { 
+      label: 'Aktif Üye', 
+      value: formatMemberCount(), 
+      icon: Users 
+    },
+    { label: 'Proje Tamamlandı', value: '10+', icon: Target },
+    { label: 'Oynanan Maç', value: '250+', icon: Trophy },
+    { label: 'Görüntülenme', value: '1.5M+', icon: PlayCircle },
+  ];
   return (
     <div className="min-h-screen md:snap-y md:snap-mandatory overflow-y-auto overflow-x-hidden scroll-smooth">
       {/* Hero Section - Extended */}

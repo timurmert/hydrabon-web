@@ -9,12 +9,11 @@ import {
   Clock,
   Instagram,
   Youtube,
-  Gamepad2,
-  House,
   ExternalLink,
   ArrowUp,
   Heart
 } from 'lucide-react';
+import { SiDiscord, SiSteam } from 'react-icons/si';
 
 const footerLinks = {
   organization: {
@@ -73,14 +72,14 @@ const socialMedia = [
   {
     name: 'Steam Community',
     href: 'https://steamcommunity.com/groups/HydRaboN',
-    icon: Gamepad2,
+    icon: SiSteam,
     color: 'hover:text-blue-300 hover:shadow-blue-300/25',
     bgColor: 'hover:bg-blue-300/10',
   },
   {
     name: 'Discord',
     href: 'https://discord.gg/hydrabon',
-    icon: House,
+    icon: SiDiscord,
     color: 'hover:text-indigo-400 hover:shadow-indigo-400/25',
     bgColor: 'hover:bg-indigo-400/10',
   },

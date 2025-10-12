@@ -112,12 +112,12 @@ export const historicalMatches: Match[] = [
 ];
 
 export const teamStats = {
-  matchesPlayed: 140,
-  wins: 76,
-  losses: 64,
-  winRate: 54.3,
-  mapWinRate: 54.3,
-  averageRounds: 14.2,
+  matchesPlayed: 250,
+  wins: 136,
+  losses: 114,
+  winRate: 54.4,
+  mapWinRate: 54.4,
+  averageRounds: 15.2,
   tournaments: "10+",
   championships: 2,
 };
