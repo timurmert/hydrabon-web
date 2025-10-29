@@ -12,7 +12,7 @@ import {
   Bot
 } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { projects, technologies } from '@/data/rnd';
+import { projects, technologies, rndStats } from '@/data/rnd';
 import { communityStats } from '@/data/community';
 import Image from 'next/image';
 
@@ -42,8 +42,6 @@ const categoryColors = {
 };
 
 export default function RndPage() {
-  const completedProjects = projects.filter(p => p.status === 'completed');
-  const activeProjects = projects.filter(p => p.status !== 'completed');
   const argeTeam = communityStats.roles.find((role) => role.name === 'Ar-Ge Ekibi');
   const developerCount = argeTeam?.memberCount || 3;
 
@@ -139,9 +137,9 @@ export default function RndPage() {
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             {[
-              { icon: Target, value: projects.length, label: 'Toplam Proje', color: 'text-primary-500' },
-              { icon: CheckCircle, value: completedProjects.length, label: 'Tamamlanan', color: 'text-green-500' },
-              { icon: Clock, value: activeProjects.length, label: 'Aktif Proje', color: 'text-yellow-500' },
+              { icon: Target, value: rndStats.totalProjects, label: 'Toplam Proje', color: 'text-primary-500' },
+              { icon: CheckCircle, value: rndStats.completedProjects, label: 'Tamamlanan', color: 'text-green-500' },
+              { icon: Clock, value: rndStats.activeProjects, label: 'Aktif Proje', color: 'text-yellow-500' },
               { icon: Users, value: developerCount, label: 'Geliştirici', color: 'text-blue-500' }
             ].map((stat, index) => (
               <motion.div 
@@ -175,7 +173,7 @@ export default function RndPage() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="section-title">Öne Çıkan Projeler</h2>
+            <h2 className="section-title">Öne Çıkan Bazı Projelerimiz</h2>
             <p className="section-subtitle">
             Teknoloji ve inovasyon odaklı çalışmalarımızla geleceğe yön veren çözümler üretiyoruz.
             </p>

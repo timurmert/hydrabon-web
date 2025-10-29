@@ -1,5 +1,12 @@
 import { Project } from '@/types';
 
+// Ar-Ge İstatistikleri (Manuel)
+export const rndStats = {
+  totalProjects: "10+",      // Toplam Proje Sayısı
+  completedProjects: 11,  // Tamamlanan Proje Sayısı
+  activeProjects: 4,     // Aktif Proje Sayısı
+};
+
 export const projects: Project[] = [
   {
     id: '1',
