@@ -11,9 +11,10 @@ import {
   Youtube,
   ExternalLink,
   ArrowUp,
-  Heart
+  Heart,
+  Twitter
 } from 'lucide-react';
-import { SiDiscord, SiSteam } from 'react-icons/si';
+import { SiDiscord, SiSteam, SiKick } from 'react-icons/si';
 
 const footerLinks = {
   organization: {
@@ -63,11 +64,25 @@ const socialMedia = [
     bgColor: 'hover:bg-pink-400/10',
   },
   {
+    name: 'X (Twitter)',
+    href: 'https://x.com/hydrabonx',
+    icon: Twitter,
+    color: 'hover:text-sky-400 hover:shadow-sky-400/25',
+    bgColor: 'hover:bg-sky-400/10',
+  },
+  {
     name: 'YouTube',
     href: 'https://www.youtube.com/@hydrabon',
     icon: Youtube,
     color: 'hover:text-red-500 hover:shadow-red-500/25',
     bgColor: 'hover:bg-red-500/10',
+  },
+  {
+    name: 'Kick',
+    href: 'https://kick.com/hydrabon',
+    icon: SiKick,
+    color: 'hover:text-green-400 hover:shadow-green-400/25',
+    bgColor: 'hover:bg-green-400/10',
   },
   {
     name: 'Steam Community',
