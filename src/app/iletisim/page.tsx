@@ -26,8 +26,8 @@ const socialPlatforms = [
   {
     icon: Twitter,
     name: 'Twitter',
-    handle: '@hydrabonesports',
-    url: 'https://x.com/hydrabonesports',
+    handle: '@hydrabonx',
+    url: 'https://x.com/hydrabonx',
     color: 'text-blue-500',
   },
   {

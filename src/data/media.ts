@@ -60,10 +60,10 @@ export const socialMediaPlatforms = [
   },
   {
     name: 'Twitter',
-    handle: '@hydrabonesports',
+    handle: '@hydrabonx',
     followers: '100+',
     followersText: 'Takipçi',
-    url: 'https://x.com/hydrabonesports',
+    url: 'https://x.com/hydrabonx',
     color: 'text-blue-500',
   },
   {

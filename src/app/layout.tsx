@@ -77,7 +77,7 @@ export default function RootLayout({
               sameAs: [
                 'https://discord.gg/hydrabon',
                 'https://www.youtube.com/@hydrabon',
-                'https://x.com/hydrabonesports',
+                'https://x.com/hydrabonx',
                 'https://instagram.com/hydrabon.official',
               ],
             }),
