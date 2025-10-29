@@ -409,12 +409,23 @@ export default function EsportsPage() {
             {historicalMatches.slice(0, 3).map((match) => (
               <motion.div 
                 key={match.id} 
-                className="professional-card group"
+                className={`professional-card group relative ${match.isChampionship ? 'ring-2 ring-yellow-500/50 shadow-lg shadow-yellow-500/20 mt-4' : ''}`}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.8 }}
               >
+                {/* Şampiyonluk Badge - Kartın Üstünde */}
+                {match.isChampionship && (
+                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
+                    <div className="flex items-center space-x-2 bg-gradient-to-r from-yellow-500 to-yellow-600 px-4 py-1.5 rounded-full shadow-lg">
+                      <Trophy className="w-4 h-4 text-white" />
+                      <span className="text-white font-bold text-xs uppercase tracking-wide">Şampiyonluk</span>
+                      <Trophy className="w-4 h-4 text-white" />
+                    </div>
+                  </div>
+                )}
+
                 <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
                   {/* Tarih ve Sonuç Badge - Mobilde Üstte */}
                   <div className="flex items-center justify-between lg:hidden">
@@ -422,12 +433,20 @@ export default function EsportsPage() {
                       <Calendar className="w-4 h-4" />
                       <span>{new Date(match.date).toLocaleDateString('tr-TR')}</span>
                     </div>
-                    <div className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${
-                      match.score && match.score.us > match.score.them 
-                        ? 'bg-green-500/20 text-green-500' 
-                        : 'bg-red-500/20 text-red-500'
-                    }`}>
-                      {match.score && match.score.us > match.score.them ? 'Galibiyet' : 'Mağlubiyet'}
+                    <div className="flex items-center space-x-2">
+                      {match.isFinal && (
+                        <div className="inline-flex items-center px-2 py-1 rounded-full text-xs font-bold bg-yellow-500/20 text-yellow-500 border border-yellow-500/30">
+                          <Trophy className="w-3 h-3 mr-1" />
+                          Final
+                        </div>
+                      )}
+                      <div className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${
+                        match.score && match.score.us > match.score.them 
+                          ? 'bg-green-500/20 text-green-500' 
+                          : 'bg-red-500/20 text-red-500'
+                      }`}>
+                        {match.score && match.score.us > match.score.them ? 'Galibiyet' : 'Mağlubiyet'}
+                      </div>
                     </div>
                   </div>
 
@@ -484,11 +503,17 @@ export default function EsportsPage() {
                   </div>
 
                   {/* Tarih ve Sonuç Badge - Desktop'ta Sağda */}
-                  <div className="hidden lg:flex lg:flex-col lg:items-end text-right flex-shrink-0">
-                    <div className="flex items-center space-x-2 text-dark-300 mb-2 whitespace-nowrap">
+                  <div className="hidden lg:flex lg:flex-col lg:items-end text-right flex-shrink-0 gap-2">
+                    <div className="flex items-center space-x-2 text-dark-300 whitespace-nowrap">
                       <Calendar className="w-4 h-4" />
                       <span>{new Date(match.date).toLocaleDateString('tr-TR')}</span>
                     </div>
+                    {match.isFinal && (
+                      <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-yellow-500/20 text-yellow-500 border border-yellow-500/30 whitespace-nowrap">
+                        <Trophy className="w-3 h-3 mr-1" />
+                        Final Maçı
+                      </div>
+                    )}
                     <div className={`inline-block px-3 py-1 rounded-full text-sm font-medium whitespace-nowrap ${
                       match.score && match.score.us > match.score.them 
                         ? 'bg-green-500/20 text-green-500' 
