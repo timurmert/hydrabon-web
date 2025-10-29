@@ -18,7 +18,6 @@ import {
 import { SiX, SiDiscord, SiKick } from 'react-icons/si';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import type { LucideIcon } from 'lucide-react';
 import { featuredContent, mediaStats, socialMediaPlatforms } from '@/data/media';
 import { useDiscordStats } from '@/hooks/useDiscordStats';
 
@@ -35,6 +34,7 @@ const categoryColors = {
 
 // mediaTeam kaldırıldığı için roleIcons gereksiz
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const platformIcons: Record<string, any> = {
   YouTube: Youtube,
   Kick: SiKick,

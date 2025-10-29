@@ -97,7 +97,7 @@ export default function CS2Page() {
                 128 tick, anti-cheat korumalı profesyonel 
                 <span className="text-orange-300 font-semibold"> Counter-Strike 2 sunucumuz</span> geçmişte aktifti. 
                 <br />
-                Jailbreak'ten Aim Redline'a, özgün modlarımız ve özel sistemlerimizle 
+                Jailbreak&apos;ten Aim Redline&apos;a, özgün modlarımız ve özel sistemlerimizle 
                 <span className="text-white font-semibold"> unutulmaz anılar biriktirmiştik</span>.
               </p>
             </motion.div>
