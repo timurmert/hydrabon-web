@@ -11,10 +11,9 @@ import {
   Youtube,
   ExternalLink,
   ArrowUp,
-  Heart,
-  Twitter
+  Heart
 } from 'lucide-react';
-import { SiDiscord, SiSteam, SiKick } from 'react-icons/si';
+import { SiDiscord, SiSteam, SiKick, SiX } from 'react-icons/si';
 
 const footerLinks = {
   organization: {
@@ -66,7 +65,7 @@ const socialMedia = [
   {
     name: 'X (Twitter)',
     href: 'https://x.com/hydrabonx',
-    icon: Twitter,
+    icon: SiX,
     color: 'hover:text-sky-400 hover:shadow-sky-400/25',
     bgColor: 'hover:bg-sky-400/10',
   },
