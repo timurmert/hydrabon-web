@@ -36,7 +36,7 @@ export const featuredContent = mediaContent.filter(content => content.featured);
 export const mediaStats = {
   totalVideos: "150+",
   totalViews: "1.5M+",
-  subscribers: "800+",
+  subscribers: "1.000+",
   campaign: "10+",
   contentProduced: "150+",
 };

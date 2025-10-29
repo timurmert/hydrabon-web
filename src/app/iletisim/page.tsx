@@ -487,33 +487,33 @@ export default function ContactPage() {
       </div>
 
       {/* Discord CTA */}
-      <section className="py-20 bg-dark-950 snap-start snap-always min-h-screen flex items-center">
-        <div className="container-custom">
+      <section className="py-12 md:py-20 bg-dark-950 snap-start snap-always min-h-screen flex items-center">
+        <div className="container-custom px-4 md:px-6">
           <motion.div 
-            className="bg-gradient-to-r from-indigo-600 to-indigo-500 rounded-3xl p-12 text-center"
+            className="bg-gradient-to-r from-indigo-600 to-indigo-500 rounded-2xl md:rounded-3xl p-6 md:p-10 lg:p-12 text-center max-w-5xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-4 md:mb-6 px-4">
               Discord Topluluğumuza Katılın!
             </h2>
-            <p className="text-xl text-indigo-100 mb-8 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-indigo-100 mb-6 md:mb-8 max-w-2xl mx-auto px-4">
               En hızlı iletişim için Discord sunucumuza katılın. Aktif ortamımızda sizler de yerinizi alın.
             </p>
             <motion.div 
-              className="flex justify-center"
+              className="flex justify-center px-4"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >   <a href="https://discord.gg/hydrabon" target="_blank" rel="noopener noreferrer"
                  onMouseDown={(e) => e.preventDefault()} onClick={(e) => (e.currentTarget as HTMLAnchorElement).blur()}
-                 className="bg-white text-indigo-600 font-semibold py-4 px-8 rounded-lg hover:bg-indigo-50 hover:scale-105 transition-all duration-300 flex items-center justify-center min-w-[160px] group transform focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0">
-                <span className="flex items-center">
+                 className="bg-white text-indigo-600 font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-lg hover:bg-indigo-50 hover:scale-105 transition-all duration-300 flex items-center justify-center w-full sm:w-auto sm:min-w-[160px] group transform focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0">
+                <span className="flex items-center whitespace-nowrap">
                   Discord&apos;a Katıl
-                  <ExternalLink className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                  <ExternalLink className="w-4 sm:w-5 h-4 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                 </span>
               </a>
             </motion.div>

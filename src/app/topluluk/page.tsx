@@ -351,34 +351,34 @@ export default function CommunityPage() {
       </div>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-dark-900 to-dark-800 snap-start snap-always min-h-screen flex items-center">
-        <div className="container-custom">
+      <section className="py-12 md:py-20 bg-gradient-to-br from-dark-900 to-dark-800 snap-start snap-always min-h-screen flex items-center">
+        <div className="container-custom px-4 md:px-6">
           <motion.div 
-            className="bg-gradient-to-r from-indigo-600 to-indigo-500 rounded-3xl p-12 text-center"
+            className="bg-gradient-to-r from-indigo-600 to-indigo-500 rounded-2xl md:rounded-3xl p-6 md:p-10 lg:p-12 text-center max-w-5xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-4 md:mb-6 px-4">
               Topluluğumuza Katılın!
             </h2>
-            <p className="text-xl text-indigo-100 mb-8 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-indigo-100 mb-6 md:mb-8 max-w-2xl mx-auto px-4">
               {discordLoading ? '...' : (discordStats?.totalMembers?.toString() || communityStats.totalMembers.toString())} kişilik aktif topluluğumuzun bir parçası olun. 
               Yeni arkadaşlıklar kurun, birlikte oyunlar oynayın ve eğlenceli vakit geçirin.
             </p>
             <motion.div 
-              className="flex justify-center"
+              className="flex justify-center px-4"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
               <a href="https://discord.gg/hydrabon" target="_blank" rel="noopener noreferrer"
-                 className="bg-white text-indigo-600 font-semibold py-4 px-8 rounded-lg hover:bg-indigo-50 hover:scale-105 transition-all duration-300 flex items-center justify-center min-w-[160px] group transform">
-                <span className="flex items-center">
+                 className="bg-white text-indigo-600 font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-lg hover:bg-indigo-50 hover:scale-105 transition-all duration-300 flex items-center justify-center w-full sm:w-auto sm:min-w-[160px] group transform">
+                <span className="flex items-center whitespace-nowrap">
                   Discord&apos;a Katıl
-                  <Users className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
+                  <Users className="w-4 sm:w-5 h-4 sm:h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
                 </span>
               </a>
             </motion.div>

@@ -377,23 +377,23 @@ export default function MediaPage() {
       </div>
 
       {/* CTA Section */}
-      <section className="py-20 bg-dark-950 snap-start snap-always min-h-screen flex items-center">
-        <div className="container-custom">
+      <section className="py-12 md:py-20 bg-dark-950 snap-start snap-always min-h-screen flex items-center">
+        <div className="container-custom px-4 md:px-6">
           <motion.div 
-            className="bg-gradient-to-r from-purple-600 to-purple-500 rounded-3xl p-12 text-center"
+            className="bg-gradient-to-r from-purple-600 to-purple-500 rounded-2xl md:rounded-3xl p-6 md:p-10 lg:p-12 text-center max-w-5xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-4 md:mb-6 px-4">
             Gelişmelerden haberdar olun!
             </h2>
-            <p className="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-purple-100 mb-6 md:mb-8 max-w-2xl mx-auto px-4">
             Güncel gelişmeleri kaçırmamak ve topluluğumuzla bağlantıda kalmak için bizleri sosyal medyadan takip edin!
             </p>
             <motion.div 
-              className="flex flex-col sm:flex-row gap-4 justify-center"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -403,22 +403,22 @@ export default function MediaPage() {
                 href="https://youtube.com/@hydrabon" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="bg-white text-purple-600 font-semibold py-4 px-8 rounded-lg hover:bg-purple-50 transition-all duration-300 flex items-center justify-center min-w-[180px] group transform-gpu hover:scale-105 active:scale-95"
+                className="bg-white text-purple-600 font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-lg hover:bg-purple-50 transition-all duration-300 flex items-center justify-center w-full sm:w-auto sm:min-w-[180px] group transform-gpu hover:scale-105 active:scale-95"
               >
-                <span className="flex items-center">
+                <span className="flex items-center whitespace-nowrap">
                   Abone Ol
-                  <Youtube className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
+                  <Youtube className="w-4 sm:w-5 h-4 sm:h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
                 </span>
               </a>
               <a 
                 href="https://instagram.com/hydrabon.official" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="bg-purple-700 text-white font-semibold py-4 px-8 rounded-lg hover:bg-purple-800 transition-all duration-300 flex items-center justify-center min-w-[180px] group transform-gpu hover:scale-105 active:scale-95"
+                className="bg-purple-700 text-white font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-lg hover:bg-purple-800 transition-all duration-300 flex items-center justify-center w-full sm:w-auto sm:min-w-[180px] group transform-gpu hover:scale-105 active:scale-95"
               >
-                <span className="flex items-center">
+                <span className="flex items-center whitespace-nowrap">
                   Takip Et
-                  <Instagram className="w-5 h-5 ml-2 group-hover:rotate-12 transition-transform duration-300" />
+                  <Instagram className="w-4 sm:w-5 h-4 sm:h-5 ml-2 group-hover:rotate-12 transition-transform duration-300" />
                 </span>
               </a>
             </motion.div>

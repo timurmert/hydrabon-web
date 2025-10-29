@@ -334,24 +334,24 @@ export default function RndPage() {
       </div>
 
       {/* CTA Section */}
-      <section className="py-20 bg-dark-950 snap-start snap-always min-h-screen flex items-center">
-        <div className="container-custom">
+      <section className="py-12 md:py-20 bg-dark-950 snap-start snap-always min-h-screen flex items-center">
+        <div className="container-custom px-4 md:px-6">
           <motion.div 
-            className="bg-gradient-to-r from-primary-600 to-primary-500 rounded-3xl p-12 text-center"
+            className="bg-gradient-to-r from-primary-600 to-primary-500 rounded-2xl md:rounded-3xl p-6 md:p-10 lg:p-12 text-center max-w-5xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-4 md:mb-6 px-4">
               Ar-Ge Ekibimize Katılın!
             </h2>
-            <p className="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-primary-100 mb-6 md:mb-8 max-w-2xl mx-auto px-4">
             Yenilikçi projeler üretmek, teknoloji dünyasında iz bırakmak ve kariyerinde ilerlemek istiyorsan bize katıl.
             Sürekli öğrenen, birlikte gelişen ekibimizin bir parçası ol!
             </p>
             <motion.div 
-              className="flex flex-col sm:flex-row gap-4 justify-center"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -368,11 +368,11 @@ export default function RndPage() {
                     });
                   }
                 }}
-                className="bg-white text-primary-600 font-semibold py-4 px-8 rounded-lg hover:bg-primary-50 hover:scale-105 transition-all duration-300 flex items-center justify-center min-w-[180px] group transform"
+                className="bg-white text-primary-600 font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-lg hover:bg-primary-50 hover:scale-105 transition-all duration-300 flex items-center justify-center w-full sm:w-auto sm:min-w-[180px] group transform"
               >
-                <span className="flex items-center">
+                <span className="flex items-center whitespace-nowrap">
                   Projelerimizi Görüntüle
-                  <Target className="w-5 h-5 ml-2 group-hover:rotate-12 transition-transform duration-300" />
+                  <Target className="w-4 sm:w-5 h-4 sm:h-5 ml-2 group-hover:rotate-12 transition-transform duration-300" />
                 </span>
               </button>
               <a 
@@ -381,11 +381,11 @@ export default function RndPage() {
                 rel="noopener noreferrer"
                 onMouseDown={(e) => e.preventDefault()}
                 onClick={(e) => (e.currentTarget as HTMLAnchorElement).blur()}
-                className="bg-primary-700 text-white font-semibold py-4 px-8 rounded-lg hover:bg-primary-800 hover:scale-105 transition-all duration-300 flex items-center justify-center min-w-[180px] group transform focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0"
+                className="bg-primary-700 text-white font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-lg hover:bg-primary-800 hover:scale-105 transition-all duration-300 flex items-center justify-center w-full sm:w-auto sm:min-w-[180px] group transform focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0"
               >
-                <span className="flex items-center">
+                <span className="flex items-center whitespace-nowrap">
                   Discord&apos;a Katıl
-                  <ExternalLink className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                  <ExternalLink className="w-4 sm:w-5 h-4 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                 </span>
               </a>
             </motion.div>
