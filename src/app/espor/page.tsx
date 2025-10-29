@@ -33,6 +33,13 @@ export default function EsportsPage() {
   const rankImages: Record<string, string> = {
     Immortal: '/images/ranks/immortal.jpg',
   };
+
+  // Sayıyı yüzler basamağına yuvarla ve + ekle
+  const formatNumber = (num: number): string => {
+    const rounded = Math.floor(num / 100) * 100;
+    return `${rounded}+`;
+  };
+
   return (
     <div className="min-h-screen md:snap-y md:snap-mandatory overflow-y-auto overflow-x-hidden scroll-smooth">
       {/* Hero Section */}
@@ -128,7 +135,7 @@ export default function EsportsPage() {
           >
             {[
               { icon: Trophy, value: `${teamStats.winRate}%`, label: 'Galibiyet Oranı', color: 'text-primary-500' },
-              { icon: Target, value: teamStats.matchesPlayed, label: 'Toplam Maç', color: 'text-primary-500' },
+              { icon: Target, value: formatNumber(teamStats.matchesPlayed), label: 'Toplam Maç', color: 'text-primary-500' },
               { icon: Zap, value: teamStats.tournaments, label: 'Turnuva', color: 'text-primary-500' },
               { icon: Medal, value: teamStats.championships, label: 'Şampiyonluk', color: 'text-primary-500' },
             ].map((stat, index) => (
