@@ -72,6 +72,6 @@ export const socialMediaPlatforms = [
     followers: '850+',
     followersText: 'Üye',
     url: 'https://discord.gg/hydrabon',
-    color: 'text-purple-500',
+    color: 'text-indigo-400',
   },
 ];

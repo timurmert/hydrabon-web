@@ -20,6 +20,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import type { LucideIcon } from 'lucide-react';
 import { featuredContent, mediaStats, socialMediaPlatforms } from '@/data/media';
+import { useDiscordStats } from '@/hooks/useDiscordStats';
 
 const typeIcons = {
   'video': Video,
@@ -42,6 +43,27 @@ const platformIcons: Record<string, any> = {
 };
 
 export default function MediaPage() {
+  const { stats: discordStats, loading, error } = useDiscordStats();
+
+  // Ana sayfadaki gibi Discord üye sayısını formatla
+  const formatMemberCount = (): string => {
+    if (loading && !discordStats) {
+      return '...';
+    }
+    
+    if (error || !discordStats?.totalMembers) {
+      return '850+';
+    }
+    
+    const count = discordStats.totalMembers;
+    const numCount = typeof count === 'string' ? parseInt(count.replace(/\D/g, '')) : count;
+    
+    if (isNaN(numCount)) return '850+';
+    
+    const rounded = Math.floor(numCount / 100) * 100;
+    return `${rounded}+`;
+  };
+
   return (
     <div className="min-h-screen md:snap-y md:snap-mandatory overflow-y-auto overflow-x-hidden scroll-smooth">
       {/* Hero Section */}
@@ -314,6 +336,9 @@ export default function MediaPage() {
           >
             {socialMediaPlatforms.map((platform, index) => {
               const Icon = platformIcons[platform.name] || ExternalLink;
+              // Discord için dinamik sayı, diğerleri için statik
+              const followerCount = platform.name === 'Discord' ? formatMemberCount() : platform.followers;
+              
               return (
                 <motion.a
                   key={index}
@@ -331,7 +356,7 @@ export default function MediaPage() {
                       <Icon className={`w-8 h-8 ${platform.color}`} />
                     </div>
                     <div className={`text-4xl font-bold mb-2 ${platform.color}`}>
-                      {platform.followers}
+                      {followerCount}
                     </div>
                     <h3 className="text-lg font-semibold text-white mb-2">{platform.name}</h3>
                     <p className="text-dark-300 text-sm mb-3">{platform.handle}</p>
