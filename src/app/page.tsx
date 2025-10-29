@@ -35,12 +35,12 @@ const divisions = [
   },
   {
     title: 'Counter-Strike 2',
-    description: 'CS2 sahnesinde eğlence ve rekabeti bir araya getiriyoruz. Jailbreak’ten Aim Redline’a, özgün modlarımız ve aktif topluluğumuzla fark yaratıyoruz.',
+    description: 'CS2 sahnesinde eğlence ve rekabeti bir araya getirmiştik. Jailbreak\'ten Aim Redline\'a, özgün modlarımız ve topluluğumuzla fark yaratmıştık.',
     icon: Crosshair,
     href: '/cs2',
     features: ['Topluluk Etkinlikleri', 'Anti-Cheat Koruması', 'Jailbreak & Özel Modlar', 'Kesintisiz Oyun Deneyimi'],
     color: 'from-orange-500 to-orange-700',
-    status: 'active',
+    status: 'passive',
   },
   {
     title: 'Espor',

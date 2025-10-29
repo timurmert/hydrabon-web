@@ -3,10 +3,10 @@ import { CS2Server, CS2GameMode } from '@/types';
 export const serverInfo: CS2Server = {
   id: 'hydrabon-main',
   name: '[TR] - HydRaboN Jailbreak',
-  ip: '185.193.165.67',
+  ip: '',
   port: 27015,
   gameMode: 'Jailbreak',
-  status: 'online',
+  status: 'offline',
   region: 'Europe/Turkey',
   tickrate: 128,
   anticheat: 'VAC + Custom AC',

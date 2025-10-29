@@ -95,10 +95,10 @@ export default function CS2Page() {
             >
               <p className="text-base md:text-lg text-dark-100 leading-relaxed font-medium">
                 128 tick, anti-cheat korumalı profesyonel 
-                <span className="text-orange-300 font-semibold"> Counter-Strike 2 sunucumuz</span>. 
+                <span className="text-orange-300 font-semibold"> Counter-Strike 2 sunucumuz</span> geçmişte aktifti. 
                 <br />
-                Competitive&#39;den casual&#39;a kadar geniş oyun modu yelpazesi ile 
-                <span className="text-white font-semibold"> kaliteli oyun deneyimi</span> sunuyoruz.
+                Jailbreak'ten Aim Redline'a, özgün modlarımız ve özel sistemlerimizle 
+                <span className="text-white font-semibold"> unutulmaz anılar biriktirmiştik</span>.
               </p>
             </motion.div>
           </motion.div>
@@ -142,13 +142,10 @@ export default function CS2Page() {
                 <Server className="w-12 h-12 text-orange-500" />
                 <div>
                   <h3 className="text-2xl font-bold text-white mb-2">{serverInfo.name}</h3>
-                  <p className="text-dark-300">Sunucu bağlantı bilgileri</p>
+                  <p className="text-dark-300">Yeniliklerden haberdar olmak için Discord topluluğumuza katılabilirsiniz.</p>
                 </div>
               </div>
               <div className="text-right">
-                <div className="text-2xl font-mono font-bold text-orange-500 mb-2">
-                  {serverInfo.ip}
-                </div>
                 <a href="https://discord.gg/hydrabon" target="_blank" rel="noopener noreferrer" onMouseDown={(e) => e.preventDefault()} onClick={(e) => (e.currentTarget as HTMLAnchorElement).blur()} className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 border border-orange-500/40 rounded-lg text-white font-semibold transition-all duration-300 hover:scale-105 hover:border-orange-400 group focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0">
                   <Play className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform duration-300" />
                   Aramıza Katıl!
@@ -174,9 +171,9 @@ export default function CS2Page() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="section-title">Oyun Modları</h2>
+            <h2 className="section-title">Geçmiş Oyun Modlarımız</h2>
             <p className="section-subtitle">
-              Farklı oyun tarzları için çeşitli modlar sunuyoruz.
+              Sunucumuzda barındırdığımız farklı oyun modları ve özellikleri.
             </p>
           </motion.div>
 
@@ -260,7 +257,7 @@ export default function CS2Page() {
           >
             <h2 className="section-title">Sunucu Avantajları</h2>
             <p className="section-subtitle">
-              HydRaboN CS2 sunucusunda oyuncularımıza sunduğumuz özel hizmetler ve avantajlar.
+              HydRaboN CS2 sunucumuzda sizlere sunduğumuz özel hizmetler ve avantajlar şunlardı.
             </p>
           </motion.div>
 
@@ -354,10 +351,10 @@ export default function CS2Page() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-4xl font-bold text-white mb-6">
-              Sunucumuza Katıl!
+              Topluluğumuza Katıl!
             </h2>
             <p className="text-xl text-orange-100 mb-8 max-w-2xl mx-auto">
-              Kaliteli CS2 deneyimi için sunucumuza bağlan ve HydRaboN topluluğunun bir parçası ol.
+              CS2 sunucumuzda yüzlerce oyuncuya unutulmaz anlar yaşattık. Discord topluluğumuzda sen de yerinizi alabilirsin!
             </p>
             <div className="flex justify-center">
               <a href="https://discord.gg/hydrabon" target="_blank" rel="noopener noreferrer" onMouseDown={(e) => e.preventDefault()} onClick={(e) => (e.currentTarget as HTMLAnchorElement).blur()} className="bg-white text-orange-600 font-semibold py-4 px-8 rounded-lg hover:bg-orange-50 transition-all duration-300 flex items-center justify-center min-w-[180px] group transform hover:scale-105 active:scale-95 focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0">
@@ -366,15 +363,6 @@ export default function CS2Page() {
                   <ExternalLink className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
                 </span>
               </a>
-            </div>
-            
-            <div className="mt-8 p-6 bg-white/10 rounded-xl backdrop-blur-md">
-              <div className="text-lg font-mono font-bold text-white mb-2">
-                connect {serverInfo.ip}
-              </div>
-              <p className="text-orange-100 text-sm">
-                Bu komutu CS2 konsolunda kullanarak direkt bağlanabilirsiniz!
-              </p>
             </div>
           </motion.div>
         </div>
