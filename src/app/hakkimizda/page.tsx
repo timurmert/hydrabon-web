@@ -283,7 +283,7 @@ export default function AboutPage() {
       </div>
 
       {/* Timeline */}
-      <section id="tarihce" className="py-20 bg-gradient-to-br from-dark-900 to-dark-800 snap-start snap-always flex items-center scroll-mt-20 md:scroll-mt-24">
+      <section id="tarihce" className="py-20 bg-gradient-to-br from-dark-900 to-dark-800 snap-start snap-always flex items-center scroll-mt-15 md:scroll-mt-20">
         <div className="container-custom">
           <motion.div 
             className="text-center mb-16"
@@ -350,7 +350,7 @@ export default function AboutPage() {
       </div>
 
       {/* Values */}
-      <section id="degerler" className="py-20 bg-dark-950 snap-start snap-always flex items-center scroll-mt-20 md:scroll-mt-24">
+      <section id="degerler" className="py-20 bg-dark-950 snap-start snap-always flex items-center scroll-mt-15 md:scroll-mt-20">
         <div className="container-custom">
           <motion.div 
             className="text-center mb-16"
