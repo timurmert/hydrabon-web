@@ -242,8 +242,7 @@ export default function AboutPage() {
           >
             <motion.div 
               id="misyon"
-              className="professional-card scroll-mt-110"
-              style={{ scrollMarginTop: '27rem' }}
+              className="professional-card scroll-mt-20 md:scroll-mt-24"
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -260,8 +259,7 @@ export default function AboutPage() {
 
             <motion.div 
               id="vizyon"
-              className="professional-card scroll-mt-110"
-              style={{ scrollMarginTop: '27rem' }}
+              className="professional-card scroll-mt-20 md:scroll-mt-24"
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -285,7 +283,7 @@ export default function AboutPage() {
       </div>
 
       {/* Timeline */}
-      <section id="tarihce" className="py-20 bg-gradient-to-br from-dark-900 to-dark-800 snap-start snap-always flex items-center scroll-mt-28 md:scroll-mt-20">
+      <section id="tarihce" className="py-20 bg-gradient-to-br from-dark-900 to-dark-800 snap-start snap-always flex items-center scroll-mt-20 md:scroll-mt-24">
         <div className="container-custom">
           <motion.div 
             className="text-center mb-16"
@@ -352,7 +350,7 @@ export default function AboutPage() {
       </div>
 
       {/* Values */}
-      <section id="degerler" className="py-20 bg-dark-950 snap-start snap-always flex items-center scroll-mt-28 md:scroll-mt-44">
+      <section id="degerler" className="py-20 bg-dark-950 snap-start snap-always flex items-center scroll-mt-20 md:scroll-mt-24">
         <div className="container-custom">
           <motion.div 
             className="text-center mb-16"
