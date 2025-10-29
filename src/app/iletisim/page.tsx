@@ -4,11 +4,10 @@ import {
   Send,
   ExternalLink,
   Instagram,
-  Twitter,
   Youtube,
-  Copy,
-  House
+  Copy
 } from 'lucide-react';
+import { SiX, SiDiscord } from 'react-icons/si';
 import { motion } from 'framer-motion';
 import { useEffect } from 'react';
 import { useState } from 'react';
@@ -24,11 +23,11 @@ const socialPlatforms = [
     color: 'text-pink-500',
   },
   {
-    icon: Twitter,
-    name: 'Twitter',
+    icon: SiX,
+    name: 'X',
     handle: '@hydrabonx',
     url: 'https://x.com/hydrabonx',
-    color: 'text-blue-500',
+    color: 'text-sky-400',
   },
   {
     icon: Youtube,
@@ -38,11 +37,11 @@ const socialPlatforms = [
     color: 'text-red-500',
   },
   {
-    icon: House,
+    icon: SiDiscord,
     name: 'Discord',
     handle: 'HydRaboN',
     url: 'https://discord.gg/hydrabon',
-    color: 'text-purple-400',
+    color: 'text-indigo-400',
   },
 ];
 

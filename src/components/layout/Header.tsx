@@ -15,9 +15,9 @@ import {
   Users, 
   Info, 
   Mail,
-  ExternalLink,
-  MessageSquare
+  ExternalLink
 } from 'lucide-react';
+import { SiDiscord } from 'react-icons/si';
 
 const navigation = [
   {
@@ -187,7 +187,7 @@ export default function Header() {
               style={{outline: 'none'}}
               onFocus={(e) => e.target.blur()}
             >
-              <Users className="w-4 h-4" />
+              <SiDiscord className="w-4 h-4" />
               <span>Discord</span>
               <ExternalLink className="w-3 h-3" />
             </a>
@@ -242,7 +242,7 @@ export default function Header() {
                   rel="noopener noreferrer"
                   className="flex items-center justify-center space-x-2 btn-primary w-full hover:scale-105 transition-transform duration-300 transform"
                 >
-                  <Users className="w-4 h-4" />
+                  <SiDiscord className="w-4 h-4" />
                   <span>Discord Sunucumuza Katıl</span>
                   <ExternalLink className="w-3 h-3" />
                 </a>
@@ -292,7 +292,7 @@ export default function Header() {
                   className="flex items-center justify-center w-full bg-primary-500 hover:bg-primary-600 hover:scale-105 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  <MessageSquare className="w-5 h-5 mr-2" />
+                  <SiDiscord className="w-5 h-5 mr-2" />
                   Discord&apos;a Katıl
                 </a>
               </div>

@@ -13,10 +13,9 @@ import {
   ExternalLink,
   Youtube,
   Instagram,
-  Twitter,
-  Gift,
-  House
+  Gift
 } from 'lucide-react';
+import { SiX, SiDiscord } from 'react-icons/si';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import type { LucideIcon } from 'lucide-react';
@@ -35,11 +34,11 @@ const categoryColors = {
 
 // mediaTeam kaldırıldığı için roleIcons gereksiz
 
-const platformIcons: Record<string, LucideIcon> = {
+const platformIcons: Record<string, any> = {
   YouTube: Youtube,
   Instagram: Instagram,
-  Twitter: Twitter,
-  Discord: House,
+  X: SiX,
+  Discord: SiDiscord,
 };
 
 export default function MediaPage() {

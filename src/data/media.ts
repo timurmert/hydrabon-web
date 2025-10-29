@@ -59,12 +59,12 @@ export const socialMediaPlatforms = [
     color: 'text-pink-500',
   },
   {
-    name: 'Twitter',
+    name: 'X',
     handle: '@hydrabonx',
     followers: '100+',
     followersText: 'Takipçi',
     url: 'https://x.com/hydrabonx',
-    color: 'text-blue-500',
+    color: 'text-sky-400',
   },
   {
     name: 'Discord',

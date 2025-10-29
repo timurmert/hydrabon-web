@@ -8,11 +8,11 @@ import {
   Zap,
   Medal,
   ExternalLink,
-  Twitter,
   Crown,
   Gamepad2,
   BarChart3
 } from 'lucide-react';
+import { SiX } from 'react-icons/si';
 // Link kullanılmıyor
 // import Link from 'next/link';
 import Image from 'next/image';
@@ -222,9 +222,10 @@ export default function EsportsPage() {
                       rel="noopener noreferrer"
                       onMouseDown={(e) => e.preventDefault()}
                       onClick={(e) => (e.currentTarget as HTMLAnchorElement).blur()}
-                      className="p-2 bg-dark-800 rounded-lg text-dark-400 hover:text-blue-400 transition-colors flex items-center gap-2 focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0"
+                      className="p-2 bg-dark-800 rounded-lg text-dark-400 hover:text-sky-400 transition-colors flex items-center gap-2 focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0"
+                      aria-label="X (Twitter)"
                     >
-                      <Twitter className="w-4 h-4" />
+                      <SiX className="w-4 h-4" />
                     </a>
                   )}
                 </div>

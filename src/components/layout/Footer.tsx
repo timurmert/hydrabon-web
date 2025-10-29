@@ -63,7 +63,7 @@ const socialMedia = [
     bgColor: 'hover:bg-pink-400/10',
   },
   {
-    name: 'X (Twitter)',
+    name: 'X',
     href: 'https://x.com/hydrabonx',
     icon: SiX,
     color: 'hover:text-sky-400 hover:shadow-sky-400/25',
