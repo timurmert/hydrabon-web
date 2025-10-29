@@ -10,7 +10,7 @@ import {
   X, 
   Gamepad2,
   Crosshair, 
-  Code, 
+  Code2, 
   Video, 
   Users, 
   Info, 
@@ -28,7 +28,7 @@ const navigation = [
   {
     name: 'Ar-Ge',
     href: '/ar-ge',
-    icon: Code,
+    icon: Code2,
   },
   {
     name: 'Medya',

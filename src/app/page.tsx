@@ -1,6 +1,6 @@
 'use client';
 
-import { Gamepad2, Crosshair, Code, Video, Users, ArrowRight, Trophy, Target, Zap, Info, HelpCircle, PlayCircle } from 'lucide-react';
+import { Gamepad2, Crosshair, Code2, Video, Users, ArrowRight, Trophy, Target, Zap, Info, HelpCircle, PlayCircle } from 'lucide-react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useDiscordStats } from '@/hooks/useDiscordStats';
@@ -18,7 +18,7 @@ const divisions = [
   {
     title: 'Ar-Ge & Yazılım',
     description: 'Fikirlerin sadece konuşulmadığı, satır satır gerçeğe dönüştüğü; yazılımın, zekânın ve hayalin aynı masada buluştuğu teknoloji merkezi.',
-    icon: Code,
+    icon: Code2,
     href: '/ar-ge',
     features: ['Discord Botları', 'Kurumsal Sistemler', 'Ödül & Çekiliş Sistemleri', 'Özel Çözümler'],
     color: 'from-blue-500 to-blue-700',

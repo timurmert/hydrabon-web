@@ -1,7 +1,7 @@
 'use client';
 
 import { 
-  Code, 
+  Code2, 
   Rocket, 
   Brain, 
   ExternalLink,
@@ -209,7 +209,7 @@ export default function RndPage() {
                       {project.category === 'Discord Bot' && <Bot className="w-8 h-8 text-white" />}
                       {project.category === 'Tournament System' && <Target className="w-8 h-8 text-white" />}
                       {project.category === 'AI Systems' && <Brain className="w-8 h-8 text-white" />}
-                      {project.category === 'Web Application' && <Code className="w-8 h-8 text-white" />}
+                      {project.category === 'Web Application' && <Code2 className="w-8 h-8 text-white" />}
                       {project.category === 'Mobile App' && <Rocket className="w-8 h-8 text-white" />}
                       {project.category === 'Automation Systems' && <Rocket className="w-8 h-8 text-white" />}
                     </motion.div>
@@ -309,7 +309,7 @@ export default function RndPage() {
                       className="w-12 h-12 object-contain"
                     />
                   ) : (
-                    <Code className="w-8 h-8 text-primary-500" />
+                    <Code2 className="w-8 h-8 text-primary-500" />
                   )}
                 </div>
                 <h3 className="text-lg font-bold text-white mb-2">{tech.name}</h3>
