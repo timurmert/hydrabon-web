@@ -93,7 +93,7 @@ export default function HomePage() {
       icon: Users 
     },
     { label: 'Proje Tamamlandı', value: '10+', icon: Target },
-    { label: 'Oynanan Maç', value: '250+', icon: Trophy },
+    { label: 'Oynanan Maç', value: '200+', icon: Trophy },
     { label: 'Görüntülenme', value: '1.5M+', icon: PlayCircle },
   ];
   return (
@@ -464,52 +464,51 @@ export default function HomePage() {
       </div>
 
       {/* CTA Section */}
-      <section className="py-20 bg-dark-950 relative overflow-hidden snap-start snap-always min-h-screen flex items-center">
-        <div className="container-custom">
+      <section className="py-12 md:py-20 bg-dark-950 relative overflow-hidden snap-start snap-always min-h-screen flex items-center">
+        <div className="container-custom px-4 md:px-6">
           <motion.div 
-            className="bg-gradient-to-r from-dark-800 to-dark-700 border border-primary-500/30 rounded-3xl p-12 text-center relative overflow-hidden"
+            className="bg-gradient-to-r from-dark-800 to-dark-700 border border-primary-500/30 rounded-2xl md:rounded-3xl p-6 md:p-10 lg:p-12 text-center relative overflow-hidden max-w-5xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
           >
             {/* Enhanced Background Layers */}
-            <div className="absolute inset-0 bg-gradient-to-r from-primary-900/20 to-primary-800/20 rounded-3xl"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-primary-900/20 to-primary-800/20 rounded-2xl md:rounded-3xl"></div>
             <div className="relative z-10">
               {/* CTA Badge */}
-              <div className="flex justify-center mb-8">
-                <div className="inline-flex items-center px-5 py-2 bg-gradient-to-r from-primary-900/30 to-primary-800/30 border border-primary-500/40 rounded-full backdrop-blur-md">
-                  <div className="w-2 h-2 bg-primary-400 rounded-full mr-3 animate-pulse"></div>
-                  <span className="text-primary-200 text-xs font-semibold tracking-widest uppercase">Son Adım</span>
-                  <div className="w-2 h-2 bg-primary-400 rounded-full ml-3 animate-pulse"></div>
+              <div className="flex justify-center mb-6 md:mb-8 px-4">
+                <div className="inline-flex items-center px-4 md:px-5 py-2 bg-gradient-to-r from-primary-900/30 to-primary-800/30 border border-primary-500/40 rounded-full backdrop-blur-md">
+                  <div className="w-2 h-2 bg-primary-400 rounded-full mr-2 md:mr-3 animate-pulse"></div>
+                  <span className="text-primary-200 text-xs font-semibold tracking-wider md:tracking-widest uppercase">Son Adım</span>
+                  <div className="w-2 h-2 bg-primary-400 rounded-full ml-2 md:ml-3 animate-pulse"></div>
                 </div>
               </div>
               
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-white mb-6 tracking-tight leading-normal">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-display font-bold text-white mb-4 md:mb-6 tracking-tight leading-normal px-4">
                 <span className="bg-gradient-to-r from-primary-300 via-white to-primary-300 bg-clip-text text-transparent">
                   Yeteneğini Değere Dönüştür!
                 </span>
               </h2>
-              <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-primary-500 to-transparent mx-auto mb-8 rounded-full"></div>
+              <div className="w-20 md:w-24 h-0.5 bg-gradient-to-r from-transparent via-primary-500 to-transparent mx-auto mb-6 md:mb-8 rounded-full"></div>
               
-              <p className="text-base md:text-lg text-dark-200 mb-10 max-w-3xl mx-auto font-medium leading-relaxed">
-                Topluluk yönetimi, yazılım, medya ve espor gibi alanlarda kendini geliştir;
-                 disiplinli bir yapının parçası olarak
+              <p className="text-sm sm:text-base md:text-lg text-dark-200 mb-8 md:mb-10 max-w-2xl lg:max-w-3xl mx-auto font-medium leading-relaxed px-4">
+                Topluluk yönetimi, yazılım, medya ve espor gibi alanlarda kendini geliştir; disiplinli bir yapının parçası olarak
                 <span className="text-primary-300 font-semibold"> profesyonel kariyerine </span>
                 ilk adımı at.
               </p>
               
               <motion.div 
-                className="flex justify-center"
+                className="flex justify-center px-4"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.3 }}
               >
-                <a href="https://discord.gg/hydrabon" target="_blank" rel="noopener noreferrer" onMouseDown={(e) => e.preventDefault()} onClick={(e) => (e.currentTarget as HTMLAnchorElement).blur()} className="btn-secondary text-base px-8 py-4 flex items-center justify-center min-w-[200px] group relative hover:scale-105 transition-transform duration-300 transform focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0">
-                  <span className="relative z-10 flex items-center">
+                <a href="https://discord.gg/hydrabon" target="_blank" rel="noopener noreferrer" onMouseDown={(e) => e.preventDefault()} onClick={(e) => (e.currentTarget as HTMLAnchorElement).blur()} className="btn-secondary text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4 flex items-center justify-center w-full sm:w-auto sm:min-w-[200px] group relative hover:scale-105 transition-transform duration-300 transform focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0">
+                  <span className="relative z-10 flex items-center whitespace-nowrap">
                     Aramıza Katıl!
-                    <Users className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
+                    <Users className="w-4 sm:w-5 h-4 sm:h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
                   </span>
                 </a>
               </motion.div>
