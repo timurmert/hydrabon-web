@@ -415,35 +415,54 @@ export default function EsportsPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.8 }}
               >
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-6">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-16 h-16 bg-dark-700 rounded-lg flex items-center justify-center overflow-hidden">
-                      <Image src={ourTeamLogo} alt="HydRaboN Esports" width={64} height={64} className="object-contain" />
+                <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+                  {/* Tarih ve Sonuç Badge - Mobilde Üstte */}
+                  <div className="flex items-center justify-between lg:hidden">
+                    <div className="flex items-center space-x-2 text-dark-300 text-sm">
+                      <Calendar className="w-4 h-4" />
+                      <span>{new Date(match.date).toLocaleDateString('tr-TR')}</span>
                     </div>
-                    <div className={`text-3xl font-bold ${match.score && match.score.us > match.score.them ? 'text-green-500' : 'text-red-500'}`}>
-                      {match.score?.us} - {match.score?.them}
-                    </div>
-                    <div className="w-16 h-16 bg-dark-700 rounded-lg flex items-center justify-center overflow-hidden">
-                      {match.opponentLogo ? (
-                        <Image src={match.opponentLogo} alt={match.opponent} width={64} height={64} className="object-contain" />
-                      ) : (
-                        <span className="text-white font-bold text-sm">{match.opponent.slice(0, 2)}</span>
-                      )}
+                    <div className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${
+                      match.score && match.score.us > match.score.them 
+                        ? 'bg-green-500/20 text-green-500' 
+                        : 'bg-red-500/20 text-red-500'
+                    }`}>
+                      {match.score && match.score.us > match.score.them ? 'Galibiyet' : 'Mağlubiyet'}
                     </div>
                   </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-white">{match.opponent}</h3>
-                      <p className="text-dark-300">{match.tournament}</p>
-                      <div className="flex items-center space-x-3 mt-2 text-sm text-dark-400">
+
+                  {/* Maç Skoru ve Bilgileri */}
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 flex-1">
+                    {/* Takımlar ve Skor */}
+                    <div className="flex items-center justify-center sm:justify-start gap-2 sm:gap-3 min-w-0 flex-shrink-0">
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-dark-700 rounded-lg flex items-center justify-center overflow-hidden flex-shrink-0">
+                        <Image src={ourTeamLogo} alt="HydRaboN Esports" width={64} height={64} className="object-contain" />
+                      </div>
+                      <div className={`text-xl sm:text-2xl lg:text-3xl font-bold whitespace-nowrap ${match.score && match.score.us > match.score.them ? 'text-green-500' : 'text-red-500'}`}>
+                        {match.score?.us} - {match.score?.them}
+                      </div>
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-dark-700 rounded-lg flex items-center justify-center overflow-hidden flex-shrink-0">
+                        {match.opponentLogo ? (
+                          <Image src={match.opponentLogo} alt={match.opponent} width={64} height={64} className="object-contain" />
+                        ) : (
+                          <span className="text-white font-bold text-sm">{match.opponent.slice(0, 2)}</span>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Maç Detayları */}
+                    <div className="flex-1 min-w-0 text-center sm:text-left">
+                      <h3 className="text-lg sm:text-xl font-bold text-white truncate">{match.opponent}</h3>
+                      <p className="text-dark-300 text-sm sm:text-base truncate">{match.tournament}</p>
+                      <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 sm:gap-3 mt-2 text-xs sm:text-sm text-dark-400">
                         {match.duration && (
-                          <span className="inline-flex items-center">
-                            <Clock className="w-4 h-4 mr-1" />
+                          <span className="inline-flex items-center whitespace-nowrap">
+                            <Clock className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
                             {match.duration}
                           </span>
                         )}
                         {match.maps && (
-                          <span className="truncate max-w-[220px]">Oynanan Harita: {match.maps.join(', ')}</span>
+                          <span className="truncate">Harita: {match.maps.join(', ')}</span>
                         )}
                       </div>
                       {match.matchUrl && (
@@ -454,22 +473,23 @@ export default function EsportsPage() {
                             rel="noopener noreferrer"
                             onMouseDown={(e) => e.preventDefault()}
                             onClick={(e) => (e.currentTarget as HTMLAnchorElement).blur()}
-                            className="inline-flex items-center text-primary-500 hover:text-primary-400 font-medium focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0"
+                            className="inline-flex items-center text-primary-500 hover:text-primary-400 font-medium text-sm focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0"
                           >
                             Maçı görüntüle
-                            <ExternalLink className="w-4 h-4 ml-1" />
+                            <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 ml-1" />
                           </a>
                         </div>
                       )}
                     </div>
                   </div>
 
-                  <div className="text-right">
-                    <div className="flex items-center space-x-2 text-dark-300 mb-2">
+                  {/* Tarih ve Sonuç Badge - Desktop'ta Sağda */}
+                  <div className="hidden lg:flex lg:flex-col lg:items-end text-right flex-shrink-0">
+                    <div className="flex items-center space-x-2 text-dark-300 mb-2 whitespace-nowrap">
                       <Calendar className="w-4 h-4" />
                       <span>{new Date(match.date).toLocaleDateString('tr-TR')}</span>
                     </div>
-                    <div className={`inline-block px-3 py-1 rounded-full text-sm font-medium ${
+                    <div className={`inline-block px-3 py-1 rounded-full text-sm font-medium whitespace-nowrap ${
                       match.score && match.score.us > match.score.them 
                         ? 'bg-green-500/20 text-green-500' 
                         : 'bg-red-500/20 text-red-500'
