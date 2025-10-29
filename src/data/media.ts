@@ -51,6 +51,14 @@ export const socialMediaPlatforms = [
     color: 'text-red-500',
   },
   {
+    name: 'Kick',
+    handle: '@hydrabon',
+    followers: '50+',
+    followersText: 'Takipçi',
+    url: 'https://kick.com/hydrabon',
+    color: 'text-green-400',
+  },
+  {
     name: 'Instagram',
     handle: '@hydrabon.official',
     followers: '100+',

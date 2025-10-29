@@ -15,7 +15,7 @@ import {
   Instagram,
   Gift
 } from 'lucide-react';
-import { SiX, SiDiscord } from 'react-icons/si';
+import { SiX, SiDiscord, SiKick } from 'react-icons/si';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import type { LucideIcon } from 'lucide-react';
@@ -37,6 +37,7 @@ const categoryColors = {
 
 const platformIcons: Record<string, any> = {
   YouTube: Youtube,
+  Kick: SiKick,
   Instagram: Instagram,
   X: SiX,
   Discord: SiDiscord,
@@ -328,7 +329,7 @@ export default function MediaPage() {
           </motion.div>
 
           <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, amount: 0.2 }}
