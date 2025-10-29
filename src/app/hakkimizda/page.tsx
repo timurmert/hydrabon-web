@@ -5,10 +5,8 @@ import {
   Heart,
   Users,
   Trophy,
-  Zap,
   Shield,
   Star,
-  Calendar,
   Award,
   Crown,
   Crosshair,
@@ -18,7 +16,9 @@ import {
   FlaskConical,
   ExternalLink,
   HelpCircle,
-  Timer
+  Timer,
+  Code2,
+  Video
 } from 'lucide-react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -524,7 +524,7 @@ export default function AboutPage() {
 
             <Link href="/ar-ge" className="professional-card group hover:scale-105 transition-transform duration-300">
               <div className="w-16 h-16 bg-blue-500/20 rounded-xl flex items-center justify-center mb-6">
-                <Zap className="w-8 h-8 text-blue-500" />
+                <Code2 className="w-8 h-8 text-blue-500" />
               </div>
               <h3 className="text-2xl font-bold text-white mb-4 leading-normal">Ar-Ge & Yazılım</h3>
               <p className="text-dark-300 mb-4">
@@ -535,7 +535,7 @@ export default function AboutPage() {
 
             <Link href="/medya" className="professional-card group hover:scale-105 transition-transform duration-300">
               <div className="w-16 h-16 bg-purple-500/20 rounded-xl flex items-center justify-center mb-6">
-                <Calendar className="w-8 h-8 text-purple-500" />
+                <Video className="w-8 h-8 text-purple-500" />
               </div>
               <h3 className="text-2xl font-bold text-white mb-4 leading-normal">Medya</h3>
               <p className="text-dark-300 mb-4">
