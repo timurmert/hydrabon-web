@@ -69,17 +69,19 @@ export const staff: Staff[] = [
 export const historicalMatches: Match[] = [
   {
     id: '1',
-    opponent: 'Team Çorap',
-    opponentLogo: '/images/teams/teamcorap.png',
-    date: '2024-11-23',
-    time: '19:15',
+    opponent: 'Kuvayi Milliye',
+    opponentLogo: '/images/teams/kuvayimilliye.png',
+    date: '2024-12-15',
+    time: '20:00',
     tournament: 'Valorant Premier League',
     type: 'Premier',
     status: 'finished',
-    score: { us: 16, them: 14 },
-    maps: ['Bind'],
-    duration: '53dk',
-    matchUrl: 'https://tracker.gg/valorant/match/0e03a4fa-ce2d-40d9-a5a5-2d4f4cd2f46c'
+    score: { us: 13, them: 5 },
+    maps: ['Ascent'],
+    duration: '38dk',
+    matchUrl: 'https://tracker.gg/valorant/match/47306445-1f7c-44c1-ae27-f1109f8ff802',
+    isFinal: true,
+    isChampionship: true
   },
   {
     id: '2',
@@ -97,27 +99,27 @@ export const historicalMatches: Match[] = [
   },
   {
     id: '3',
-    opponent: 'Kuvayi Milliye',
-    opponentLogo: '/images/teams/kuvayimilliye.png',
-    date: '2024-12-15',
-    time: '20:00',
+    opponent: 'Team Çorap',
+    opponentLogo: '/images/teams/teamcorap.png',
+    date: '2024-11-23',
+    time: '19:15',
     tournament: 'Valorant Premier League',
     type: 'Premier',
     status: 'finished',
-    score: { us: 13, them: 5 },
-    maps: ['Ascent'],
-    duration: '38dk',
-    matchUrl: 'https://tracker.gg/valorant/match/47306445-1f7c-44c1-ae27-f1109f8ff802'
+    score: { us: 16, them: 14 },
+    maps: ['Bind'],
+    duration: '53dk',
+    matchUrl: 'https://tracker.gg/valorant/match/0e03a4fa-ce2d-40d9-a5a5-2d4f4cd2f46c'
   },
 ];
 
 export const teamStats = {
-  matchesPlayed: 140,
-  wins: 76,
-  losses: 64,
-  winRate: 54.3,
-  mapWinRate: 54.3,
-  averageRounds: 14.2,
+  matchesPlayed: 250,
+  wins: 136,
+  losses: 114,
+  winRate: 54.4,
+  mapWinRate: 54.4,
+  averageRounds: 15.2,
   tournaments: "10+",
   championships: 2,
 };

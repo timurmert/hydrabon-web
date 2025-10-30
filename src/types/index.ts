@@ -59,6 +59,8 @@ export interface Match {
   stream?: string;
   duration?: string; // e.g. '1s 42dk'
   matchUrl?: string; // detay sayfası ya da VOD linki
+  isFinal?: boolean; // Final maçı mı?
+  isChampionship?: boolean; // Şampiyonluk getiren maç mı?
 }
 
 export interface Tournament {

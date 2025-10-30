@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useParams, useRouter } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import Image from 'next/image';
 import { 
@@ -10,49 +11,50 @@ import {
   X, 
   Gamepad2,
   Crosshair, 
-  Code, 
+  Code2, 
   Video, 
   Users, 
   Info, 
   Mail,
   ExternalLink,
-  MessageSquare
+  Globe
 } from 'lucide-react';
+import { SiDiscord } from 'react-icons/si';
 
-const navigation = [
+const getNavigation = (locale: string) => [
   {
-    name: 'Topluluk',
-    href: '/topluluk',
+    key: 'community',
+    href: `/${locale}/topluluk`,
     icon: Users,
   },
   {
-    name: 'Ar-Ge',
-    href: '/ar-ge',
-    icon: Code,
+    key: 'rnd',
+    href: `/${locale}/ar-ge`,
+    icon: Code2,
   },
   {
-    name: 'Medya',
-    href: '/medya',
+    key: 'media',
+    href: `/${locale}/medya`,
     icon: Video,
   },
   {
-    name: 'CS2',
-    href: '/cs2',
+    key: 'cs2',
+    href: `/${locale}/cs2`,
     icon: Crosshair,
   },
   {
-    name: 'Espor',
-    href: '/espor',
+    key: 'esports',
+    href: `/${locale}/espor`,
     icon: Gamepad2,
   },
   {
-    name: 'Hakkımızda',
-    href: '/hakkimizda',
+    key: 'about',
+    href: `/${locale}/hakkimizda`,
     icon: Info,
   },
   {
-    name: 'İletişim',
-    href: '/iletisim',
+    key: 'contact',
+    href: `/${locale}/iletisim`,
     icon: Mail,
   },
 ];
@@ -62,8 +64,13 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [isLogoHovered, setIsLogoHovered] = useState(false);
   const pathname = usePathname();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const params = useParams();
+  const router = useRouter();
+  const locale = (params?.locale as string) || 'tr';
+  const t = useTranslations('nav');
   const prefersReducedMotion = useReducedMotion();
+
+  const navigation = getNavigation(locale);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -77,8 +84,6 @@ export default function Header() {
   useEffect(() => {
     setIsOpen(false);
   }, [pathname]);
-
-
 
   // Optimized hover handlers with requestAnimationFrame for smoother performance
   const handleLogoMouseEnter = () => {
@@ -98,6 +103,13 @@ export default function Header() {
     }
   };
 
+  const switchLocale = (newLocale: string) => {
+    // Get current path without locale
+    const pathWithoutLocale = pathname.replace(/^\/(tr|en)/, '') || '/';
+    // Navigate to new locale
+    router.push(`/${newLocale}${pathWithoutLocale}`);
+  };
+
   return (
     <motion.header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -113,7 +125,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
           <Link 
-            href="/" 
+            href={`/${locale}`}
             className="flex items-center space-x-3 group mr-6" 
             style={{outline: 'none'}} 
             onFocus={(e) => e.target.blur()}
@@ -135,7 +147,7 @@ export default function Header() {
                 HydRaboN
               </h1>
               <p className="text-xs text-orange-400 font-medium transition-all duration-300 ease-out group-hover:text-orange-300 group-hover:translate-x-1 group-hover:font-semibold group-hover:tracking-wide group-hover:drop-shadow-[0_0_6px_rgba(255,107,53,0.3)] group-hover:scale-[1.02] will-change-transform transform-gpu">
-                Çok Yönlü Dijital Topluluk
+                {locale === 'tr' ? 'Çok Yönlü Dijital Topluluk' : 'Versatile Digital Community'}
               </p>
             </div>
           </Link>
@@ -149,7 +161,7 @@ export default function Header() {
             }}
           >
             {navigation.map((item) => (
-              <div key={item.name} className="relative group">
+              <div key={item.key} className="relative group">
                 <Link
                   href={item.href}
                   className={`nav-link px-5 py-3 rounded-lg flex items-center space-x-2 transition-all duration-200 ease-out whitespace-nowrap ${
@@ -159,25 +171,50 @@ export default function Header() {
                   }`}
                   style={{outline: 'none'}}
                   onFocus={(e) => e.target.blur()}
-
                 >
                   {item.icon && <item.icon className="w-4 h-4" />}
-                  <span>{item.name}</span>
+                  <span>{t(item.key)}</span>
                 </Link>
-
-
               </div>
             ))}
           </nav>
 
-          {/* Discord Button & Mobile Menu */}
-            <div 
-            className="flex items-center space-x-4 sm:space-x-8 will-change-transform transform-gpu"
+          {/* Discord Button, Language Switcher & Mobile Menu */}
+          <div 
+            className="flex items-center space-x-2 sm:space-x-4 will-change-transform transform-gpu"
             style={{
               transform: `translateX(${isLogoHovered ? '0.25rem' : '0'})`,
               transition: 'transform 300ms cubic-bezier(0.4, 0, 0.2, 1)'
             }}
           >
+            {/* Language Switcher - Desktop */}
+            <div className="hidden md:flex items-center space-x-1 bg-dark-800/50 rounded-lg p-1 border border-dark-700/50">
+              <button
+                onClick={() => switchLocale('tr')}
+                className={`px-3 py-1.5 rounded text-sm font-medium transition-all duration-200 ${
+                  locale === 'tr'
+                    ? 'bg-primary-500 text-white'
+                    : 'text-dark-300 hover:text-white'
+                }`}
+                style={{outline: 'none'}}
+                onFocus={(e) => e.target.blur()}
+              >
+                TR
+              </button>
+              <button
+                onClick={() => switchLocale('en')}
+                className={`px-3 py-1.5 rounded text-sm font-medium transition-all duration-200 ${
+                  locale === 'en'
+                    ? 'bg-primary-500 text-white'
+                    : 'text-dark-300 hover:text-white'
+                }`}
+                style={{outline: 'none'}}
+                onFocus={(e) => e.target.blur()}
+              >
+                EN
+              </button>
+            </div>
+
             {/* Discord Button */}
             <a
               href="https://discord.gg/hydrabon"
@@ -187,8 +224,8 @@ export default function Header() {
               style={{outline: 'none'}}
               onFocus={(e) => e.target.blur()}
             >
-              <Users className="w-4 h-4" />
-              <span>Discord</span>
+              <SiDiscord className="w-4 h-4" />
+              <span>{t('discord')}</span>
               <ExternalLink className="w-3 h-3" />
             </a>
 
@@ -218,7 +255,7 @@ export default function Header() {
             <div className="container-header py-6">
               <nav className="space-y-2">
                 {navigation.map((item) => (
-                  <div key={item.name}>
+                  <div key={item.key}>
                     <Link
                       href={item.href}
                       className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition-all duration-300 ${
@@ -228,11 +265,39 @@ export default function Header() {
                       }`}
                     >
                       {item.icon && <item.icon className="w-5 h-5" />}
-                      <span className="font-medium">{item.name}</span>
+                      <span className="font-medium">{t(item.key)}</span>
                     </Link>
                   </div>
                 ))}
               </nav>
+
+              {/* Language Switcher - Mobile */}
+              <div className="mt-4 px-4">
+                <div className="flex items-center justify-center space-x-2 bg-dark-800/50 rounded-lg p-1 border border-dark-700/50">
+                  <button
+                    onClick={() => switchLocale('tr')}
+                    className={`flex-1 px-3 py-2 rounded text-sm font-medium transition-all duration-200 ${
+                      locale === 'tr'
+                        ? 'bg-primary-500 text-white'
+                        : 'text-dark-300'
+                    }`}
+                  >
+                    <Globe className="w-4 h-4 inline-block mr-1" />
+                    Türkçe
+                  </button>
+                  <button
+                    onClick={() => switchLocale('en')}
+                    className={`flex-1 px-3 py-2 rounded text-sm font-medium transition-all duration-200 ${
+                      locale === 'en'
+                        ? 'bg-primary-500 text-white'
+                        : 'text-dark-300'
+                    }`}
+                  >
+                    <Globe className="w-4 h-4 inline-block mr-1" />
+                    English
+                  </button>
+                </div>
+              </div>
 
               {/* Mobile Discord Button */}
               <div className="mt-6 px-4">
@@ -242,8 +307,8 @@ export default function Header() {
                   rel="noopener noreferrer"
                   className="flex items-center justify-center space-x-2 btn-primary w-full hover:scale-105 transition-transform duration-300 transform"
                 >
-                  <Users className="w-4 h-4" />
-                  <span>Discord Sunucumuza Katıl</span>
+                  <SiDiscord className="w-4 h-4" />
+                  <span>{locale === 'tr' ? 'Discord Sunucumuza Katıl' : 'Join Our Discord'}</span>
                   <ExternalLink className="w-3 h-3" />
                 </a>
               </div>
@@ -251,54 +316,6 @@ export default function Header() {
           </motion.div>
         )}
       </AnimatePresence>
-
-        {/* Mobile Navigation */}
-        <div className={`fixed inset-0 bg-dark-950/95 backdrop-blur-sm z-40 transition-opacity duration-300 ${
-          isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
-        }`} onClick={() => setIsMenuOpen(false)}>
-          <div className={`fixed right-0 top-0 h-full w-80 max-w-[90vw] bg-dark-900 shadow-2xl transform transition-transform duration-300 ${
-            isMenuOpen ? 'translate-x-0' : 'translate-x-full'
-          }`} onClick={(e) => e.stopPropagation()}>
-            <div className="p-6">
-              <div className="flex items-center justify-between mb-8">
-                <div className="text-xl font-display font-bold text-white">HydRaboN</div>
-                <button 
-                  onClick={() => setIsMenuOpen(false)}
-                  className="w-8 h-8 flex items-center justify-center text-dark-400 hover:text-white"
-                >
-                  <X className="w-6 h-6" />
-                </button>
-              </div>
-              
-              <nav className="space-y-4">
-                {navigation.map((item) => (
-                  <div key={item.href}>
-                    <Link
-                      href={item.href}
-                      className="block py-3 px-4 text-dark-200 hover:text-white hover:bg-dark-800 rounded-lg transition-all duration-300"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      {item.name}
-                    </Link>
-                  </div>
-                ))}
-              </nav>
-              
-              <div className="mt-8 pt-6 border-t border-dark-700">
-                <a
-                  href="https://discord.gg/hydrabon"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center w-full bg-primary-500 hover:bg-primary-600 hover:scale-105 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <MessageSquare className="w-5 h-5 mr-2" />
-                  Discord&apos;a Katıl
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
     </motion.header>
   );
-} 
+}

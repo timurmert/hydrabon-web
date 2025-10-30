@@ -36,7 +36,7 @@ export const featuredContent = mediaContent.filter(content => content.featured);
 export const mediaStats = {
   totalVideos: "150+",
   totalViews: "1.5M+",
-  subscribers: "800+",
+  subscribers: "1.000+",
   campaign: "10+",
   contentProduced: "150+",
 };
@@ -51,6 +51,14 @@ export const socialMediaPlatforms = [
     color: 'text-red-500',
   },
   {
+    name: 'Kick',
+    handle: '@hydrabon',
+    followers: '50+',
+    followersText: 'Takipçi',
+    url: 'https://kick.com/hydrabon',
+    color: 'text-green-400',
+  },
+  {
     name: 'Instagram',
     handle: '@hydrabon.official',
     followers: '100+',
@@ -59,12 +67,12 @@ export const socialMediaPlatforms = [
     color: 'text-pink-500',
   },
   {
-    name: 'Twitter',
-    handle: '@hydrabonesports',
+    name: 'X',
+    handle: '@hydrabonx',
     followers: '100+',
     followersText: 'Takipçi',
-    url: 'https://x.com/hydrabonesports',
-    color: 'text-blue-500',
+    url: 'https://x.com/hydrabonx',
+    color: 'text-sky-400',
   },
   {
     name: 'Discord',
@@ -72,6 +80,6 @@ export const socialMediaPlatforms = [
     followers: '850+',
     followersText: 'Üye',
     url: 'https://discord.gg/hydrabon',
-    color: 'text-purple-500',
+    color: 'text-indigo-400',
   },
 ];

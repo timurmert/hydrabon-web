@@ -16,8 +16,12 @@ import {
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { serverInfo, gameModes } from '@/data/cs2';
+import { useParams } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 
 export default function CS2Page() {
+  useParams();
+  const t = useTranslations('cs2');
   return (
     <div className="min-h-screen md:snap-y md:snap-mandatory overflow-y-auto overflow-x-hidden scroll-smooth">
       {/* Hero Section */}
@@ -45,7 +49,7 @@ export default function CS2Page() {
           <div className="glow-orb glow-orb-3"></div>
         </div>
 
-        <div className="container-custom relative z-20">
+        <div className="container-custom relative z-20 pt-20 md:pt-24 lg:pt-28">
           <motion.div 
             className="text-center mb-16"
             initial={{ opacity: 0, y: 30 }}
@@ -61,7 +65,7 @@ export default function CS2Page() {
             >
               <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-orange-900/30 to-orange-800/30 border border-orange-500/40 rounded-full backdrop-blur-md">
                 <div className="w-2 h-2 bg-orange-400 rounded-full mr-3 animate-pulse"></div>
-                <span className="text-orange-200 text-sm font-semibold tracking-wider uppercase">Eğlence Merkezi</span>
+                <span className="text-orange-200 text-sm font-semibold tracking-wider uppercase">{t('badge')}</span>
                 <div className="w-2 h-2 bg-orange-400 rounded-full ml-3 animate-pulse"></div>
               </div>
             </motion.div>
@@ -75,7 +79,7 @@ export default function CS2Page() {
             >
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight">
                 <span className="bg-gradient-to-r from-orange-300 via-white to-orange-300 bg-clip-text text-transparent">
-                Counter-Strike 2
+                  {t('title')}
                 </span>
               </h1>
               <motion.div 
@@ -94,11 +98,12 @@ export default function CS2Page() {
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <p className="text-base md:text-lg text-dark-100 leading-relaxed font-medium">
-                128 tick, anti-cheat korumalı profesyonel 
-                <span className="text-orange-300 font-semibold"> Counter-Strike 2 sunucumuz</span>. 
+                {t('description.part1')}{' '}
+                <span className="text-orange-300 font-semibold">{t('description.part2')}</span>{' '}
+                {t('description.part3')}
                 <br />
-                Competitive&#39;den casual&#39;a kadar geniş oyun modu yelpazesi ile 
-                <span className="text-white font-semibold"> kaliteli oyun deneyimi</span> sunuyoruz.
+                {t('description.part4')}{' '}
+                <span className="text-white font-semibold">{t('description.part5')}</span>.
               </p>
             </motion.div>
           </motion.div>
@@ -111,10 +116,10 @@ export default function CS2Page() {
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             {[
-              { icon: Users, value: '16 Slot', label: 'Maksimum Oyuncu', color: 'text-orange-500' },
-              { icon: Wifi, value: '128 Tick', label: 'Yüksek Performans', color: 'text-orange-500' },
-              { icon: Shield, value: 'Anti-Cheat', label: 'Güvenli Oyun', color: 'text-green-500' },
-              { icon: Server, value: '7/24', label: 'Kesintisiz Hizmet', color: 'text-blue-500' }
+              { icon: Users, value: '16 Slot', labelKey: 'features.maxPlayers', color: 'text-orange-500' },
+              { icon: Wifi, value: '128 Tick', labelKey: 'features.highPerformance', color: 'text-orange-500' },
+              { icon: Shield, value: 'Anti-Cheat', labelKey: 'features.safeGame', color: 'text-green-500' },
+              { icon: Server, value: '7/24', labelKey: 'features.uptime', color: 'text-blue-500' }
             ].map((feature, index) => (
               <motion.div 
                 key={index}
@@ -125,7 +130,7 @@ export default function CS2Page() {
               >
                 <feature.icon className={`w-8 h-8 ${feature.color} mx-auto mb-3`} />
                 <div className="text-3xl font-bold text-white mb-1">{feature.value}</div>
-                <div className="text-dark-300">{feature.label}</div>
+                <div className="text-dark-300">{t(feature.labelKey)}</div>
               </motion.div>
             ))}
           </motion.div>
@@ -142,16 +147,13 @@ export default function CS2Page() {
                 <Server className="w-12 h-12 text-orange-500" />
                 <div>
                   <h3 className="text-2xl font-bold text-white mb-2">{serverInfo.name}</h3>
-                  <p className="text-dark-300">Sunucu bağlantı bilgileri</p>
+                  <p className="text-dark-300">{t('serverInfo.description')}</p>
                 </div>
               </div>
               <div className="text-right">
-                <div className="text-2xl font-mono font-bold text-orange-500 mb-2">
-                  {serverInfo.ip}
-                </div>
                 <a href="https://discord.gg/hydrabon" target="_blank" rel="noopener noreferrer" onMouseDown={(e) => e.preventDefault()} onClick={(e) => (e.currentTarget as HTMLAnchorElement).blur()} className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 border border-orange-500/40 rounded-lg text-white font-semibold transition-all duration-300 hover:scale-105 hover:border-orange-400 group focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0">
                   <Play className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform duration-300" />
-                  Aramıza Katıl!
+                  {t('serverInfo.joinButton')}
                 </a>
               </div>
             </div>
@@ -174,9 +176,9 @@ export default function CS2Page() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="section-title">Oyun Modları</h2>
+            <h2 className="section-title">{t('gameModes.title')}</h2>
             <p className="section-subtitle">
-              Farklı oyun tarzları için çeşitli modlar sunuyoruz.
+              {t('gameModes.subtitle')}
             </p>
           </motion.div>
 
@@ -221,11 +223,11 @@ export default function CS2Page() {
                 <div className="grid grid-cols-2 gap-4 mb-4">
                   <div>
                     <div className="text-orange-500 font-semibold">{mode.playerCount}</div>
-                    <div className="text-xs text-dark-400">Min. Oyuncu Sayısı</div>
+                    <div className="text-xs text-dark-400">{t('gameModes.minPlayers')}</div>
                   </div>
                   <div>
                     <div className="text-orange-500 font-semibold">{mode.duration}</div>
-                    <div className="text-xs text-dark-400">Süre</div>
+                    <div className="text-xs text-dark-400">{t('gameModes.duration')}</div>
                   </div>
                 </div>
 
@@ -258,9 +260,9 @@ export default function CS2Page() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="section-title">Sunucu Avantajları</h2>
+            <h2 className="section-title">{t('benefits.title')}</h2>
             <p className="section-subtitle">
-              HydRaboN CS2 sunucusunda oyuncularımıza sunduğumuz özel hizmetler ve avantajlar.
+              {t('benefits.subtitle')}
             </p>
           </motion.div>
 
@@ -273,37 +275,27 @@ export default function CS2Page() {
           >
             {[
               {
-                title: 'Yüksek Performans Server',
-                description: '128 tick rate ile profesyonel seviyede oyun deneyimi.',
-                features: ['Düşük Ping', 'Stabil Bağlantı', 'Anti-Lag Sistemi'],
+                key: 'performance',
                 icon: Wifi,
                 color: 'text-green-500'
               },
               {
-                title: 'Güvenli Oyun Ortamı',
-                description: 'VAC + özel anti-cheat sistemleri ile hileye karşı korunma.',
-                features: ['VAC Koruması', 'Özel Anti-Cheat', 'Admin Denetimi'],
+                key: 'security',
                 icon: Shield,
                 color: 'text-blue-500'
               },
               {
-                title: 'Aktif Yönetim',
-                description: '7/24 aktif admin desteği ve hızlı problem çözümü.',
-                features: ['Hızlı Destek', 'Adil Yönetim', 'Problem Çözümü'],
+                key: 'management',
                 icon: Users,
                 color: 'text-purple-500'
               },
               {
-                title: 'Çeşitli Oyun Modları',
-                description: 'Competitive\'den casual\'a farklı oyun tarzları.',
-                features: ['Aim & Awp', 'Minigames', 'Competitive 5v5'],
+                key: 'modes',
                 icon: Gamepad2,
                 color: 'text-orange-500'
               },
               {
-                title: 'Topluluk Etkinlikleri',
-                description: 'Düzenli turnuvalar ve özel etkinlikler.',
-                features: ['Haftalık Turnuvalar', 'Ödüllü Yarışmalar', 'Eğlenceli Etkinlikler'],
+                key: 'events',
                 icon: Trophy,
                 color: 'text-yellow-500'
               }
@@ -321,10 +313,10 @@ export default function CS2Page() {
                     <benefit.icon className="w-8 h-8 text-white" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold text-white mb-2">{benefit.title}</h3>
-                    <p className="text-dark-300 mb-4">{benefit.description}</p>
+                    <h3 className="text-xl font-bold text-white mb-2">{t(`benefits.items.${benefit.key}.title`)}</h3>
+                    <p className="text-dark-300 mb-4">{t(`benefits.items.${benefit.key}.description`)}</p>
                     <div className="flex flex-wrap gap-2">
-                      {benefit.features.map((feature, featureIndex) => (
+                      {(t.raw(`benefits.items.${benefit.key}.features`) as string[]).map((feature: string, featureIndex: number) => (
                         <span key={featureIndex} className="px-3 py-1 bg-orange-500/20 text-orange-300 rounded-full text-sm">
                           {feature}
                         </span>
@@ -344,37 +336,28 @@ export default function CS2Page() {
       </div>
 
       {/* CTA Section */}
-      <section className="py-20 bg-dark-950 snap-start snap-always min-h-screen flex items-center">
-        <div className="container-custom">
+      <section className="py-12 md:py-20 bg-dark-950 snap-start snap-always min-h-screen flex items-center">
+        <div className="container-custom px-4 md:px-6">
           <motion.div 
-            className="bg-gradient-to-r from-orange-600 to-orange-500 rounded-3xl p-12 text-center"
+            className="bg-gradient-to-r from-orange-600 to-orange-500 rounded-2xl md:rounded-3xl p-6 md:p-10 lg:p-12 text-center max-w-5xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl font-bold text-white mb-6">
-              Sunucumuza Katıl!
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 md:mb-6 px-4">
+              {t('cta.title')}
             </h2>
-            <p className="text-xl text-orange-100 mb-8 max-w-2xl mx-auto">
-              Kaliteli CS2 deneyimi için sunucumuza bağlan ve HydRaboN topluluğunun bir parçası ol.
+            <p className="text-base sm:text-lg md:text-xl text-orange-100 mb-6 md:mb-8 max-w-2xl mx-auto px-4">
+              {t('cta.description')}
             </p>
-            <div className="flex justify-center">
-              <a href="https://discord.gg/hydrabon" target="_blank" rel="noopener noreferrer" onMouseDown={(e) => e.preventDefault()} onClick={(e) => (e.currentTarget as HTMLAnchorElement).blur()} className="bg-white text-orange-600 font-semibold py-4 px-8 rounded-lg hover:bg-orange-50 transition-all duration-300 flex items-center justify-center min-w-[180px] group transform hover:scale-105 active:scale-95 focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0">
-                <span className="flex items-center">
-                  Aramıza Katıl!
-                  <ExternalLink className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
+            <div className="flex justify-center px-4">
+              <a href="https://discord.gg/hydrabon" target="_blank" rel="noopener noreferrer" onMouseDown={(e) => e.preventDefault()} onClick={(e) => (e.currentTarget as HTMLAnchorElement).blur()} className="bg-white text-orange-600 font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-lg hover:bg-orange-50 transition-all duration-300 flex items-center justify-center w-full sm:w-auto sm:min-w-[180px] group transform hover:scale-105 active:scale-95 focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0">
+                <span className="flex items-center whitespace-nowrap">
+                  {t('cta.button')}
+                  <ExternalLink className="w-4 sm:w-5 h-4 sm:h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
                 </span>
               </a>
-            </div>
-            
-            <div className="mt-8 p-6 bg-white/10 rounded-xl backdrop-blur-md">
-              <div className="text-lg font-mono font-bold text-white mb-2">
-                connect {serverInfo.ip}
-              </div>
-              <p className="text-orange-100 text-sm">
-                Bu komutu CS2 konsolunda kullanarak direkt bağlanabilirsiniz!
-              </p>
             </div>
           </motion.div>
         </div>

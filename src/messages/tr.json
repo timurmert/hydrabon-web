@@ -1,0 +1,652 @@
+{
+  "nav": {
+    "home": "Ana Sayfa",
+    "community": "Topluluk",
+    "rnd": "Ar-Ge",
+    "media": "Medya",
+    "cs2": "CS2",
+    "esports": "Espor",
+    "about": "Hakkımızda",
+    "contact": "İletişim",
+    "discord": "Discord"
+  },
+  "home": {
+    "badge": "Türkiye'nin Dijital Ekosistemi",
+    "title": "HydRaboN",
+    "subtitle": "Geleceği Birlikte İnşa Ediyoruz",
+    "description": {
+      "part1": "Espor sahnesinden teknoloji dünyasına,",
+      "highlight1": "sınırları zorlayan",
+      "part2": "bir dijital topluluk. Video içeriklerinden yazılım projelerine,",
+      "highlight2": "tutkuyla",
+      "part3": "her alanda iz bırakan kişilerin adresi."
+    },
+    "cta": {
+      "join": "Topluluğa Katıl",
+      "about": "Hakkımızda"
+    },
+    "stats": {
+      "badge": "Rakamlarla HydRaboN",
+      "activeMembers": "Aktif Üye",
+      "projectsCompleted": "Proje Tamamlandı",
+      "matchesPlayed": "Oynanan Maç",
+      "views": "Görüntülenme"
+    },
+    "divisions": {
+      "badge": "Ekosistem",
+      "title": "Birimlerimiz",
+      "description": "HydRaboN'un ana yapı taşlarını keşfedin. Her birim, kendi alanında mükemmellik standartlarını koruyarak topluluğumuzun gücüne katkıda bulunur ve farklı ilgi alanlarına hitap eden kapsamlı bir ekosistem oluşturur.",
+      "features": "Temel Özellikler",
+      "explore": "Detayları Keşfet",
+      "active": "Aktif",
+      "passive": "Pasif"
+    },
+    "recognition": {
+      "badge": "Yüksek Standartlı Yapı Güvencesi",
+      "title": "Güvenilirlik, Kalite ve Vizyon",
+      "tournamentHistory": "Turnuva Geçmişi",
+      "organizedTeam": "Organize Takım Yapısı",
+      "advancedInfra": "Gelişmiş Altyapı",
+      "softwareSolutions": "Yazılım Tabanlı Çözümler",
+      "corporateManagement": "Kurumsal Yönetim",
+      "disciplinedOrg": "Disiplinli Organizasyon",
+      "activeCommunity": "Aktif Topluluk",
+      "support247": "7/24 Destek"
+    },
+    "cta2": {
+      "badge": "Son Adım",
+      "title": "Yeteneğini Değere Dönüştür!",
+      "description": "Topluluk yönetimi, yazılım, medya ve espor gibi alanlarda kendini geliştir; disiplinli bir yapının parçası olarak profesyonel kariyerine ilk adımı at.",
+      "join": "Aramıza Katıl!"
+    }
+  },
+  "footer": {
+    "slogan": "Çok Yönlü Dijital Topluluk",
+    "quickLinks": "Hızlı Erişim",
+    "legal": "Yasal",
+    "legalPage": "Yasal Bilgiler",
+    "followUs": "Bizi Takip Edin",
+    "rights": "Tüm hakları saklıdır."
+  },
+  "common": {
+    "loading": "Yükleniyor...",
+    "error": "Bir hata oluştu",
+    "comingSoon": "Yakında",
+    "viewDetails": "Detayları görüntüle"
+  },
+  "about": {
+    "badge": "Organizasyon",
+    "title": "Hakkımızda",
+    "subtitle": "Profesyonel yaklaşım, disiplinli yapı ve kaplan sembolizmini benimseyen HydRaboN organizasyonunun hikayesi ve değerleri.",
+    "mission": {
+      "title": "Misyonumuz",
+      "description": "Discord topluluğu, Ar-Ge, Medya ve CS2 ekseninde adil, güvenli ve üretken bir ekosistem kurarak; veriyle desteklenen yazılım/otomasyon çözümleri ve tutarlı bir marka diliyle kalıcı değer üretmek, geçmişteki espor disiplinimizi tüm süreçlere yansıtmaktır."
+    },
+    "vision": {
+      "title": "Vizyonumuz",
+      "description": "Türkiye'den doğup bölgede referans gösterilen bir platform olarak; Ar-Ge çıktılarımızı ürünleştirip ölçeklenebilir iş modelleriyle medya etkisini ve CS2 operasyon standartlarını yükseltmeyi, koşullar olgunlaştığında esporu sürdürülebilir bir programla yeniden etkinleştirerek ekosistemimizi tamamlamayı hedefliyoruz."
+    },
+    "timeline": {
+      "title": "Yolculuğumuz",
+      "subtitle": "HydRaboN'un kuruluşundan bugüne kadar geçirdiği önemli aşamalar.",
+      "items": {
+        "2018": {
+          "title": "Kuruluş",
+          "description": "HydRaboN'u kurarak topluluk temellerini ve marka kimliğimizi oluşturduk."
+        },
+        "2021": {
+          "title": "Yapılanma ve İlk Adımlar",
+          "description": "Discord topluluğunu yapılandırıp büyütürken süreç, kural ve görev tanımlarını netleştirdik."
+        },
+        "2023": {
+          "title": "Platformlaşma: CS2 & Espor",
+          "description": "İlk espor takımımızı duyurup CS2 altyapımızı devreye alarak topluluktan platforma geçişi başlattık."
+        },
+        "2024": {
+          "title": "Operasyonel Büyüme (CS2 & Espor)",
+          "description": "İkinci espor takımımızı duyurup CS2 sunucularımızı ölçeklendirdik."
+        },
+        "2025": {
+          "title": "Odak: Ar-Ge & Medya",
+          "description": "Esporu geçici olarak pasife alıp kaynaklarımızı Ar-Ge ve Medya'ya taşıyarak ürünleşme ve düzenli içerik üretimine odaklandık."
+        },
+        "future": {
+          "year": "Gelecek",
+          "title": "Vizyon",
+          "description": "Ar-Ge çıktılarının ürünleştiği, medyada bölgesel erişimi büyüten, CS2'de örnek standartlar geliştiren ve sürdürülebilir bir modelle espora yeniden dönen uluslararası bir platform olmayı hedefliyoruz."
+        }
+      }
+    },
+    "values": {
+      "title": "Değerlerimiz",
+      "subtitle": "Organizasyonumuzun temelini oluşturan değerler ve ilkeler.",
+      "items": {
+        "passion": {
+          "title": "Tutku",
+          "description": "Oyun, topluluk ve üretime duyduğumuz tutku yaptığımız her işe yön verir."
+        },
+        "teamSpirit": {
+          "title": "Takım Ruhu",
+          "description": "Birlikte kazanır, farklı disiplinleri tek bir amaç etrafında senkronize ederiz."
+        },
+        "goalOriented": {
+          "title": "Hedef Odaklılık",
+          "description": "Ölçülebilir hedefler koyar, veriye dayalı kararlarla istikrarlı ilerleriz."
+        },
+        "quality": {
+          "title": "Kalite ve Disiplin",
+          "description": "Standartlarımızı sürekli yükseltir, her sürümde daha iyisini sunarız."
+        },
+        "trust": {
+          "title": "Güven ve Şeffaflık",
+          "description": "Sözümüzde durur, şeffaf süreçlerle topluluğa ve iş ortaklarımıza güven veririz."
+        },
+        "innovation": {
+          "title": "Yenilikçilik",
+          "description": "Ar-Ge odağıyla yeni fikirleri hızlı deneyip etkisi kanıtlananları ölçekleriz."
+        }
+      }
+    },
+    "achievements": {
+      "title": "Başarılarımız",
+      "subtitle": "Bugüne kadar elde ettiğimiz önemli başarılar ve kilometre taşları.",
+      "items": {
+        "website": {
+          "title": "Web Platformu",
+          "description": "Tüm süreçlerimizi ve alanlarımızı sizlerle paylaşmak için internet sitemizi kullanıma açtık."
+        },
+        "events": {
+          "title": "Topluluk Etkinlikleri",
+          "description": "100+ katılımcıyla beraber, 20+ çekiliş ve etkinlik düzenledik."
+        },
+        "media": {
+          "title": "Medya İçerikleri",
+          "description": "YouTube'da 1.5M+ görüntülenmeye ulaşarak marka görünürlüğümüzü güçlendirdik."
+        },
+        "discord": {
+          "title": "Discord Topluluğu",
+          "description": "850+ üyeli, aktif moderasyon ve düzenli etkinliklerle büyüyen bir topluluk inşa ettik."
+        },
+        "automation": {
+          "title": "Operasyonel Otomasyonlar",
+          "description": "Discord ve web süreçlerinde otomasyonlarla görev akışlarını hızlandırdık."
+        },
+        "lessons": {
+          "title": "Ar-Ge Dersleri",
+          "description": "Topluluğumuz için 10+ saatlik ücretsiz dersler düzenledik."
+        },
+        "cs2infra": {
+          "title": "CS2 Rekabetçi Altyapı",
+          "description": "128 tick, düşük gecikme ve istikrar odaklı profesyonel sunucu altyapısını devreye aldık."
+        },
+        "valorant": {
+          "title": "Valorant Premier League Şampiyonlukları",
+          "description": "Tüm takımlarımızca 10'dan fazla Playoff'a katıldık, 2 şampiyonluk elde ettik."
+        }
+      }
+    },
+    "philosophy": {
+      "title": "Felsefemiz",
+      "quote": "Kaplan gibi güçlü, disiplinli ve kararlı bir organizasyonuz; her kalıcı başarının ardında takım ruhu ve tutarlı iş birliği olduğuna inanırız.",
+      "description": "Bireysel yetenekleri ölçülebilir hedeflerle takım başarısına dönüştürür; sürekli öğrenme ve gelişimi kültürümüzün temeline koyarız. Profesyonellik, saygı, etik ve şeffaflık ilkelerimizden asla ödün vermeyiz."
+    },
+    "divisions": {
+      "title": "Alanlarımız",
+      "subtitle": "Beş ana alanımızın her biri kendi içerisinde profesyonelce faaliyet gösterir.",
+      "community": {
+        "title": "Discord Topluluğu",
+        "description": "İletişim ağımızın kalbi, 850+ aktif üyeye sahip alanımız."
+      },
+      "rnd": {
+        "title": "Ar-Ge & Yazılım",
+        "description": "Discord botları, AI sistemleri ve web tabanlı otomasyonlar geliştiren alanımız."
+      },
+      "media": {
+        "title": "Medya",
+        "description": "Video prodüksiyonu, grafik tasarım ve sosyal medya yönetimi yapan kreatif alanımız."
+      },
+      "cs2": {
+        "title": "CS2 Sunucusu",
+        "description": "16 slot, 128 tick, anti-cheat korumalı profesyonel Counter-Strike 2 sunucumuz ve hizmetlerimiz."
+      },
+      "esports": {
+        "title": "Espor Mirası",
+        "description": "Valorant sahasında elde ettiğimiz tarihi başarılar, şampiyonluklar ve unutulmaz espor mirasımız."
+      }
+    },
+    "cta": {
+      "title": "Bize Katıl!",
+      "description": "Topluluğumuzla bağ kur, gelişmelerden haberdar ol ve yeni fırsatları kaçırma.",
+      "button": "Aramıza Katıl!"
+    }
+  },
+  "legal": {
+    "title": "Yasal Bilgiler",
+    "subtitle": "Tüm yasal metinlerimizi tek bir sayfada topladık. Aşağıdaki başlıklardan ilgili metni görüntüleyebilirsiniz.",
+    "privacy": {
+      "title": "Gizlilik Politikası",
+      "content": "Bu Gizlilik Politikası, HydRaboN tarafından sunulan hizmetlerde kişisel verilerin nasıl toplandığını, kullanıldığını ve korunduğunu açıklar. Kullanıcı verileri, hizmet kalitesini artırmak, güvenliği sağlamak ve yasal yükümlülüklerimizi yerine getirmek amacıyla işlenir. Kullanıcılar, talep etmeleri halinde verilerine erişim, düzeltme ve silme haklarına sahiptir."
+    },
+    "terms": {
+      "title": "Kullanım Şartları",
+      "content": "Bu platformu kullanarak topluluk kurallarına ve geçerli mevzuata uygun davranmayı kabul etmiş olursunuz. Platform üzerinde paylaşılan içerikler, telif ve lisans haklarına tabidir. Hizmetlerde yapılan değişiklikler, bakım çalışmaları veya topluluk güvenliği için gerekli durumlarda erişim kısıtlanabilir."
+    },
+    "cookies": {
+      "title": "Çerez Politikası",
+      "content": "Çerezler, kullanıcı deneyimini geliştirmek ve istatistiksel analizler için kullanılmaktadır. Zorunlu çerezler, platformun çalışması için gereklidir. Tercih çerezleri kullanıcı ayarlarını hatırlamak; performans ve analitik çerezler kullanım alışkanlıklarını analiz etmek; hedefleme çerezleri ise kişiselleştirilmiş içerik sunmak için kullanılır. Tarayıcı ayarlarından çerez tercihlerinizi yönetebilirsiniz."
+    }
+  },
+  "contact": {
+    "badge": "İletişim",
+    "title": "İletişim",
+    "description": {
+      "part1": "Bizimle iletişime geçin. Sorularınız, önerileriniz ve",
+      "part2": "iş birliği teklifleriniz",
+      "part3": "için",
+      "part4": "her zaman buradayız"
+    },
+    "form": {
+      "title": "Bize Ulaşın",
+      "responseTime": "Ortalama yanıt süresi: Discord 2–12 saat · E-posta 24–48 saat",
+      "successMessage": "Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağız.",
+      "errorMessage": "Mesaj gönderilirken bir hata oluştu. Lütfen tekrar deneyin.",
+      "fields": {
+        "name": {
+          "label": "Ad Soyad",
+          "placeholder": "Adınız ve soyadınız"
+        },
+        "email": {
+          "label": "E-posta",
+          "placeholder": "ornek@email.com"
+        },
+        "area": {
+          "label": "Alan",
+          "placeholder": "Alan seçin",
+          "options": {
+            "general": "Genel",
+            "discord": "Discord / Topluluk",
+            "cs2": "CS2",
+            "rnd": "Ar-Ge & Yazılım",
+            "media": "Medya",
+            "partnership": "İş Birliği / Sponsorluk"
+          }
+        },
+        "subject": {
+          "label": "Konu",
+          "placeholder": "Mesajınızın konusu"
+        },
+        "message": {
+          "label": "Mesaj",
+          "placeholder": "Mesajınızı buraya yazın..."
+        },
+        "discord": {
+          "label": "Discord Kullanıcı Adı (İsteğe Bağlı)",
+          "placeholder": "kullanıcıadı"
+        }
+      },
+      "submit": {
+        "idle": "Mesaj Gönder",
+        "submitting": "Gönderiliyor..."
+      }
+    },
+    "channels": {
+      "title": "İletişim Kanalları",
+      "discord": {
+        "title": "Discord",
+        "badge": "Önerilen",
+        "link": "Discord'da Ticket Aç",
+        "handle": "discord.gg/hydrabon",
+        "description": "Destek ve hızlı iletişim için Discord'da ticket açın."
+      },
+      "email": {
+        "title": "E-posta",
+        "copy": "Kopyala",
+        "copied": "Kopyalandı",
+        "address": "contact@hydrabon.com",
+        "description": "Genel sorular ve iş birliği talepleri.",
+        "responseTime": "Yanıt: 24–48 saat"
+      },
+      "privacy": {
+        "title": "Gizlilik",
+        "description": "Mesajlar yalnızca destek amacıyla işlenir ve makul süreyle saklanır."
+      }
+    },
+    "social": {
+      "title": "Sosyal Medya",
+      "subtitle": "Bizi sosyal medya platformlarında takip edin ve güncel kalın.",
+      "follow": "Takip Et",
+      "join": "Katıl"
+    },
+    "discordCta": {
+      "title": "Discord Topluluğumuza Katılın!",
+      "description": "En hızlı iletişim için Discord sunucumuza katılın. Aktif ortamımızda sizler de yerinizi alın.",
+      "button": "Discord'a Katıl"
+    }
+  },
+  "community": {
+    "badge": "Topluluğumuz",
+    "title": "Discord Topluluğu",
+    "description": "HydRaboN'un iletişim ağı, insan kaynağı ve dinamik yapısının merkezi. Sistemli yönetim anlayışı, güçlü etkileşim ortamı ve prestijli yapısıyla bütün organizasyonumuzun kalbidir",
+    "stats": {
+      "totalMembers": "Toplam Üye",
+      "online": "Çevrimiçi",
+      "boostLevel": "Sunucu Takviyesi",
+      "monthlyMessages": "Aylık Mesaj",
+      "level": "Seviye"
+    },
+    "joinButton": "Discord'a Katıl",
+    "roles": {
+      "title": "Sunucu Rolleri",
+      "subtitle": "Topluluk içindeki rollerden bazılarını ve sorumluluklarını keşfedin.",
+      "members": "üye",
+      "items": {
+        "founder": {
+          "name": "Kurucu",
+          "requirements": "Organizasyon Kurucusu"
+        },
+        "chairman": {
+          "name": "YK Başkanı",
+          "requirements": "Yönetim Kurulu Başkanı"
+        },
+        "board": {
+          "name": "YK Üyesi",
+          "requirements": "Yönetim Kurulu Üyesi"
+        },
+        "rnd": {
+          "name": "Ar-Ge Ekibi",
+          "requirements": "Ar-Ge Ekibi Üyesi"
+        },
+        "media": {
+          "name": "Medya Ekibi",
+          "requirements": "Medya Ekibi Üyesi"
+        }
+      }
+    },
+    "rules": {
+      "title": "Sunucu Kuralları",
+      "subtitle": "Topluluk düzenini korumak için belirlenen temel kurallar.",
+      "items": {
+        "1": {
+          "title": "Hakaret ve Alaycı Davranış",
+          "description": "Hakaret içerikli, hakareti ima eden alaycı, dalga içerikli mesaj veya söylemlerde bulunmak yasaktır."
+        },
+        "2": {
+          "title": "Yetki İsteme ve Reklam",
+          "description": "Yetkili birisinden yetki istemek, kurucudan izin almadan her türlü reklam yapmak yasaktır."
+        },
+        "3": {
+          "title": "Kışkırtıcı Davranış",
+          "description": "Kışkırtıcı hareketler yapmak/yazmak yasaktır."
+        },
+        "4": {
+          "title": "Spam ve Flood",
+          "description": "Herhangi bir metin kanalında spam/flood yapmak yasaktır."
+        },
+        "5": {
+          "title": "Ayrımcılık",
+          "description": "Din, dil, ırk veya cinsiyet ayrımı içeren konuşmaların içerisinde bulunmak yasaktır."
+        },
+        "6": {
+          "title": "Siyasi ve Dini Sohbet",
+          "description": "Siyasi veya dini sohbetleri karşılıklı hoşgörü ve düzgün bir üslup çerçevesinde yapmak zorunludur."
+        },
+        "7": {
+          "title": "Legal Olmayan İçerik",
+          "description": "Sunucu içerisinde legal olmayan konular hakkında konuşmak, paylaşımlarda bulunmak yasaktır."
+        },
+        "8": {
+          "title": "Yetki Kötüye Kullanımı",
+          "description": "Şaka dahi olsa yetkiyi kötüye kullanmak, insanları rahatsız etmek yasaktır."
+        },
+        "9": {
+          "title": "Özel Bilgi Paylaşımı",
+          "description": "Kişilerin özel bilgilerini paylaşmak, ailevi veya şahsi olarak ifşalamak, dalga geçmek yasaktır."
+        },
+        "10": {
+          "title": "Özel Hayat",
+          "description": "Kişiler rahatsız oluyorlarsa özel hayatlarını sormak ve sorgulamak, rahatsız edici davranışlarda bulunmak yasaktır."
+        },
+        "11": {
+          "title": "Kavga ve Tartışma",
+          "description": "Sunucu içerisinde herhangi bir ses veya yazı kanalında kavga etmek, başlatmak, içerisinde bulunmak, uzatmak yasaktır."
+        },
+        "12": {
+          "title": "Yasaklı Kullanıcıların Savunulması",
+          "description": "Sunucu içerisinde sunucudan atılmış, yasaklanmış kullanıcıların arkasından savunmalarının yapılması yasaktır."
+        },
+        "13": {
+          "title": "Rahatsız Etme",
+          "description": "Kişilerin sevmediği hareketleri, sözleri, rahatsız olduğunu belirtmesine rağmen inatla yapmaya, söylemeye devam etmek yasaktır."
+        },
+        "14": {
+          "title": "Cinsel Taciz ve NSFW",
+          "description": "Erkek/Kız bir bireye yapılan veya ima edilen her türlü taciz içerikli cümleler, NSFW içerikli paylaşımlarda bulunmak yasaktır."
+        }
+      }
+    },
+    "faq": {
+      "title": "Sıkça Sorulan Sorular",
+      "subtitle": "Topluluk hakkında merak edilen sorular ve cevapları.",
+      "items": {
+        "1": {
+          "question": "HydRaboN topluluğu nedir? Biz kimiz, ne yapabilirim?",
+          "answer": "HydRaboN 2018 yılında kurulmuş, Discord, Instagram, YouTube, TikTok, WhatsApp, Steam, Valorant, CS2 gibi birçok platformda/platform için aktiflik gösteren bir topluluktur. Burada sevdiğiniz oyunları topluca oynayabilir, çekilişlere katılabilir, her konuda yardımlar alabilir, hayat boyu sürecek dostluklar kurabilir, birimlere katılabilir ve yetkili kadromuza dahil olabilirsiniz."
+        },
+        "2": {
+          "question": "Neden kaplan, neden turuncu?",
+          "answer": "HydRaboN olarak en baştan beri bizleri temsil eden turuncu enerjiyi, neşeyi ve yaratıcılığı; kaplan ise güç, cesaret ve liderliği temsil etmektedir."
+        },
+        "3": {
+          "question": "HydRaboN'un faaliyetleri hangi alanlarda yoğunlaşıyor?",
+          "answer": "Ar-Ge, Medya ve benzeri alanlara eşit ağırlık vermekte olup, her alanda profesyonelce ilerlemekteyiz. Gerek maddi gerekse eğitim bakımından üst düzey kalitede desteklenen ekiplerimizle faaliyetlerimizi sürdürmekteyiz."
+        },
+        "4": {
+          "question": "Nasıl yetkili olabilirim? Avantajları nelerdir?",
+          "answer": "Discord sunucumuzda \"Yetkili Alım\" kanalından başvurunuzu yapabilirsiniz. Yetkili olarak HydRaboN'un prestijli topluluğunun merkezinde yer alır, yönetim sorumluluğu üstlenir ve topluluğun geleceğine yön veren seçkin isimlerden biri olabilirsiniz."
+        },
+        "5": {
+          "question": "Bir sorunla karşılaştığımda kimlerden yardım alabilirim?",
+          "answer": "Discord sunucumuzda \"Ticket Oluştur\" kanalından ticket oluşturarak hızlı bir şekilde yetkililerimizden yardım alabilirsiniz."
+        },
+        "6": {
+          "question": "Kural dışı davranış sergileyen kullanıcılar ne yaptırımla karşılaşıyor?",
+          "answer": "Yaptığı eyleme göre uygulanacak işlem farklı olmakla beraber, genellikle önce yazılı/sözlü uyarı ardından zaman aşımları, devamı halinde atılma veya yasaklanma durumları ile karşılaşıyor."
+        },
+        "7": {
+          "question": "Çekilişlere nasıl katılabilirim ve ne sıklıkla oluyor?",
+          "answer": "Genellikle aylık, özel zamanlarda günlük ve haftalık olarak gerçekleşmektedir. Katılım için Discord sunucumuzda \"Çekiliş\" kanalındaki yönergeleri takip edebilirsiniz."
+        },
+        "8": {
+          "question": "Reklam yapma veya kendi projelerimi paylaşma imkanım var mı?",
+          "answer": "Kurucumuzdan onay alınması dahilinde yapılabilir. Bu konuda Discord sunucumuzda \"Ticket Oluştur\" kanalından iletişime geçebilirsiniz."
+        },
+        "9": {
+          "question": "Şikayet veya önerilerimi nereye iletebilirim?",
+          "answer": "Discord sunucumuzda \"Ticket Oluştur\" kanalından ticket oluşturarak hızlı bir şekilde yetkililerimize şikayet ve önerilerinizi iletebilirsiniz."
+        }
+      }
+    },
+    "cta": {
+      "title": "Topluluğumuza Katılın!",
+      "description": "kişilik aktif topluluğumuzun bir parçası olun. Yeni arkadaşlıklar kurun, birlikte oyunlar oynayın ve eğlenceli vakit geçirin.",
+      "button": "Discord'a Katıl"
+    }
+  },
+  "rnd": {
+    "badge": "Teknoloji Merkezi",
+    "title": "Ar-Ge & Yazılım",
+    "description": "Web tabanlı uygulamalar, otomasyon sistemleri ve yapay zekâ destekli özel yazılım çözümleri geliştiren; organizasyonumuzun hem iç yapısına hem de dış projelere teknik üretim sağlayan merkezidir",
+    "stats": {
+      "totalProjects": "Toplam Proje",
+      "completed": "Tamamlanan",
+      "active": "Aktif Proje",
+      "developers": "Geliştirici"
+    },
+    "status": {
+      "planning": "Planlama",
+      "development": "Geliştirme",
+      "testing": "Test",
+      "completed": "Tamamlandı",
+      "maintenance": "Bakım"
+    },
+    "projects": {
+      "title": "Öne Çıkan Bazı Projelerimiz",
+      "subtitle": "Teknoloji ve inovasyon odaklı çalışmalarımızla geleceğe yön veren çözümler üretiyoruz.",
+      "technologiesLabel": "Teknolojiler",
+      "featuresLabel": "Özellikler"
+    },
+    "technologies": {
+      "title": "Teknoloji Yığınımız",
+      "subtitle": "Modern ve güvenilir teknolojilerle projelerimizi hayata geçiriyoruz."
+    },
+    "cta": {
+      "title": "Ar-Ge Ekibimize Katılın!",
+      "description": "Yenilikçi projeler üretmek, teknoloji dünyasında iz bırakmak ve kariyerinde ilerlemek istiyorsan bize katıl. Sürekli öğrenen, birlikte gelişen ekibimizin bir parçası ol!",
+      "viewProjects": "Projelerimizi Görüntüle",
+      "joinDiscord": "Discord'a Katıl"
+    }
+  },
+  "media": {
+    "badge": "İçerik Merkezi",
+    "title": "Sosyal Medya",
+    "description": "Ürettiğimiz içeriklerle topluluğumuzun değerlerini daha geniş kitlelere ulaştırıyor, etkileşimi artırıyor ve dış dünyada güçlü bir etki yaratıyoruz",
+    "stats": {
+      "videoContent": "Video İçerik",
+      "totalViews": "Toplam İzlenme",
+      "followers": "Takipçi",
+      "campaigns": "Kampanya Çalışması"
+    },
+    "featuredContent": {
+      "title": "Öne Çıkan İçerikler",
+      "subtitle": "En çok izlenen ve beğenilen içeriklerimizi keşfedin.",
+      "viewContent": "İçeriği Görüntüle",
+      "views": "görüntüleme"
+    },
+    "socialMedia": {
+      "title": "Sosyal Medya",
+      "subtitle": "Bizi tüm sosyal medya platformlarından takip edin!"
+    },
+    "cta": {
+      "title": "Gelişmelerden haberdar olun!",
+      "description": "Güncel gelişmeleri kaçırmamak ve topluluğumuzla bağlantıda kalmak için bizleri sosyal medyadan takip edin!",
+      "subscribe": "Abone Ol",
+      "follow": "Takip Et"
+    }
+  },
+  "cs2": {
+    "badge": "Eğlence Merkezi",
+    "title": "Counter-Strike 2",
+    "description": {
+      "part1": "128 tick, anti-cheat korumalı profesyonel",
+      "part2": "Counter-Strike 2 sunucumuz",
+      "part3": "geçmişte aktifti.",
+      "part4": "Jailbreak'ten Aim Redline'a, özgün modlarımız ve özel sistemlerimizle",
+      "part5": "unutulmaz anılar biriktirmiştik"
+    },
+    "features": {
+      "maxPlayers": "Maksimum Oyuncu",
+      "highPerformance": "Yüksek Performans",
+      "safeGame": "Güvenli Oyun",
+      "uptime": "Kesintisiz Hizmet"
+    },
+    "serverInfo": {
+      "description": "Yeniliklerden haberdar olmak için Discord topluluğumuza katılabilirsiniz.",
+      "joinButton": "Aramıza Katıl!"
+    },
+    "gameModes": {
+      "title": "Geçmiş Oyun Modlarımız",
+      "subtitle": "Sunucumuzda barındırdığımız farklı oyun modları ve özellikleri.",
+      "minPlayers": "Min. Oyuncu Sayısı",
+      "duration": "Süre"
+    },
+    "benefits": {
+      "title": "Sunucu Avantajları",
+      "subtitle": "HydRaboN CS2 sunucumuzda sizlere sunduğumuz özel hizmetler ve avantajlar şunlardı.",
+      "items": {
+        "performance": {
+          "title": "Yüksek Performans Server",
+          "description": "128 tick rate ile profesyonel seviyede oyun deneyimi.",
+          "features": ["Düşük Ping", "Stabil Bağlantı", "Anti-Lag Sistemi"]
+        },
+        "security": {
+          "title": "Güvenli Oyun Ortamı",
+          "description": "VAC + özel anti-cheat sistemleri ile hileye karşı korunma.",
+          "features": ["VAC Koruması", "Özel Anti-Cheat", "Admin Denetimi"]
+        },
+        "management": {
+          "title": "Aktif Yönetim",
+          "description": "7/24 aktif admin desteği ve hızlı problem çözümü.",
+          "features": ["Hızlı Destek", "Adil Yönetim", "Problem Çözümü"]
+        },
+        "modes": {
+          "title": "Çeşitli Oyun Modları",
+          "description": "Competitive'den casual'a farklı oyun tarzları.",
+          "features": ["Aim & Awp", "Minigames", "Competitive 5v5"]
+        },
+        "events": {
+          "title": "Topluluk Etkinlikleri",
+          "description": "Düzenli turnuvalar ve özel etkinlikler.",
+          "features": ["Haftalık Turnuvalar", "Ödüllü Yarışmalar", "Eğlenceli Etkinlikler"]
+        }
+      }
+    },
+    "cta": {
+      "title": "Topluluğumuza Katıl!",
+      "description": "CS2 sunucumuzda yüzlerce oyuncuya unutulmaz anlar yaşattık. Discord topluluğumuzda sen de yerinizi alabilirsin!",
+      "button": "Aramıza Katıl!"
+    }
+  },
+  "esports": {
+    "badge": "Espor Mirasımız",
+    "title": "Espor Takımlarımız",
+    "description": {
+      "part1": "Valorant sahasında",
+      "part2": "tarihi başarılara imza atmış",
+      "part3": "takımlarımızın gurur verici geçmişi.",
+      "part4": "Şampiyonluklar, rekorlar ve",
+      "part5": "unutulmaz anılarla dolu",
+      "part6": "espor yolculuğumuz."
+    },
+    "stats": {
+      "winRate": "Galibiyet Oranı",
+      "matchesPlayed": "Toplam Maç",
+      "tournaments": "Turnuva",
+      "championships": "Şampiyonluk"
+    },
+    "pioneer": {
+      "title": "Bu Mirasın Öncüsü",
+      "subtitle": "Bizi bu yola sokan, sahada ve sahne arkasında iz bırakan isim.",
+      "badge": "Mirasın Öncüsü"
+    },
+    "staff": {
+      "title": "Başarının Mimarları",
+      "subtitle": "Şampiyonluk yolculuğumuzda takımlarımızı zirveye taşıyan deneyimli kadromuz.",
+      "roles": {
+        "manager": "Takım Sorumlusu",
+        "coach": "Koç",
+        "analyst": "Analist",
+        "player": "Oyuncu"
+      }
+    },
+    "achievements": {
+      "title": "Tarihi Başarılarımız",
+      "subtitle": "Espor yolculuğumuzda elde ettiğimiz önemli kilometre taşları ve şampiyonluklar."
+    },
+    "matches": {
+      "title": "Tarihi Maç Sonuçları",
+      "subtitle": "Şampiyonluk yolunda oynadığımız önemli maçların sonuçları ve performanslarımız.",
+      "championship": "Şampiyonluk",
+      "final": "Final",
+      "finalMatch": "Final Maçı",
+      "win": "Galibiyet",
+      "loss": "Mağlubiyet",
+      "map": "Harita",
+      "viewMatch": "Maçı görüntüle"
+    },
+    "cta": {
+      "title": "Espor Mirasımızı Keşfet!",
+      "description": "Şampiyonluklar, rekorlar ve unutulmaz anılarla dolu espor tarihimizi keşfet. HydRaboN ailesinin gurur verici başarı hikayesi.",
+      "button": "Bu Mirasın İzini Keşfet"
+    }
+  }
+}
