@@ -137,7 +137,7 @@ export default function HomePage() {
         </div>
         
         {/* Hero Content Section */}
-        <div className="relative z-20 min-h-screen flex items-center justify-center">
+        <div className="relative z-20 min-h-screen flex items-center justify-center pt-20 md:pt-24 lg:pt-28">
           <div className="container-custom text-center">
             <div className="max-w-5xl mx-auto">
               {/* Premium Badge with Pulse */}

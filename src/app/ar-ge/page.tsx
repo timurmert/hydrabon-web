@@ -72,7 +72,7 @@ export default function RndPage() {
           <div className="glow-orb glow-orb-3"></div>
         </div>
 
-        <div className="container-custom relative z-20">
+        <div className="container-custom relative z-20 pt-20 md:pt-24 lg:pt-28">
           <motion.div 
             className="text-center mb-16"
             initial={{ opacity: 0, y: 30 }}

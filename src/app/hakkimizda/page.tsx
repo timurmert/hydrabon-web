@@ -189,7 +189,7 @@ export default function AboutPage() {
 
             {/* Enhanced Title */}
             <motion.div 
-              className="relative -mt-6 md:-mt-10 pt-6 md:pt-8 mb-8"
+              className="relative mb-8"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}

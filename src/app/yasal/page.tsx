@@ -11,7 +11,7 @@ export default function LegalPage() {
         <div className="absolute inset-0 tiger-pattern opacity-15 animate-pulse-slow" style={{ zIndex: 2 }}></div>
         <div className="absolute inset-0 animated-grid opacity-20" style={{ zIndex: 3 }}></div>
 
-        <div className="container-custom relative z-20">
+        <div className="container-custom relative z-20 pt-20 md:pt-24 lg:pt-28">
           <motion.div 
             className="text-center mb-16"
             initial={{ opacity: 0, y: 30 }}
