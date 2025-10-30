@@ -470,5 +470,182 @@
       "description": "member active community. Make new friendships, play games together, and have fun.",
       "button": "Join Discord"
     }
+  },
+  "rnd": {
+    "badge": "Technology Center",
+    "title": "R&D & Software",
+    "description": "Developing web-based applications, automation systems and AI-powered custom software solutions; the center that provides technical production for both the internal structure of our organization and external projects",
+    "stats": {
+      "totalProjects": "Total Projects",
+      "completed": "Completed",
+      "active": "Active Projects",
+      "developers": "Developers"
+    },
+    "status": {
+      "planning": "Planning",
+      "development": "Development",
+      "testing": "Testing",
+      "completed": "Completed",
+      "maintenance": "Maintenance"
+    },
+    "projects": {
+      "title": "Some of Our Featured Projects",
+      "subtitle": "We create solutions that shape the future with our technology and innovation-focused work.",
+      "technologiesLabel": "Technologies",
+      "featuresLabel": "Features"
+    },
+    "technologies": {
+      "title": "Our Technology Stack",
+      "subtitle": "We bring our projects to life with modern and reliable technologies."
+    },
+    "cta": {
+      "title": "Join Our R&D Team!",
+      "description": "If you want to produce innovative projects, leave a mark in the technology world and advance your career, join us. Be a part of our team that constantly learns and develops together!",
+      "viewProjects": "View Our Projects",
+      "joinDiscord": "Join Discord"
+    }
+  },
+  "media": {
+    "badge": "Content Center",
+    "title": "Social Media",
+    "description": "With the content we produce, we reach the values of our community to wider audiences, increase interaction and create a strong impact on the outside world",
+    "stats": {
+      "videoContent": "Video Content",
+      "totalViews": "Total Views",
+      "followers": "Followers",
+      "campaigns": "Campaign Work"
+    },
+    "featuredContent": {
+      "title": "Featured Content",
+      "subtitle": "Discover our most watched and liked content.",
+      "viewContent": "View Content",
+      "views": "views"
+    },
+    "socialMedia": {
+      "title": "Social Media",
+      "subtitle": "Follow us on all social media platforms!"
+    },
+    "cta": {
+      "title": "Stay Informed!",
+      "description": "Follow us on social media to not miss current developments and stay connected with our community!",
+      "subscribe": "Subscribe",
+      "follow": "Follow"
+    }
+  },
+  "cs2": {
+    "badge": "Entertainment Center",
+    "title": "Counter-Strike 2",
+    "description": {
+      "part1": "Our professional",
+      "part2": "Counter-Strike 2 server",
+      "part3": "with 128 tick and anti-cheat protection was active in the past.",
+      "part4": "From Jailbreak to Aim Redline, with our original modes and custom systems",
+      "part5": "we created unforgettable memories"
+    },
+    "features": {
+      "maxPlayers": "Max Players",
+      "highPerformance": "High Performance",
+      "safeGame": "Safe Gaming",
+      "uptime": "24/7 Service"
+    },
+    "serverInfo": {
+      "description": "You can join our Discord community to stay informed about updates.",
+      "joinButton": "Join Us!"
+    },
+    "gameModes": {
+      "title": "Our Past Game Modes",
+      "subtitle": "Different game modes and features we hosted on our server.",
+      "minPlayers": "Min. Players",
+      "duration": "Duration"
+    },
+    "benefits": {
+      "title": "Server Advantages",
+      "subtitle": "Here are the special services and advantages we offered you on our HydRaboN CS2 server.",
+      "items": {
+        "performance": {
+          "title": "High Performance Server",
+          "description": "Professional level gaming experience with 128 tick rate.",
+          "features": ["Low Ping", "Stable Connection", "Anti-Lag System"]
+        },
+        "security": {
+          "title": "Safe Gaming Environment",
+          "description": "Protection against cheats with VAC + custom anti-cheat systems.",
+          "features": ["VAC Protection", "Custom Anti-Cheat", "Admin Supervision"]
+        },
+        "management": {
+          "title": "Active Management",
+          "description": "24/7 active admin support and quick problem solving.",
+          "features": ["Quick Support", "Fair Management", "Problem Solving"]
+        },
+        "modes": {
+          "title": "Various Game Modes",
+          "description": "Different gameplay styles from competitive to casual.",
+          "features": ["Aim & Awp", "Minigames", "Competitive 5v5"]
+        },
+        "events": {
+          "title": "Community Events",
+          "description": "Regular tournaments and special events.",
+          "features": ["Weekly Tournaments", "Prize Competitions", "Fun Events"]
+        }
+      }
+    },
+    "cta": {
+      "title": "Join Our Community!",
+      "description": "We gave hundreds of players unforgettable moments on our CS2 server. You can also take your place in our Discord community!",
+      "button": "Join Us!"
+    }
+  },
+  "esports": {
+    "badge": "Our Esports Legacy",
+    "title": "Our Esports Teams",
+    "description": {
+      "part1": "The proud history of our teams that have",
+      "part2": "achieved historic success",
+      "part3": "on the Valorant stage.",
+      "part4": "Championships, records and our esports journey",
+      "part5": "filled with",
+      "part6": "unforgettable memories."
+    },
+    "stats": {
+      "winRate": "Win Rate",
+      "matchesPlayed": "Total Matches",
+      "tournaments": "Tournaments",
+      "championships": "Championships"
+    },
+    "pioneer": {
+      "title": "Pioneer of This Legacy",
+      "subtitle": "The name that led us to this path, leaving a mark both on and off the stage.",
+      "badge": "Legacy Pioneer"
+    },
+    "staff": {
+      "title": "Architects of Success",
+      "subtitle": "Our experienced team that took our teams to the top during our championship journey.",
+      "roles": {
+        "manager": "Team Manager",
+        "coach": "Coach",
+        "analyst": "Analyst",
+        "player": "Player"
+      }
+    },
+    "achievements": {
+      "title": "Our Historical Achievements",
+      "subtitle": "Important milestones and championships we achieved on our esports journey."
+    },
+    "matches": {
+      "title": "Historical Match Results",
+      "subtitle": "Results and performances of important matches we played on the road to championship.",
+      "championship": "Championship",
+      "final": "Final",
+      "finalMatch": "Final Match",
+      "win": "Victory",
+      "loss": "Defeat",
+      "map": "Map",
+      "viewMatch": "View match"
+    },
+    "cta": {
+      "title": "Discover Our Esports Legacy!",
+      "description": "Discover our esports history filled with championships, records and unforgettable memories. The proud success story of the HydRaboN family.",
+      "button": "Explore This Legacy"
+    }
   }
 }

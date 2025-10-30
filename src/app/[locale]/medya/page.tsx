@@ -20,6 +20,8 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { featuredContent, mediaStats, socialMediaPlatforms } from '@/data/media';
 import { useDiscordStats } from '@/hooks/useDiscordStats';
+import { useParams } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 
 const typeIcons = {
   'video': Video,
@@ -44,6 +46,9 @@ const platformIcons: Record<string, any> = {
 };
 
 export default function MediaPage() {
+  const params = useParams();
+  const locale = (params?.locale as string) || 'tr';
+  const t = useTranslations('media');
   const { stats: discordStats, loading, error } = useDiscordStats();
 
   // Ana sayfadaki gibi Discord üye sayısını formatla
@@ -108,7 +113,7 @@ export default function MediaPage() {
             >
               <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary-900/30 to-primary-800/30 border border-primary-500/40 rounded-full backdrop-blur-md">
                 <div className="w-2 h-2 bg-primary-400 rounded-full mr-3 animate-pulse"></div>
-                <span className="text-primary-200 text-sm font-semibold tracking-wider uppercase">İçerik Merkezi</span>
+                <span className="text-primary-200 text-sm font-semibold tracking-wider uppercase">{t('badge')}</span>
                 <div className="w-2 h-2 bg-primary-400 rounded-full ml-3 animate-pulse"></div>
               </div>
             </motion.div>
@@ -122,7 +127,7 @@ export default function MediaPage() {
             >
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight">
                 <span className="bg-gradient-to-r from-primary-300 via-white to-primary-300 bg-clip-text text-transparent">
-                  Sosyal Medya
+                  {t('title')}
                 </span>
               </h1>
               <motion.div 
@@ -141,9 +146,7 @@ export default function MediaPage() {
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <p className="text-base md:text-lg text-dark-100 leading-relaxed font-medium">
-                Ürettiğimiz içeriklerle topluluğumuzun değerlerini daha geniş kitlelere ulaştırıyor, etkileşimi artırıyor ve
-                <span className="text-primary-300 font-semibold"> dış dünyada </span>
-                <span className="text-white font-semibold"> güçlü bir etki yaratıyoruz.</span>
+                {t('description')}.
               </p>
             </motion.div>
           </motion.div>
@@ -156,10 +159,10 @@ export default function MediaPage() {
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             {[
-              { icon: Video, value: mediaStats.totalVideos, label: 'Video İçerik', color: 'text-primary-500' },
-              { icon: Eye, value: `${mediaStats.totalViews}`, label: 'Toplam İzlenme', color: 'text-green-500' },
-              { icon: Users, value: `${mediaStats.subscribers}`, label: 'Takipçi', color: 'text-blue-500' },
-              { icon: Gift, value: `${mediaStats.campaign}`, label: 'Kampanya Çalışması', color: 'text-purple-500' }
+              { icon: Video, value: mediaStats.totalVideos, labelKey: 'stats.videoContent', color: 'text-primary-500' },
+              { icon: Eye, value: `${mediaStats.totalViews}`, labelKey: 'stats.totalViews', color: 'text-green-500' },
+              { icon: Users, value: `${mediaStats.subscribers}`, labelKey: 'stats.followers', color: 'text-blue-500' },
+              { icon: Gift, value: `${mediaStats.campaign}`, labelKey: 'stats.campaigns', color: 'text-purple-500' }
             ].map((stat, index) => (
               <motion.div 
                 key={index}
@@ -170,7 +173,7 @@ export default function MediaPage() {
               >
                 <stat.icon className={`w-8 h-8 ${stat.color} mx-auto mb-3`} />
                 <div className="text-3xl font-bold text-white mb-1">{stat.value}</div>
-                <div className="text-dark-300">{stat.label}</div>
+                <div className="text-dark-300">{t(stat.labelKey)}</div>
               </motion.div>
             ))}
           </motion.div>
@@ -192,9 +195,9 @@ export default function MediaPage() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="section-title">Öne Çıkan İçerikler</h2>
+            <h2 className="section-title">{t('featuredContent.title')}</h2>
             <p className="section-subtitle">
-              En çok izlenen ve beğenilen içeriklerimizi keşfedin.
+              {t('featuredContent.subtitle')}
             </p>
           </motion.div>
 
@@ -271,7 +274,7 @@ export default function MediaPage() {
                       </div>
                       <div className="flex items-center space-x-1">
                         <Eye className="w-4 h-4" />
-                        <span>{content.views} görüntüleme</span>
+                        <span>{content.views} {t('featuredContent.views')}</span>
                       </div>
                       {content.duration && (
                         <div className="flex items-center space-x-1">
@@ -298,7 +301,7 @@ export default function MediaPage() {
                     onClick={(e) => (e.currentTarget as HTMLAnchorElement).blur()}
                     className="inline-flex items-center text-primary-500 hover:text-primary-400 font-medium transition-colors duration-300 focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0"
                   >
-                    İçeriği Görüntüle
+                    {t('featuredContent.viewContent')}
                     <ExternalLink className="w-4 h-4 ml-2" />
                   </a>
                 </motion.div>
@@ -322,9 +325,9 @@ export default function MediaPage() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="section-title">Sosyal Medya</h2>
+            <h2 className="section-title">{t('socialMedia.title')}</h2>
             <p className="section-subtitle">
-              Bizi tüm sosyal medya platformlarından takip edin!
+              {t('socialMedia.subtitle')}
             </p>
           </motion.div>
 
@@ -388,10 +391,10 @@ export default function MediaPage() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-4 md:mb-6 px-4">
-            Gelişmelerden haberdar olun!
+              {t('cta.title')}
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-purple-100 mb-6 md:mb-8 max-w-2xl mx-auto px-4">
-            Güncel gelişmeleri kaçırmamak ve topluluğumuzla bağlantıda kalmak için bizleri sosyal medyadan takip edin!
+              {t('cta.description')}
             </p>
             <motion.div 
               className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4"
@@ -407,7 +410,7 @@ export default function MediaPage() {
                 className="bg-white text-purple-600 font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-lg hover:bg-purple-50 transition-all duration-300 flex items-center justify-center w-full sm:w-auto sm:min-w-[180px] group transform-gpu hover:scale-105 active:scale-95"
               >
                 <span className="flex items-center whitespace-nowrap">
-                  Abone Ol
+                  {t('cta.subscribe')}
                   <Youtube className="w-4 sm:w-5 h-4 sm:h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
                 </span>
               </a>
@@ -418,7 +421,7 @@ export default function MediaPage() {
                 className="bg-purple-700 text-white font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-lg hover:bg-purple-800 transition-all duration-300 flex items-center justify-center w-full sm:w-auto sm:min-w-[180px] group transform-gpu hover:scale-105 active:scale-95"
               >
                 <span className="flex items-center whitespace-nowrap">
-                  Takip Et
+                  {t('cta.follow')}
                   <Instagram className="w-4 sm:w-5 h-4 sm:h-5 ml-2 group-hover:rotate-12 transition-transform duration-300" />
                 </span>
               </a>

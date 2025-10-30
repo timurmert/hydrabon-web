@@ -15,6 +15,8 @@ import { motion } from 'framer-motion';
 import { projects, technologies, rndStats } from '@/data/rnd';
 import { communityStats } from '@/data/community';
 import Image from 'next/image';
+import { useParams } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 
 const statusColors = {
   'planning': 'bg-blue-500/20 text-blue-500',
@@ -22,14 +24,6 @@ const statusColors = {
   'testing': 'bg-purple-500/20 text-purple-500',
   'completed': 'bg-green-500/20 text-green-500',
   'maintenance': 'bg-gray-500/20 text-gray-500',
-};
-
-const statusLabels = {
-  'planning': 'Planlama',
-  'development': 'Geliştirme',
-  'testing': 'Test',
-  'completed': 'Tamamlandı',
-  'maintenance': 'Bakım',
 };
 
 const categoryColors = {
@@ -42,6 +36,10 @@ const categoryColors = {
 };
 
 export default function RndPage() {
+  const params = useParams();
+  const locale = (params?.locale as string) || 'tr';
+  const t = useTranslations('rnd');
+  
   const argeTeam = communityStats.roles.find((role) => role.name === 'Ar-Ge Ekibi');
   const developerCount = argeTeam?.memberCount || 3;
 
@@ -88,7 +86,7 @@ export default function RndPage() {
             >
               <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary-900/30 to-primary-800/30 border border-primary-500/40 rounded-full backdrop-blur-md">
                 <div className="w-2 h-2 bg-primary-400 rounded-full mr-3 animate-pulse"></div>
-                <span className="text-primary-200 text-sm font-semibold tracking-wider uppercase">Teknoloji Merkezi</span>
+                <span className="text-primary-200 text-sm font-semibold tracking-wider uppercase">{t('badge')}</span>
                 <div className="w-2 h-2 bg-primary-400 rounded-full ml-3 animate-pulse"></div>
               </div>
             </motion.div>
@@ -102,7 +100,7 @@ export default function RndPage() {
             >
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight">
                 <span className="bg-gradient-to-r from-primary-300 via-white to-primary-300 bg-clip-text text-transparent">
-                  Ar-Ge & Yazılım
+                  {t('title')}
                 </span>
               </h1>
               <motion.div 
@@ -121,10 +119,7 @@ export default function RndPage() {
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <p className="text-base md:text-lg text-dark-100 leading-relaxed font-medium">
-              Web tabanlı uygulamalar, otomasyon sistemleri ve yapay zekâ destekli özel yazılım çözümleri geliştiren;
-              organizasyonumuzun
-                <span className="text-primary-300 font-semibold"> hem iç yapısına hem de dış projelere </span>
-                teknik üretim sağlayan merkezidir.
+                {t('description')}.
               </p>
             </motion.div>
           </motion.div>
@@ -137,10 +132,10 @@ export default function RndPage() {
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             {[
-              { icon: Target, value: rndStats.totalProjects, label: 'Toplam Proje', color: 'text-primary-500' },
-              { icon: CheckCircle, value: rndStats.completedProjects, label: 'Tamamlanan', color: 'text-green-500' },
-              { icon: Clock, value: rndStats.activeProjects, label: 'Aktif Proje', color: 'text-yellow-500' },
-              { icon: Users, value: developerCount, label: 'Geliştirici', color: 'text-blue-500' }
+              { icon: Target, value: rndStats.totalProjects, labelKey: 'stats.totalProjects', color: 'text-primary-500' },
+              { icon: CheckCircle, value: rndStats.completedProjects, labelKey: 'stats.completed', color: 'text-green-500' },
+              { icon: Clock, value: rndStats.activeProjects, labelKey: 'stats.active', color: 'text-yellow-500' },
+              { icon: Users, value: developerCount, labelKey: 'stats.developers', color: 'text-blue-500' }
             ].map((stat, index) => (
               <motion.div 
                 key={index}
@@ -151,7 +146,7 @@ export default function RndPage() {
               >
                 <stat.icon className={`w-8 h-8 ${stat.color} mx-auto mb-3`} />
                 <div className="text-3xl font-bold text-white mb-1">{stat.value}</div>
-                <div className="text-dark-300">{stat.label}</div>
+                <div className="text-dark-300">{t(stat.labelKey)}</div>
               </motion.div>
             ))}
           </motion.div>
@@ -173,9 +168,9 @@ export default function RndPage() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="section-title">Öne Çıkan Bazı Projelerimiz</h2>
+            <h2 className="section-title">{t('projects.title')}</h2>
             <p className="section-subtitle">
-            Teknoloji ve inovasyon odaklı çalışmalarımızla geleceğe yön veren çözümler üretiyoruz.
+              {t('projects.subtitle')}
             </p>
           </motion.div>
 
@@ -216,7 +211,7 @@ export default function RndPage() {
                         {project.name}
                       </h3>
                       <div className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${statusColors[project.status]}`}>
-                        {statusLabels[project.status]}
+                        {t(`status.${project.status}`)}
                       </div>
                     </div>
                   </div>
@@ -228,7 +223,7 @@ export default function RndPage() {
 
                 {/* Technologies */}
                 <div className="mb-6">
-                  <h4 className="text-sm font-semibold text-white mb-3">Teknolojiler</h4>
+                  <h4 className="text-sm font-semibold text-white mb-3">{t('projects.technologiesLabel')}</h4>
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech, index) => (
                       <span key={index} className="px-3 py-1 bg-dark-800 text-dark-300 text-xs rounded-full">
@@ -240,7 +235,7 @@ export default function RndPage() {
 
                 {/* Features */}
                 <div className="mb-6">
-                  <h4 className="text-sm font-semibold text-white mb-3">Özellikler</h4>
+                  <h4 className="text-sm font-semibold text-white mb-3">{t('projects.featuresLabel')}</h4>
                   <div className="grid grid-cols-1 gap-2">
                     {project.features.slice(0, 3).map((feature, index) => (
                       <div key={index} className="flex items-center space-x-2">
@@ -275,9 +270,9 @@ export default function RndPage() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="section-title">Teknoloji Yığınımız</h2>
+            <h2 className="section-title">{t('technologies.title')}</h2>
             <p className="section-subtitle">
-              Modern ve güvenilir teknolojilerle projelerimizi hayata geçiriyoruz.
+              {t('technologies.subtitle')}
             </p>
           </motion.div>
 
@@ -342,11 +337,10 @@ export default function RndPage() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-4 md:mb-6 px-4">
-              Ar-Ge Ekibimize Katılın!
+              {t('cta.title')}
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-primary-100 mb-6 md:mb-8 max-w-2xl mx-auto px-4">
-            Yenilikçi projeler üretmek, teknoloji dünyasında iz bırakmak ve kariyerinde ilerlemek istiyorsan bize katıl.
-            Sürekli öğrenen, birlikte gelişen ekibimizin bir parçası ol!
+              {t('cta.description')}
             </p>
             <motion.div 
               className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4"
@@ -369,7 +363,7 @@ export default function RndPage() {
                 className="bg-white text-primary-600 font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-lg hover:bg-primary-50 hover:scale-105 transition-all duration-300 flex items-center justify-center w-full sm:w-auto sm:min-w-[180px] group transform"
               >
                 <span className="flex items-center whitespace-nowrap">
-                  Projelerimizi Görüntüle
+                  {t('cta.viewProjects')}
                   <Target className="w-4 sm:w-5 h-4 sm:h-5 ml-2 group-hover:rotate-12 transition-transform duration-300" />
                 </span>
               </button>
@@ -382,7 +376,7 @@ export default function RndPage() {
                 className="bg-primary-700 text-white font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-lg hover:bg-primary-800 hover:scale-105 transition-all duration-300 flex items-center justify-center w-full sm:w-auto sm:min-w-[180px] group transform focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0"
               >
                 <span className="flex items-center whitespace-nowrap">
-                  Discord&apos;a Katıl
+                  {t('cta.joinDiscord')}
                   <ExternalLink className="w-4 sm:w-5 h-4 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                 </span>
               </a>

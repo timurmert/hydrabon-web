@@ -470,5 +470,182 @@
       "description": "kişilik aktif topluluğumuzun bir parçası olun. Yeni arkadaşlıklar kurun, birlikte oyunlar oynayın ve eğlenceli vakit geçirin.",
       "button": "Discord'a Katıl"
     }
+  },
+  "rnd": {
+    "badge": "Teknoloji Merkezi",
+    "title": "Ar-Ge & Yazılım",
+    "description": "Web tabanlı uygulamalar, otomasyon sistemleri ve yapay zekâ destekli özel yazılım çözümleri geliştiren; organizasyonumuzun hem iç yapısına hem de dış projelere teknik üretim sağlayan merkezidir",
+    "stats": {
+      "totalProjects": "Toplam Proje",
+      "completed": "Tamamlanan",
+      "active": "Aktif Proje",
+      "developers": "Geliştirici"
+    },
+    "status": {
+      "planning": "Planlama",
+      "development": "Geliştirme",
+      "testing": "Test",
+      "completed": "Tamamlandı",
+      "maintenance": "Bakım"
+    },
+    "projects": {
+      "title": "Öne Çıkan Bazı Projelerimiz",
+      "subtitle": "Teknoloji ve inovasyon odaklı çalışmalarımızla geleceğe yön veren çözümler üretiyoruz.",
+      "technologiesLabel": "Teknolojiler",
+      "featuresLabel": "Özellikler"
+    },
+    "technologies": {
+      "title": "Teknoloji Yığınımız",
+      "subtitle": "Modern ve güvenilir teknolojilerle projelerimizi hayata geçiriyoruz."
+    },
+    "cta": {
+      "title": "Ar-Ge Ekibimize Katılın!",
+      "description": "Yenilikçi projeler üretmek, teknoloji dünyasında iz bırakmak ve kariyerinde ilerlemek istiyorsan bize katıl. Sürekli öğrenen, birlikte gelişen ekibimizin bir parçası ol!",
+      "viewProjects": "Projelerimizi Görüntüle",
+      "joinDiscord": "Discord'a Katıl"
+    }
+  },
+  "media": {
+    "badge": "İçerik Merkezi",
+    "title": "Sosyal Medya",
+    "description": "Ürettiğimiz içeriklerle topluluğumuzun değerlerini daha geniş kitlelere ulaştırıyor, etkileşimi artırıyor ve dış dünyada güçlü bir etki yaratıyoruz",
+    "stats": {
+      "videoContent": "Video İçerik",
+      "totalViews": "Toplam İzlenme",
+      "followers": "Takipçi",
+      "campaigns": "Kampanya Çalışması"
+    },
+    "featuredContent": {
+      "title": "Öne Çıkan İçerikler",
+      "subtitle": "En çok izlenen ve beğenilen içeriklerimizi keşfedin.",
+      "viewContent": "İçeriği Görüntüle",
+      "views": "görüntüleme"
+    },
+    "socialMedia": {
+      "title": "Sosyal Medya",
+      "subtitle": "Bizi tüm sosyal medya platformlarından takip edin!"
+    },
+    "cta": {
+      "title": "Gelişmelerden haberdar olun!",
+      "description": "Güncel gelişmeleri kaçırmamak ve topluluğumuzla bağlantıda kalmak için bizleri sosyal medyadan takip edin!",
+      "subscribe": "Abone Ol",
+      "follow": "Takip Et"
+    }
+  },
+  "cs2": {
+    "badge": "Eğlence Merkezi",
+    "title": "Counter-Strike 2",
+    "description": {
+      "part1": "128 tick, anti-cheat korumalı profesyonel",
+      "part2": "Counter-Strike 2 sunucumuz",
+      "part3": "geçmişte aktifti.",
+      "part4": "Jailbreak'ten Aim Redline'a, özgün modlarımız ve özel sistemlerimizle",
+      "part5": "unutulmaz anılar biriktirmiştik"
+    },
+    "features": {
+      "maxPlayers": "Maksimum Oyuncu",
+      "highPerformance": "Yüksek Performans",
+      "safeGame": "Güvenli Oyun",
+      "uptime": "Kesintisiz Hizmet"
+    },
+    "serverInfo": {
+      "description": "Yeniliklerden haberdar olmak için Discord topluluğumuza katılabilirsiniz.",
+      "joinButton": "Aramıza Katıl!"
+    },
+    "gameModes": {
+      "title": "Geçmiş Oyun Modlarımız",
+      "subtitle": "Sunucumuzda barındırdığımız farklı oyun modları ve özellikleri.",
+      "minPlayers": "Min. Oyuncu Sayısı",
+      "duration": "Süre"
+    },
+    "benefits": {
+      "title": "Sunucu Avantajları",
+      "subtitle": "HydRaboN CS2 sunucumuzda sizlere sunduğumuz özel hizmetler ve avantajlar şunlardı.",
+      "items": {
+        "performance": {
+          "title": "Yüksek Performans Server",
+          "description": "128 tick rate ile profesyonel seviyede oyun deneyimi.",
+          "features": ["Düşük Ping", "Stabil Bağlantı", "Anti-Lag Sistemi"]
+        },
+        "security": {
+          "title": "Güvenli Oyun Ortamı",
+          "description": "VAC + özel anti-cheat sistemleri ile hileye karşı korunma.",
+          "features": ["VAC Koruması", "Özel Anti-Cheat", "Admin Denetimi"]
+        },
+        "management": {
+          "title": "Aktif Yönetim",
+          "description": "7/24 aktif admin desteği ve hızlı problem çözümü.",
+          "features": ["Hızlı Destek", "Adil Yönetim", "Problem Çözümü"]
+        },
+        "modes": {
+          "title": "Çeşitli Oyun Modları",
+          "description": "Competitive'den casual'a farklı oyun tarzları.",
+          "features": ["Aim & Awp", "Minigames", "Competitive 5v5"]
+        },
+        "events": {
+          "title": "Topluluk Etkinlikleri",
+          "description": "Düzenli turnuvalar ve özel etkinlikler.",
+          "features": ["Haftalık Turnuvalar", "Ödüllü Yarışmalar", "Eğlenceli Etkinlikler"]
+        }
+      }
+    },
+    "cta": {
+      "title": "Topluluğumuza Katıl!",
+      "description": "CS2 sunucumuzda yüzlerce oyuncuya unutulmaz anlar yaşattık. Discord topluluğumuzda sen de yerinizi alabilirsin!",
+      "button": "Aramıza Katıl!"
+    }
+  },
+  "esports": {
+    "badge": "Espor Mirasımız",
+    "title": "Espor Takımlarımız",
+    "description": {
+      "part1": "Valorant sahasında",
+      "part2": "tarihi başarılara imza atmış",
+      "part3": "takımlarımızın gurur verici geçmişi.",
+      "part4": "Şampiyonluklar, rekorlar ve",
+      "part5": "unutulmaz anılarla dolu",
+      "part6": "espor yolculuğumuz."
+    },
+    "stats": {
+      "winRate": "Galibiyet Oranı",
+      "matchesPlayed": "Toplam Maç",
+      "tournaments": "Turnuva",
+      "championships": "Şampiyonluk"
+    },
+    "pioneer": {
+      "title": "Bu Mirasın Öncüsü",
+      "subtitle": "Bizi bu yola sokan, sahada ve sahne arkasında iz bırakan isim.",
+      "badge": "Mirasın Öncüsü"
+    },
+    "staff": {
+      "title": "Başarının Mimarları",
+      "subtitle": "Şampiyonluk yolculuğumuzda takımlarımızı zirveye taşıyan deneyimli kadromuz.",
+      "roles": {
+        "manager": "Takım Sorumlusu",
+        "coach": "Koç",
+        "analyst": "Analist",
+        "player": "Oyuncu"
+      }
+    },
+    "achievements": {
+      "title": "Tarihi Başarılarımız",
+      "subtitle": "Espor yolculuğumuzda elde ettiğimiz önemli kilometre taşları ve şampiyonluklar."
+    },
+    "matches": {
+      "title": "Tarihi Maç Sonuçları",
+      "subtitle": "Şampiyonluk yolunda oynadığımız önemli maçların sonuçları ve performanslarımız.",
+      "championship": "Şampiyonluk",
+      "final": "Final",
+      "finalMatch": "Final Maçı",
+      "win": "Galibiyet",
+      "loss": "Mağlubiyet",
+      "map": "Harita",
+      "viewMatch": "Maçı görüntüle"
+    },
+    "cta": {
+      "title": "Espor Mirasımızı Keşfet!",
+      "description": "Şampiyonluklar, rekorlar ve unutulmaz anılarla dolu espor tarihimizi keşfet. HydRaboN ailesinin gurur verici başarı hikayesi.",
+      "button": "Bu Mirasın İzini Keşfet"
+    }
   }
 }

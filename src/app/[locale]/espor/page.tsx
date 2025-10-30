@@ -18,6 +18,8 @@ import { SiX } from 'react-icons/si';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { staff, historicalMatches, teamStats, historicalAchievements, pioneer } from '@/data/esports';
+import { useParams } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 
 const roleColors = {
   'Duelist': 'from-red-500 to-red-600',
@@ -29,6 +31,10 @@ const roleColors = {
 };
 
 export default function EsportsPage() {
+  const params = useParams();
+  const locale = (params?.locale as string) || 'tr';
+  const t = useTranslations('esports');
+  
   const ourTeamLogo = '/images/teams/hydrabon.png';
   const rankImages: Record<string, string> = {
     Immortal: '/images/ranks/immortal.jpg',
@@ -83,7 +89,7 @@ export default function EsportsPage() {
             >
               <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary-900/30 to-primary-800/30 border border-primary-500/40 rounded-full backdrop-blur-md">
                 <div className="w-2 h-2 bg-primary-400 rounded-full mr-3"></div>
-                <span className="text-primary-200 text-sm font-semibold tracking-wider uppercase">Espor Mirasımız</span>
+                <span className="text-primary-200 text-sm font-semibold tracking-wider uppercase">{t('badge')}</span>
                 <div className="w-2 h-2 bg-primary-400 rounded-full ml-3"></div>
               </div>
             </motion.div>
@@ -97,7 +103,7 @@ export default function EsportsPage() {
             >
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight">
                 <span className="bg-gradient-to-r from-primary-300 via-white to-primary-300 bg-clip-text text-transparent">
-                  Espor Takımlarımız
+                  {t('title')}
                 </span>
               </h1>
               <motion.div 
@@ -116,12 +122,13 @@ export default function EsportsPage() {
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <p className="text-base md:text-lg text-dark-100 leading-relaxed font-medium">
-                Valorant sahasında 
-                <span className="text-primary-300 font-semibold"> tarihi başarılara imza atmış </span> 
-                takımlarımızın gurur verici geçmişi.
+                {t('description.part1')}{' '}
+                <span className="text-primary-300 font-semibold">{t('description.part2')}</span>{' '}
+                {t('description.part3')}
                 <br />
-                Şampiyonluklar, rekorlar ve 
-                <span className="text-white font-semibold"> unutulmaz anılarla dolu</span> espor yolculuğumuz.
+                {t('description.part4')}{' '}
+                <span className="text-white font-semibold">{t('description.part5')}</span>{' '}
+                {t('description.part6')}
               </p>
             </motion.div>
           </motion.div>
@@ -134,10 +141,10 @@ export default function EsportsPage() {
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             {[
-              { icon: Trophy, value: `${teamStats.winRate}%`, label: 'Galibiyet Oranı', color: 'text-primary-500' },
-              { icon: Target, value: formatNumber(teamStats.matchesPlayed), label: 'Toplam Maç', color: 'text-primary-500' },
-              { icon: Zap, value: teamStats.tournaments, label: 'Turnuva', color: 'text-primary-500' },
-              { icon: Medal, value: teamStats.championships, label: 'Şampiyonluk', color: 'text-primary-500' },
+              { icon: Trophy, value: `${teamStats.winRate}%`, labelKey: 'stats.winRate', color: 'text-primary-500' },
+              { icon: Target, value: formatNumber(teamStats.matchesPlayed), labelKey: 'stats.matchesPlayed', color: 'text-primary-500' },
+              { icon: Zap, value: teamStats.tournaments, labelKey: 'stats.tournaments', color: 'text-primary-500' },
+              { icon: Medal, value: teamStats.championships, labelKey: 'stats.championships', color: 'text-primary-500' },
             ].map((stat, index) => (
               <motion.div 
                 key={index}
@@ -148,7 +155,7 @@ export default function EsportsPage() {
               >
                 <stat.icon className={`w-8 h-8 ${stat.color} mx-auto mb-3`} />
                 <div className="text-3xl font-bold text-white mb-1">{stat.value}</div>
-                <div className="text-dark-300">{stat.label}</div>
+                <div className="text-dark-300">{t(stat.labelKey)}</div>
               </motion.div>
             ))}
           </motion.div>
@@ -170,8 +177,8 @@ export default function EsportsPage() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="section-title">Bu Mirasın Öncüsü</h2>
-            <p className="section-subtitle">Bizi bu yola sokan, sahada ve sahne arkasında iz bırakan isim.</p>
+            <h2 className="section-title">{t('pioneer.title')}</h2>
+            <p className="section-subtitle">{t('pioneer.subtitle')}</p>
           </motion.div>
 
           <motion.div 
@@ -190,7 +197,7 @@ export default function EsportsPage() {
               </div>
               <div className="flex-1 text-center md:text-left">
                 <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary-500/20 text-primary-300 text-xs font-semibold mb-3">
-                  Mirasın Öncüsü
+                  {t('pioneer.badge')}
                 </div>
                 <h3 className="text-3xl md:text-4xl font-display font-bold text-white mb-2">{pioneer.nickname}</h3>
                 <p className="text-dark-300 mb-4">{pioneer.name}</p>
@@ -259,9 +266,9 @@ export default function EsportsPage() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="section-title">Başarının Mimarları</h2>
+            <h2 className="section-title">{t('staff.title')}</h2>
             <p className="section-subtitle">
-              Şampiyonluk yolculuğumuzda takımlarımızı zirveye taşıyan deneyimli kadromuz.
+              {t('staff.subtitle')}
             </p>
           </motion.div>
 
@@ -272,10 +279,10 @@ export default function EsportsPage() {
             // Oyuncu kartı için personel listesinden seçim yap (isim eşleşmesi veya özel rol adı kullanılarak)
             const playerStaff = staff.find((m) => m.role === 'Player');
             const leaders = [
-              { label: 'Takım Sorumlusu', name: manager?.name ?? '—', note: manager?.experience || manager?.bio || '', Icon: Crown },
-              { label: 'Koç', name: coach?.name ?? '—', note: coach?.experience || coach?.bio || '', Icon: Trophy },
-              { label: 'Analist', name: analyst?.name ?? '—', note: analyst?.experience || analyst?.bio || '', Icon: BarChart3 },
-              { label: 'Oyuncu', name: playerStaff?.name ?? '—', note: playerStaff?.experience || playerStaff?.bio || '', Icon: Gamepad2 },
+              { labelKey: 'staff.roles.manager', name: manager?.name ?? '—', note: manager?.experience || manager?.bio || '', Icon: Crown },
+              { labelKey: 'staff.roles.coach', name: coach?.name ?? '—', note: coach?.experience || coach?.bio || '', Icon: Trophy },
+              { labelKey: 'staff.roles.analyst', name: analyst?.name ?? '—', note: analyst?.experience || analyst?.bio || '', Icon: BarChart3 },
+              { labelKey: 'staff.roles.player', name: playerStaff?.name ?? '—', note: playerStaff?.experience || playerStaff?.bio || '', Icon: Gamepad2 },
             ];
             return (
           <motion.div 
@@ -287,7 +294,7 @@ export default function EsportsPage() {
           >
             {leaders.map((l, index) => (
                 <motion.div
-                  key={`${l.label}-${index}`}
+                  key={`${l.labelKey}-${index}`}
                   className="professional-card text-center group px-6 py-8"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -299,7 +306,7 @@ export default function EsportsPage() {
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">{l.name}</h3>
                 <div className="inline-block px-4 py-2 bg-primary-500/20 rounded-full text-primary-500 font-medium text-sm mb-4">
-                  {l.label}
+                  {t(l.labelKey)}
                 </div>
                 {l.note && (
                   <p className="text-dark-300 text-sm leading-relaxed">{l.note}</p>
@@ -327,9 +334,9 @@ export default function EsportsPage() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="section-title">Tarihi Başarılarımız</h2>
+            <h2 className="section-title">{t('achievements.title')}</h2>
             <p className="section-subtitle">
-              Espor yolculuğumuzda elde ettiğimiz önemli kilometre taşları ve şampiyonluklar.
+              {t('achievements.subtitle')}
             </p>
           </motion.div>
 
@@ -401,9 +408,9 @@ export default function EsportsPage() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="section-title">Tarihi Maç Sonuçları</h2>
+            <h2 className="section-title">{t('matches.title')}</h2>
             <p className="section-subtitle">
-              Şampiyonluk yolunda oynadığımız önemli maçların sonuçları ve performanslarımız.
+              {t('matches.subtitle')}
             </p>
           </motion.div>
 
@@ -428,7 +435,7 @@ export default function EsportsPage() {
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
                     <div className="flex items-center space-x-2 bg-gradient-to-r from-yellow-500 to-yellow-600 px-4 py-1.5 rounded-full shadow-lg">
                       <Trophy className="w-4 h-4 text-white" />
-                      <span className="text-white font-bold text-xs uppercase tracking-wide">Şampiyonluk</span>
+                      <span className="text-white font-bold text-xs uppercase tracking-wide">{t('matches.championship')}</span>
                       <Trophy className="w-4 h-4 text-white" />
                     </div>
                   </div>
@@ -445,7 +452,7 @@ export default function EsportsPage() {
                       {match.isFinal && (
                         <div className="inline-flex items-center px-2 py-1 rounded-full text-xs font-bold bg-yellow-500/20 text-yellow-500 border border-yellow-500/30">
                           <Trophy className="w-3 h-3 mr-1" />
-                          Final
+                          {t('matches.final')}
                         </div>
                       )}
                       <div className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${
@@ -453,7 +460,7 @@ export default function EsportsPage() {
                           ? 'bg-green-500/20 text-green-500' 
                           : 'bg-red-500/20 text-red-500'
                       }`}>
-                        {match.score && match.score.us > match.score.them ? 'Galibiyet' : 'Mağlubiyet'}
+                        {match.score && match.score.us > match.score.them ? t('matches.win') : t('matches.loss')}
                       </div>
                     </div>
                   </div>
@@ -489,7 +496,7 @@ export default function EsportsPage() {
                           </span>
                         )}
                         {match.maps && (
-                          <span className="truncate">Harita: {match.maps.join(', ')}</span>
+                          <span className="truncate">{t('matches.map')}: {match.maps.join(', ')}</span>
                         )}
                       </div>
                       {match.matchUrl && (
@@ -502,7 +509,7 @@ export default function EsportsPage() {
                             onClick={(e) => (e.currentTarget as HTMLAnchorElement).blur()}
                             className="inline-flex items-center text-primary-500 hover:text-primary-400 font-medium text-sm focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0"
                           >
-                            Maçı görüntüle
+                            {t('matches.viewMatch')}
                             <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 ml-1" />
                           </a>
                         </div>
@@ -519,7 +526,7 @@ export default function EsportsPage() {
                     {match.isFinal && (
                       <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-yellow-500/20 text-yellow-500 border border-yellow-500/30 whitespace-nowrap">
                         <Trophy className="w-3 h-3 mr-1" />
-                        Final Maçı
+                        {t('matches.finalMatch')}
                       </div>
                     )}
                     <div className={`inline-block px-3 py-1 rounded-full text-sm font-medium whitespace-nowrap ${
@@ -527,7 +534,7 @@ export default function EsportsPage() {
                         ? 'bg-green-500/20 text-green-500' 
                         : 'bg-red-500/20 text-red-500'
                     }`}>
-                      {match.score && match.score.us > match.score.them ? 'Galibiyet' : 'Mağlubiyet'}
+                      {match.score && match.score.us > match.score.them ? t('matches.win') : t('matches.loss')}
                     </div>
                   </div>
                 </div>
@@ -553,11 +560,10 @@ export default function EsportsPage() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 md:mb-6 px-4">
-              Espor Mirasımızı Keşfet!
+              {t('cta.title')}
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-primary-100 mb-6 md:mb-8 max-w-2xl mx-auto px-4">
-              Şampiyonluklar, rekorlar ve unutulmaz anılarla dolu espor tarihimizi keşfet. 
-              HydRaboN ailesinin gurur verici başarı hikayesi.
+              {t('cta.description')}
             </p>
             <div className="flex justify-center px-4">
               <a
@@ -569,7 +575,7 @@ export default function EsportsPage() {
                 className="bg-white text-primary-600 font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-lg hover:bg-primary-50 transition-all duration-300 flex items-center justify-center w-full sm:w-auto sm:min-w-[220px] group transform hover:scale-105 active:scale-95 will-change-transform focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0"
               >
                 <span className="flex items-center whitespace-nowrap">
-                  Bu Mirasın İzini Keşfet
+                  {t('cta.button')}
                   <ExternalLink className="w-4 sm:w-5 h-4 sm:h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
                 </span>
               </a>
