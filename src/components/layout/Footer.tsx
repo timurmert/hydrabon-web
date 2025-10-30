@@ -156,7 +156,7 @@ export default function Footer() {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, []); // Empty dependency array to run only once
+  }, [footerLinks]); // Include footerLinks in dependency array
 
   // Optimized hover handlers
   const handleLogoMouseEnter = () => {

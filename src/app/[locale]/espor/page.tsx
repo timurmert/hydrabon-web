@@ -31,8 +31,7 @@ const roleColors = {
 };
 
 export default function EsportsPage() {
-  const params = useParams();
-  const locale = (params?.locale as string) || 'tr';
+  useParams();
   const t = useTranslations('esports');
   
   const ourTeamLogo = '/images/teams/hydrabon.png';

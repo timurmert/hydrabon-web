@@ -3,7 +3,7 @@ import { Inter, Montserrat } from "next/font/google";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
-import { locales } from '@/i18n';
+import { locales, type Locale } from '@/i18n';
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { Analytics } from '@vercel/analytics/next';
@@ -67,7 +67,7 @@ export default async function LocaleLayout({
   const { locale } = await params;
   
   // Ensure that the incoming `locale` is valid
-  if (!locales.includes(locale as any)) {
+  if (!locales.includes(locale as Locale)) {
     notFound();
   }
 

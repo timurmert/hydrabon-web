@@ -20,8 +20,7 @@ import { useParams } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 
 export default function CS2Page() {
-  const params = useParams();
-  const locale = (params?.locale as string) || 'tr';
+  useParams();
   const t = useTranslations('cs2');
   return (
     <div className="min-h-screen md:snap-y md:snap-mandatory overflow-y-auto overflow-x-hidden scroll-smooth">

@@ -15,8 +15,7 @@ import { useParams } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 
 export default function CommunityPage() {
-  const params = useParams();
-  const locale = (params?.locale as string) || 'tr';
+  useParams();
   const t = useTranslations('community');
   const { stats: discordStats, loading: discordLoading, error: discordError } = useDiscordStats();
   

@@ -68,7 +68,6 @@ export default function Header() {
   const router = useRouter();
   const locale = (params?.locale as string) || 'tr';
   const t = useTranslations('nav');
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const prefersReducedMotion = useReducedMotion();
 
   const navigation = getNavigation(locale);

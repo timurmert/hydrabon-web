@@ -5,8 +5,7 @@ import { useParams } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 
 export default function LegalPage() {
-  const params = useParams();
-  const locale = (params?.locale as string) || 'tr';
+  useParams();
   const t = useTranslations('legal');
   return (
     <div className="min-h-screen scroll-smooth">

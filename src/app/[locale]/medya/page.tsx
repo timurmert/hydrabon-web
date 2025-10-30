@@ -46,8 +46,7 @@ const platformIcons: Record<string, any> = {
 };
 
 export default function MediaPage() {
-  const params = useParams();
-  const locale = (params?.locale as string) || 'tr';
+  useParams();
   const t = useTranslations('media');
   const { stats: discordStats, loading, error } = useDiscordStats();
 

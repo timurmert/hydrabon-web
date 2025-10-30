@@ -36,8 +36,7 @@ const categoryColors = {
 };
 
 export default function RndPage() {
-  const params = useParams();
-  const locale = (params?.locale as string) || 'tr';
+  useParams();
   const t = useTranslations('rnd');
   
   const argeTeam = communityStats.roles.find((role) => role.name === 'Ar-Ge Ekibi');

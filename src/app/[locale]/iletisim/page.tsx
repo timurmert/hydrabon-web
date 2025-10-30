@@ -55,8 +55,7 @@ const socialPlatforms = [
 ];
 
 export default function ContactPage() {
-  const params = useParams();
-  const locale = (params?.locale as string) || 'tr';
+  useParams();
   const t = useTranslations('contact');
   
   const AREAS = [
