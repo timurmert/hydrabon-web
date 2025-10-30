@@ -314,7 +314,8 @@
     "social": {
       "title": "Social Media",
       "subtitle": "Follow us on social media platforms and stay up to date.",
-      "follow": "Follow"
+      "follow": "Follow",
+      "join": "Join"
     },
     "discordCta": {
       "title": "Join Our Discord Community!",

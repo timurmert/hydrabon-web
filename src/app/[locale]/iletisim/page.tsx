@@ -7,7 +7,7 @@ import {
   Youtube,
   Copy
 } from 'lucide-react';
-import { SiX, SiDiscord } from 'react-icons/si';
+import { SiX, SiDiscord, SiKick } from 'react-icons/si';
 import { motion } from 'framer-motion';
 import { useEffect } from 'react';
 import { useState } from 'react';
@@ -17,6 +17,20 @@ import { useTranslations } from 'next-intl';
 const DISCORD_INVITE_URL = "https://discord.gg/hydrabon";
 
 const socialPlatforms = [
+  {
+    icon: Youtube,
+    name: 'YouTube',
+    handle: '@hydrabon',
+    url: 'https://youtube.com/@hydrabon',
+    color: 'text-red-500',
+  },
+  {
+    icon: SiKick,
+    name: 'Kick',
+    handle: 'hydrabon',
+    url: 'https://kick.com/hydrabon',
+    color: 'text-green-500',
+  },
   {
     icon: Instagram,
     name: 'Instagram',
@@ -30,13 +44,6 @@ const socialPlatforms = [
     handle: '@hydrabonx',
     url: 'https://x.com/hydrabonx',
     color: 'text-sky-400',
-  },
-  {
-    icon: Youtube,
-    name: 'YouTube',
-    handle: '@hydrabon',
-    url: 'https://youtube.com/@hydrabon',
-    color: 'text-red-500',
   },
   {
     icon: SiDiscord,
@@ -465,7 +472,7 @@ export default function ContactPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
             {socialPlatforms.map((platform, index) => {
               const IconComponent = platform.icon;
               return (
@@ -483,7 +490,9 @@ export default function ContactPage() {
                     <h3 className="text-lg font-bold text-white mb-2">{platform.name}</h3>
                     <p className={`text-sm ${platform.color} mb-3`}>{platform.handle}</p>
                     <div className="flex items-center justify-center space-x-2 text-dark-400 group-hover:text-white transition-colors duration-300">
-                      <span className="text-sm">{t('social.follow')}</span>
+                      <span className="text-sm">
+                        {platform.name === 'Discord' ? t('social.join') : t('social.follow')}
+                      </span>
                       <ExternalLink className="w-4 h-4" />
                     </div>
                   </div>

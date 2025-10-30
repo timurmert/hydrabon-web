@@ -314,7 +314,8 @@
     "social": {
       "title": "Sosyal Medya",
       "subtitle": "Bizi sosyal medya platformlarında takip edin ve güncel kalın.",
-      "follow": "Takip Et"
+      "follow": "Takip Et",
+      "join": "Katıl"
     },
     "discordCta": {
       "title": "Discord Topluluğumuza Katılın!",
