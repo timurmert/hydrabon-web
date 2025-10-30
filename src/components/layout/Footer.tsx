@@ -3,6 +3,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useRef, useEffect } from 'react';
+import { useParams } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 import { 
   Mail, 
   MapPin, 
@@ -15,44 +17,44 @@ import {
 } from 'lucide-react';
 import { SiDiscord, SiSteam, SiKick, SiX } from 'react-icons/si';
 
-const footerLinks = {
+const getFooterLinks = (locale: string) => ({
   organization: {
-    title: 'Organizasyon',
+    title: locale === 'tr' ? 'Organizasyon' : 'Organization',
     links: [
-      { name: 'Hakkımızda', href: '/hakkimizda' },
-      { name: 'Misyonumuz', href: '/hakkimizda#misyon' },
-      { name: 'Vizyonumuz', href: '/hakkimizda#vizyon' },
-      { name: 'Değerlerimiz', href: '/hakkimizda#degerler' },
-      { name: 'Tarihçe', href: '/hakkimizda#tarihce' },
+      { name: locale === 'tr' ? 'Hakkımızda' : 'About Us', href: `/${locale}/hakkimizda` },
+      { name: locale === 'tr' ? 'Misyonumuz' : 'Our Mission', href: `/${locale}/hakkimizda#misyon` },
+      { name: locale === 'tr' ? 'Vizyonumuz' : 'Our Vision', href: `/${locale}/hakkimizda#vizyon` },
+      { name: locale === 'tr' ? 'Değerlerimiz' : 'Our Values', href: `/${locale}/hakkimizda#degerler` },
+      { name: locale === 'tr' ? 'Tarihçe' : 'History', href: `/${locale}/hakkimizda#tarihce` },
     ],
   },
   divisions: {
-    title: 'Birimlerimiz',
+    title: locale === 'tr' ? 'Birimlerimiz' : 'Our Divisions',
     links: [
-      { name: 'Topluluğumuz', href: '/topluluk' },
-      { name: 'Ar-Ge & Yazılım', href: '/ar-ge' },
-      { name: 'Medya Ekibimiz', href: '/medya' },
-      { name: 'CS2 Sunucumuz', href: '/cs2' },
-      { name: 'Espor Takımımız', href: '/espor' },
+      { name: locale === 'tr' ? 'Topluluğumuz' : 'Our Community', href: `/${locale}/topluluk` },
+      { name: locale === 'tr' ? 'Ar-Ge & Yazılım' : 'R&D & Software', href: `/${locale}/ar-ge` },
+      { name: locale === 'tr' ? 'Medya Ekibimiz' : 'Our Media Team', href: `/${locale}/medya` },
+      { name: locale === 'tr' ? 'CS2 Sunucumuz' : 'Our CS2 Server', href: `/${locale}/cs2` },
+      { name: locale === 'tr' ? 'Espor Takımımız' : 'Our Esports Team', href: `/${locale}/espor` },
     ],
   },
   community: {
-    title: 'Topluluk',
+    title: locale === 'tr' ? 'Topluluk' : 'Community',
     links: [
-      { name: 'Discord Sunucumuz', href: 'https://discord.gg/hydrabon' },
-      { name: 'Steam Grubumuz', href: 'https://steamcommunity.com/groups/HydRaboN' },
-      { name: 'İletişim', href: '/iletisim' },
+      { name: locale === 'tr' ? 'Discord Sunucumuz' : 'Our Discord Server', href: 'https://discord.gg/hydrabon' },
+      { name: locale === 'tr' ? 'Steam Grubumuz' : 'Our Steam Group', href: 'https://steamcommunity.com/groups/HydRaboN' },
+      { name: locale === 'tr' ? 'İletişim' : 'Contact', href: `/${locale}/iletisim` },
     ],
   },
   legal: {
-    title: 'Yasal',
+    title: locale === 'tr' ? 'Yasal' : 'Legal',
     links: [
-      { name: 'Gizlilik Politikası', href: '/yasal#gizlilik' },
-      { name: 'Kullanım Şartları', href: '/yasal#kullanim-sartlari' },
-      { name: 'Çerez Politikası', href: '/yasal#cerez-politikasi' },
+      { name: locale === 'tr' ? 'Gizlilik Politikası' : 'Privacy Policy', href: `/${locale}/yasal#gizlilik` },
+      { name: locale === 'tr' ? 'Kullanım Şartları' : 'Terms of Use', href: `/${locale}/yasal#kullanim-sartlari` },
+      { name: locale === 'tr' ? 'Çerez Politikası' : 'Cookie Policy', href: `/${locale}/yasal#cerez-politikasi` },
     ],
   },
-};
+});
 
 const socialMedia = [
   {
@@ -107,6 +109,10 @@ const contactInfo = {
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const params = useParams();
+  const locale = (params?.locale as string) || 'tr';
+  const t = useTranslations('footer');
+  const footerLinks = getFooterLinks(locale);
 
   const [titleWidths, setTitleWidths] = useState<Record<string, number>>({});
   const [hoveredTitle, setHoveredTitle] = useState<string | null>(null);
@@ -178,7 +184,7 @@ export default function Footer() {
             {/* Brand Section */}
             <div className="col-span-2 sm:col-span-3 lg:col-span-2">
               <Link 
-                href="/"
+                href={`/${locale}`}
                 className="flex items-center space-x-3 mb-6 group w-fit"
                 onMouseEnter={handleLogoMouseEnter}
                 onMouseLeave={handleLogoMouseLeave}
@@ -199,14 +205,16 @@ export default function Footer() {
                     HydRaboN
                   </h3>
                   <p className="text-orange-400 font-medium transition-all duration-300 ease-out group-hover:text-orange-300 group-hover:font-semibold group-hover:tracking-wide group-hover:drop-shadow-[0_0_8px_rgba(255,107,53,0.3)] will-change-transform transform-gpu">
-                    Çok Yönlü Dijital Topluluk
+                    {t('slogan')}
                   </p>
                 </div>
               </Link>
               
               <p className="text-dark-300 text-lg mb-8 leading-relaxed transition-colors duration-300 hover:text-dark-200">
-                Topluluk yönetimi, teknoloji, medya ve espor alanlarında yenilikçi çözümler üreten, 
-                güçlü bir simgeye ve organizasyonel yapıya sahip, genç ve disiplinli bir topluluk yapılanması.
+                {locale === 'tr' 
+                  ? 'Topluluk yönetimi, teknoloji, medya ve espor alanlarında yenilikçi çözümler üreten, güçlü bir simgeye ve organizasyonel yapıya sahip, genç ve disiplinli bir topluluk yapılanması.'
+                  : 'A young and disciplined community structure with a strong symbol and organizational framework, producing innovative solutions in community management, technology, media, and esports.'
+                }
               </p>
 
               {/* Contact Info */}
@@ -228,7 +236,9 @@ export default function Footer() {
                 </div>
                 <div className="flex items-center space-x-3 text-dark-300 group">
                   <Clock className="w-5 h-5 text-primary-500 transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_rgba(255,107,53,0.5)] will-change-transform transform-gpu" />
-                  <span className="transition-colors duration-300 group-hover:text-dark-200">{contactInfo.hours}</span>
+                  <span className="transition-colors duration-300 group-hover:text-dark-200">
+                    {locale === 'tr' ? '7/24 Discord Desteği' : '24/7 Discord Support'}
+                  </span>
                 </div>
               </div>
 
@@ -315,19 +325,21 @@ export default function Footer() {
                 style={{outline: 'none'}}
                 onFocus={(e) => e.target.blur()}
               >
-                <span className="transition-all duration-300 group-hover:tracking-wide font-medium">Başa Dön</span>
+                <span className="transition-all duration-300 group-hover:tracking-wide font-medium">
+                  {locale === 'tr' ? 'Başa Dön' : 'Back to Top'}
+                </span>
                 <ArrowUp className="w-4 h-4 transform group-hover:-translate-y-1 group-hover:scale-110 transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(255,107,53,0.5)] will-change-transform" />
               </button>
               
               {/* Copyright and Made with Love */}
               <div className="text-center space-y-2">
                 <div className="text-dark-400 transition-all duration-300 hover:text-primary-400 hover:tracking-wide hover:drop-shadow-[0_0_8px_rgba(255,107,53,0.3)] will-change-transform cursor-default">
-                  © {currentYear} HydRaboN. Tüm hakları saklıdır.
+                  © {currentYear} HydRaboN. {t('rights')}
                 </div>
                 <div className="flex items-center justify-center space-x-1 text-dark-400 text-sm transition-all duration-300 hover:text-dark-300 cursor-default">
-                  <span>Made with</span>
+                  <span>{locale === 'tr' ? 'Topluluk için' : 'Made with'}</span>
                   <Heart className="w-4 h-4 text-red-500 transition-all duration-300 hover:scale-110 hover:drop-shadow-[0_0_8px_rgba(239,68,68,0.5)] will-change-transform transform-gpu" />
-                  <span>for the community</span>
+                  <span>{locale === 'tr' ? 'yapıldı' : 'for the community'}</span>
                 </div>
               </div>
             </div>

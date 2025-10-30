@@ -1,0 +1,474 @@
+{
+  "nav": {
+    "home": "Home",
+    "community": "Community",
+    "rnd": "R&D",
+    "media": "Media",
+    "cs2": "CS2",
+    "esports": "Esports",
+    "about": "About",
+    "contact": "Contact",
+    "discord": "Discord"
+  },
+  "home": {
+    "badge": "Turkey's Digital Ecosystem",
+    "title": "HydRaboN",
+    "subtitle": "Building the Future Together",
+    "description": {
+      "part1": "From the esports scene to the world of technology,",
+      "highlight1": "pushing boundaries",
+      "part2": "as a digital community. From video content to software projects,",
+      "highlight2": "passionately",
+      "part3": "leaving our mark in every field."
+    },
+    "cta": {
+      "join": "Join Community",
+      "about": "About Us"
+    },
+    "stats": {
+      "badge": "HydRaboN in Numbers",
+      "activeMembers": "Active Members",
+      "projectsCompleted": "Projects Completed",
+      "matchesPlayed": "Matches Played",
+      "views": "Views"
+    },
+    "divisions": {
+      "badge": "Ecosystem",
+      "title": "Our Divisions",
+      "description": "Discover the main building blocks of HydRaboN. Each division contributes to our community's strength by maintaining excellence standards in its own field and creates a comprehensive ecosystem addressing different interests.",
+      "features": "Key Features",
+      "explore": "Explore Details",
+      "active": "Active",
+      "passive": "Passive"
+    },
+    "recognition": {
+      "badge": "High Standard Structure Assurance",
+      "title": "Reliability, Quality and Vision",
+      "tournamentHistory": "Tournament History",
+      "organizedTeam": "Organized Team Structure",
+      "advancedInfra": "Advanced Infrastructure",
+      "softwareSolutions": "Software-Based Solutions",
+      "corporateManagement": "Corporate Management",
+      "disciplinedOrg": "Disciplined Organization",
+      "activeCommunity": "Active Community",
+      "support247": "24/7 Support"
+    },
+    "cta2": {
+      "badge": "Final Step",
+      "title": "Turn Your Talent into Value!",
+      "description": "Develop yourself in areas such as community management, software, media and esports; take the first step in your professional career as part of a disciplined structure.",
+      "join": "Join Us!"
+    }
+  },
+  "footer": {
+    "slogan": "Versatile Digital Community",
+    "quickLinks": "Quick Links",
+    "legal": "Legal",
+    "legalPage": "Legal Information",
+    "followUs": "Follow Us",
+    "rights": "All rights reserved."
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "comingSoon": "Coming Soon",
+    "viewDetails": "View details"
+  },
+  "about": {
+    "badge": "Organization",
+    "title": "About Us",
+    "subtitle": "The story and values of the HydRaboN organization, which embraces a professional approach, disciplined structure, and tiger symbolism.",
+    "mission": {
+      "title": "Our Mission",
+      "description": "To create a fair, secure and productive ecosystem around Discord community, R&D, Media and CS2; to produce lasting value with data-supported software/automation solutions and a consistent brand language, reflecting our past esports discipline in all processes."
+    },
+    "vision": {
+      "title": "Our Vision",
+      "description": "As a platform emerging from Turkey and serving as a regional reference; we aim to productize our R&D outputs, elevate media impact and CS2 operational standards with scalable business models, and complete our ecosystem by reactivating esports with a sustainable program when conditions mature."
+    },
+    "timeline": {
+      "title": "Our Journey",
+      "subtitle": "The important stages HydRaboN has gone through from its foundation to today.",
+      "items": {
+        "2018": {
+          "title": "Foundation",
+          "description": "We established the community foundations and our brand identity by founding HydRaboN."
+        },
+        "2021": {
+          "title": "Structuring and First Steps",
+          "description": "While structuring and growing the Discord community, we clarified processes, rules and role definitions."
+        },
+        "2023": {
+          "title": "Platformization: CS2 & Esports",
+          "description": "We announced our first esports team and launched our CS2 infrastructure, initiating the transition from community to platform."
+        },
+        "2024": {
+          "title": "Operational Growth (CS2 & Esports)",
+          "description": "We announced our second esports team and scaled our CS2 servers."
+        },
+        "2025": {
+          "title": "Focus: R&D & Media",
+          "description": "We temporarily deactivated esports and shifted our resources to R&D and Media, focusing on productization and regular content production."
+        },
+        "future": {
+          "year": "Future",
+          "title": "Vision",
+          "description": "We aim to become an international platform where R&D outputs are productized, regional reach in media expands, exemplary standards are developed in CS2, and esports returns with a sustainable model."
+        }
+      }
+    },
+    "values": {
+      "title": "Our Values",
+      "subtitle": "The values and principles that form the foundation of our organization.",
+      "items": {
+        "passion": {
+          "title": "Passion",
+          "description": "The passion we have for gaming, community and production guides every work we do."
+        },
+        "teamSpirit": {
+          "title": "Team Spirit",
+          "description": "We win together, synchronizing different disciplines around a single purpose."
+        },
+        "goalOriented": {
+          "title": "Goal-Oriented",
+          "description": "We set measurable goals and progress steadily with data-driven decisions."
+        },
+        "quality": {
+          "title": "Quality and Discipline",
+          "description": "We continuously raise our standards and deliver better in every version."
+        },
+        "trust": {
+          "title": "Trust and Transparency",
+          "description": "We keep our word and provide trust to our community and partners through transparent processes."
+        },
+        "innovation": {
+          "title": "Innovation",
+          "description": "With an R&D focus, we quickly test new ideas and scale those with proven impact."
+        }
+      }
+    },
+    "achievements": {
+      "title": "Our Achievements",
+      "subtitle": "Important successes and milestones we have achieved to date.",
+      "items": {
+        "website": {
+          "title": "Web Platform",
+          "description": "We launched our website to share all our processes and areas with you."
+        },
+        "events": {
+          "title": "Community Events",
+          "description": "We organized 20+ giveaways and events with 100+ participants."
+        },
+        "media": {
+          "title": "Media Content",
+          "description": "We strengthened our brand visibility by reaching 1.5M+ views on YouTube."
+        },
+        "discord": {
+          "title": "Discord Community",
+          "description": "We built a growing community of 850+ members with active moderation and regular events."
+        },
+        "automation": {
+          "title": "Operational Automation",
+          "description": "We accelerated task flows with automation in Discord and web processes."
+        },
+        "lessons": {
+          "title": "R&D Lessons",
+          "description": "We organized 10+ hours of free lessons for our community."
+        },
+        "cs2infra": {
+          "title": "CS2 Competitive Infrastructure",
+          "description": "We launched professional server infrastructure focused on 128 tick, low latency and stability."
+        },
+        "valorant": {
+          "title": "Valorant Premier League Championships",
+          "description": "All our teams participated in more than 10 Playoffs and won 2 championships."
+        }
+      }
+    },
+    "philosophy": {
+      "title": "Our Philosophy",
+      "quote": "We are a strong, disciplined and determined organization like a tiger; we believe that behind every lasting success lies team spirit and consistent cooperation.",
+      "description": "We transform individual talents into team success with measurable goals; we place continuous learning and development at the foundation of our culture. We never compromise on our principles of professionalism, respect, ethics and transparency."
+    },
+    "divisions": {
+      "title": "Our Fields",
+      "subtitle": "Each of our five main fields operates professionally within itself.",
+      "community": {
+        "title": "Discord Community",
+        "description": "The heart of our communication network, our field with 850+ active members."
+      },
+      "rnd": {
+        "title": "R&D & Software",
+        "description": "Our field that develops Discord bots, AI systems and web-based automation."
+      },
+      "media": {
+        "title": "Media",
+        "description": "Our creative field that handles video production, graphic design and social media management."
+      },
+      "cs2": {
+        "title": "CS2 Server",
+        "description": "Our professional Counter-Strike 2 server with 16 slots, 128 tick, anti-cheat protection and services."
+      },
+      "esports": {
+        "title": "Esports Legacy",
+        "description": "Our historical achievements, championships and unforgettable esports legacy in the Valorant arena."
+      }
+    },
+    "cta": {
+      "title": "Join Us!",
+      "description": "Connect with our community, stay informed about developments, and don't miss new opportunities.",
+      "button": "Join Us!"
+    }
+  },
+  "legal": {
+    "title": "Legal Information",
+    "subtitle": "We have gathered all our legal texts on a single page. You can view the relevant text from the headings below.",
+    "privacy": {
+      "title": "Privacy Policy",
+      "content": "This Privacy Policy explains how personal data is collected, used and protected in the services provided by HydRaboN. User data is processed to improve service quality, ensure security and fulfill our legal obligations. Users have the right to access, correct and delete their data upon request."
+    },
+    "terms": {
+      "title": "Terms of Use",
+      "content": "By using this platform, you agree to comply with community rules and applicable legislation. Content shared on the platform is subject to copyright and licensing rights. Access may be restricted in cases of service changes, maintenance work or when necessary for community security."
+    },
+    "cookies": {
+      "title": "Cookie Policy",
+      "content": "Cookies are used to improve user experience and for statistical analysis. Essential cookies are necessary for the platform to function. Preference cookies remember user settings; performance and analytics cookies analyze usage habits; targeting cookies are used to provide personalized content. You can manage your cookie preferences from browser settings."
+    }
+  },
+  "contact": {
+    "badge": "Contact",
+    "title": "Contact",
+    "description": {
+      "part1": "Get in touch with us. For your questions, suggestions and",
+      "part2": "collaboration proposals",
+      "part3": "",
+      "part4": "we are always here"
+    },
+    "form": {
+      "title": "Reach Out to Us",
+      "responseTime": "Average response time: Discord 2–12 hours · Email 24–48 hours",
+      "successMessage": "Your message has been sent successfully! We will get back to you as soon as possible.",
+      "errorMessage": "An error occurred while sending the message. Please try again.",
+      "fields": {
+        "name": {
+          "label": "Full Name",
+          "placeholder": "Your name and surname"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "example@email.com"
+        },
+        "area": {
+          "label": "Area",
+          "placeholder": "Select area",
+          "options": {
+            "general": "General",
+            "discord": "Discord / Community",
+            "cs2": "CS2",
+            "rnd": "R&D & Software",
+            "media": "Media",
+            "partnership": "Partnership / Sponsorship"
+          }
+        },
+        "subject": {
+          "label": "Subject",
+          "placeholder": "Subject of your message"
+        },
+        "message": {
+          "label": "Message",
+          "placeholder": "Write your message here..."
+        },
+        "discord": {
+          "label": "Discord Username (Optional)",
+          "placeholder": "username"
+        }
+      },
+      "submit": {
+        "idle": "Send Message",
+        "submitting": "Sending..."
+      }
+    },
+    "channels": {
+      "title": "Contact Channels",
+      "discord": {
+        "title": "Discord",
+        "badge": "Recommended",
+        "link": "Open Ticket on Discord",
+        "handle": "discord.gg/hydrabon",
+        "description": "Open a ticket on Discord for support and quick communication."
+      },
+      "email": {
+        "title": "Email",
+        "copy": "Copy",
+        "copied": "Copied",
+        "address": "contact@hydrabon.com",
+        "description": "General inquiries and collaboration requests.",
+        "responseTime": "Response: 24–48 hours"
+      },
+      "privacy": {
+        "title": "Privacy",
+        "description": "Messages are processed only for support purposes and stored for a reasonable period."
+      }
+    },
+    "social": {
+      "title": "Social Media",
+      "subtitle": "Follow us on social media platforms and stay up to date.",
+      "follow": "Follow"
+    },
+    "discordCta": {
+      "title": "Join Our Discord Community!",
+      "description": "Join our Discord server for the fastest communication. Take your place in our active environment.",
+      "button": "Join Discord"
+    }
+  },
+  "community": {
+    "badge": "Our Community",
+    "title": "Discord Community",
+    "description": "The center of HydRaboN's communication network, human resources and dynamic structure. With its systematic management approach, strong interaction environment and prestigious structure, it is the heart of our entire organization",
+    "stats": {
+      "totalMembers": "Total Members",
+      "online": "Online",
+      "boostLevel": "Server Boost",
+      "monthlyMessages": "Monthly Messages",
+      "level": "Level"
+    },
+    "joinButton": "Join Discord",
+    "roles": {
+      "title": "Server Roles",
+      "subtitle": "Discover some of the roles and responsibilities within the community.",
+      "members": "members",
+      "items": {
+        "founder": {
+          "name": "Founder",
+          "requirements": "Organization Founder"
+        },
+        "chairman": {
+          "name": "Board Chairman",
+          "requirements": "Chairman of the Board"
+        },
+        "board": {
+          "name": "Board Member",
+          "requirements": "Board Member"
+        },
+        "rnd": {
+          "name": "R&D Team",
+          "requirements": "R&D Team Member"
+        },
+        "media": {
+          "name": "Media Team",
+          "requirements": "Media Team Member"
+        }
+      }
+    },
+    "rules": {
+      "title": "Server Rules",
+      "subtitle": "Basic rules established to maintain community order.",
+      "items": {
+        "1": {
+          "title": "Insult and Mocking Behavior",
+          "description": "It is forbidden to engage in insulting, mocking, or teasing messages or statements that imply insult."
+        },
+        "2": {
+          "title": "Requesting Authority and Advertising",
+          "description": "It is forbidden to request authority from someone in authority or to advertise without permission from the founder."
+        },
+        "3": {
+          "title": "Provocative Behavior",
+          "description": "Making or writing provocative actions is forbidden."
+        },
+        "4": {
+          "title": "Spam and Flood",
+          "description": "Spamming or flooding in any text channel is forbidden."
+        },
+        "5": {
+          "title": "Discrimination",
+          "description": "Participating in conversations containing discrimination based on religion, language, race, or gender is forbidden."
+        },
+        "6": {
+          "title": "Political and Religious Chat",
+          "description": "Political or religious conversations must be conducted within a framework of mutual tolerance and proper manner."
+        },
+        "7": {
+          "title": "Illegal Content",
+          "description": "Talking about or sharing illegal topics within the server is forbidden."
+        },
+        "8": {
+          "title": "Abuse of Authority",
+          "description": "Abusing authority or disturbing people, even as a joke, is forbidden."
+        },
+        "9": {
+          "title": "Sharing Private Information",
+          "description": "Sharing people's private information, disclosing family or personal matters, or mocking them is forbidden."
+        },
+        "10": {
+          "title": "Private Life",
+          "description": "If people are uncomfortable, asking about or questioning their private lives, or engaging in disturbing behavior is forbidden."
+        },
+        "11": {
+          "title": "Fighting and Arguing",
+          "description": "Fighting, starting, participating in, or prolonging fights in any voice or text channel within the server is forbidden."
+        },
+        "12": {
+          "title": "Defending Banned Users",
+          "description": "Defending users who have been kicked or banned from the server is forbidden."
+        },
+        "13": {
+          "title": "Harassment",
+          "description": "Insisting on doing or saying things that people dislike, despite them indicating they are uncomfortable, is forbidden."
+        },
+        "14": {
+          "title": "Sexual Harassment and NSFW",
+          "description": "Any harassment-related statements made or implied toward a male/female individual, or sharing NSFW content is forbidden."
+        }
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Questions and answers about the community.",
+      "items": {
+        "1": {
+          "question": "What is the HydRaboN community? Who are we, what can I do?",
+          "answer": "HydRaboN is a community established in 2018, active on/for many platforms such as Discord, Instagram, YouTube, TikTok, WhatsApp, Steam, Valorant, CS2. Here you can play your favorite games together, participate in giveaways, get help on any subject, make lifelong friendships, join units, and become part of our staff."
+        },
+        "2": {
+          "question": "Why tiger, why orange?",
+          "answer": "As HydRaboN, orange has always represented energy, joy, and creativity for us; the tiger represents strength, courage, and leadership."
+        },
+        "3": {
+          "question": "What areas are HydRaboN's activities focused on?",
+          "answer": "We give equal weight to R&D, Media, and similar areas, and are advancing professionally in each area. We continue our activities with our teams supported at a high level of quality, both financially and educationally."
+        },
+        "4": {
+          "question": "How can I become a staff member? What are the benefits?",
+          "answer": "You can apply from the \"Staff Recruitment\" channel on our Discord server. As a staff member, you will be at the center of HydRaboN's prestigious community, take on management responsibilities, and become one of the distinguished names shaping the community's future."
+        },
+        "5": {
+          "question": "Who can I get help from when I encounter a problem?",
+          "answer": "You can create a ticket from the \"Create Ticket\" channel on our Discord server to quickly get help from our staff."
+        },
+        "6": {
+          "question": "What sanctions do users who exhibit rule-breaking behavior face?",
+          "answer": "Although the action taken differs depending on the act committed, they generally first face written/verbal warnings, then timeouts, and in case of continuation, removal or banning."
+        },
+        "7": {
+          "question": "How can I participate in giveaways and how often do they occur?",
+          "answer": "They usually occur monthly, and daily and weekly on special occasions. To participate, you can follow the instructions in the \"Giveaway\" channel on our Discord server."
+        },
+        "8": {
+          "question": "Do I have the opportunity to advertise or share my own projects?",
+          "answer": "It can be done with the approval of our founder. You can contact us via the \"Create Ticket\" channel on our Discord server regarding this matter."
+        },
+        "9": {
+          "question": "Where can I submit my complaints or suggestions?",
+          "answer": "You can submit your complaints and suggestions to our staff by creating a ticket from the \"Create Ticket\" channel on our Discord server."
+        }
+      }
+    },
+    "cta": {
+      "title": "Join Our Community!",
+      "description": "member active community. Make new friendships, play games together, and have fun.",
+      "button": "Join Discord"
+    }
+  }
+}
