@@ -20,10 +20,10 @@ export async function POST(req: NextRequest) {
     }
 
     const botToken = process.env.DISCORD_BOT_TOKEN;
-    const guildId = process.env.DISCORD_SERVER_ID;
+    const guildId = process.env.DISCORD_GUILD_ID;
 
     if (!botToken || !guildId) {
-      console.error('DISCORD_BOT_TOKEN or DISCORD_SERVER_ID not set');
+      console.error('DISCORD_BOT_TOKEN or DISCORD_GUILD_ID not set');
       return NextResponse.json({ 
         error: 'Sunucu yapılandırma hatası',
         isMember: false 
