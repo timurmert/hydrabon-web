@@ -648,5 +648,48 @@
       "description": "Discover our esports history filled with championships, records and unforgettable memories. The proud success story of the HydRaboN family.",
       "button": "Explore This Legacy"
     }
+  },
+  "teamApplication": {
+    "badge": "Team Application",
+    "title": "Team Application",
+    "description": "Fill out the form to apply to one of our divisions: Discord, R&D, Esports, or Media. Your application will be evaluated via Discord.",
+    "modal": {
+      "title": "Important Notice",
+      "description": "It is mandatory to join our Discord server for the evaluation of your applications and the continuity of the process. Please make sure you have joined our Discord server before applying.",
+      "joinDiscord": "Join Discord",
+      "continue": "Continue"
+    },
+    "form": {
+      "firstName": {
+        "label": "Name",
+        "placeholder": "Your name"
+      },
+      "age": {
+        "label": "Age",
+        "placeholder": "Select your age"
+      },
+      "discord": {
+        "label": "Discord Username",
+        "placeholder": "username"
+      },
+      "team": {
+        "label": "Division You Want to Apply"
+      },
+      "note": {
+        "label": "Note",
+        "placeholder": "Notes you want to add about your application...",
+        "optional": "Optional"
+      },
+      "submit": "Submit Application",
+      "submitting": "Submitting...",
+      "successMessage": "Your application has been sent successfully! We will contact you via Discord as soon as possible.",
+      "errorMessage": "An error occurred while submitting the application. Please try again.",
+      "notMemberError": "Please make sure you entered your Discord username correctly and that you are on our server. Please join our Discord server first (discord.gg/hydrabon).",
+      "infoText": "Your application will be forwarded to division managers via Discord webhook."
+    },
+    "footer": {
+      "text": "For questions",
+      "contact": "you can contact us via"
+    }
   }
 }
