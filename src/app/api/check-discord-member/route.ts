@@ -1,5 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server';
 
+interface DiscordMember {
+  user?: {
+    id?: string;
+    username?: string;
+    global_name?: string;
+    discriminator?: string;
+  };
+  nick?: string;
+}
+
 export async function POST(req: NextRequest) {
   try {
     const data = await req.json();
@@ -50,7 +60,7 @@ export async function POST(req: NextRequest) {
       const members = await searchResponse.json();
 
       // Kullanıcıyı bul ve ID'sini al
-      const foundMember = members.find((member: any) => {
+      const foundMember = members.find((member: DiscordMember) => {
         const memberUsername = member.user?.username?.toLowerCase();
         const memberGlobalName = member.user?.global_name?.toLowerCase();
         const memberNick = member.nick?.toLowerCase();
