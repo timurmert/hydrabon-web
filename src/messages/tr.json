@@ -648,5 +648,48 @@
       "description": "Şampiyonluklar, rekorlar ve unutulmaz anılarla dolu espor tarihimizi keşfet. HydRaboN ailesinin gurur verici başarı hikayesi.",
       "button": "Bu Mirasın İzini Keşfet"
     }
+  },
+  "teamApplication": {
+    "badge": "Ekip Başvuru",
+    "title": "Ekip Başvurusu",
+    "description": "Discord, Ar-Ge, Espor veya Medya birimlerimizden birine başvurmak için formu doldurun. Başvurunuz Discord üzerinden değerlendirilecektir.",
+    "modal": {
+      "title": "Önemli Bilgilendirme",
+      "description": "Başvurularınızın değerlendirilmesi ve sürecin devamlılığı için Discord sunucumuza girmeniz zorunludur. Lütfen başvuru yapmadan önce Discord sunucumuza katıldığınızdan emin olun.",
+      "joinDiscord": "Discord'a Katıl",
+      "continue": "Devam Et"
+    },
+    "form": {
+      "firstName": {
+        "label": "İsim",
+        "placeholder": "Adınız"
+      },
+      "age": {
+        "label": "Yaş",
+        "placeholder": "Yaşınızı seçin"
+      },
+      "discord": {
+        "label": "Discord Kullanıcı Adı",
+        "placeholder": "kullaniciadi"
+      },
+      "team": {
+        "label": "Başvurmak İstediğiniz Birim"
+      },
+      "note": {
+        "label": "Not",
+        "placeholder": "Başvurunuzla ilgili eklemek istediğiniz notlar...",
+        "optional": "İsteğe Bağlı"
+      },
+      "submit": "Başvuruyu Gönder",
+      "submitting": "Gönderiliyor...",
+      "successMessage": "Başvurunuz başarıyla gönderildi! En kısa sürede Discord üzerinden sizinle iletişime geçeceğiz.",
+      "errorMessage": "Başvuru gönderilirken bir hata oluştu. Lütfen tekrar deneyin.",
+      "notMemberError": "Discord kullanıcı adınızı doğru girdiğinizden ve sunucumuzda olduğunuzdan emin olun. Lütfen önce Discord sunucumuza (discord.gg/hydrabon) katılın.",
+      "infoText": "Başvurunuz Discord webhook üzerinden birim yöneticilerine iletilecektir."
+    },
+    "footer": {
+      "text": "Sorularınız için",
+      "contact": "üzerinden bizimle iletişime geçebilirsiniz."
+    }
   }
 }
