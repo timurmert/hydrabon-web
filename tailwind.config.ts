@@ -45,7 +45,39 @@ const config: Config = {
           500: '#f59e0b',
           700: '#d97706',
           900: '#92400e',
-        }
+        },
+        // Kış Teması Renkleri
+        winter: {
+          50: '#f0f9ff',
+          100: '#e0f2fe',
+          200: '#bae6fd',
+          300: '#7dd3fc',
+          400: '#38bdf8',
+          500: '#0ea5e9',
+          600: '#0284c7',
+          700: '#0369a1',
+          800: '#075985',
+          900: '#0c4a6e',
+        },
+        frost: {
+          50: '#f8fafc',
+          100: '#f1f5f9',
+          200: '#e2e8f0',
+          300: '#cbd5e1',
+          400: '#94a3b8',
+          500: '#64748b',
+        },
+        ice: {
+          light: '#e0f7ff',
+          DEFAULT: '#b8e8f5',
+          blue: '#89CFF0',
+          crystal: '#A5F2F3',
+        },
+        snow: {
+          white: '#FFFAFA',
+          soft: '#F5F5F5',
+          blue: '#E8F4F8',
+        },
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
@@ -60,6 +92,12 @@ const config: Config = {
         'pulse-slow': 'pulse 3s infinite',
         'float': 'float 6s ease-in-out infinite',
         'glow-pulse': 'glowPulse 2s ease-in-out infinite alternate',
+        // Kış Teması Animasyonları
+        'frost-shimmer': 'frostShimmer 3s ease-in-out infinite',
+        'ice-glow': 'iceGlow 2s ease-in-out infinite alternate',
+        'snowflake-drift': 'snowflakeDrift 4s ease-in-out infinite',
+        'winter-sparkle': 'winterSparkle 2.5s ease-in-out infinite',
+        'breath-frost': 'breathFrost 4s ease-in-out infinite',
       },
       keyframes: {
         fadeIn: {
@@ -86,6 +124,45 @@ const config: Config = {
           '0%': { boxShadow: '0 0 20px rgba(249, 115, 22, 0.3)' },
           '100%': { boxShadow: '0 0 40px rgba(249, 115, 22, 0.6)' },
         },
+        // Kış Teması Keyframeleri
+        frostShimmer: {
+          '0%, 100%': { 
+            backgroundPosition: '0% 50%',
+            filter: 'brightness(1)',
+          },
+          '50%': { 
+            backgroundPosition: '100% 50%',
+            filter: 'brightness(1.1)',
+          },
+        },
+        iceGlow: {
+          '0%': { 
+            boxShadow: '0 0 15px rgba(136, 206, 235, 0.3), 0 0 30px rgba(136, 206, 235, 0.1)',
+          },
+          '100%': { 
+            boxShadow: '0 0 25px rgba(136, 206, 235, 0.5), 0 0 50px rgba(136, 206, 235, 0.2)',
+          },
+        },
+        snowflakeDrift: {
+          '0%, 100%': { transform: 'translateX(0) rotate(0deg)' },
+          '25%': { transform: 'translateX(5px) rotate(90deg)' },
+          '50%': { transform: 'translateX(-5px) rotate(180deg)' },
+          '75%': { transform: 'translateX(3px) rotate(270deg)' },
+        },
+        winterSparkle: {
+          '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
+          '50%': { opacity: '1', transform: 'scale(1.2)' },
+        },
+        breathFrost: {
+          '0%, 100%': { 
+            opacity: '0.6',
+            filter: 'blur(0px)',
+          },
+          '50%': { 
+            opacity: '0.9',
+            filter: 'blur(1px)',
+          },
+        },
       },
       backgroundImage: {
         'gradient-tiger': 'linear-gradient(135deg, #f97316 0%, #ea580c 50%, #c2410c 100%)',
@@ -96,6 +173,12 @@ const config: Config = {
         'tiger': '0 10px 25px -3px rgba(249, 115, 22, 0.3), 0 4px 6px -2px rgba(249, 115, 22, 0.1)',
         'dark-lg': '0 10px 25px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.1)',
         'glow': '0 0 20px rgba(249, 115, 22, 0.3)',
+        // Kış Teması Gölgeleri
+        'frost': '0 0 20px rgba(136, 206, 235, 0.3), 0 0 40px rgba(136, 206, 235, 0.1)',
+        'frost-lg': '0 0 30px rgba(136, 206, 235, 0.4), 0 0 60px rgba(136, 206, 235, 0.2)',
+        'ice': '0 4px 20px rgba(165, 242, 243, 0.3), inset 0 0 20px rgba(255, 255, 255, 0.1)',
+        'snow-glow': '0 0 25px rgba(255, 255, 255, 0.4), 0 0 50px rgba(200, 220, 255, 0.2)',
+        'winter-card': '0 8px 32px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(136, 206, 235, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
       },
     },
   },

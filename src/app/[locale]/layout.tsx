@@ -6,6 +6,7 @@ import { notFound } from 'next/navigation';
 import { locales, type Locale } from '@/i18n';
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import Snowfall from "@/components/animations/Snowfall";
 import { Analytics } from '@vercel/analytics/next';
 
 const inter = Inter({ 
@@ -99,8 +100,10 @@ export default async function LocaleLayout({
           }}
         />
       </head>
-      <body className="min-h-screen bg-dark-950 text-white antialiased overflow-x-hidden">
+      <body className="min-h-screen bg-dark-950 text-white antialiased overflow-x-hidden winter-gradient-bg">
         <NextIntlClientProvider messages={messages}>
+          {/* Kış Teması - Kar Yağışı Efekti */}
+          <Snowfall density="normal" />
           <Header />
           <main className="pt-16 md:pt-20">
             {children}

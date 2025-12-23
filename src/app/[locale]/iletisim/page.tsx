@@ -183,10 +183,10 @@ export default function ContactPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary-900/30 to-primary-800/30 border border-primary-500/40 rounded-full backdrop-blur-md">
-                <div className="w-2 h-2 bg-primary-400 rounded-full mr-3 animate-pulse"></div>
-                <span className="text-primary-200 text-sm font-semibold tracking-wider uppercase">{t('badge')}</span>
-                <div className="w-2 h-2 bg-primary-400 rounded-full ml-3 animate-pulse"></div>
+              <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-winter-900/30 to-dark-800/30 border border-winter-400/40 rounded-full backdrop-blur-md">
+                <span className="text-base mr-2">❄</span>
+                <span className="text-winter-200 text-sm font-semibold tracking-wider uppercase">{t('badge')}</span>
+                <span className="text-base ml-2">❄</span>
               </div>
             </motion.div>
 
@@ -198,12 +198,12 @@ export default function ContactPage() {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight">
-                <span className="bg-gradient-to-r from-primary-300 via-white to-primary-300 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-winter-300 via-white to-ice-crystal bg-clip-text text-transparent">
                   {t('title')}
                 </span>
               </h1>
               <motion.div 
-                className="w-32 h-1 bg-gradient-to-r from-transparent via-primary-500 to-transparent mx-auto mt-6 rounded-full"
+                className="w-32 h-1 bg-gradient-to-r from-transparent via-winter-400 to-transparent shadow-frost mx-auto mt-6 rounded-full"
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
@@ -219,7 +219,7 @@ export default function ContactPage() {
             >
               <p className="text-base md:text-lg text-dark-100 leading-relaxed font-medium">
                 {t('description.part1')}{' '}
-                <span className="text-primary-300 font-semibold">{t('description.part2')}</span>
+                <span className="text-winter-300 font-semibold">{t('description.part2')}</span>
                 {t('description.part3') && <>{' '}{t('description.part3')}</>}{' '}
                 <span className="text-white font-semibold">{t('description.part4')}</span>.
               </p>
@@ -230,7 +230,7 @@ export default function ContactPage() {
 
       {/* Section Separator */}
       <div className="container-custom">
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-winter-400 to-transparent shadow-frost opacity-60"></div>
       </div>
 
       {/* Contact Form & Info */}
@@ -279,7 +279,7 @@ export default function ContactPage() {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 bg-dark-800 border border-dark-700 rounded-lg text-white placeholder-dark-400 focus:border-primary-500 focus:outline-none transition-colors duration-300"
+                      className="w-full px-4 py-3 bg-dark-800 border border-dark-700 rounded-lg text-white placeholder-dark-400 focus:border-winter-400 focus:outline-none transition-colors duration-300"
                       placeholder={t('form.fields.name.placeholder')}
                     />
                   </div>
@@ -294,7 +294,7 @@ export default function ContactPage() {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 bg-dark-800 border border-dark-700 rounded-lg text-white placeholder-dark-400 focus:border-primary-500 focus:outline-none transition-colors duration-300"
+                      className="w-full px-4 py-3 bg-dark-800 border border-dark-700 rounded-lg text-white placeholder-dark-400 focus:border-winter-400 focus:outline-none transition-colors duration-300"
                       placeholder={t('form.fields.email.placeholder')}
                     />
                   </div>
@@ -309,7 +309,7 @@ export default function ContactPage() {
                     name="area"
                     value={formData.area}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-dark-800 border border-dark-700 rounded-lg text-white focus:border-primary-500 focus:outline-none transition-colors duration-300"
+                    className="w-full px-4 py-3 bg-dark-800 border border-dark-700 rounded-lg text-white focus:border-winter-400 focus:outline-none transition-colors duration-300"
                     required
                   >
                     <option value="">{t('form.fields.area.placeholder')}</option>
@@ -330,7 +330,7 @@ export default function ContactPage() {
                     value={formData.subject}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 bg-dark-800 border border-dark-700 rounded-lg text-white placeholder-dark-400 focus:border-primary-500 focus:outline-none transition-colors duration-300"
+                    className="w-full px-4 py-3 bg-dark-800 border border-dark-700 rounded-lg text-white placeholder-dark-400 focus:border-winter-400 focus:outline-none transition-colors duration-300"
                     placeholder={t('form.fields.subject.placeholder')}
                   />
                 </div>
@@ -346,7 +346,7 @@ export default function ContactPage() {
                     onChange={handleInputChange}
                     required
                     rows={6}
-                    className="w-full px-4 py-3 bg-dark-800 border border-dark-700 rounded-lg text-white placeholder-dark-400 focus:border-primary-500 focus:outline-none transition-colors duration-300 resize-vertical"
+                    className="w-full px-4 py-3 bg-dark-800 border border-dark-700 rounded-lg text-white placeholder-dark-400 focus:border-winter-400 focus:outline-none transition-colors duration-300 resize-vertical"
                     placeholder={t('form.fields.message.placeholder')}
                   />
                 </div>
@@ -361,7 +361,7 @@ export default function ContactPage() {
                     name="discord"
                     value={formData.discord}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-dark-800 border border-dark-700 rounded-lg text-white placeholder-dark-400 focus:border-primary-500 focus:outline-none transition-colors duration-300"
+                    className="w-full px-4 py-3 bg-dark-800 border border-dark-700 rounded-lg text-white placeholder-dark-400 focus:border-winter-400 focus:outline-none transition-colors duration-300"
                     placeholder={t('form.fields.discord.placeholder')}
                   />
                 </div>
@@ -372,7 +372,7 @@ export default function ContactPage() {
                   className={`w-full flex items-center justify-center space-x-3 py-4 px-6 rounded-lg font-semibold transition-all duration-300 ${
                     isSubmitting
                       ? 'bg-dark-700 text-dark-400 cursor-not-allowed'
-                      : 'bg-primary-500 hover:bg-primary-600 text-white'
+                      : 'bg-winter-500 hover:bg-winter-600 text-white'
                   }`}
                 >
                   {isSubmitting ? (
@@ -410,12 +410,12 @@ export default function ContactPage() {
                         rel="noopener noreferrer" 
                         onMouseDown={(e) => e.preventDefault()} 
                         onClick={(e) => (e.currentTarget as HTMLAnchorElement).blur()}
-                        className="text-primary-500 hover:text-primary-400 font-medium inline-flex items-center focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0"
+                        className="text-winter-400 hover:text-winter-300 font-medium inline-flex items-center focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0"
                       >
                         {t('channels.discord.link')} <ExternalLink className="w-4 h-4 ml-1" />
                       </a>
                     </div>
-                    <div className="text-primary-500">{t('channels.discord.handle')}</div>
+                    <div className="text-winter-400">{t('channels.discord.handle')}</div>
                     <p className="text-dark-300 text-sm">{t('channels.discord.description')}</p>
                   </div>
 
@@ -440,7 +440,7 @@ export default function ContactPage() {
                         <Copy className="w-4 h-4 mr-1" /> {t('channels.email.copy')}
                       </button>
                     </div>
-                    <div className="text-primary-500">{t('channels.email.address')}</div>
+                    <div className="text-winter-400">{t('channels.email.address')}</div>
                     <p className="text-dark-300 text-sm mt-1">{t('channels.email.description')}</p>
                     <p className="text-dark-400 text-xs">{t('channels.email.responseTime')}</p>
                   </div>
@@ -458,7 +458,7 @@ export default function ContactPage() {
 
       {/* Section Separator */}
       <div className="container-custom">
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-winter-400 to-transparent shadow-frost opacity-60"></div>
       </div>
 
       {/* Social Media */}
@@ -504,7 +504,7 @@ export default function ContactPage() {
 
       {/* Section Separator */}
       <div className="container-custom">
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-winter-400 to-transparent shadow-frost opacity-60"></div>
       </div>
 
       {/* Discord CTA */}
