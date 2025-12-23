@@ -114,8 +114,8 @@ export default function Header() {
     <motion.header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-black/60 backdrop-blur-md border-b border-primary-500/30 shadow-lg shadow-black/20'
-          : 'bg-black/30 md:bg-transparent backdrop-blur-sm md:backdrop-blur-0 border-b border-dark-800/50 md:border-transparent'
+          ? 'bg-dark-950/80 backdrop-blur-xl border-b border-winter-400/20 shadow-lg shadow-winter-500/10'
+          : 'bg-dark-950/40 md:bg-transparent backdrop-blur-sm md:backdrop-blur-0 border-b border-winter-500/10 md:border-transparent'
       }`}
       initial={prefersReducedMotion ? { opacity: 0 } : { y: -12, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
@@ -138,15 +138,16 @@ export default function Header() {
                 alt="HydRaboN Logo"
                 width={48}
                 height={48}
-                className="w-full h-full object-contain"
+                className="w-full h-full object-contain winter-logo"
                 priority
               />
             </div>
             <div className="hidden sm:block">
-              <h1 className="text-2xl font-display font-bold bg-gradient-to-r from-orange-400 via-primary-500 to-orange-600 bg-clip-text text-transparent group-hover:from-primary-500 group-hover:via-orange-500 group-hover:to-orange-700 transition-all duration-300 ease-out group-hover:scale-[1.01] group-hover:translate-x-1 group-hover:tracking-wide group-hover:drop-shadow-[0_0_12px_rgba(255,107,53,0.4)] will-change-transform transform-gpu leading-normal">
+              <h1 className="text-2xl font-display font-bold bg-gradient-to-r from-winter-300 via-white to-ice-crystal bg-clip-text text-transparent group-hover:from-white group-hover:via-ice-blue group-hover:to-winter-300 transition-all duration-300 ease-out group-hover:scale-[1.01] group-hover:translate-x-1 group-hover:tracking-wide group-hover:drop-shadow-[0_0_12px_rgba(136,206,235,0.5)] will-change-transform transform-gpu leading-normal">
                 HydRaboN
               </h1>
-              <p className="text-xs text-orange-400 font-medium transition-all duration-300 ease-out group-hover:text-orange-300 group-hover:translate-x-1 group-hover:font-semibold group-hover:tracking-wide group-hover:drop-shadow-[0_0_6px_rgba(255,107,53,0.3)] group-hover:scale-[1.02] will-change-transform transform-gpu">
+              <p className="text-xs text-winter-300 font-medium transition-all duration-300 ease-out group-hover:text-white group-hover:translate-x-1 group-hover:font-semibold group-hover:tracking-wide group-hover:drop-shadow-[0_0_6px_rgba(136,206,235,0.4)] group-hover:scale-[1.02] will-change-transform transform-gpu flex items-center">
+                <span className="mr-1">❄</span>
                 {locale === 'tr' ? 'Çok Yönlü Dijital Topluluk' : 'Versatile Digital Community'}
               </p>
             </div>
@@ -166,8 +167,8 @@ export default function Header() {
                   href={item.href}
                   className={`nav-link px-5 py-3 rounded-lg flex items-center space-x-2 transition-all duration-200 ease-out whitespace-nowrap ${
                     pathname === item.href
-                      ? 'text-primary-500 bg-primary-500/10'
-                      : ''
+                      ? 'text-winter-300 bg-winter-500/10 shadow-frost'
+                      : 'hover:text-winter-300 hover:bg-winter-500/5'
                   }`}
                   style={{outline: 'none'}}
                   onFocus={(e) => e.target.blur()}
@@ -187,14 +188,14 @@ export default function Header() {
               transition: 'transform 300ms cubic-bezier(0.4, 0, 0.2, 1)'
             }}
           >
-            {/* Language Switcher - Desktop */}
-            <div className="hidden md:flex items-center space-x-1 bg-dark-800/50 rounded-lg p-1 border border-dark-700/50">
+            {/* Language Switcher - Desktop - Winter Theme */}
+            <div className="hidden md:flex items-center space-x-1 bg-dark-900/60 rounded-lg p-1 border border-winter-500/20 backdrop-blur-sm">
               <button
                 onClick={() => switchLocale('tr')}
                 className={`px-3 py-1.5 rounded text-sm font-medium transition-all duration-200 ${
                   locale === 'tr'
-                    ? 'bg-primary-500 text-white'
-                    : 'text-dark-300 hover:text-white'
+                    ? 'bg-gradient-to-r from-winter-500/80 to-winter-600/80 text-white shadow-frost'
+                    : 'text-dark-300 hover:text-winter-300'
                 }`}
                 style={{outline: 'none'}}
                 onFocus={(e) => e.target.blur()}
@@ -205,8 +206,8 @@ export default function Header() {
                 onClick={() => switchLocale('en')}
                 className={`px-3 py-1.5 rounded text-sm font-medium transition-all duration-200 ${
                   locale === 'en'
-                    ? 'bg-primary-500 text-white'
-                    : 'text-dark-300 hover:text-white'
+                    ? 'bg-gradient-to-r from-winter-500/80 to-winter-600/80 text-white shadow-frost'
+                    : 'text-dark-300 hover:text-winter-300'
                 }`}
                 style={{outline: 'none'}}
                 onFocus={(e) => e.target.blur()}
@@ -215,12 +216,12 @@ export default function Header() {
               </button>
             </div>
 
-            {/* Discord Button */}
+            {/* Discord Button - Winter Theme */}
             <a
               href="https://discord.gg/hydrabon"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden md:flex items-center space-x-2 btn-primary transition-all duration-200 ease-out hover:scale-105 hover:shadow-lg hover:shadow-primary-500/25 will-change-transform transform-gpu"
+              className="hidden md:flex items-center space-x-2 btn-winter transition-all duration-200 ease-out hover:scale-105 will-change-transform transform-gpu"
               style={{outline: 'none'}}
               onFocus={(e) => e.target.blur()}
             >
@@ -232,7 +233,7 @@ export default function Header() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden p-2 text-dark-300 hover:text-primary-500 transition-colors duration-200 ease-out"
+              className="lg:hidden p-2 text-dark-300 hover:text-winter-300 transition-colors duration-200 ease-out"
               style={{outline: 'none'}}
               onFocus={(e) => e.target.blur()}
             >
@@ -242,11 +243,11 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - Winter Theme */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="lg:hidden bg-dark-950/98 backdrop-blur-custom border-t border-dark-800"
+            className="lg:hidden bg-dark-950/98 backdrop-blur-xl border-t border-winter-500/20"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
@@ -260,8 +261,8 @@ export default function Header() {
                       href={item.href}
                       className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition-all duration-300 ${
                         pathname === item.href
-                          ? 'text-primary-500 bg-primary-500/10'
-                          : 'text-dark-300 hover:text-primary-500 hover:bg-dark-800'
+                          ? 'text-winter-300 bg-winter-500/15 shadow-frost'
+                          : 'text-dark-300 hover:text-winter-300 hover:bg-winter-500/10'
                       }`}
                     >
                       {item.icon && <item.icon className="w-5 h-5" />}
@@ -271,15 +272,15 @@ export default function Header() {
                 ))}
               </nav>
 
-              {/* Language Switcher - Mobile */}
+              {/* Language Switcher - Mobile - Winter Theme */}
               <div className="mt-4 px-4">
-                <div className="flex items-center justify-center space-x-2 bg-dark-800/50 rounded-lg p-1 border border-dark-700/50">
+                <div className="flex items-center justify-center space-x-2 bg-dark-900/60 rounded-lg p-1 border border-winter-500/20">
                   <button
                     onClick={() => switchLocale('tr')}
                     className={`flex-1 px-3 py-2 rounded text-sm font-medium transition-all duration-200 ${
                       locale === 'tr'
-                        ? 'bg-primary-500 text-white'
-                        : 'text-dark-300'
+                        ? 'bg-gradient-to-r from-winter-500/80 to-winter-600/80 text-white shadow-frost'
+                        : 'text-dark-300 hover:text-winter-300'
                     }`}
                   >
                     <Globe className="w-4 h-4 inline-block mr-1" />
@@ -289,8 +290,8 @@ export default function Header() {
                     onClick={() => switchLocale('en')}
                     className={`flex-1 px-3 py-2 rounded text-sm font-medium transition-all duration-200 ${
                       locale === 'en'
-                        ? 'bg-primary-500 text-white'
-                        : 'text-dark-300'
+                        ? 'bg-gradient-to-r from-winter-500/80 to-winter-600/80 text-white shadow-frost'
+                        : 'text-dark-300 hover:text-winter-300'
                     }`}
                   >
                     <Globe className="w-4 h-4 inline-block mr-1" />
@@ -299,13 +300,13 @@ export default function Header() {
                 </div>
               </div>
 
-              {/* Mobile Discord Button */}
+              {/* Mobile Discord Button - Winter Theme */}
               <div className="mt-6 px-4">
                 <a
                   href="https://discord.gg/hydrabon"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center space-x-2 btn-primary w-full hover:scale-105 transition-transform duration-300 transform"
+                  className="flex items-center justify-center space-x-2 btn-winter w-full hover:scale-105 transition-transform duration-300 transform"
                 >
                   <SiDiscord className="w-4 h-4" />
                   <span>{locale === 'tr' ? 'Discord Sunucumuza Katıl' : 'Join Our Discord'}</span>

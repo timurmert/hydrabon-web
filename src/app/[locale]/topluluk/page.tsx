@@ -75,10 +75,10 @@ export default function CommunityPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary-900/30 to-primary-800/30 border border-primary-500/40 rounded-full backdrop-blur-md">
-                <div className="w-2 h-2 bg-primary-400 rounded-full mr-3 animate-pulse"></div>
-                <span className="text-primary-200 text-sm font-semibold tracking-wider uppercase">{t('badge')}</span>
-                <div className="w-2 h-2 bg-primary-400 rounded-full ml-3 animate-pulse"></div>
+              <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-winter-900/30 to-dark-800/30 border border-winter-400/40 rounded-full backdrop-blur-md">
+                <span className="text-base mr-2">❄</span>
+                <span className="text-winter-200 text-sm font-semibold tracking-wider uppercase">{t('badge')}</span>
+                <span className="text-base ml-2">❄</span>
               </div>
             </motion.div>
 
@@ -90,12 +90,12 @@ export default function CommunityPage() {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight">
-                <span className="bg-gradient-to-r from-primary-300 via-white to-primary-300 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-winter-300 via-white to-ice-crystal bg-clip-text text-transparent">
                   {t('title')}
                 </span>
               </h1>
               <motion.div 
-                className="w-32 h-1 bg-gradient-to-r from-transparent via-primary-500 to-transparent mx-auto mt-6 rounded-full"
+                className="w-32 h-1 bg-gradient-to-r from-transparent via-winter-400 to-transparent shadow-frost mx-auto mt-6 rounded-full"
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
@@ -127,7 +127,7 @@ export default function CommunityPage() {
                 icon: Users, 
                 value: discordLoading ? '...' : (discordStats?.totalMembers?.toString() || communityStats.totalMembers.toString()),
                 labelKey: 'stats.totalMembers', 
-                color: 'text-primary-500' 
+                color: 'text-winter-400' 
               },
               { 
                 icon: Zap, 
@@ -187,7 +187,7 @@ export default function CommunityPage() {
 
       {/* Section Separator */}
       <div className="container-custom">
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-winter-400 to-transparent shadow-frost opacity-60"></div>
       </div>
 
       {/* Server Roles */}
@@ -248,7 +248,7 @@ export default function CommunityPage() {
 
       {/* Section Separator */}
       <div className="container-custom">
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-winter-400 to-transparent shadow-frost opacity-60"></div>
       </div>
 
       {/* Rules Section */}
@@ -284,8 +284,8 @@ export default function CommunityPage() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
                 <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-primary-500/20 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-primary-500 font-bold text-sm">{ruleId}</span>
+                  <div className="w-8 h-8 bg-winter-500/20 rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="text-winter-400 font-bold text-sm">{ruleId}</span>
                   </div>
                   <div>
                     <h3 className="text-lg font-bold text-white mb-2">{t(`rules.items.${ruleId}.title`)}</h3>
@@ -302,7 +302,7 @@ export default function CommunityPage() {
 
       {/* Section Separator */}
       <div className="container-custom">
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-winter-400 to-transparent shadow-frost opacity-60"></div>
       </div>
 
       {/* FAQ Section */}
@@ -339,8 +339,8 @@ export default function CommunityPage() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                 >
                   <div className="flex items-start space-x-4">
-                    <div className="w-8 h-8 bg-primary-500/20 rounded-full flex items-center justify-center flex-shrink-0">
-                      <HelpCircle className="w-4 h-4 text-primary-500" />
+                    <div className="w-8 h-8 bg-winter-500/20 rounded-full flex items-center justify-center flex-shrink-0">
+                      <HelpCircle className="w-4 h-4 text-winter-400" />
                     </div>
                     <div className="flex-1">
                       <h3 className="text-lg font-bold text-white mb-3">{t(`faq.items.${faqId}.question`)}</h3>
@@ -358,7 +358,7 @@ export default function CommunityPage() {
 
       {/* Section Separator */}
       <div className="container-custom">
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-winter-400 to-transparent shadow-frost opacity-60"></div>
       </div>
 
       {/* CTA Section */}

@@ -172,9 +172,14 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-dark-950 border-t border-dark-800 relative">
-      {/* Tiger Pattern Background */}
+    <footer className="bg-dark-950 border-t border-winter-500/20 relative overflow-hidden">
+      {/* Winter Pattern Background */}
       <div className="absolute inset-0 tiger-pattern opacity-5"></div>
+      <div className="absolute inset-0 winter-bg-pattern"></div>
+      
+      {/* Kış Glow Orb'ları */}
+      <div className="glow-orb-winter-1"></div>
+      <div className="glow-orb-winter-2"></div>
       
       {/* Main Footer Content */}
       <div className="relative">
@@ -197,14 +202,15 @@ export default function Footer() {
                     alt="HydRaboN Logo"
                     width={56}
                     height={56}
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-contain winter-logo"
                   />
                 </div>
                 <div>
-                  <h3 className="text-3xl font-display font-bold bg-gradient-to-r from-orange-400 via-primary-500 to-orange-600 bg-clip-text text-transparent group-hover:from-primary-500 group-hover:via-orange-500 group-hover:to-orange-700 transition-all duration-300 ease-out group-hover:scale-[1.02] group-hover:tracking-wide group-hover:drop-shadow-[0_0_15px_rgba(255,107,53,0.4)] will-change-transform transform-gpu leading-normal">
+                  <h3 className="text-3xl font-display font-bold bg-gradient-to-r from-winter-300 via-white to-ice-crystal bg-clip-text text-transparent group-hover:from-white group-hover:via-ice-blue group-hover:to-winter-300 transition-all duration-300 ease-out group-hover:scale-[1.02] group-hover:tracking-wide group-hover:drop-shadow-[0_0_15px_rgba(136,206,235,0.5)] will-change-transform transform-gpu leading-normal">
                     HydRaboN
                   </h3>
-                  <p className="text-orange-400 font-medium transition-all duration-300 ease-out group-hover:text-orange-300 group-hover:font-semibold group-hover:tracking-wide group-hover:drop-shadow-[0_0_8px_rgba(255,107,53,0.3)] will-change-transform transform-gpu">
+                  <p className="text-winter-300 font-medium transition-all duration-300 ease-out group-hover:text-white group-hover:font-semibold group-hover:tracking-wide group-hover:drop-shadow-[0_0_8px_rgba(136,206,235,0.4)] will-change-transform transform-gpu flex items-center">
+                    <span className="mr-1">❄</span>
                     {t('slogan')}
                   </p>
                 </div>
@@ -217,13 +223,13 @@ export default function Footer() {
                 }
               </p>
 
-              {/* Contact Info */}
+              {/* Contact Info - Winter Theme */}
               <div className="space-y-4">
                 <div className="flex items-center space-x-3 text-dark-300 group">
-                  <Mail className="w-5 h-5 text-primary-500 transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_rgba(255,107,53,0.5)] will-change-transform transform-gpu" />
+                  <Mail className="w-5 h-5 text-winter-400 transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_rgba(136,206,235,0.6)] will-change-transform transform-gpu" />
                   <a 
                     href={`mailto:${contactInfo.email}`} 
-                    className="hover:text-primary-400 transition-all duration-300 hover:tracking-wide hover:drop-shadow-[0_0_6px_rgba(255,107,53,0.3)] will-change-transform"
+                    className="hover:text-winter-300 transition-all duration-300 hover:tracking-wide hover:drop-shadow-[0_0_6px_rgba(136,206,235,0.4)] will-change-transform"
                     style={{outline: 'none'}}
                     onFocus={(e) => e.target.blur()}
                   >
@@ -231,12 +237,12 @@ export default function Footer() {
                   </a>
                 </div>
                 <div className="flex items-center space-x-3 text-dark-300 group">
-                  <MapPin className="w-5 h-5 text-primary-500 transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_rgba(255,107,53,0.5)] will-change-transform transform-gpu" />
-                  <span className="transition-colors duration-300 group-hover:text-dark-200">{contactInfo.address}</span>
+                  <MapPin className="w-5 h-5 text-winter-400 transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_rgba(136,206,235,0.6)] will-change-transform transform-gpu" />
+                  <span className="transition-colors duration-300 group-hover:text-winter-200">{contactInfo.address}</span>
                 </div>
                 <div className="flex items-center space-x-3 text-dark-300 group">
-                  <Clock className="w-5 h-5 text-primary-500 transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_rgba(255,107,53,0.5)] will-change-transform transform-gpu" />
-                  <span className="transition-colors duration-300 group-hover:text-dark-200">
+                  <Clock className="w-5 h-5 text-winter-400 transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_rgba(136,206,235,0.6)] will-change-transform transform-gpu" />
+                  <span className="transition-colors duration-300 group-hover:text-winter-200">
                     {locale === 'tr' ? '7/24 Discord Desteği' : '24/7 Discord Support'}
                   </span>
                 </div>
@@ -279,12 +285,12 @@ export default function Footer() {
                 >
                   <span 
                     ref={(el) => { titleRefs.current[key] = el; }}
-                    className="transition-all duration-300 group-hover:text-primary-400 group-hover:tracking-wide group-hover:drop-shadow-[0_0_8px_rgba(255,107,53,0.3)] will-change-transform"
+                    className="transition-all duration-300 group-hover:text-winter-300 group-hover:tracking-wide group-hover:drop-shadow-[0_0_8px_rgba(136,206,235,0.4)] will-change-transform"
                   >
                     {section.title}
                   </span>
                   <div 
-                    className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-orange-500 via-primary-500 to-orange-600 transition-all duration-500 group-hover:shadow-[0_0_12px_rgba(255,107,53,0.6)] group-hover:from-primary-400 group-hover:via-orange-400 group-hover:to-orange-500 will-change-transform transform-gpu rounded-full"
+                    className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-winter-400 via-ice-blue to-winter-300 transition-all duration-500 group-hover:shadow-[0_0_12px_rgba(136,206,235,0.6)] group-hover:from-white group-hover:via-winter-300 group-hover:to-ice-blue will-change-transform transform-gpu rounded-full"
                     style={{
                       width: hoveredTitle === key && titleWidths[key] ? `${titleWidths[key]}px` : '0px',
                       transition: 'all 0.5s ease-out'
@@ -296,12 +302,12 @@ export default function Footer() {
                     <li key={link.name}>
                       <Link
                         href={link.href}
-                        className="text-dark-300 hover:text-primary-400 transition-all duration-300 flex items-center group relative hover:translate-x-1 hover:drop-shadow-[0_0_6px_rgba(255,107,53,0.3)] will-change-transform leading-snug"
+                        className="text-dark-300 hover:text-winter-300 transition-all duration-300 flex items-center group relative hover:translate-x-1 hover:drop-shadow-[0_0_6px_rgba(136,206,235,0.4)] will-change-transform leading-snug"
                         style={{outline: 'none'}}
                         onFocus={(e) => e.target.blur()}
                       >
                         <span className="relative z-10">{link.name}</span>
-                        <div className="absolute inset-0 bg-gradient-to-r from-primary-500/0 to-primary-500/10 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
+                        <div className="absolute inset-0 bg-gradient-to-r from-winter-500/0 to-winter-500/10 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
                         {link.href.startsWith('http') && (
                           <ExternalLink className="w-3 h-3 ml-1 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110 will-change-transform transform-gpu" />
                         )}
@@ -314,31 +320,33 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Section */}
-        <div className="border-t border-dark-800">
+        {/* Bottom Section - Winter Theme */}
+        <div className="border-t border-winter-500/20">
           <div className="container-custom py-12">
             <div className="flex flex-col items-center justify-center space-y-6">
-              {/* Back to Top Button */}
+              {/* Back to Top Button - Winter Theme */}
               <button
                 onClick={scrollToTop}
-                className="flex items-center space-x-2 text-dark-400 hover:text-primary-400 transition-all duration-300 group hover:scale-105 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(255,107,53,0.3)] will-change-transform transform-gpu bg-dark-800 hover:bg-dark-700 px-6 py-3 rounded-xl border border-dark-600 hover:border-primary-500/50"
+                className="flex items-center space-x-2 text-dark-400 hover:text-winter-300 transition-all duration-300 group hover:scale-105 hover:-translate-y-1 hover:shadow-frost will-change-transform transform-gpu bg-dark-800/80 hover:bg-dark-700/80 px-6 py-3 rounded-xl border border-winter-500/20 hover:border-winter-400/50 backdrop-blur-sm"
                 style={{outline: 'none'}}
                 onFocus={(e) => e.target.blur()}
               >
                 <span className="transition-all duration-300 group-hover:tracking-wide font-medium">
                   {locale === 'tr' ? 'Başa Dön' : 'Back to Top'}
                 </span>
-                <ArrowUp className="w-4 h-4 transform group-hover:-translate-y-1 group-hover:scale-110 transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(255,107,53,0.5)] will-change-transform" />
+                <ArrowUp className="w-4 h-4 transform group-hover:-translate-y-1 group-hover:scale-110 transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(136,206,235,0.6)] will-change-transform" />
               </button>
               
-              {/* Copyright and Made with Love */}
+              {/* Copyright and Made with Love - Winter Theme */}
               <div className="text-center space-y-2">
-                <div className="text-dark-400 transition-all duration-300 hover:text-primary-400 hover:tracking-wide hover:drop-shadow-[0_0_8px_rgba(255,107,53,0.3)] will-change-transform cursor-default">
+                <div className="text-dark-400 transition-all duration-300 hover:text-winter-300 hover:tracking-wide hover:drop-shadow-[0_0_8px_rgba(136,206,235,0.4)] will-change-transform cursor-default">
                   © {currentYear} HydRaboN. {t('rights')}
                 </div>
                 <div className="flex items-center justify-center space-x-1 text-dark-400 text-sm transition-all duration-300 hover:text-dark-300 cursor-default">
                   <span>{locale === 'tr' ? 'Topluluk için' : 'Made with'}</span>
-                  <Heart className="w-4 h-4 text-red-500 transition-all duration-300 hover:scale-110 hover:drop-shadow-[0_0_8px_rgba(239,68,68,0.5)] will-change-transform transform-gpu" />
+                  <span className="text-winter-400 mx-1">❄</span>
+                  <Heart className="w-4 h-4 text-winter-400 transition-all duration-300 hover:scale-110 hover:drop-shadow-[0_0_8px_rgba(136,206,235,0.6)] will-change-transform transform-gpu" />
+                  <span className="text-winter-400 mx-1">❄</span>
                   <span>{locale === 'tr' ? 'yapıldı' : 'for the community'}</span>
                 </div>
               </div>

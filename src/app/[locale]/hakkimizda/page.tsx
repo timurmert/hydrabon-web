@@ -133,10 +133,10 @@ export default function AboutPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary-900/30 to-primary-800/30 border border-primary-500/40 rounded-full backdrop-blur-md">
-                <div className="w-2 h-2 bg-primary-400 rounded-full mr-3 animate-pulse"></div>
-                <span className="text-primary-200 text-sm font-semibold tracking-wider uppercase">{t('badge')}</span>
-                <div className="w-2 h-2 bg-primary-400 rounded-full ml-3 animate-pulse"></div>
+              <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-winter-900/30 to-dark-800/30 border border-winter-400/40 rounded-full backdrop-blur-md">
+                <span className="text-base mr-2">❄</span>
+                <span className="text-winter-200 text-sm font-semibold tracking-wider uppercase">{t('badge')}</span>
+                <span className="text-base ml-2">❄</span>
               </div>
             </motion.div>
 
@@ -148,12 +148,12 @@ export default function AboutPage() {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight">
-                <span className="bg-gradient-to-r from-primary-300 via-white to-primary-300 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-winter-300 via-white to-ice-crystal bg-clip-text text-transparent">
                   {t('title')}
                 </span>
               </h1>
               <motion.div 
-                className="w-32 h-1 bg-gradient-to-r from-transparent via-primary-500 to-transparent mx-auto mt-6 rounded-full"
+                className="w-32 h-1 bg-gradient-to-r from-transparent via-winter-400 to-transparent shadow-frost mx-auto mt-6 rounded-full"
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
@@ -177,7 +177,7 @@ export default function AboutPage() {
 
       {/* Section Separator */}
       <div className="container-custom">
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-winter-400 to-transparent shadow-frost opacity-60"></div>
       </div>
 
       {/* Mission & Vision */}
@@ -198,8 +198,8 @@ export default function AboutPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <div className="w-16 h-16 bg-primary-500/20 rounded-xl flex items-center justify-center mb-6">
-                <Target className="w-8 h-8 text-primary-500" />
+              <div className="w-16 h-16 bg-winter-500/20 rounded-xl flex items-center justify-center mb-6">
+                <Target className="w-8 h-8 text-winter-400" />
               </div>
               <h2 className="text-3xl font-display font-bold text-white mb-6 leading-normal">{t('mission.title')}</h2>
               <p className="text-dark-200 text-lg leading-relaxed mb-6">
@@ -215,8 +215,8 @@ export default function AboutPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <div className="w-16 h-16 bg-orange-500/20 rounded-xl flex items-center justify-center mb-6">
-                <Crown className="w-8 h-8 text-orange-500" />
+              <div className="w-16 h-16 bg-winter-500/20 rounded-xl flex items-center justify-center mb-6">
+                <Crown className="w-8 h-8 text-winter-400" />
               </div>
               <h2 className="text-3xl font-display font-bold text-white mb-6 leading-normal">{t('vision.title')}</h2>
               <p className="text-dark-200 text-lg leading-relaxed mb-6">
@@ -229,7 +229,7 @@ export default function AboutPage() {
 
       {/* Section Separator */}
       <div className="container-custom">
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-winter-400 to-transparent shadow-frost opacity-60"></div>
       </div>
 
       {/* Timeline */}
@@ -251,7 +251,7 @@ export default function AboutPage() {
           <div className="max-w-4xl mx-auto">
             <div className="relative">
               {/* Continuous timeline line ending near last node */}
-              <div className="absolute left-8 top-0 bottom-10 w-0.5 bg-gradient-to-b from-primary-500 to-orange-500"></div>
+              <div className="absolute left-8 top-0 bottom-10 w-0.5 bg-gradient-to-b from-winter-400 to-ice-blue"></div>
               
               <div className="space-y-12">
                 {timeline.map((item, index) => {
@@ -267,19 +267,19 @@ export default function AboutPage() {
                     >
                       <div className="relative flex-shrink-0">
                         <motion.div 
-                          className="w-16 h-16 bg-dark-800 border-4 border-primary-500 rounded-full flex items-center justify-center relative z-10"
+                          className="w-16 h-16 bg-dark-800 border-4 border-winter-400 rounded-full flex items-center justify-center relative z-10"
                           initial={{ scale: 0 }}
                           whileInView={{ scale: 1 }}
                           viewport={{ once: true }}
                           transition={{ duration: 0.5, delay: index * 0.2 + 0.2 }}
                         >
-                          <IconComponent className="w-8 h-8 text-primary-500" />
+                          <IconComponent className="w-8 h-8 text-winter-400" />
                         </motion.div>
                       </div>
                       <div className="flex-1">
                         <div className="professional-card">
                           <div className="flex items-center space-x-4 mb-4">
-                            <span className="text-2xl font-bold text-primary-500">{item.year}</span>
+                            <span className="text-2xl font-bold text-winter-400">{item.year}</span>
                             <h3 className="text-xl font-bold text-white">{t(item.titleKey)}</h3>
                           </div>
                           <p className="text-dark-300">{t(item.descriptionKey)}</p>
@@ -296,7 +296,7 @@ export default function AboutPage() {
 
       {/* Section Separator */}
       <div className="container-custom">
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-winter-400 to-transparent shadow-frost opacity-60"></div>
       </div>
 
       {/* Values */}
@@ -333,8 +333,8 @@ export default function AboutPage() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                 >
-                  <div className="w-16 h-16 bg-primary-500/20 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-500/30 transition-colors duration-300">
-                    <IconComponent className="w-8 h-8 text-primary-500" />
+                  <div className="w-16 h-16 bg-winter-500/20 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:bg-winter-500/30 transition-colors duration-300">
+                    <IconComponent className="w-8 h-8 text-winter-400" />
                   </div>
                   <h3 className="text-xl font-bold text-white mb-4">{t(`values.items.${value.key}.title`)}</h3>
                   <p className="text-dark-300 leading-relaxed">{t(`values.items.${value.key}.description`)}</p>
@@ -347,7 +347,7 @@ export default function AboutPage() {
 
       {/* Section Separator */}
       <div className="container-custom">
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-winter-400 to-transparent shadow-frost opacity-60"></div>
       </div>
 
       {/* Achievements */}
@@ -386,7 +386,7 @@ export default function AboutPage() {
                   <Award className="w-6 h-6 text-yellow-500" />
                 </div>
                 <h3 className="text-lg font-bold text-white mb-2">{t(`achievements.items.${achievement.key}.title`)}</h3>
-                <p className="text-primary-500 font-medium mb-2">{t(`achievements.items.${achievement.key}.description`)}</p>
+                <p className="text-winter-400 font-medium mb-2">{t(`achievements.items.${achievement.key}.description`)}</p>
                 <span className="text-dark-400 text-sm">{achievement.year}</span>
               </motion.div>
             ))}
@@ -396,7 +396,7 @@ export default function AboutPage() {
 
       {/* Section Separator */}
       <div className="container-custom">
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-winter-400 to-transparent shadow-frost opacity-60"></div>
       </div>
 
       {/* Team Philosophy */}
@@ -430,7 +430,7 @@ export default function AboutPage() {
 
       {/* Section Separator */}
       <div className="container-custom">
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-winter-400 to-transparent shadow-frost opacity-60"></div>
       </div>
 
       {/* Divisions Overview */}
@@ -464,7 +464,7 @@ export default function AboutPage() {
               <p className="text-dark-300 mb-4">
                 {t('divisions.community.description')}
               </p>
-              <div className="text-primary-500 font-medium">{tCommon('viewDetails')} →</div>
+              <div className="text-winter-400 font-medium">{tCommon('viewDetails')} →</div>
             </Link>
 
             <Link href={`/${locale}/ar-ge`} className="professional-card group hover:scale-105 transition-transform duration-300">
@@ -475,7 +475,7 @@ export default function AboutPage() {
               <p className="text-dark-300 mb-4">
                 {t('divisions.rnd.description')}
               </p>
-              <div className="text-primary-500 font-medium">{tCommon('viewDetails')} →</div>
+              <div className="text-winter-400 font-medium">{tCommon('viewDetails')} →</div>
             </Link>
 
             <Link href={`/${locale}/medya`} className="professional-card group hover:scale-105 transition-transform duration-300">
@@ -486,18 +486,18 @@ export default function AboutPage() {
               <p className="text-dark-300 mb-4">
                 {t('divisions.media.description')}
               </p>
-              <div className="text-primary-500 font-medium">{tCommon('viewDetails')} →</div>
+              <div className="text-winter-400 font-medium">{tCommon('viewDetails')} →</div>
             </Link>
 
             <Link href={`/${locale}/cs2`} className="professional-card group hover:scale-105 transition-transform duration-300">
-              <div className="w-16 h-16 bg-orange-500/20 rounded-xl flex items-center justify-center mb-6">
-                <Crosshair className="w-8 h-8 text-orange-500" />
+              <div className="w-16 h-16 bg-winter-500/20 rounded-xl flex items-center justify-center mb-6">
+                <Crosshair className="w-8 h-8 text-winter-400" />
               </div>
               <h3 className="text-2xl font-bold text-white mb-4 leading-normal">{t('divisions.cs2.title')}</h3>
               <p className="text-dark-300 mb-4">
                 {t('divisions.cs2.description')}
               </p>
-              <div className="text-primary-500 font-medium">{tCommon('viewDetails')} →</div>
+              <div className="text-winter-400 font-medium">{tCommon('viewDetails')} →</div>
             </Link>
 
             <Link href={`/${locale}/espor`} className="professional-card group hover:scale-105 transition-transform duration-300">
@@ -508,7 +508,7 @@ export default function AboutPage() {
               <p className="text-dark-300 mb-4">
                 {t('divisions.esports.description')}
               </p>
-              <div className="text-primary-500 font-medium">{tCommon('viewDetails')} →</div>
+              <div className="text-winter-400 font-medium">{tCommon('viewDetails')} →</div>
             </Link>
 
           </motion.div>
@@ -517,14 +517,14 @@ export default function AboutPage() {
 
       {/* Section Separator */}
       <div className="container-custom">
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-winter-400 to-transparent shadow-frost opacity-60"></div>
       </div>
 
       {/* CTA Section */}
       <section className="py-12 md:py-20 bg-dark-950 snap-start snap-always min-h-screen flex items-center">
         <div className="container-custom px-4 md:px-6">
           <motion.div 
-            className="bg-gradient-to-r from-orange-600 to-orange-500 rounded-2xl md:rounded-3xl p-6 md:p-10 lg:p-12 text-center max-w-5xl mx-auto"
+            className="bg-gradient-to-r from-winter-500 to-winter-600 rounded-2xl md:rounded-3xl p-6 md:p-10 lg:p-12 text-center max-w-5xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
@@ -533,7 +533,7 @@ export default function AboutPage() {
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-4 md:mb-6 leading-normal px-4">
               {t('cta.title')}
             </h2>
-            <p className="text-base sm:text-lg md:text-xl text-orange-100 mb-6 md:mb-8 max-w-2xl mx-auto px-4">
+            <p className="text-base sm:text-lg md:text-xl text-winter-100 mb-6 md:mb-8 max-w-2xl mx-auto px-4">
               {t('cta.description')}
             </p>
             <motion.div 
@@ -543,7 +543,7 @@ export default function AboutPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <a href="https://discord.gg/hydrabon" target="_blank" rel="noopener noreferrer" onMouseDown={(e) => e.preventDefault()} onClick={(e) => (e.currentTarget as HTMLAnchorElement).blur()} className="bg-white text-orange-600 font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-lg hover:bg-orange-50 transition-all duration-300 flex items-center justify-center w-full sm:w-auto sm:min-w-[200px] group transform hover:scale-105 active:scale-95 focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0">
+              <a href="https://discord.gg/hydrabon" target="_blank" rel="noopener noreferrer" onMouseDown={(e) => e.preventDefault()} onClick={(e) => (e.currentTarget as HTMLAnchorElement).blur()} className="bg-white text-winter-600 font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-lg hover:bg-winter-50 transition-all duration-300 flex items-center justify-center w-full sm:w-auto sm:min-w-[200px] group transform hover:scale-105 active:scale-95 focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0">
                 <span className="flex items-center whitespace-nowrap">
                   {t('cta.button')}
                   <ExternalLink className="w-4 sm:w-5 h-4 sm:h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
