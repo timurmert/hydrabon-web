@@ -34,7 +34,7 @@ const teams = [
     name: 'Espor',
     icon: Gamepad2,
     description: 'Espor Takımları',
-    color: 'from-winter-400 to-winter-500'
+    color: 'from-primary-500 to-primary-600'
   },
   {
     id: 'media',
@@ -182,7 +182,7 @@ export default function TeamApplicationPage() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ type: "spring", duration: 0.5 }}
-              className="relative max-w-lg w-full bg-gradient-to-br from-dark-800 to-dark-900 border-2 border-winter-400/30 rounded-3xl p-8 shadow-2xl"
+              className="relative max-w-lg w-full bg-gradient-to-br from-dark-800 to-dark-900 border-2 border-primary-500/30 rounded-3xl p-8 shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Close Button */}
@@ -195,7 +195,7 @@ export default function TeamApplicationPage() {
 
               {/* Icon */}
               <div className="flex justify-center mb-6">
-                <div className="w-20 h-20 bg-gradient-to-br from-winter-400 to-winter-500 rounded-full flex items-center justify-center">
+                <div className="w-20 h-20 bg-gradient-to-br from-primary-500 to-primary-600 rounded-full flex items-center justify-center">
                   <AlertCircle className="w-10 h-10 text-white" />
                 </div>
               </div>
@@ -206,12 +206,12 @@ export default function TeamApplicationPage() {
               </h3>
 
               {/* Discord URL */}
-              <div className="bg-dark-700/50 border border-winter-400/30 rounded-xl p-4 mb-6">
+              <div className="bg-dark-700/50 border border-primary-500/30 rounded-xl p-4 mb-6">
                 <a
                   href="https://discord.gg/hydrabon"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-winter-300 hover:text-winter-200 font-bold text-lg text-center block transition-colors duration-300"
+                  className="text-primary-400 hover:text-primary-300 font-bold text-lg text-center block transition-colors duration-300"
                 >
                   discord.gg/hydrabon
                 </a>
@@ -259,21 +259,21 @@ export default function TeamApplicationPage() {
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-winter-900/30 to-dark-800/30 border border-winter-400/40 rounded-full backdrop-blur-md mb-6"
+              className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-primary-900/30 to-primary-800/30 border border-primary-500/40 rounded-full backdrop-blur-md mb-6"
             >
-              <Sparkles className="w-4 h-4 text-winter-300 mr-2" />
-              <span className="text-winter-200 text-xs font-bold tracking-widest uppercase">
+              <Sparkles className="w-4 h-4 text-primary-400 mr-2" />
+              <span className="text-primary-200 text-xs font-bold tracking-widest uppercase">
                 {t('badge')}
               </span>
             </motion.div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-4">
-              <span className="bg-gradient-to-r from-winter-300 via-white to-ice-crystal bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-primary-300 via-white to-primary-300 bg-clip-text text-transparent">
                 {t('title')}
               </span>
             </h1>
 
-            <div className="w-24 h-1 bg-gradient-to-r from-transparent via-winter-400 to-transparent shadow-frost mx-auto mb-6 rounded-full"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-transparent via-primary-500 to-transparent mx-auto mb-6 rounded-full"></div>
 
             <p className="text-dark-200 text-lg leading-relaxed max-w-2xl mx-auto">
               {t('description')}
@@ -285,7 +285,7 @@ export default function TeamApplicationPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="relative backdrop-blur-xl bg-gradient-to-br from-dark-800/80 via-dark-900/80 to-dark-800/80 border-2 border-winter-400/20 rounded-3xl p-8 md:p-12 shadow-2xl shadow-winter-500/10"
+            className="relative backdrop-blur-xl bg-gradient-to-br from-dark-800/80 via-dark-900/80 to-dark-800/80 border-2 border-primary-500/20 rounded-3xl p-8 md:p-12 shadow-2xl"
           >
             {/* Success Message */}
             <AnimatePresence>
@@ -330,7 +330,7 @@ export default function TeamApplicationPage() {
                     onChange={handleInputChange}
                     required
                     placeholder={t('form.firstName.placeholder')}
-                    className="w-full bg-dark-700/50 border-2 border-dark-600 focus:!border-dark-600 hover:shadow-[0_0_15px_rgba(255,180,50,0.4)] focus:shadow-[0_0_20px_rgba(136,206,235,0.6)] rounded-xl px-4 py-3 text-white placeholder-dark-400 transition-all duration-300 outline-none focus:outline-none focus:ring-0"
+                    className="w-full bg-dark-700/50 border-2 border-dark-600 focus:!border-dark-600 hover:shadow-[0_0_15px_rgba(255,180,50,0.4)] focus:shadow-[0_0_20px_rgba(255,180,50,0.6)] rounded-xl px-4 py-3 text-white placeholder-dark-400 transition-all duration-300 outline-none focus:outline-none focus:ring-0"
                   />
                 </div>
 
@@ -345,7 +345,7 @@ export default function TeamApplicationPage() {
                     value={formData.age}
                     onChange={handleInputChange}
                     required
-                    className="w-full bg-dark-700/50 border-2 border-dark-600 focus:!border-dark-600 hover:shadow-[0_0_15px_rgba(255,180,50,0.4)] focus:shadow-[0_0_20px_rgba(136,206,235,0.6)] rounded-xl px-4 py-3 text-white transition-all duration-300 outline-none focus:outline-none focus:ring-0 appearance-none cursor-pointer"
+                    className="w-full bg-dark-700/50 border-2 border-dark-600 focus:!border-dark-600 hover:shadow-[0_0_15px_rgba(255,180,50,0.4)] focus:shadow-[0_0_20px_rgba(255,180,50,0.6)] rounded-xl px-4 py-3 text-white transition-all duration-300 outline-none focus:outline-none focus:ring-0 appearance-none cursor-pointer"
                     style={{
                       backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E")`,
                       backgroundRepeat: 'no-repeat',
@@ -379,7 +379,7 @@ export default function TeamApplicationPage() {
                   onChange={handleInputChange}
                   required
                   placeholder={t('form.discord.placeholder')}
-                  className="w-full bg-dark-700/50 border-2 border-dark-600 focus:!border-dark-600 hover:shadow-[0_0_15px_rgba(255,180,50,0.4)] focus:shadow-[0_0_20px_rgba(136,206,235,0.6)] rounded-xl px-4 py-3 text-white placeholder-dark-400 transition-all duration-300 outline-none focus:outline-none focus:ring-0"
+                  className="w-full bg-dark-700/50 border-2 border-dark-600 focus:!border-dark-600 hover:shadow-[0_0_15px_rgba(255,180,50,0.4)] focus:shadow-[0_0_20px_rgba(255,180,50,0.6)] rounded-xl px-4 py-3 text-white placeholder-dark-400 transition-all duration-300 outline-none focus:outline-none focus:ring-0"
                 />
               </div>
 
@@ -403,7 +403,7 @@ export default function TeamApplicationPage() {
                         } border-2 ${
                           formData.team === team.id
                             ? 'border-white'
-                            : 'border-dark-600 hover:border-winter-400/50'
+                            : 'border-dark-600 hover:border-primary-500/50'
                         } rounded-xl p-4 transition-all duration-300`}
                       >
                         <input
@@ -442,7 +442,7 @@ export default function TeamApplicationPage() {
                   onChange={handleInputChange}
                   rows={4}
                   placeholder={t('form.note.placeholder')}
-                  className="w-full bg-dark-700/50 border-2 border-dark-600 focus:!border-dark-600 hover:shadow-[0_0_15px_rgba(255,180,50,0.4)] focus:shadow-[0_0_20px_rgba(136,206,235,0.6)] rounded-xl px-4 py-3 text-white placeholder-dark-400 transition-all duration-300 outline-none focus:outline-none focus:ring-0 resize-none"
+                  className="w-full bg-dark-700/50 border-2 border-dark-600 focus:!border-dark-600 hover:shadow-[0_0_15px_rgba(255,180,50,0.4)] focus:shadow-[0_0_20px_rgba(255,180,50,0.6)] rounded-xl px-4 py-3 text-white placeholder-dark-400 transition-all duration-300 outline-none focus:outline-none focus:ring-0 resize-none"
                 />
               </div>
 
@@ -487,7 +487,7 @@ export default function TeamApplicationPage() {
                 href="https://discord.gg/hydrabon"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-winter-300 hover:text-winter-200 font-semibold transition-colors duration-300"
+                className="text-primary-400 hover:text-primary-300 font-semibold transition-colors duration-300"
               >
                 Discord
               </a>

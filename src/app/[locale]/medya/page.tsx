@@ -110,10 +110,10 @@ export default function MediaPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-winter-900/30 to-dark-800/30 border border-winter-400/40 rounded-full backdrop-blur-md">
-                <span className="text-base mr-2">❄</span>
-                <span className="text-winter-200 text-sm font-semibold tracking-wider uppercase">{t('badge')}</span>
-                <span className="text-base ml-2">❄</span>
+              <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary-900/30 to-primary-800/30 border border-primary-500/40 rounded-full backdrop-blur-md">
+                <div className="w-2 h-2 bg-primary-400 rounded-full mr-3 animate-pulse"></div>
+                <span className="text-primary-200 text-sm font-semibold tracking-wider uppercase">{t('badge')}</span>
+                <div className="w-2 h-2 bg-primary-400 rounded-full ml-3 animate-pulse"></div>
               </div>
             </motion.div>
 
@@ -125,12 +125,12 @@ export default function MediaPage() {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight">
-                <span className="bg-gradient-to-r from-winter-300 via-white to-ice-crystal bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-primary-300 via-white to-primary-300 bg-clip-text text-transparent">
                   {t('title')}
                 </span>
               </h1>
               <motion.div 
-                className="w-32 h-1 bg-gradient-to-r from-transparent via-winter-400 to-transparent shadow-frost mx-auto mt-6 rounded-full"
+                className="w-32 h-1 bg-gradient-to-r from-transparent via-primary-500 to-transparent mx-auto mt-6 rounded-full"
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
@@ -158,7 +158,7 @@ export default function MediaPage() {
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             {[
-              { icon: Video, value: mediaStats.totalVideos, labelKey: 'stats.videoContent', color: 'text-winter-400' },
+              { icon: Video, value: mediaStats.totalVideos, labelKey: 'stats.videoContent', color: 'text-primary-500' },
               { icon: Eye, value: `${mediaStats.totalViews}`, labelKey: 'stats.totalViews', color: 'text-green-500' },
               { icon: Users, value: `${mediaStats.subscribers}`, labelKey: 'stats.followers', color: 'text-blue-500' },
               { icon: Gift, value: `${mediaStats.campaign}`, labelKey: 'stats.campaigns', color: 'text-purple-500' }
@@ -181,7 +181,7 @@ export default function MediaPage() {
 
       {/* Section Separator */}
       <div className="container-custom">
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-winter-400 to-transparent shadow-frost opacity-60"></div>
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
       </div>
 
       {/* Featured Content */}
@@ -240,12 +240,12 @@ export default function MediaPage() {
                         />
                       ) : (
                         <div className="w-full h-full flex items-center justify-center">
-                          <IconComponent className="w-16 h-16 text-winter-400" />
+                          <IconComponent className="w-16 h-16 text-primary-500" />
                         </div>
                       )}
                       {content.type === 'video' && (
                         <div className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                          <div className="w-16 h-16 bg-winter-500 rounded-full flex items-center justify-center">
+                          <div className="w-16 h-16 bg-primary-500 rounded-full flex items-center justify-center">
                             <Play className="w-8 h-8 text-white ml-1" />
                           </div>
                         </div>
@@ -298,7 +298,7 @@ export default function MediaPage() {
                     rel="noopener noreferrer"
                     onMouseDown={(e) => e.preventDefault()}
                     onClick={(e) => (e.currentTarget as HTMLAnchorElement).blur()}
-                    className="inline-flex items-center text-winter-400 hover:text-winter-300 font-medium transition-colors duration-300 focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0"
+                    className="inline-flex items-center text-primary-500 hover:text-primary-400 font-medium transition-colors duration-300 focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0"
                   >
                     {t('featuredContent.viewContent')}
                     <ExternalLink className="w-4 h-4 ml-2" />
@@ -355,7 +355,7 @@ export default function MediaPage() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                 >
                   <div className="text-center">
-                    <div className="w-16 h-16 bg-dark-700 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-winter-500/20 transition-colors duration-300">
+                    <div className="w-16 h-16 bg-dark-700 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary-500/20 transition-colors duration-300">
                       <Icon className={`w-8 h-8 ${platform.color}`} />
                     </div>
                     <div className={`text-4xl font-bold mb-2 ${platform.color}`}>
@@ -376,7 +376,7 @@ export default function MediaPage() {
 
       {/* Section Separator */}
       <div className="container-custom">
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-winter-400 to-transparent shadow-frost opacity-60"></div>
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
       </div>
 
       {/* CTA Section */}

@@ -21,43 +21,31 @@ body {
   overflow-x: hidden;
 }
 
-/* Custom Scrollbar - Winter Theme */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: linear-gradient(180deg, #0c1929 0%, #18181b 50%, #0c1929 100%);
+  background: #18181b;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #89CFF0 0%, #0ea5e9 50%, #89CFF0 100%);
+  background: #f97316;
   border-radius: 4px;
-  box-shadow: 0 0 8px rgba(136, 206, 235, 0.5);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #A5F2F3 0%, #38bdf8 50%, #A5F2F3 100%);
-  box-shadow: 0 0 12px rgba(136, 206, 235, 0.7);
-}
-
-/* Winter Logo Filter - Turuncu -> Buzlu Mavi */
-.winter-logo {
-  filter: hue-rotate(175deg) saturate(1.2) brightness(1.15);
-  transition: filter 0.3s ease;
-}
-
-.winter-logo:hover {
-  filter: hue-rotate(175deg) saturate(1.4) brightness(1.25) drop-shadow(0 0 8px rgba(136, 206, 235, 0.6));
+  background: #ea580c;
 }
 
 /* Custom Components */
 @layer components {
   .btn-primary {
-    @apply bg-gradient-to-r from-winter-500 to-winter-600 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-500 hover:scale-105 active:scale-95 relative overflow-hidden;
+    @apply bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-500 hover:scale-105 active:scale-95 relative overflow-hidden;
     box-shadow: 
-      0 4px 15px rgba(136, 206, 235, 0.3),
-      0 0 20px rgba(136, 206, 235, 0.1),
+      0 4px 15px rgba(249, 115, 22, 0.3),
+      0 0 20px rgba(249, 115, 22, 0.1),
       inset 0 1px 0 rgba(255, 255, 255, 0.2);
   }
   
@@ -78,13 +66,13 @@ body {
   
   .btn-primary:hover {
     box-shadow: 
-      0 8px 25px rgba(136, 206, 235, 0.4),
-      0 0 30px rgba(136, 206, 235, 0.2),
+      0 8px 25px rgba(249, 115, 22, 0.4),
+      0 0 30px rgba(249, 115, 22, 0.2),
       inset 0 1px 0 rgba(255, 255, 255, 0.3);
   }
   
   .btn-secondary {
-    @apply bg-dark-800/50 border-2 border-winter-400/70 text-winter-300 font-semibold py-4 px-8 rounded-xl transition-all duration-500 hover:bg-winter-500 hover:text-white hover:scale-105 relative overflow-hidden;
+    @apply bg-dark-800/50 border-2 border-primary-500/70 text-primary-400 font-semibold py-4 px-8 rounded-xl transition-all duration-500 hover:bg-primary-500 hover:text-white hover:scale-105 relative overflow-hidden;
     backdrop-filter: blur(10px);
     box-shadow: 
       0 4px 15px rgba(0, 0, 0, 0.2),
@@ -98,7 +86,7 @@ body {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(136, 206, 235, 0.1), transparent);
+    background: linear-gradient(90deg, transparent, rgba(249, 115, 22, 0.1), transparent);
     transition: left 0.6s ease;
   }
   
@@ -107,20 +95,20 @@ body {
   }
   
   .btn-secondary:hover {
-    border-color: rgba(136, 206, 235, 1);
+    border-color: rgba(249, 115, 22, 1);
     box-shadow: 
-      0 8px 25px rgba(136, 206, 235, 0.3),
-      0 0 30px rgba(136, 206, 235, 0.1),
+      0 8px 25px rgba(249, 115, 22, 0.3),
+      0 0 30px rgba(249, 115, 22, 0.1),
       inset 0 1px 0 rgba(255, 255, 255, 0.2);
   }
   
   .card {
-    @apply bg-dark-900 border border-winter-500/20 rounded-xl p-6 transition-all duration-300 hover:border-winter-400/50 hover:shadow-frost;
+    @apply bg-dark-900 border border-dark-700 rounded-xl p-6 transition-all duration-300 hover:border-primary-500 hover:shadow-dark-lg;
   }
   
   .section-title {
     @apply text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-6 tracking-tight leading-relaxed;
-    background: linear-gradient(to right, #89CFF0, #ffffff, #A5F2F3);
+    background: linear-gradient(to right, #f97316, #ea580c);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -129,30 +117,29 @@ body {
     padding-top: 2px;
     display: inline-block;
     width: fit-content;
-    filter: drop-shadow(0 0 8px rgba(136, 206, 235, 0.3));
   }
   
   .section-subtitle {
     @apply text-base md:text-lg lg:text-xl text-dark-300 mb-12 max-w-4xl mx-auto text-center leading-relaxed font-medium;
   }
   
-  /* Modern Stats Card - Winter Theme */
+  /* Modern Stats Card */
   .stats-card {
-    @apply bg-gradient-to-br from-dark-900/90 to-dark-800/90 backdrop-blur-lg rounded-3xl p-8 transition-all duration-700 hover:scale-110 border border-winter-500/20 relative overflow-hidden;
+    @apply bg-gradient-to-br from-dark-900/90 to-dark-800/90 backdrop-blur-lg rounded-3xl p-8 transition-all duration-700 hover:scale-110 border border-dark-700/60 relative overflow-hidden;
     box-shadow: 
       0 8px 32px rgba(0, 0, 0, 0.3),
-      0 0 80px rgba(136, 206, 235, 0.05),
+      0 0 80px rgba(249, 115, 22, 0.05),
       inset 0 2px 0 rgba(255, 255, 255, 0.1),
-      inset 0 -2px 0 rgba(136, 206, 235, 0.1);
+      inset 0 -2px 0 rgba(249, 115, 22, 0.1);
   }
   
   .stats-card:hover {
-    border-color: rgba(136, 206, 235, 0.5);
+    border-color: rgba(249, 115, 22, 0.5);
     box-shadow: 
       0 20px 60px rgba(0, 0, 0, 0.4),
-      0 0 120px rgba(136, 206, 235, 0.2),
+      0 0 120px rgba(249, 115, 22, 0.2),
       inset 0 2px 0 rgba(255, 255, 255, 0.2),
-      inset 0 -2px 0 rgba(136, 206, 235, 0.3);
+      inset 0 -2px 0 rgba(249, 115, 22, 0.3);
     transform: translateY(-10px) scale(1.05);
   }
   
@@ -163,7 +150,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at center, rgba(136, 206, 235, 0.08) 0%, transparent 70%);
+    background: radial-gradient(circle at center, rgba(249, 115, 22, 0.08) 0%, transparent 70%);
     opacity: 0;
     transition: opacity 0.7s ease;
   }
@@ -179,7 +166,7 @@ body {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: conic-gradient(from 0deg, transparent, rgba(136, 206, 235, 0.1), transparent);
+    background: conic-gradient(from 0deg, transparent, rgba(249, 115, 22, 0.1), transparent);
     opacity: 0;
     transition: opacity 0.7s ease, transform 2s ease;
     transform: rotate(0deg);
@@ -202,32 +189,29 @@ body {
     @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6;
   }
   
-  /* Navigation Styles - Winter Theme */
+  /* Navigation Styles */
   .nav-link {
-    @apply text-dark-300 hover:text-winter-300 transition-colors duration-300 font-medium relative;
+    @apply text-dark-300 hover:text-primary-500 transition-colors duration-300 font-medium relative;
   }
   
   .nav-link:hover::after {
-    @apply absolute bottom-0 left-0 w-full h-0.5 content-[''] transform scale-x-100 transition-transform duration-300;
-    background: linear-gradient(90deg, rgba(136, 206, 235, 0.6), rgba(165, 242, 243, 0.8), rgba(136, 206, 235, 0.6));
-    box-shadow: 0 0 8px rgba(136, 206, 235, 0.5);
+    @apply absolute bottom-0 left-0 w-full h-0.5 bg-primary-500 content-[''] transform scale-x-100 transition-transform duration-300;
   }
   
   .nav-link::after {
-    @apply absolute bottom-0 left-0 w-full h-0.5 content-[''] transform scale-x-0 transition-transform duration-300;
-    background: linear-gradient(90deg, rgba(136, 206, 235, 0.6), rgba(165, 242, 243, 0.8), rgba(136, 206, 235, 0.6));
+    @apply absolute bottom-0 left-0 w-full h-0.5 bg-primary-500 content-[''] transform scale-x-0 transition-transform duration-300;
   }
   
 
   
-  /* Glowing Effect - Winter Theme */
+  /* Glowing Effect */
   .glow-effect {
     @apply relative overflow-hidden;
   }
   
   .glow-effect::before {
     content: '';
-    @apply absolute inset-0 bg-gradient-to-r from-winter-400 to-winter-500 opacity-0 transition-opacity duration-300;
+    @apply absolute inset-0 bg-gradient-to-r from-orange-500 to-orange-600 opacity-0 transition-opacity duration-300;
     filter: blur(10px);
     z-index: -1;
   }
@@ -236,13 +220,13 @@ body {
     @apply opacity-30;
   }
   
-  /* Professional Card Styles - Winter Theme */
+  /* Professional Card Styles */
   .professional-card {
-    @apply bg-gradient-to-br from-dark-900/90 to-dark-800/90 border border-winter-500/20 rounded-2xl p-8 transition-all duration-500 hover:border-winter-400/50;
+    @apply bg-gradient-to-br from-dark-900/90 to-dark-800/90 border border-dark-700/50 rounded-2xl p-8 transition-all duration-500 hover:border-primary-500/70;
     backdrop-filter: blur(15px);
     box-shadow: 
       0 4px 20px rgba(0, 0, 0, 0.3),
-      0 0 40px rgba(136, 206, 235, 0.05),
+      0 0 40px rgba(249, 115, 22, 0.05),
       inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
   
@@ -250,7 +234,7 @@ body {
     transform: translateY(-8px) scale(1.02);
     box-shadow: 
       0 20px 40px rgba(0, 0, 0, 0.4),
-      0 0 60px rgba(136, 206, 235, 0.15),
+      0 0 60px rgba(249, 115, 22, 0.15),
       inset 0 1px 0 rgba(255, 255, 255, 0.2);
   }
   
@@ -261,7 +245,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(136, 206, 235, 0.1) 0%, transparent 50%);
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, transparent 50%);
     border-radius: 1rem;
     opacity: 0;
     transition: opacity 0.7s ease;
@@ -271,144 +255,20 @@ body {
   .professional-card:hover::before {
     opacity: 1;
   }
-  
-  /* ============================================ */
-  /* WINTER THEME - KIŞ TEMASI STİLLERİ */
-  /* ============================================ */
-  
-  /* Kış temalı kart */
-  .winter-card {
-    @apply bg-gradient-to-br from-dark-900/90 to-dark-800/90 backdrop-blur-lg rounded-2xl p-6 transition-all duration-500 border relative overflow-hidden;
-    border-color: rgba(136, 206, 235, 0.2);
-    box-shadow: 
-      0 8px 32px rgba(0, 0, 0, 0.3),
-      0 0 0 1px rgba(136, 206, 235, 0.1),
-      inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  }
-  
-  .winter-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(136, 206, 235, 0.08), transparent);
-    transition: left 0.8s ease;
-  }
-  
-  .winter-card:hover {
-    border-color: rgba(136, 206, 235, 0.4);
-    transform: translateY(-4px);
-    box-shadow: 
-      0 16px 48px rgba(0, 0, 0, 0.4),
-      0 0 40px rgba(136, 206, 235, 0.15),
-      inset 0 1px 0 rgba(255, 255, 255, 0.15);
-  }
-  
-  .winter-card:hover::before {
-    left: 100%;
-  }
-  
-  /* Buzlu cam efekti */
-  .frost-glass {
-    @apply backdrop-blur-xl rounded-2xl;
-    background: linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.08) 0%,
-      rgba(136, 206, 235, 0.05) 50%,
-      rgba(255, 255, 255, 0.08) 100%
-    );
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    box-shadow: 
-      inset 0 0 30px rgba(255, 255, 255, 0.05),
-      0 8px 32px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Buz parıltısı efekti */
-  .ice-shimmer {
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .ice-shimmer::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(
-      45deg,
-      transparent 30%,
-      rgba(255, 255, 255, 0.1) 50%,
-      transparent 70%
-    );
-    animation: iceShimmerMove 6s ease-in-out infinite;
-  }
-  
-  @keyframes iceShimmerMove {
-    0% { transform: translateX(-100%) translateY(-100%) rotate(0deg); }
-    100% { transform: translateX(100%) translateY(100%) rotate(0deg); }
-  }
-  
-  /* Kış gradient metni */
-  .winter-text-gradient {
-    background: linear-gradient(135deg, #89CFF0 0%, #ffffff 30%, #A5F2F3 60%, #89CFF0 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  
-  /* Kış buton stili */
-  .btn-winter {
-    @apply font-semibold py-4 px-8 rounded-xl transition-all duration-500 relative overflow-hidden;
-    background: linear-gradient(135deg, rgba(136, 206, 235, 0.2) 0%, rgba(14, 165, 233, 0.3) 100%);
-    border: 2px solid rgba(136, 206, 235, 0.4);
-    color: #e0f7ff;
-    box-shadow: 
-      0 4px 15px rgba(136, 206, 235, 0.2),
-      inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  }
-  
-  .btn-winter:hover {
-    background: linear-gradient(135deg, rgba(136, 206, 235, 0.3) 0%, rgba(14, 165, 233, 0.4) 100%);
-    border-color: rgba(136, 206, 235, 0.6);
-    transform: translateY(-2px) scale(1.02);
-    box-shadow: 
-      0 8px 25px rgba(136, 206, 235, 0.3),
-      0 0 40px rgba(136, 206, 235, 0.15),
-      inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  }
-  
-  .btn-winter::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.6s ease;
-  }
-  
-  .btn-winter:hover::before {
-    left: 100%;
-  }
 }
 
-/* Custom Utilities - Winter Theme */
+/* Custom Utilities */
 @layer utilities {
   .text-gradient {
-    @apply bg-gradient-to-r from-winter-400 to-ice-blue bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent;
   }
 
   .border-gradient {
-    border-image: linear-gradient(135deg, #89CFF0, #0ea5e9, #38bdf8) 1;
+    border-image: linear-gradient(135deg, #f97316, #ea580c, #c2410c) 1;
   }
   
   .shadow-inner-glow {
-    box-shadow: inset 0 0 20px rgba(136, 206, 235, 0.1);
+    box-shadow: inset 0 0 20px rgba(249, 115, 22, 0.1);
   }
   
   .backdrop-blur-custom {
@@ -416,22 +276,21 @@ body {
   }
 }
 
-/* Gradient Classes - Winter Theme */
+/* Gradient Classes */
 .bg-gradient-tiger {
-  background: linear-gradient(135deg, #89CFF0 0%, #0ea5e9 25%, #A5F2F3 50%, #89CFF0 75%, #0ea5e9 100%);
+  background: linear-gradient(135deg, #FF6B35 0%, #F7931E 25%, #FFD23F 50%, #FF6B35 75%, #F7931E 100%);
 }
 
 .bg-gradient-hero {
   background: linear-gradient(
     135deg,
-    #080810 0%,
-    #0c1929 15%,
-    rgba(14, 165, 233, 0.03) 30%,
-    #080810 50%,
-    rgba(136, 206, 235, 0.02) 70%,
-    #0c1525 85%,
-    #080810 100%
+    #080808 0%,
+    #101010 25%,
+    rgba(249, 115, 22, 0.02) 50%,
+    #080808 75%,
+    #0c0c0c 100%
   );
+  /* animation: gradientShift 12s ease-in-out infinite; - Animasyon kaldırıldı */
   pointer-events: none;
   user-select: none;
 }
@@ -453,9 +312,9 @@ body {
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(800px 400px at 0% 0%, rgba(136, 206, 235, 0.08), transparent 60%),
-    radial-gradient(600px 300px at 100% 0%, rgba(165, 242, 243, 0.06), transparent 60%),
-    radial-gradient(600px 300px at 0% 100%, rgba(14, 165, 233, 0.05), transparent 60%);
+    radial-gradient(800px 400px at 0% 0%, rgba(249, 115, 22, 0.06), transparent 60%),
+    radial-gradient(600px 300px at 100% 0%, rgba(59, 130, 246, 0.04), transparent 60%),
+    radial-gradient(600px 300px at 0% 100%, rgba(34, 197, 94, 0.04), transparent 60%);
 }
 
 .tiger-pattern {
@@ -464,8 +323,8 @@ body {
   pointer-events: none;
   background-image: repeating-linear-gradient(
     135deg,
-    rgba(136, 206, 235, 0.04) 0px,
-    rgba(136, 206, 235, 0.04) 2px,
+    rgba(249, 115, 22, 0.04) 0px,
+    rgba(249, 115, 22, 0.04) 2px,
     transparent 2px,
     transparent 14px
   );
@@ -480,65 +339,9 @@ body {
   border-radius: 9999px;
 }
 
-/* Kış teması için güncellenmiş glow orb'lar */
-.glow-orb-1 { 
-  top: -10%; 
-  left: -10%; 
-  background: radial-gradient(circle, rgba(136, 206, 235, 0.4), rgba(14, 165, 233, 0.2) 40%, transparent 70%);
-  animation: breathFrost 6s ease-in-out infinite;
-}
-.glow-orb-2 { 
-  top: 20%; 
-  right: -15%; 
-  background: radial-gradient(circle, rgba(165, 242, 243, 0.4), rgba(56, 189, 248, 0.2) 40%, transparent 70%);
-  animation: breathFrost 8s ease-in-out infinite 2s;
-}
-.glow-orb-3 { 
-  bottom: -10%; 
-  left: 25%; 
-  background: radial-gradient(circle, rgba(224, 247, 255, 0.5), rgba(184, 232, 245, 0.2) 40%, transparent 70%);
-  animation: breathFrost 7s ease-in-out infinite 1s;
-}
-
-/* Ek kış glow orb'ları */
-.glow-orb-winter-1 {
-  position: absolute;
-  width: 400px;
-  height: 400px;
-  top: 40%;
-  right: 10%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.15), transparent 60%);
-  filter: blur(60px);
-  opacity: 0.6;
-  border-radius: 9999px;
-  animation: breathFrost 10s ease-in-out infinite;
-  pointer-events: none;
-}
-
-.glow-orb-winter-2 {
-  position: absolute;
-  width: 350px;
-  height: 350px;
-  bottom: 20%;
-  left: 15%;
-  background: radial-gradient(circle, rgba(136, 206, 235, 0.2), transparent 60%);
-  filter: blur(50px);
-  opacity: 0.5;
-  border-radius: 9999px;
-  animation: breathFrost 12s ease-in-out infinite 3s;
-  pointer-events: none;
-}
-
-@keyframes breathFrost {
-  0%, 100% { 
-    opacity: 0.4;
-    transform: scale(1);
-  }
-  50% { 
-    opacity: 0.7;
-    transform: scale(1.1);
-  }
-}
+.glow-orb-1 { top: -10%; left: -10%; background: radial-gradient(circle, rgba(249, 115, 22, 0.5), transparent 60%); }
+.glow-orb-2 { top: 20%; right: -15%; background: radial-gradient(circle, rgba(239, 68, 68, 0.5), transparent 60%); }
+.glow-orb-3 { bottom: -10%; left: 25%; background: radial-gradient(circle, rgba(34, 197, 94, 0.5), transparent 60%); }
 
 .particle { 
   position: absolute; 
@@ -573,12 +376,12 @@ body {
 
 
 
-/* Loading Animation - Winter Theme */
+/* Loading Animation */
 .loading-spinner {
   width: 40px;
   height: 40px;
   border: 4px solid #27272a;
-  border-top: 4px solid #89CFF0;
+  border-top: 4px solid #f97316;
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
@@ -590,135 +393,15 @@ body {
 
 
 
-/* Selection Styles - Winter Theme */
+/* Selection Styles */
 ::selection {
-  background-color: rgba(136, 206, 235, 0.4);
-  color: #ffffff;
+  background-color: rgba(249, 115, 22, 0.3);
+  color: #fafafa;
 }
 
 ::-moz-selection {
-  background-color: rgba(136, 206, 235, 0.4);
-  color: #ffffff;
-}
-
-/* ============================================ */
-/* WINTER THEME - EK EFEKTLER */
-/* ============================================ */
-
-/* Kar parçacıkları için arka plan deseni */
-.winter-bg-pattern {
-  position: relative;
-}
-
-.winter-bg-pattern::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: 
-    radial-gradient(circle at 20% 30%, rgba(136, 206, 235, 0.08) 0%, transparent 40%),
-    radial-gradient(circle at 80% 70%, rgba(165, 242, 243, 0.06) 0%, transparent 40%),
-    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
-  pointer-events: none;
-}
-
-/* Donmuş kenar efekti */
-.frost-border {
-  position: relative;
-}
-
-.frost-border::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.3) 0%,
-    rgba(136, 206, 235, 0.2) 25%,
-    rgba(165, 242, 243, 0.3) 50%,
-    rgba(136, 206, 235, 0.2) 75%,
-    rgba(255, 255, 255, 0.3) 100%
-  );
-  -webkit-mask: 
-    linear-gradient(#fff 0 0) content-box, 
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
-}
-
-/* Kış parıltı efekti */
-.winter-sparkle {
-  position: relative;
-}
-
-.winter-sparkle::before,
-.winter-sparkle::after {
-  content: '✦';
-  position: absolute;
-  font-size: 10px;
-  color: rgba(165, 242, 243, 0.6);
-  animation: winterSparkle 2.5s ease-in-out infinite;
-  pointer-events: none;
-}
-
-.winter-sparkle::before {
-  top: 10%;
-  left: 5%;
-  animation-delay: 0s;
-}
-
-.winter-sparkle::after {
-  bottom: 15%;
-  right: 8%;
-  animation-delay: 1.25s;
-}
-
-@keyframes winterSparkle {
-  0%, 100% { opacity: 0.3; transform: scale(1) rotate(0deg); }
-  50% { opacity: 1; transform: scale(1.3) rotate(180deg); }
-}
-
-/* Nefes efekti - buzlu cam için */
-.breath-effect {
-  animation: breathEffect 4s ease-in-out infinite;
-}
-
-@keyframes breathEffect {
-  0%, 100% { 
-    filter: blur(0px) brightness(1);
-    opacity: 0.8;
-  }
-  50% { 
-    filter: blur(1px) brightness(1.1);
-    opacity: 1;
-  }
-}
-
-/* Kış gradient arka planı */
-.winter-gradient-bg {
-  background: linear-gradient(
-    180deg,
-    rgba(12, 25, 41, 0.95) 0%,
-    rgba(10, 10, 10, 0.98) 30%,
-    rgba(10, 10, 10, 1) 70%,
-    rgba(12, 25, 41, 0.95) 100%
-  );
-}
-
-/* Hero bölümü için kış arka planı */
-.bg-gradient-hero-winter {
-  background: linear-gradient(
-    135deg,
-    #080810 0%,
-    #0c1929 15%,
-    rgba(14, 165, 233, 0.03) 30%,
-    #080810 50%,
-    rgba(136, 206, 235, 0.02) 70%,
-    #0c1525 85%,
-    #080810 100%
-  );
+  background-color: rgba(249, 115, 22, 0.3);
+  color: #fafafa;
 }
 
 /* Mobile Optimizations */
@@ -831,9 +514,9 @@ body {
   }
 }
 
-/* Focus improvements for accessibility (keyboard only) - Winter Theme */
+/* Focus improvements for accessibility (keyboard only) */
 *:focus-visible {
-  @apply outline-none ring-2 ring-winter-400 ring-offset-2 ring-offset-dark-950;
+  @apply outline-none ring-2 ring-primary-500 ring-offset-2 ring-offset-dark-950;
 }
 
 /* Loading states */
@@ -857,11 +540,11 @@ body {
   }
 }
 
-/* Scroll optimizations - Winter Theme */
+/* Scroll optimizations */
 .scroll-container {
   -webkit-overflow-scrolling: touch;
   scrollbar-width: thin;
-  scrollbar-color: #89CFF0 #1a1a1a;
+  scrollbar-color: #FF6B35 #1a1a1a;
 }
 
 .scroll-container::-webkit-scrollbar {
@@ -873,12 +556,12 @@ body {
 }
 
 .scroll-container::-webkit-scrollbar-thumb {
-  background: #89CFF0;
+  background: #FF6B35;
   border-radius: 4px;
 }
 
 .scroll-container::-webkit-scrollbar-thumb:hover {
-  background: #0ea5e9;
+  background: #ea580c;
 }
 
 /* Mobile Hover Performance Optimizations */

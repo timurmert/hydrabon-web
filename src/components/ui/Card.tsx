@@ -17,7 +17,7 @@ interface CardProps {
 const cardVariants = {
   default: 'card',
   featured: 'professional-card',
-  minimal: 'bg-dark-800/50 border border-dark-700 rounded-lg p-4 transition-all duration-300 hover:border-winter-400',
+  minimal: 'bg-dark-800/50 border border-dark-700 rounded-lg p-4 transition-all duration-300 hover:border-primary-500',
 };
 
 export default function Card({

@@ -27,7 +27,7 @@ const roleColors = {
   'Controller': 'from-blue-500 to-blue-600',
   'Sentinel': 'from-green-500 to-green-600',
   'IGL': 'from-purple-500 to-purple-600',
-  'Oyuncu, Koç, Yönetici': 'from-winter-400 to-winter-500',
+  'Oyuncu, Koç, Yönetici': 'from-orange-500 to-orange-600',
 };
 
 export default function EsportsPage() {
@@ -86,10 +86,10 @@ export default function EsportsPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-winter-900/30 to-dark-800/30 border border-winter-400/40 rounded-full backdrop-blur-md">
-                <span className="text-base mr-2">❄</span>
-                <span className="text-winter-200 text-sm font-semibold tracking-wider uppercase">{t('badge')}</span>
-                <span className="text-base ml-2">❄</span>
+              <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary-900/30 to-primary-800/30 border border-primary-500/40 rounded-full backdrop-blur-md">
+                <div className="w-2 h-2 bg-primary-400 rounded-full mr-3"></div>
+                <span className="text-primary-200 text-sm font-semibold tracking-wider uppercase">{t('badge')}</span>
+                <div className="w-2 h-2 bg-primary-400 rounded-full ml-3"></div>
               </div>
             </motion.div>
 
@@ -101,12 +101,12 @@ export default function EsportsPage() {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight">
-                <span className="bg-gradient-to-r from-winter-300 via-white to-ice-crystal bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-primary-300 via-white to-primary-300 bg-clip-text text-transparent">
                   {t('title')}
                 </span>
               </h1>
               <motion.div 
-                className="w-32 h-1 bg-gradient-to-r from-transparent via-winter-400 to-transparent shadow-frost mx-auto mt-6 rounded-full"
+                className="w-32 h-1 bg-gradient-to-r from-transparent via-primary-500 to-transparent mx-auto mt-6 rounded-full"
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
@@ -122,7 +122,7 @@ export default function EsportsPage() {
             >
               <p className="text-base md:text-lg text-dark-100 leading-relaxed font-medium">
                 {t('description.part1')}{' '}
-                <span className="text-winter-300 font-semibold">{t('description.part2')}</span>{' '}
+                <span className="text-primary-300 font-semibold">{t('description.part2')}</span>{' '}
                 {t('description.part3')}
                 <br />
                 {t('description.part4')}{' '}
@@ -140,10 +140,10 @@ export default function EsportsPage() {
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             {[
-              { icon: Trophy, value: `${teamStats.winRate}%`, labelKey: 'stats.winRate', color: 'text-winter-400' },
-              { icon: Target, value: formatNumber(teamStats.matchesPlayed), labelKey: 'stats.matchesPlayed', color: 'text-winter-400' },
-              { icon: Zap, value: teamStats.tournaments, labelKey: 'stats.tournaments', color: 'text-winter-400' },
-              { icon: Medal, value: teamStats.championships, labelKey: 'stats.championships', color: 'text-winter-400' },
+              { icon: Trophy, value: `${teamStats.winRate}%`, labelKey: 'stats.winRate', color: 'text-primary-500' },
+              { icon: Target, value: formatNumber(teamStats.matchesPlayed), labelKey: 'stats.matchesPlayed', color: 'text-primary-500' },
+              { icon: Zap, value: teamStats.tournaments, labelKey: 'stats.tournaments', color: 'text-primary-500' },
+              { icon: Medal, value: teamStats.championships, labelKey: 'stats.championships', color: 'text-primary-500' },
             ].map((stat, index) => (
               <motion.div 
                 key={index}
@@ -163,7 +163,7 @@ export default function EsportsPage() {
 
       {/* Section Separator */}
       <div className="container-custom">
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-winter-400 to-transparent shadow-frost opacity-60"></div>
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
       </div>
 
       {/* Players Section - Pioneer */}
@@ -187,15 +187,15 @@ export default function EsportsPage() {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="absolute -top-24 -right-24 w-96 h-96 bg-winter-500/20 rounded-full blur-3xl group-hover:opacity-80 transition-opacity"></div>
-            <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-winter-500/10 rounded-full blur-3xl"></div>
+            <div className="absolute -top-24 -right-24 w-96 h-96 bg-primary-500/20 rounded-full blur-3xl group-hover:opacity-80 transition-opacity"></div>
+            <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-primary-600/10 rounded-full blur-3xl"></div>
 
             <div className="relative z-10 flex flex-col md:flex-row items-center md:items-start gap-8">
-              <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden ring-4 ring-winter-400/40 shadow-xl">
+              <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden ring-4 ring-primary-500/40 shadow-xl">
                 <Image src={pioneer.avatar} alt={pioneer.nickname} width={160} height={160} className="object-cover w-full h-full" />
               </div>
               <div className="flex-1 text-center md:text-left">
-                <div className="inline-flex items-center px-3 py-1 rounded-full bg-winter-500/20 text-winter-300 text-xs font-semibold mb-3">
+                <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary-500/20 text-primary-300 text-xs font-semibold mb-3">
                   {t('pioneer.badge')}
                 </div>
                 <h3 className="text-3xl md:text-4xl font-display font-bold text-white mb-2">{pioneer.nickname}</h3>
@@ -207,15 +207,15 @@ export default function EsportsPage() {
                 <div className="flex flex-wrap gap-3">
                   <div className="px-3 py-2 bg-dark-800 rounded-lg">
                     <div className="text-sm text-dark-400">Win Rate</div>
-                    <div className="text-xl font-bold text-winter-400">{pioneer.stats.winRate}%</div>
+                    <div className="text-xl font-bold text-primary-500">{pioneer.stats.winRate}%</div>
                   </div>
                   <div className="px-3 py-2 bg-dark-800 rounded-lg">
                     <div className="text-sm text-dark-400">Avg KDA</div>
-                    <div className="text-xl font-bold text-winter-400">{pioneer.stats.averageKDA}</div>
+                    <div className="text-xl font-bold text-primary-500">{pioneer.stats.averageKDA}</div>
                   </div>
                   <div className="px-3 py-2 bg-dark-800 rounded-lg">
                     <div className="text-sm text-dark-400">Avg ACS</div>
-                    <div className="text-xl font-bold text-winter-400">{pioneer.stats.averageACS}</div>
+                    <div className="text-xl font-bold text-primary-500">{pioneer.stats.averageACS}</div>
                   </div>
                   <div className="px-3 py-2 bg-dark-800 rounded-lg">
                     <div className="text-sm text-dark-400 mb-1">Rank</div>
@@ -252,7 +252,7 @@ export default function EsportsPage() {
 
       {/* Section Separator */}
       <div className="container-custom">
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-winter-400 to-transparent shadow-frost opacity-60"></div>
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
       </div>
 
       {/* Staff Section */}
@@ -301,10 +301,10 @@ export default function EsportsPage() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
                 <div className="w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:opacity-90 transition-opacity duration-300 bg-gradient-to-br from-dark-700 to-dark-600 border border-dark-600">
-                  <l.Icon className="w-8 h-8 text-winter-300" />
+                  <l.Icon className="w-8 h-8 text-primary-400" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">{l.name}</h3>
-                <div className="inline-block px-4 py-2 bg-winter-500/20 rounded-full text-winter-400 font-medium text-sm mb-4">
+                <div className="inline-block px-4 py-2 bg-primary-500/20 rounded-full text-primary-500 font-medium text-sm mb-4">
                   {t(l.labelKey)}
                 </div>
                 {l.note && (
@@ -320,7 +320,7 @@ export default function EsportsPage() {
 
       {/* Section Separator */}
       <div className="container-custom">
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-winter-400 to-transparent shadow-frost opacity-60"></div>
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
       </div>
 
       {/* Historical Achievements */}
@@ -357,7 +357,7 @@ export default function EsportsPage() {
               >
                 <div className="flex items-start justify-between">
                   <div className="flex items-start space-x-6 flex-1">
-                    <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-winter-400 to-winter-500 rounded-full">
+                    <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-full">
                       {achievement.importance === 'high' ? (
                         <Trophy className="w-8 h-8 text-white" />
                       ) : (
@@ -377,7 +377,7 @@ export default function EsportsPage() {
                     </div>
                     <div className={`inline-block px-3 py-1 rounded-full text-sm font-medium ${
                       achievement.importance === 'high' 
-                        ? 'bg-winter-500/20 text-winter-400' 
+                        ? 'bg-primary-500/20 text-primary-500' 
                         : 'bg-yellow-500/20 text-yellow-500'
                     }`}>
                       {achievement.category}
@@ -394,7 +394,7 @@ export default function EsportsPage() {
 
       {/* Section Separator */}
       <div className="container-custom">
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-winter-400 to-transparent shadow-frost opacity-60"></div>
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
       </div>
 
       {/* Historical Results */}
@@ -506,7 +506,7 @@ export default function EsportsPage() {
                             rel="noopener noreferrer"
                             onMouseDown={(e) => e.preventDefault()}
                             onClick={(e) => (e.currentTarget as HTMLAnchorElement).blur()}
-                            className="inline-flex items-center text-winter-400 hover:text-winter-300 font-medium text-sm focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0"
+                            className="inline-flex items-center text-primary-500 hover:text-primary-400 font-medium text-sm focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0"
                           >
                             {t('matches.viewMatch')}
                             <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 ml-1" />
@@ -545,14 +545,14 @@ export default function EsportsPage() {
 
       {/* Section Separator */}
       <div className="container-custom">
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-winter-400 to-transparent shadow-frost opacity-60"></div>
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
       </div>
 
       {/* Heritage Section */}
       <section className="py-12 md:py-20 bg-dark-950 snap-start snap-always min-h-screen flex items-center">
         <div className="container-custom px-4 md:px-6">
           <motion.div 
-            className="bg-gradient-to-r from-winter-500 to-winter-600 rounded-2xl md:rounded-3xl p-6 md:p-10 lg:p-12 text-center max-w-5xl mx-auto"
+            className="bg-gradient-to-r from-primary-600 to-primary-500 rounded-2xl md:rounded-3xl p-6 md:p-10 lg:p-12 text-center max-w-5xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
@@ -561,7 +561,7 @@ export default function EsportsPage() {
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 md:mb-6 px-4">
               {t('cta.title')}
             </h2>
-            <p className="text-base sm:text-lg md:text-xl text-winter-100 mb-6 md:mb-8 max-w-2xl mx-auto px-4">
+            <p className="text-base sm:text-lg md:text-xl text-primary-100 mb-6 md:mb-8 max-w-2xl mx-auto px-4">
               {t('cta.description')}
             </p>
             <div className="flex justify-center px-4">
@@ -571,7 +571,7 @@ export default function EsportsPage() {
                 rel="noopener noreferrer"
                 onMouseDown={(e) => e.preventDefault()}
                 onClick={(e) => (e.currentTarget as HTMLAnchorElement).blur()}
-                className="bg-white text-winter-600 font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-lg hover:bg-winter-50 transition-all duration-300 flex items-center justify-center w-full sm:w-auto sm:min-w-[220px] group transform hover:scale-105 active:scale-95 will-change-transform focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0"
+                className="bg-white text-primary-600 font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-lg hover:bg-primary-50 transition-all duration-300 flex items-center justify-center w-full sm:w-auto sm:min-w-[220px] group transform hover:scale-105 active:scale-95 will-change-transform focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0"
               >
                 <span className="flex items-center whitespace-nowrap">
                   {t('cta.button')}

@@ -83,10 +83,10 @@ export default function RndPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-winter-900/30 to-dark-800/30 border border-winter-400/40 rounded-full backdrop-blur-md">
-                <span className="text-base mr-2">❄</span>
-                <span className="text-winter-200 text-sm font-semibold tracking-wider uppercase">{t('badge')}</span>
-                <span className="text-base ml-2">❄</span>
+              <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary-900/30 to-primary-800/30 border border-primary-500/40 rounded-full backdrop-blur-md">
+                <div className="w-2 h-2 bg-primary-400 rounded-full mr-3 animate-pulse"></div>
+                <span className="text-primary-200 text-sm font-semibold tracking-wider uppercase">{t('badge')}</span>
+                <div className="w-2 h-2 bg-primary-400 rounded-full ml-3 animate-pulse"></div>
               </div>
             </motion.div>
 
@@ -98,12 +98,12 @@ export default function RndPage() {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight">
-                <span className="bg-gradient-to-r from-winter-300 via-white to-ice-crystal bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-primary-300 via-white to-primary-300 bg-clip-text text-transparent">
                   {t('title')}
                 </span>
               </h1>
               <motion.div 
-                className="w-32 h-1 bg-gradient-to-r from-transparent via-winter-400 to-transparent shadow-frost mx-auto mt-6 rounded-full"
+                className="w-32 h-1 bg-gradient-to-r from-transparent via-primary-500 to-transparent mx-auto mt-6 rounded-full"
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
@@ -131,7 +131,7 @@ export default function RndPage() {
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             {[
-              { icon: Target, value: rndStats.totalProjects, labelKey: 'stats.totalProjects', color: 'text-winter-400' },
+              { icon: Target, value: rndStats.totalProjects, labelKey: 'stats.totalProjects', color: 'text-primary-500' },
               { icon: CheckCircle, value: rndStats.completedProjects, labelKey: 'stats.completed', color: 'text-green-500' },
               { icon: Clock, value: rndStats.activeProjects, labelKey: 'stats.active', color: 'text-yellow-500' },
               { icon: Users, value: developerCount, labelKey: 'stats.developers', color: 'text-blue-500' }
@@ -154,7 +154,7 @@ export default function RndPage() {
 
       {/* Section Separator */}
       <div className="container-custom">
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-winter-400 to-transparent shadow-frost opacity-60"></div>
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
       </div>
 
       {/* Featured Projects */}
@@ -256,7 +256,7 @@ export default function RndPage() {
 
       {/* Section Separator */}
       <div className="container-custom">
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-winter-400 to-transparent shadow-frost opacity-60"></div>
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
       </div>
 
       {/* Technologies */}
@@ -291,7 +291,7 @@ export default function RndPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <div className="w-16 h-16 bg-dark-700 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-winter-500/20 transition-colors duration-300">
+                <div className="w-16 h-16 bg-dark-700 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-primary-500/20 transition-colors duration-300">
                   {tech.icon ? (
                     <Image
                       src={tech.icon}
@@ -301,11 +301,11 @@ export default function RndPage() {
                       className="w-12 h-12 object-contain"
                     />
                   ) : (
-                    <Code2 className="w-8 h-8 text-winter-400" />
+                    <Code2 className="w-8 h-8 text-primary-500" />
                   )}
                 </div>
                 <h3 className="text-lg font-bold text-white mb-2">{tech.name}</h3>
-                <div className="text-sm text-winter-400 mb-2">{tech.category}</div>
+                <div className="text-sm text-primary-500 mb-2">{tech.category}</div>
                 <div className="text-xs text-dark-400">{tech.experience}</div>
               </motion.div>
             ))}
@@ -315,21 +315,21 @@ export default function RndPage() {
 
       {/* Section Separator */}
       <div className="container-custom">
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-winter-400 to-transparent shadow-frost opacity-60"></div>
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
       </div>
 
 
 
       {/* Section Separator */}
       <div className="container-custom">
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-winter-400 to-transparent shadow-frost opacity-60"></div>
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
       </div>
 
       {/* CTA Section */}
       <section className="py-12 md:py-20 bg-dark-950 snap-start snap-always min-h-screen flex items-center">
         <div className="container-custom px-4 md:px-6">
           <motion.div 
-            className="bg-gradient-to-r from-winter-500 to-winter-600 rounded-2xl md:rounded-3xl p-6 md:p-10 lg:p-12 text-center max-w-5xl mx-auto"
+            className="bg-gradient-to-r from-primary-600 to-primary-500 rounded-2xl md:rounded-3xl p-6 md:p-10 lg:p-12 text-center max-w-5xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
@@ -338,7 +338,7 @@ export default function RndPage() {
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-4 md:mb-6 px-4">
               {t('cta.title')}
             </h2>
-            <p className="text-base sm:text-lg md:text-xl text-winter-100 mb-6 md:mb-8 max-w-2xl mx-auto px-4">
+            <p className="text-base sm:text-lg md:text-xl text-primary-100 mb-6 md:mb-8 max-w-2xl mx-auto px-4">
               {t('cta.description')}
             </p>
             <motion.div 
@@ -359,7 +359,7 @@ export default function RndPage() {
                     });
                   }
                 }}
-                className="bg-white text-winter-600 font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-lg hover:bg-winter-50 hover:scale-105 transition-all duration-300 flex items-center justify-center w-full sm:w-auto sm:min-w-[180px] group transform"
+                className="bg-white text-primary-600 font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-lg hover:bg-primary-50 hover:scale-105 transition-all duration-300 flex items-center justify-center w-full sm:w-auto sm:min-w-[180px] group transform"
               >
                 <span className="flex items-center whitespace-nowrap">
                   {t('cta.viewProjects')}
@@ -372,7 +372,7 @@ export default function RndPage() {
                 rel="noopener noreferrer"
                 onMouseDown={(e) => e.preventDefault()}
                 onClick={(e) => (e.currentTarget as HTMLAnchorElement).blur()}
-                className="bg-winter-700 text-white font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-lg hover:bg-winter-800 hover:scale-105 transition-all duration-300 flex items-center justify-center w-full sm:w-auto sm:min-w-[180px] group transform focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0"
+                className="bg-primary-700 text-white font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-lg hover:bg-primary-800 hover:scale-105 transition-all duration-300 flex items-center justify-center w-full sm:w-auto sm:min-w-[180px] group transform focus:outline-none focus:ring-0 ring-0 outline-none focus-visible:outline-none focus-visible:ring-0"
               >
                 <span className="flex items-center whitespace-nowrap">
                   {t('cta.joinDiscord')}
@@ -386,7 +386,7 @@ export default function RndPage() {
 
       {/* Section Separator */}
       <div className="container-custom">
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-winter-400 to-transparent shadow-frost opacity-60"></div>
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-60"></div>
       </div>
 
 
