@@ -649,17 +649,23 @@
       "button": "Bu Mirasın İzini Keşfet"
     }
   },
-  "teamApplication": {
-    "badge": "Ekip Başvuru",
-    "title": "Ekip Başvurusu",
-    "description": "Discord, Ar-Ge, Espor veya Medya birimlerimizden birine başvurmak için formu doldurun. Başvurunuz Discord üzerinden değerlendirilecektir.",
-    "modal": {
-      "title": "Önemli Bilgilendirme",
-      "description": "Başvurularınızın değerlendirilmesi ve sürecin devamlılığı için Discord sunucumuza girmeniz zorunludur. Lütfen başvuru yapmadan önce Discord sunucumuza katıldığınızdan emin olun.",
-      "joinDiscord": "Discord'a Katıl",
-      "continue": "Devam Et"
+  "argeApplication": {
+    "badge": "Ar-Ge Başvuru",
+    "title": "Ar-Ge Başvurusu",
+    "description": "HydRaboN Ar-Ge birimine başvurmak için önce Discord hesabınızı doğrulayın, ardından formu doldurun.",
+    "discordCheck": {
+      "title": "Discord Doğrulama",
+      "description": "Başvuru yapabilmek için Discord sunucumuzda bulunmanız gerekmektedir. Lütfen Discord kullanıcı adınızı girin.",
+      "placeholder": "kullaniciadi",
+      "verify": "Doğrula",
+      "verifying": "Doğrulanıyor...",
+      "notMemberError": "Discord kullanıcı adınızı doğru girdiğinizden ve sunucumuzda olduğunuzdan emin olun. Lütfen önce Discord sunucumuza (discord.gg/hydrabon) katılın.",
+      "joinPrompt": "Henüz sunucumuzda değil misiniz?",
+      "joinDiscord": "Discord'a Katıl"
     },
     "form": {
+      "verifiedAs": "Doğrulanmış Discord Hesabı",
+      "changeUser": "Değiştir",
       "firstName": {
         "label": "İsim",
         "placeholder": "Adınız"
@@ -668,24 +674,32 @@
         "label": "Yaş",
         "placeholder": "Yaşınızı seçin"
       },
-      "discord": {
-        "label": "Discord Kullanıcı Adı",
-        "placeholder": "kullaniciadi"
+      "github": {
+        "label": "GitHub Profil Linki",
+        "placeholder": "https://github.com/kullaniciadi"
       },
-      "team": {
-        "label": "Başvurmak İstediğiniz Birim"
+      "linkedin": {
+        "label": "LinkedIn Profil Linki",
+        "placeholder": "https://linkedin.com/in/kullaniciadi"
       },
-      "note": {
-        "label": "Not",
-        "placeholder": "Başvurunuzla ilgili eklemek istediğiniz notlar...",
-        "optional": "İsteğe Bağlı"
+      "optionalField": "İsteğe Bağlı",
+      "weeklyHours": {
+        "label": "Haftalık ortalama kaç saat ayırabilirsin?",
+        "placeholder": "Örn: 5-10 saat"
+      },
+      "motivation": {
+        "label": "HydRaboN Ar-Ge'den beklentin nedir ve neden katılmak istiyorsun?",
+        "placeholder": "Beklentilerinizi ve motivasyonunuzu paylaşın..."
       },
       "submit": "Başvuruyu Gönder",
       "submitting": "Gönderiliyor...",
-      "successMessage": "Başvurunuz başarıyla gönderildi! En kısa sürede Discord üzerinden sizinle iletişime geçeceğiz.",
       "errorMessage": "Başvuru gönderilirken bir hata oluştu. Lütfen tekrar deneyin.",
-      "notMemberError": "Discord kullanıcı adınızı doğru girdiğinizden ve sunucumuzda olduğunuzdan emin olun. Lütfen önce Discord sunucumuza (discord.gg/hydrabon) katılın.",
-      "infoText": "Başvurunuz Discord webhook üzerinden birim yöneticilerine iletilecektir."
+      "infoText": "Başvurunuz Discord webhook üzerinden Ar-Ge yöneticilerine iletilecektir."
+    },
+    "success": {
+      "title": "Başvurunuz Alındı!",
+      "message": "Başvurunuz başarıyla gönderildi! En kısa sürede Discord üzerinden sizinle iletişime geçeceğiz.",
+      "backHome": "Ana Sayfaya Dön"
     },
     "footer": {
       "text": "Sorularınız için",
