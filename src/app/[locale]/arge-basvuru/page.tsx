@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { Send, CheckCircle2, AlertCircle, Sparkles, ShieldCheck, ArrowLeft } from 'lucide-react';
@@ -445,9 +446,9 @@ export default function ArgeApplicationPage() {
                   {t('success.message')}
                 </p>
 
-                <a href="/" className="btn-primary inline-flex items-center gap-2">
+                <Link href="/" className="btn-primary inline-flex items-center gap-2">
                   {t('success.backHome')}
-                </a>
+                </Link>
               </motion.div>
             )}
           </AnimatePresence>
