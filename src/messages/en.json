@@ -649,17 +649,23 @@
       "button": "Explore This Legacy"
     }
   },
-  "teamApplication": {
-    "badge": "Team Application",
-    "title": "Team Application",
-    "description": "Fill out the form to apply to one of our divisions: Discord, R&D, Esports, or Media. Your application will be evaluated via Discord.",
-    "modal": {
-      "title": "Important Notice",
-      "description": "It is mandatory to join our Discord server for the evaluation of your applications and the continuity of the process. Please make sure you have joined our Discord server before applying.",
-      "joinDiscord": "Join Discord",
-      "continue": "Continue"
+  "argeApplication": {
+    "badge": "R&D Application",
+    "title": "R&D Application",
+    "description": "To apply to the HydRaboN R&D division, first verify your Discord account, then fill out the form.",
+    "discordCheck": {
+      "title": "Discord Verification",
+      "description": "You must be a member of our Discord server to apply. Please enter your Discord username.",
+      "placeholder": "username",
+      "verify": "Verify",
+      "verifying": "Verifying...",
+      "notMemberError": "Please make sure you entered your Discord username correctly and that you are on our server. Please join our Discord server first (discord.gg/hydrabon).",
+      "joinPrompt": "Not on our server yet?",
+      "joinDiscord": "Join Discord"
     },
     "form": {
+      "verifiedAs": "Verified Discord Account",
+      "changeUser": "Change",
       "firstName": {
         "label": "Name",
         "placeholder": "Your name"
@@ -668,24 +674,32 @@
         "label": "Age",
         "placeholder": "Select your age"
       },
-      "discord": {
-        "label": "Discord Username",
-        "placeholder": "username"
+      "github": {
+        "label": "GitHub Profile Link",
+        "placeholder": "https://github.com/username"
       },
-      "team": {
-        "label": "Division You Want to Apply"
+      "linkedin": {
+        "label": "LinkedIn Profile Link",
+        "placeholder": "https://linkedin.com/in/username"
       },
-      "note": {
-        "label": "Note",
-        "placeholder": "Notes you want to add about your application...",
-        "optional": "Optional"
+      "optionalField": "Optional",
+      "weeklyHours": {
+        "label": "How many hours per week can you dedicate on average?",
+        "placeholder": "E.g.: 5-10 hours"
+      },
+      "motivation": {
+        "label": "What do you expect from HydRaboN R&D and why do you want to join?",
+        "placeholder": "Share your expectations and motivation..."
       },
       "submit": "Submit Application",
       "submitting": "Submitting...",
-      "successMessage": "Your application has been sent successfully! We will contact you via Discord as soon as possible.",
       "errorMessage": "An error occurred while submitting the application. Please try again.",
-      "notMemberError": "Please make sure you entered your Discord username correctly and that you are on our server. Please join our Discord server first (discord.gg/hydrabon).",
-      "infoText": "Your application will be forwarded to division managers via Discord webhook."
+      "infoText": "Your application will be forwarded to R&D managers via Discord webhook."
+    },
+    "success": {
+      "title": "Application Received!",
+      "message": "Your application has been sent successfully! We will contact you via Discord as soon as possible.",
+      "backHome": "Back to Home"
     },
     "footer": {
       "text": "For questions",

@@ -6,6 +6,7 @@ interface DiscordMember {
     username?: string;
     global_name?: string;
     discriminator?: string;
+    avatar?: string;
   };
   nick?: string;
 }
@@ -75,12 +76,17 @@ export async function POST(req: NextRequest) {
 
       const isMember = !!foundMember;
       const userId = foundMember?.user?.id || null;
+      const userAvatar = foundMember?.user?.avatar || null;
+      const avatarUrl = userId && userAvatar
+        ? `https://cdn.discordapp.com/avatars/${userId}/${userAvatar}.png?size=256`
+        : null;
 
-      return NextResponse.json({ 
+      return NextResponse.json({
         isMember,
         userId,
-        message: isMember 
-          ? 'Kullanıcı sunucuda bulundu' 
+        avatarUrl,
+        message: isMember
+          ? 'Kullanıcı sunucuda bulundu'
           : 'Kullanıcı sunucuda bulunamadı'
       });
 
